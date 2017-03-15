@@ -19,8 +19,24 @@
 		105358971E782CE200908B74 /* QRCodeDisplayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 105358951E782CE200908B74 /* QRCodeDisplayViewController.xib */; };
 		1053589A1E782CEE00908B74 /* QRCodeScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105358981E782CEE00908B74 /* QRCodeScanViewController.swift */; };
 		1053589B1E782CEE00908B74 /* QRCodeScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 105358991E782CEE00908B74 /* QRCodeScanViewController.xib */; };
+		10897D8B1E795E5B002D4C74 /* SocketClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897D8A1E795E5B002D4C74 /* SocketClientService.swift */; };
+		10897D8F1E7962D3002D4C74 /* SocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897D8E1E7962D3002D4C74 /* SocketClient.swift */; };
+		10897D9F1E796B20002D4C74 /* URLHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897D9E1E796B20002D4C74 /* URLHelpersTests.swift */; };
+		10897DA11E796B4D002D4C74 /* URL+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897DA01E796B4D002D4C74 /* URL+Helpers.swift */; };
+		10897DA31E796E3F002D4C74 /* NSError+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897DA21E796E3F002D4C74 /* NSError+Errors.swift */; };
+		10897DA51E79765C002D4C74 /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897DA41E79765C002D4C74 /* Closures.swift */; };
 		C1F58269AA86D5878A85A1BA /* Pods_CLPBRD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 252F2C9F91B28DA3F225C625 /* Pods_CLPBRD.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		10897D991E796AE9002D4C74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 105358721E782B0700908B74 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 105358791E782B0700908B74;
+			remoteInfo = CLPBRD;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1052D4871E78345D008B22EE /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -37,6 +53,14 @@
 		105358951E782CE200908B74 /* QRCodeDisplayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRCodeDisplayViewController.xib; sourceTree = "<group>"; };
 		105358981E782CEE00908B74 /* QRCodeScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeScanViewController.swift; sourceTree = "<group>"; };
 		105358991E782CEE00908B74 /* QRCodeScanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRCodeScanViewController.xib; sourceTree = "<group>"; };
+		10897D8A1E795E5B002D4C74 /* SocketClientService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketClientService.swift; sourceTree = "<group>"; };
+		10897D8E1E7962D3002D4C74 /* SocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketClient.swift; sourceTree = "<group>"; };
+		10897D941E796AE9002D4C74 /* CLPBRDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CLPBRDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		10897D981E796AE9002D4C74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10897D9E1E796B20002D4C74 /* URLHelpersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLHelpersTests.swift; sourceTree = "<group>"; };
+		10897DA01E796B4D002D4C74 /* URL+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Helpers.swift"; sourceTree = "<group>"; };
+		10897DA21E796E3F002D4C74 /* NSError+Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSError+Errors.swift"; sourceTree = "<group>"; };
+		10897DA41E79765C002D4C74 /* Closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Closures.swift; sourceTree = "<group>"; };
 		1918E0CF43F359538E369317 /* Pods-CLPBRD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLPBRD.release.xcconfig"; path = "Pods/Target Support Files/Pods-CLPBRD/Pods-CLPBRD.release.xcconfig"; sourceTree = "<group>"; };
 		252F2C9F91B28DA3F225C625 /* Pods_CLPBRD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CLPBRD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E3AF3898465611661472682 /* Pods-CLPBRD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLPBRD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CLPBRD/Pods-CLPBRD.debug.xcconfig"; sourceTree = "<group>"; };
@@ -51,6 +75,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		10897D911E796AE9002D4C74 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -60,16 +91,17 @@
 				1052D4891E783467008B22EE /* Coordinator.swift */,
 				1052D4871E78345D008B22EE /* MainCoordinator.swift */,
 			);
-			name = Coordinators;
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		1052D48B1E7834DA008B22EE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				10897DA41E79765C002D4C74 /* Closures.swift */,
+				10897DA21E796E3F002D4C74 /* NSError+Errors.swift */,
+				10897DA01E796B4D002D4C74 /* URL+Helpers.swift */,
 				1052D48C1E7834E5008B22EE /* Utils.swift */,
 			);
-			name = Utils;
 			path = Utils;
 			sourceTree = "<group>";
 		};
@@ -77,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				1053587C1E782B0700908B74 /* CLPBRD */,
+				10897D951E796AE9002D4C74 /* CLPBRDTests */,
 				6A4D699574C0710DEB194631 /* Frameworks */,
 				22D3B5D2B7F7E2BE5890E97E /* Pods */,
 				1053587B1E782B0700908B74 /* Products */,
@@ -87,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				1053587A1E782B0700908B74 /* CLPBRD.app */,
+				10897D941E796AE9002D4C74 /* CLPBRDTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -96,6 +130,7 @@
 			children = (
 				1052D4861E783436008B22EE /* Coordinators */,
 				1053589C1E782DAD00908B74 /* Resources */,
+				10897D891E795DFF002D4C74 /* Services */,
 				1052D48B1E7834DA008B22EE /* Utils */,
 				1053588F1E782C4D00908B74 /* ViewControllers */,
 				1053587D1E782B0700908B74 /* AppDelegate.swift */,
@@ -124,6 +159,24 @@
 				105358861E782B0700908B74 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		10897D891E795DFF002D4C74 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				10897D8E1E7962D3002D4C74 /* SocketClient.swift */,
+				10897D8A1E795E5B002D4C74 /* SocketClientService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		10897D951E796AE9002D4C74 /* CLPBRDTests */ = {
+			isa = PBXGroup;
+			children = (
+				10897D981E796AE9002D4C74 /* Info.plist */,
+				10897D9E1E796B20002D4C74 /* URLHelpersTests.swift */,
+			);
+			path = CLPBRDTests;
 			sourceTree = "<group>";
 		};
 		22D3B5D2B7F7E2BE5890E97E /* Pods */ = {
@@ -166,6 +219,24 @@
 			productReference = 1053587A1E782B0700908B74 /* CLPBRD.app */;
 			productType = "com.apple.product-type.application";
 		};
+		10897D931E796AE9002D4C74 /* CLPBRDTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10897D9B1E796AE9002D4C74 /* Build configuration list for PBXNativeTarget "CLPBRDTests" */;
+			buildPhases = (
+				10897D901E796AE9002D4C74 /* Sources */,
+				10897D911E796AE9002D4C74 /* Frameworks */,
+				10897D921E796AE9002D4C74 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				10897D9A1E796AE9002D4C74 /* PBXTargetDependency */,
+			);
+			name = CLPBRDTests;
+			productName = CLPBRDTests;
+			productReference = 10897D941E796AE9002D4C74 /* CLPBRDTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -180,6 +251,13 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 579QBLN47H;
 						ProvisioningStyle = Automatic;
+					};
+					10897D931E796AE9002D4C74 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 579QBLN47H;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 105358791E782B0700908B74;
 					};
 				};
 			};
@@ -197,6 +275,7 @@
 			projectRoot = "";
 			targets = (
 				105358791E782B0700908B74 /* CLPBRD */,
+				10897D931E796AE9002D4C74 /* CLPBRDTests */,
 			);
 		};
 /* End PBXProject section */
@@ -211,6 +290,13 @@
 				105358931E782CB700908B74 /* MainViewController.xib in Resources */,
 				1053589B1E782CEE00908B74 /* QRCodeScanViewController.xib in Resources */,
 				105358971E782CE200908B74 /* QRCodeDisplayViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10897D921E796AE9002D4C74 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,16 +356,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				1053587E1E782B0700908B74 /* AppDelegate.swift in Sources */,
+				10897DA31E796E3F002D4C74 /* NSError+Errors.swift in Sources */,
 				105358961E782CE200908B74 /* QRCodeDisplayViewController.swift in Sources */,
 				1052D48A1E783467008B22EE /* Coordinator.swift in Sources */,
 				1052D48D1E7834E5008B22EE /* Utils.swift in Sources */,
+				10897DA51E79765C002D4C74 /* Closures.swift in Sources */,
 				105358921E782CB700908B74 /* MainViewController.swift in Sources */,
+				10897D8B1E795E5B002D4C74 /* SocketClientService.swift in Sources */,
 				1052D4881E78345D008B22EE /* MainCoordinator.swift in Sources */,
+				10897D8F1E7962D3002D4C74 /* SocketClient.swift in Sources */,
+				10897DA11E796B4D002D4C74 /* URL+Helpers.swift in Sources */,
 				1053589A1E782CEE00908B74 /* QRCodeScanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		10897D901E796AE9002D4C74 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10897D9F1E796B20002D4C74 /* URLHelpersTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		10897D9A1E796AE9002D4C74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 105358791E782B0700908B74 /* CLPBRD */;
+			targetProxy = 10897D991E796AE9002D4C74 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		105358861E782B0700908B74 /* LaunchScreen.storyboard */ = {
@@ -417,6 +524,37 @@
 			};
 			name = Release;
 		};
+		10897D9C1E796AE9002D4C74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 579QBLN47H;
+				INFOPLIST_FILE = CLPBRDTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cayugasoft.CLPBRDTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CLPBRD.app/CLPBRD";
+			};
+			name = Debug;
+		};
+		10897D9D1E796AE9002D4C74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 579QBLN47H;
+				INFOPLIST_FILE = CLPBRDTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cayugasoft.CLPBRDTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CLPBRD.app/CLPBRD";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -437,6 +575,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		10897D9B1E796AE9002D4C74 /* Build configuration list for PBXNativeTarget "CLPBRDTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10897D9C1E796AE9002D4C74 /* Debug */,
+				10897D9D1E796AE9002D4C74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
