@@ -10,26 +10,29 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBOutlet weak var toggleButton: UIButton!
+    @IBOutlet weak var scanQRButton: UIButton!
+    @IBOutlet weak var showQRButton: UIButton!
+    
+    var onShowQRPressed: VoidClosure = {}
+    var onScanQRPressed: VoidClosure = {}
+    var onTogglePressed: (Bool) -> Void = { _ in }
+    
+    @IBAction func showQRPressed(_ sender: Any) {
+        onShowQRPressed()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func scanQRPressed(_ sender: Any) {
+        onScanQRPressed()
     }
-    */
+    
+    @IBAction func togglePressed(_ sender: Any) {
+        onTogglePressed(true)
+    }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
 }

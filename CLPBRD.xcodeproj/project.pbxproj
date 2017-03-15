@@ -583,6 +583,7 @@
 				10897D9D1E796AE9002D4C74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
