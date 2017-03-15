@@ -8,31 +8,34 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
 
-    
+protocol MainViewControllerDelegate: class {
+    func showQRPressed(on mainViewController: MainViewController)
+    func scanQRPressed(on mainViewController: MainViewController)
+    func togglePressed(on mainViewController: MainViewController, toggled: Bool)
+}
+
+class MainViewController: UIViewController {
     @IBOutlet weak var toggleButton: UIButton!
     @IBOutlet weak var scanQRButton: UIButton!
     @IBOutlet weak var showQRButton: UIButton!
     
-    var onShowQRPressed: VoidClosure = {}
-    var onScanQRPressed: VoidClosure = {}
-    var onTogglePressed: (Bool) -> Void = { _ in }
+    weak var delegate: MainViewControllerDelegate?
     
     @IBAction func showQRPressed(_ sender: Any) {
-        onShowQRPressed()
+        delegate?.showQRPressed(on: self)
     }
     
     @IBAction func scanQRPressed(_ sender: Any) {
-        onScanQRPressed()
+        delegate?.scanQRPressed(on: self)
     }
     
     @IBAction func togglePressed(_ sender: Any) {
-        onTogglePressed(true)
+        delegate?.togglePressed(on: self, toggled: true)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        definesPresentationContext = true
     }
 }

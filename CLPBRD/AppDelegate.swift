@@ -13,23 +13,24 @@ import Swinject
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+
     
     lazy var appContainer: Container = {
         let container = Container()
         container.register(MainViewController.self) { _ in
-            MainViewController()
+            let mainVC = MainViewController()
+            return mainVC
         }
-        container.register(Coordinator.self) { r in
-            MainCoordinator(mainViewController: r.resolve(MainViewController.self)!)
-        }.initCompleted { r, c in
-            let coordinator = c as! MainCoordinator
-            coordinator.qrCodeDisplayViewControllerBuilder = {
-                QRCodeDisplayViewController()
-            }
-            coordinator.qrCodeScanViewControllerBuilder = {
-                QRCodeScanViewController()
-            }
+        container.register(Coordinator.self) { [unowned container](_) in
+            MainCoordinator(container: container)
+        }.inObjectScope(.container)
+        
+        container.register(QRScannerService.self) { _ in
+            QRScanner()
         }
+        container.register(QRCodeScanViewController.self) { r in
+            QRCodeScanViewController(qrScannerService: r.resolve(QRScannerService.self)!)
+        }.inObjectScope(.transient)
         return container
     }()
 
@@ -39,6 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let rootVC = appContainer.resolve(Coordinator.self)?.initialViewController
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
+        window?.backgroundColor = .green
         return true
     }
 }

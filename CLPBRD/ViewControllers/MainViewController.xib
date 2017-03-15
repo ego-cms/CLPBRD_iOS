@@ -41,7 +41,6 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Scan QR"/>
                             <connections>
-                                <action selector="scanQR:" destination="-1" eventType="touchUpInside" id="E2F-OE-YMu"/>
                                 <action selector="scanQRPressed:" destination="-1" eventType="touchUpInside" id="Qi1-1r-SFp"/>
                             </connections>
                         </button>

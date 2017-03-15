@@ -10,11 +10,6 @@ import Foundation
 import Result
 
 
-//enum SocketClientError: Error {
-//    case nserror(NSError)
-//}
-
-
 protocol SocketClientService: class {
     var onDisconnected: (Error?) -> Void { get set }
     var onConnected: VoidClosure { get set }

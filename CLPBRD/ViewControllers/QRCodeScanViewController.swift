@@ -8,28 +8,63 @@
 
 import UIKit
 
+protocol QRCodeScanViewControllerDelegate: class {
+    func cancelPressed(on viewController: QRCodeScanViewController)
+    func textDetected(on viewController: QRCodeScanViewController, string: String)
+}
+
 class QRCodeScanViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    var qrScannerService: QRScannerService
+    
+    weak var delegate: QRCodeScanViewControllerDelegate?
+    
+    init(qrScannerService: QRScannerService) {
+        self.qrScannerService = qrScannerService
+        super.init(nibName: String(describing: type(of: self)), bundle: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-    */
-
+    
+    @IBOutlet weak var previewContainer: UIView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelPressed))
+        title = "Scan QR code"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        qrScannerService.onSetupCompleted = scannerSetupCompleted
+        qrScannerService.onQRCodeDetected = textDetected
+        qrScannerService.setup()
+    }
+    
+    func scannerSetupCompleted(error: Error?) {
+        guard error == nil else {
+            print("Error happened \(error!)")
+            return
+        }
+        guard let layer = qrScannerService.previewLayer else {
+            return
+        }
+        previewContainer.layer.addSublayer(layer)
+        qrScannerService.startScanning()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        qrScannerService.previewLayer?.frame = previewContainer.layer.bounds
+    }
+    
+    func textDetected(text: String) {
+        delegate?.textDetected(on: self, string: text)
+    }
+    
+    func cancelPressed() {
+        delegate?.cancelPressed(on: self)
+        qrScannerService.stopScanning()
+    }
 }
