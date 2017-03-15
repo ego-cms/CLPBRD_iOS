@@ -21,6 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         container.register(Coordinator.self) { r in
             MainCoordinator(mainViewController: r.resolve(MainViewController.self)!)
+        }.initCompleted { r, c in
+            let coordinator = c as! MainCoordinator
+            coordinator.qrCodeDisplayViewControllerBuilder = {
+                QRCodeDisplayViewController()
+            }
+            coordinator.qrCodeScanViewControllerBuilder = {
+                QRCodeScanViewController()
+            }
         }
         return container
     }()

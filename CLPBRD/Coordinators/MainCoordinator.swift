@@ -14,7 +14,10 @@ class MainCoordinator: Coordinator {
     var initialViewController: UIViewController
     var onCompletion: VoidClosure = {}
     
-    private let mainViewController: MainViewController
+    var qrCodeDisplayViewControllerBuilder: () -> QRCodeDisplayViewController? = { _ in nil }
+    var qrCodeScanViewControllerBuilder: () -> QRCodeScanViewController? = { _ in nil }
+    
+    let mainViewController: MainViewController
     
     init(mainViewController: MainViewController) {
         self.mainViewController = mainViewController
