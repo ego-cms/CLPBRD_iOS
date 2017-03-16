@@ -10,9 +10,8 @@ import UIKit
 
 
 protocol MainViewControllerDelegate: class {
-    func showQRPressed(on mainViewController: MainViewController)
-    func scanQRPressed(on mainViewController: MainViewController)
-    func togglePressed(on mainViewController: MainViewController, toggled: Bool)
+    func mainViewControllerDisplayQR(_ viewController: MainViewController)
+    func mainViewControllerScanQR(_ viewController: MainViewController)
 }
 
 class MainViewController: UIViewController {
@@ -23,15 +22,15 @@ class MainViewController: UIViewController {
     weak var delegate: MainViewControllerDelegate?
     
     @IBAction func showQRPressed(_ sender: Any) {
-        delegate?.showQRPressed(on: self)
+        delegate?.mainViewControllerDisplayQR(self)
     }
     
     @IBAction func scanQRPressed(_ sender: Any) {
-        delegate?.scanQRPressed(on: self)
+        delegate?.mainViewControllerScanQR(self)
     }
     
     @IBAction func togglePressed(_ sender: Any) {
-        delegate?.togglePressed(on: self, toggled: true)
+//        delegate?.togglePressed(on: self, toggled: true)
     }
 
     override func viewDidLoad() {

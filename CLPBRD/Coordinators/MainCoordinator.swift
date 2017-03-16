@@ -28,31 +28,37 @@ class MainCoordinator: Coordinator {
 
 
 extension MainCoordinator: MainViewControllerDelegate {
-    func scanQRPressed(on mainViewController: MainViewController) {
+    func mainViewControllerScanQR(_ viewController: MainViewController) {
         let qrCodeScanViewController = self.container.resolve(QRCodeScanViewController.self)!
         qrCodeScanViewController.delegate = self
-        qrCodeScanViewController.modalTransitionStyle = .crossDissolve
         let navigationController = UINavigationController(rootViewController: qrCodeScanViewController)
         navigationController.modalPresentationStyle = .overCurrentContext
         self.mainViewController.present(navigationController, animated: true, completion: nil)
     }
     
-    func showQRPressed(on mainViewController: MainViewController) {
-        
-    }
-    
-    func togglePressed(on mainViewController: MainViewController, toggled: Bool) {
-        
+    func mainViewControllerDisplayQR(_ viewController: MainViewController) {
+        let qrCodeDisplayViewController = self.container.resolve(QRCodeDisplayViewController.self)!
+        qrCodeDisplayViewController.delegate = self
+        let navigationController = UINavigationController(rootViewController: qrCodeDisplayViewController)
+        navigationController.modalPresentationStyle = .overCurrentContext
+        self.mainViewController.present(navigationController, animated: true, completion: nil)
     }
 }
 
 
 extension MainCoordinator: QRCodeScanViewControllerDelegate {
-    func cancelPressed(on viewController: QRCodeScanViewController) {
+    func qrCodeScanViewControllerCancel(_ viewController: QRCodeScanViewController) {
         mainViewController.presentedViewController?.dismiss(animated: true, completion: nil)
     }
     
-    func textDetected(on viewController: QRCodeScanViewController, string: String) {
-        print("Text: \(string)")
+    func qrCodeScanViewController(_ viewController: QRCodeScanViewController, detectedText text: String) {
+        print(text)
+    }
+}
+
+
+extension MainCoordinator: QRCodeDisplayViewControllerDelegate {
+    func qrCodeDisplayViewControllerCancel(_ viewController: QRCodeDisplayViewController) {
+        mainViewController.presentedViewController?.dismiss(animated: true, completion: nil)
     }
 }

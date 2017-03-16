@@ -13,6 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QRCodeDisplayViewController" customModule="CLPBRD" customModuleProvider="target">
             <connections>
+                <outlet property="blurView" destination="6ty-c3-dJ3" id="Wtw-mf-OWm"/>
                 <outlet property="qrImageView" destination="ppZ-zl-wuN" id="0U8-Hg-uJQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -31,7 +32,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UAW-ZX-Z5U">
                                 <rect key="frame" x="8" y="153.5" width="360" height="360"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ppZ-zl-wuN">
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ppZ-zl-wuN">
                                         <rect key="frame" x="8" y="8" width="344" height="344"/>
                                     </imageView>
                                 </subviews>

@@ -9,8 +9,8 @@
 import UIKit
 
 protocol QRCodeScanViewControllerDelegate: class {
-    func cancelPressed(on viewController: QRCodeScanViewController)
-    func textDetected(on viewController: QRCodeScanViewController, string: String)
+    func qrCodeScanViewControllerCancel(_ viewController: QRCodeScanViewController)
+    func qrCodeScanViewController(_ viewController: QRCodeScanViewController, detectedText: String)
 }
 
 class QRCodeScanViewController: UIViewController {
@@ -21,6 +21,7 @@ class QRCodeScanViewController: UIViewController {
     init(qrScannerService: QRScannerService) {
         self.qrScannerService = qrScannerService
         super.init(nibName: String(describing: type(of: self)), bundle: nil)
+        self.modalTransitionStyle = .crossDissolve
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -67,11 +68,11 @@ class QRCodeScanViewController: UIViewController {
     }
     
     func textDetected(text: String) {
-        delegate?.textDetected(on: self, string: text)
+        delegate?.qrCodeScanViewController(self, detectedText: text)
     }
     
     func cancelPressed() {
-        delegate?.cancelPressed(on: self)
+        delegate?.qrCodeScanViewControllerCancel(self)
         qrScannerService.stopScanning()
     }
 }

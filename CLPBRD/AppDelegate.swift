@@ -27,6 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         container.register(QRScannerService.self) { _ in
             QRScanner()
+        }.inObjectScope(.transient)
+        container.register(QRDisplayService.self) { _ in
+            QRDisplay()
+        }
+        container.register(QRCodeDisplayViewController.self) { r in
+            QRCodeDisplayViewController(qrDisplayService: r.resolve(QRDisplayService.self)!)
         }
         container.register(QRCodeScanViewController.self) { r in
             QRCodeScanViewController(qrScannerService: r.resolve(QRScannerService.self)!)
