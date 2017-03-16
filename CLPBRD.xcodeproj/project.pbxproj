@@ -20,6 +20,10 @@
 		1053589A1E782CEE00908B74 /* QRCodeScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105358981E782CEE00908B74 /* QRCodeScanViewController.swift */; };
 		1053589B1E782CEE00908B74 /* QRCodeScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 105358991E782CEE00908B74 /* QRCodeScanViewController.xib */; };
 		10564A801E7ADCD500A9D02B /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10564A7F1E7ADCD500A9D02B /* Repository.swift */; };
+		10564A821E7AF4F800A9D02B /* ClipboardProviderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10564A811E7AF4F700A9D02B /* ClipboardProviderService.swift */; };
+		10564A841E7AF56800A9D02B /* ClipboardProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10564A831E7AF56800A9D02B /* ClipboardProvider.swift */; };
+		10564A861E7AF71000A9D02B /* ClipboardSyncClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10564A851E7AF71000A9D02B /* ClipboardSyncClientService.swift */; };
+		10564A881E7AF71A00A9D02B /* ClipboardSyncClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10564A871E7AF71A00A9D02B /* ClipboardSyncClient.swift */; };
 		10897D8B1E795E5B002D4C74 /* SocketClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897D8A1E795E5B002D4C74 /* SocketClientService.swift */; };
 		10897D8F1E7962D3002D4C74 /* SocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897D8E1E7962D3002D4C74 /* SocketClient.swift */; };
 		10897D9F1E796B20002D4C74 /* URLHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897D9E1E796B20002D4C74 /* URLHelpersTests.swift */; };
@@ -61,6 +65,10 @@
 		105358981E782CEE00908B74 /* QRCodeScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeScanViewController.swift; sourceTree = "<group>"; };
 		105358991E782CEE00908B74 /* QRCodeScanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRCodeScanViewController.xib; sourceTree = "<group>"; };
 		10564A7F1E7ADCD500A9D02B /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		10564A811E7AF4F700A9D02B /* ClipboardProviderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipboardProviderService.swift; sourceTree = "<group>"; };
+		10564A831E7AF56800A9D02B /* ClipboardProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipboardProvider.swift; sourceTree = "<group>"; };
+		10564A851E7AF71000A9D02B /* ClipboardSyncClientService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipboardSyncClientService.swift; sourceTree = "<group>"; };
+		10564A871E7AF71A00A9D02B /* ClipboardSyncClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipboardSyncClient.swift; sourceTree = "<group>"; };
 		10897D8A1E795E5B002D4C74 /* SocketClientService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketClientService.swift; sourceTree = "<group>"; };
 		10897D8E1E7962D3002D4C74 /* SocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketClient.swift; sourceTree = "<group>"; };
 		10897D941E796AE9002D4C74 /* CLPBRDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CLPBRDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,6 +203,10 @@
 				10897DA81E7999B5002D4C74 /* QRScanner.swift */,
 				10FFD3691E7A82A9003EEBCD /* QRDisplayService.swift */,
 				10FFD36B1E7A8384003EEBCD /* QRDisplay.swift */,
+				10564A811E7AF4F700A9D02B /* ClipboardProviderService.swift */,
+				10564A831E7AF56800A9D02B /* ClipboardProvider.swift */,
+				10564A851E7AF71000A9D02B /* ClipboardSyncClientService.swift */,
+				10564A871E7AF71A00A9D02B /* ClipboardSyncClient.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -392,18 +404,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10564A841E7AF56800A9D02B /* ClipboardProvider.swift in Sources */,
 				10897DA71E7999A9002D4C74 /* QRScannerService.swift in Sources */,
 				1053587E1E782B0700908B74 /* AppDelegate.swift in Sources */,
 				10897DA31E796E3F002D4C74 /* NSError+Errors.swift in Sources */,
 				10FFD36C1E7A8384003EEBCD /* QRDisplay.swift in Sources */,
 				10FFD3711E7A8BD6003EEBCD /* Router.swift in Sources */,
+				10564A821E7AF4F800A9D02B /* ClipboardProviderService.swift in Sources */,
 				105358961E782CE200908B74 /* QRCodeDisplayViewController.swift in Sources */,
 				1052D48A1E783467008B22EE /* Coordinator.swift in Sources */,
 				1052D48D1E7834E5008B22EE /* Utils.swift in Sources */,
 				10FFD36E1E7A8B89003EEBCD /* BaseViewController.swift in Sources */,
 				10897DA51E79765C002D4C74 /* Closures.swift in Sources */,
 				10FFD36A1E7A82A9003EEBCD /* QRDisplayService.swift in Sources */,
+				10564A881E7AF71A00A9D02B /* ClipboardSyncClient.swift in Sources */,
 				105358921E782CB700908B74 /* MainViewController.swift in Sources */,
+				10564A861E7AF71000A9D02B /* ClipboardSyncClientService.swift in Sources */,
 				10897D8B1E795E5B002D4C74 /* SocketClientService.swift in Sources */,
 				1052D4881E78345D008B22EE /* MainCoordinator.swift in Sources */,
 				10897D8F1E7962D3002D4C74 /* SocketClient.swift in Sources */,
