@@ -50,12 +50,19 @@ class QRCodeScanViewController: UIViewController {
         guard let layer = qrScannerService.previewLayer else {
             return
         }
-        previewContainer.layer.addSublayer(layer)
-        qrScannerService.startScanning()
+        DispatchQueue.main.async {
+            self.previewContainer.layer.addSublayer(layer)
+            self.updatePreviewLayerFrame()
+            self.qrScannerService.startScanning()
+        }
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        updatePreviewLayerFrame()
+    }
+    
+    func updatePreviewLayerFrame() {
         qrScannerService.previewLayer?.frame = previewContainer.layer.bounds
     }
     

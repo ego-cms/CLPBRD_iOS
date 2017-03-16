@@ -43,24 +43,16 @@
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2fI-WP-LnD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ojf-PX-ieh">
-                                <rect key="frame" x="0.0" y="183" width="375" height="300"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="DgB-LQ-G3q"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="ojf-PX-ieh" firstAttribute="leading" secondItem="2fI-WP-LnD" secondAttribute="leading" id="9U3-Vr-tp7"/>
-                            <constraint firstAttribute="trailing" secondItem="ojf-PX-ieh" secondAttribute="trailing" id="C9D-uj-2ys"/>
-                            <constraint firstItem="ojf-PX-ieh" firstAttribute="centerX" secondItem="2fI-WP-LnD" secondAttribute="centerX" id="Cnz-nu-xpl"/>
-                            <constraint firstItem="ojf-PX-ieh" firstAttribute="centerY" secondItem="2fI-WP-LnD" secondAttribute="centerY" id="UvR-rj-Ufa"/>
-                        </constraints>
                     </view>
                     <blurEffect style="prominent"/>
                 </visualEffectView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ojf-PX-ieh">
+                    <rect key="frame" x="0.0" y="183" width="375" height="300"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="300" id="DgB-LQ-G3q"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
@@ -68,9 +60,12 @@
                 <constraint firstItem="7dF-x6-LgR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="I1y-ke-3to"/>
                 <constraint firstItem="8t4-4z-ww4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="K7d-NW-iX2"/>
                 <constraint firstAttribute="bottom" secondItem="8t4-4z-ww4" secondAttribute="bottom" id="KeY-sM-rYs"/>
+                <constraint firstItem="ojf-PX-ieh" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="MXk-D8-xef"/>
                 <constraint firstAttribute="trailing" secondItem="8t4-4z-ww4" secondAttribute="trailing" id="ODQ-Yg-sqj"/>
+                <constraint firstItem="ojf-PX-ieh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Pk6-QH-U9e"/>
                 <constraint firstItem="7dF-x6-LgR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="RwG-kG-z16"/>
                 <constraint firstItem="8t4-4z-ww4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="UxZ-ZZ-rM6"/>
+                <constraint firstItem="ojf-PX-ieh" firstAttribute="leading" secondItem="7dF-x6-LgR" secondAttribute="leading" id="aar-0z-xeh"/>
                 <constraint firstAttribute="bottom" secondItem="7dF-x6-LgR" secondAttribute="bottom" id="w7p-Fl-iqn"/>
             </constraints>
             <point key="canvasLocation" x="-17.5" y="48.5"/>
