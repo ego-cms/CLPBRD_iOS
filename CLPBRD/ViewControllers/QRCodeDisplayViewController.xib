@@ -1,12 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QRCodeDisplayViewController" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QRCodeDisplayViewController" customModule="CLPBRD" customModuleProvider="target">
             <connections>
+                <outlet property="qrImageView" destination="ppZ-zl-wuN" id="0U8-Hg-uJQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,7 +21,47 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <subviews>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ty-c3-dJ3">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hlf-Cs-MGz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UAW-ZX-Z5U">
+                                <rect key="frame" x="8" y="153.5" width="360" height="360"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ppZ-zl-wuN">
+                                        <rect key="frame" x="8" y="8" width="344" height="344"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="ppZ-zl-wuN" firstAttribute="bottom" secondItem="UAW-ZX-Z5U" secondAttribute="bottomMargin" id="7vQ-bm-71K"/>
+                                    <constraint firstAttribute="width" secondItem="UAW-ZX-Z5U" secondAttribute="height" multiplier="1:1" id="SeM-WE-PbL"/>
+                                    <constraint firstItem="ppZ-zl-wuN" firstAttribute="leading" secondItem="UAW-ZX-Z5U" secondAttribute="leadingMargin" id="WWe-fp-VMP"/>
+                                    <constraint firstItem="ppZ-zl-wuN" firstAttribute="top" secondItem="UAW-ZX-Z5U" secondAttribute="topMargin" id="rAA-mx-iea"/>
+                                    <constraint firstItem="ppZ-zl-wuN" firstAttribute="trailing" secondItem="UAW-ZX-Z5U" secondAttribute="trailingMargin" id="zAi-rg-nGr"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="UAW-ZX-Z5U" firstAttribute="leading" secondItem="hlf-Cs-MGz" secondAttribute="leading" constant="8" id="3GK-iP-Tgf"/>
+                            <constraint firstItem="UAW-ZX-Z5U" firstAttribute="centerX" secondItem="hlf-Cs-MGz" secondAttribute="centerX" id="WW9-OC-HK5"/>
+                            <constraint firstItem="UAW-ZX-Z5U" firstAttribute="centerY" secondItem="hlf-Cs-MGz" secondAttribute="centerY" id="cxl-oY-TQz"/>
+                        </constraints>
+                    </view>
+                    <blurEffect style="light"/>
+                </visualEffectView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="6ty-c3-dJ3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9Gu-JQ-Cav"/>
+                <constraint firstItem="6ty-c3-dJ3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Sq8-KR-wWm"/>
+                <constraint firstAttribute="bottom" secondItem="6ty-c3-dJ3" secondAttribute="bottom" id="bh9-By-7iP"/>
+                <constraint firstAttribute="trailing" secondItem="6ty-c3-dJ3" secondAttribute="trailing" id="vIG-GF-a0F"/>
+            </constraints>
+            <point key="canvasLocation" x="24.5" y="52.5"/>
         </view>
     </objects>
 </document>

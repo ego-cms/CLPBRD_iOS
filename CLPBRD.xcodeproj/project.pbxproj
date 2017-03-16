@@ -27,6 +27,8 @@
 		10897DA51E79765C002D4C74 /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897DA41E79765C002D4C74 /* Closures.swift */; };
 		10897DA71E7999A9002D4C74 /* QRScannerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897DA61E7999A9002D4C74 /* QRScannerService.swift */; };
 		10897DA91E7999B5002D4C74 /* QRScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897DA81E7999B5002D4C74 /* QRScanner.swift */; };
+		10FFD36A1E7A82A9003EEBCD /* QRDisplayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FFD3691E7A82A9003EEBCD /* QRDisplayService.swift */; };
+		10FFD36C1E7A8384003EEBCD /* QRDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FFD36B1E7A8384003EEBCD /* QRDisplay.swift */; };
 		C1F58269AA86D5878A85A1BA /* Pods_CLPBRD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 252F2C9F91B28DA3F225C625 /* Pods_CLPBRD.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +67,8 @@
 		10897DA41E79765C002D4C74 /* Closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Closures.swift; sourceTree = "<group>"; };
 		10897DA61E7999A9002D4C74 /* QRScannerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerService.swift; sourceTree = "<group>"; };
 		10897DA81E7999B5002D4C74 /* QRScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanner.swift; sourceTree = "<group>"; };
+		10FFD3691E7A82A9003EEBCD /* QRDisplayService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRDisplayService.swift; sourceTree = "<group>"; };
+		10FFD36B1E7A8384003EEBCD /* QRDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRDisplay.swift; sourceTree = "<group>"; };
 		1918E0CF43F359538E369317 /* Pods-CLPBRD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLPBRD.release.xcconfig"; path = "Pods/Target Support Files/Pods-CLPBRD/Pods-CLPBRD.release.xcconfig"; sourceTree = "<group>"; };
 		252F2C9F91B28DA3F225C625 /* Pods_CLPBRD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CLPBRD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E3AF3898465611661472682 /* Pods-CLPBRD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLPBRD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CLPBRD/Pods-CLPBRD.debug.xcconfig"; sourceTree = "<group>"; };
@@ -172,6 +176,8 @@
 				10897D8A1E795E5B002D4C74 /* SocketClientService.swift */,
 				10897DA61E7999A9002D4C74 /* QRScannerService.swift */,
 				10897DA81E7999B5002D4C74 /* QRScanner.swift */,
+				10FFD3691E7A82A9003EEBCD /* QRDisplayService.swift */,
+				10FFD36B1E7A8384003EEBCD /* QRDisplay.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -364,10 +370,12 @@
 				10897DA71E7999A9002D4C74 /* QRScannerService.swift in Sources */,
 				1053587E1E782B0700908B74 /* AppDelegate.swift in Sources */,
 				10897DA31E796E3F002D4C74 /* NSError+Errors.swift in Sources */,
+				10FFD36C1E7A8384003EEBCD /* QRDisplay.swift in Sources */,
 				105358961E782CE200908B74 /* QRCodeDisplayViewController.swift in Sources */,
 				1052D48A1E783467008B22EE /* Coordinator.swift in Sources */,
 				1052D48D1E7834E5008B22EE /* Utils.swift in Sources */,
 				10897DA51E79765C002D4C74 /* Closures.swift in Sources */,
+				10FFD36A1E7A82A9003EEBCD /* QRDisplayService.swift in Sources */,
 				105358921E782CB700908B74 /* MainViewController.swift in Sources */,
 				10897D8B1E795E5B002D4C74 /* SocketClientService.swift in Sources */,
 				1052D4881E78345D008B22EE /* MainCoordinator.swift in Sources */,
