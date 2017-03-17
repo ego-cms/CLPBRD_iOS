@@ -29,4 +29,12 @@ class Repository<X> {
         items.append(item)
         items = Array((items + [item]).suffix(limit))
     }
+
+    func clean() {
+        items = []
+    }
+    
+    var last: X? {
+        return items.last
+    }
 }
