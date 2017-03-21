@@ -15,11 +15,12 @@ protocol QRCodeScanViewControllerDelegate: class {
 
 class QRCodeScanViewController: UIViewController {
     var qrScannerService: QRScannerService
-    
     weak var delegate: QRCodeScanViewControllerDelegate?
+    var resultRepo: Repository<String>?
     
-    init(qrScannerService: QRScannerService) {
+    init(qrScannerService: QRScannerService, resultRepo: Repository<String>? = nil) {
         self.qrScannerService = qrScannerService
+        self.resultRepo = resultRepo
         super.init(nibName: String(describing: type(of: self)), bundle: nil)
         self.modalTransitionStyle = .crossDissolve
     }
@@ -69,6 +70,7 @@ class QRCodeScanViewController: UIViewController {
     
     func textDetected(text: String) {
         delegate?.qrCodeScanViewController(self, detectedText: text)
+        resultRepo?.push(item: text)
     }
     
     func cancelPressed() {

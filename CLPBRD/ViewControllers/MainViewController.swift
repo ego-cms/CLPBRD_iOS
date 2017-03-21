@@ -47,12 +47,12 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         definesPresentationContext = true
-        clipboardSyncClientService.connect(host: "192.168.0.113")
+//        clipboardSyncClientService.connect(host: "192.168.0.113")
         
-        clipboardSyncClientService.onDisconnected = { [unowned self](error) in
-            print("Disconnected")
-            print(error)
-        }
+//        clipboardSyncClientService.onDisconnected = { [unowned self](error) in
+////            print("Disconnected")
+////            print(error)
+//        }
     }
     
     

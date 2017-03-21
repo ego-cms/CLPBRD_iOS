@@ -22,6 +22,10 @@ class ClipboardProvider: NSObject, ClipboardProviderService {
         }
     }
     
+    var changeCount: Int {
+        return pasteboard.changeCount
+    }
+    
     var onContentChanged: VoidClosure = { }
     
     override init() {

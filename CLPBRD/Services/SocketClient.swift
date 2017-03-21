@@ -14,6 +14,7 @@ import SwiftyJSON
 
 class SocketClient: SocketClientService {
     private(set) var url: URL?
+    var host: String?
     private var webSocket: WebSocket?
     
     var onReceivedText: (String) -> Void = { _ in }
@@ -24,21 +25,6 @@ class SocketClient: SocketClientService {
     
     func connect(host: String) {
         if let ws = webSocket, ws.isConnected { return }
-//        requestPort(from: host) { [weak self](result) in
-//            switch result {
-//            case .success(let port):
-//                guard let webSocketURL = URL.createWebSocketURL(with: host, port: port) else {
-//                    call(closure: self?.onDisconnected, parameter: NSError.error(text: "Can't build websocket url"))
-//                    return
-//                }
-//                self?.webSocket = WebSocket(url: webSocketURL)
-//                self?.webSocket?.delegate = self
-//                self?.webSocket?.callbackQueue = .main
-//                self?.webSocket?.connect()
-//            case .failure(let error):
-//                call(closure: self?.onDisconnected, parameter: error)
-//            }
-//        }
         requestHostParameters(host: host) { [weak self](result) in
             switch result {
             case .success(let json):
@@ -86,34 +72,6 @@ class SocketClient: SocketClientService {
         }.resume()
     }
     
-//    private func requestPort(from host: String, completion: @escaping (Result<Int, NSError>) -> Void) {
-//        guard let httpServerURL = URL.createParametersURL(with: host) else {
-//            let error = NSError.error(text: "Wrong host \(host)")
-//            completion(.failure(error))
-//            return
-//        }
-//        URLSession.shared.configuration.timeoutIntervalForRequest = 5.0
-//        URLSession.shared.dataTask(with: httpServerURL) { (data, response, error) in
-//            if let error = error {
-//                completion(.failure(NSError.error(from: error)))
-//                return
-//            }
-//            guard
-//                let data = data,
-//                let json = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any],
-//                let port = json["port"] as? Int
-//            else {
-//                completion(
-//                    .failure(
-//                        NSError.error(text: "Can't get port from clipboard JSON (\(response?.url))")
-//                    )
-//                )
-//                return
-//            }
-//            completion(.success(port))
-//        }.resume()
-//    }
-    
     func send(text: String) {
         webSocket?.write(string: text)
     }
@@ -129,6 +87,7 @@ class SocketClient: SocketClientService {
 extension SocketClient: WebSocketDelegate {
     func websocketDidConnect(socket: WebSocket) {
         onConnected()
+        host = socket.currentURL.host
         if let initialText = self.initialText {
             onReceivedText(initialText)
             self.initialText = nil
@@ -136,6 +95,7 @@ extension SocketClient: WebSocketDelegate {
     }
     
     func websocketDidDisconnect(socket: WebSocket, error: NSError?) {
+        host = nil
         onDisconnected(error)
     }
     

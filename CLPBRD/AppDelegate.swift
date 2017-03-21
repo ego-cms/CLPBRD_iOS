@@ -9,6 +9,12 @@
 import UIKit
 import Swinject
 
+
+enum Names {
+    static let scannedQR = "scannedQR"
+}
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -33,8 +39,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         container.register(QRCodeDisplayViewController.self) { r in
             QRCodeDisplayViewController(qrDisplayService: r.resolve(QRDisplayService.self)!)
         }
+        container.register(AppStateService.self) { _ in
+            AppState()
+        }
         container.register(ClipboardSyncClientService.self) { r in
-            ClipboardSyncClient(clipboardProviderService: r.resolve(ClipboardProviderService.self)!, socketClientService: r.resolve(SocketClientService.self)!)
+            ClipboardSyncClient(
+                clipboardProviderService: r.resolve(ClipboardProviderService.self)!,
+                socketClientService: r.resolve(SocketClientService.self)!,
+                appStateService: r.resolve(AppStateService.self)!
+            )
         }
         container.register(ClipboardProviderService.self) { _ in
             ClipboardProvider()
@@ -43,7 +56,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             SocketClient()
         }
         container.register(QRCodeScanViewController.self) { r in
-            QRCodeScanViewController(qrScannerService: r.resolve(QRScannerService.self)!)
+            QRCodeScanViewController(
+                qrScannerService: r.resolve(QRScannerService.self)!,
+                resultRepo: r.resolve(Repository<String>.self, name: Names.scannedQR)
+            )
+        }.inObjectScope(.transient)
+        container.register(Repository<String>.self, name: Names.scannedQR) { _ in
+            let repo = Repository<String>()
+            repo.preprocessor = {
+                guard let url = URL(string: $0) else { return nil }
+                return url.host
+            }
+            return repo
+        }.inObjectScope(.container)
+        container.register(ConnectionViewController.self) { r in
+            ConnectionViewController(
+                hostRepository: r.resolve(Repository<String>.self, name: Names.scannedQR)!,
+                socketClientService: r.resolve(SocketClientService.self)!,
+                clipboardProviderService: r.resolve(ClipboardProviderService.self)!
+            )
         }.inObjectScope(.transient)
         return container
     }()

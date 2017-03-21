@@ -9,6 +9,9 @@
 import Foundation
 
 
+let repositoryUpdateNotificationName = Notification.Name(rawValue: "REPOSITORY_UPDATE_NOTIFICATION")
+
+
 class Repository<X> {
     var limit: Int {
         didSet {
@@ -17,7 +20,13 @@ class Repository<X> {
         }
     }
     
-    private(set) var items: [X]
+    private(set) var items: [X] {
+        didSet {
+            NotificationCenter.default.post(name: repositoryUpdateNotificationName, object: self)
+        }
+    }
+    
+    var preprocessor: (X) -> X? = { $0 }
     
     init(limit: Int = 1) {
         assert(limit >= 1, "Limit must be >= 1")
@@ -26,8 +35,8 @@ class Repository<X> {
     }
     
     func push(item: X) {
-        items.append(item)
-        items = Array((items + [item]).suffix(limit))
+        guard let preprocessedItem = preprocessor(item) else { return }
+        items = Array((items + [preprocessedItem]).suffix(limit))
     }
 
     func clean() {

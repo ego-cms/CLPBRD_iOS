@@ -24,6 +24,8 @@
 		10564A841E7AF56800A9D02B /* ClipboardProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10564A831E7AF56800A9D02B /* ClipboardProvider.swift */; };
 		10564A861E7AF71000A9D02B /* ClipboardSyncClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10564A851E7AF71000A9D02B /* ClipboardSyncClientService.swift */; };
 		10564A881E7AF71A00A9D02B /* ClipboardSyncClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10564A871E7AF71A00A9D02B /* ClipboardSyncClient.swift */; };
+		105875951E7C0DF2005AA724 /* AppStateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105875941E7C0DF2005AA724 /* AppStateService.swift */; };
+		105875971E7C1389005AA724 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105875961E7C1389005AA724 /* AppState.swift */; };
 		10897D8B1E795E5B002D4C74 /* SocketClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897D8A1E795E5B002D4C74 /* SocketClientService.swift */; };
 		10897D8F1E7962D3002D4C74 /* SocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897D8E1E7962D3002D4C74 /* SocketClient.swift */; };
 		10897D9F1E796B20002D4C74 /* URLHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897D9E1E796B20002D4C74 /* URLHelpersTests.swift */; };
@@ -32,6 +34,16 @@
 		10897DA51E79765C002D4C74 /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897DA41E79765C002D4C74 /* Closures.swift */; };
 		10897DA71E7999A9002D4C74 /* QRScannerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897DA61E7999A9002D4C74 /* QRScannerService.swift */; };
 		10897DA91E7999B5002D4C74 /* QRScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897DA81E7999B5002D4C74 /* QRScanner.swift */; };
+		108E8AB31E7FE40A005C990F /* ContentBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8AB21E7FE40A005C990F /* ContentBuffer.swift */; };
+		108E8AB51E7FE41D005C990F /* ContentBuffer+HashColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8AB41E7FE41D005C990F /* ContentBuffer+HashColor.swift */; };
+		108E8AB71E7FE70E005C990F /* CompositeContentBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8AB61E7FE70E005C990F /* CompositeContentBuffer.swift */; };
+		108E8AB91E7FEF7E005C990F /* ContentBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8AB81E7FEF7E005C990F /* ContentBufferTests.swift */; };
+		108E8ABB1E800260005C990F /* ConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8ABA1E800260005C990F /* ConnectionViewController.swift */; };
+		108E8ABF1E800669005C990F /* SyncParticipantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8ABE1E800669005C990F /* SyncParticipantView.swift */; };
+		108E8AC11E80070F005C990F /* ConnectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 108E8AC01E80070F005C990F /* ConnectionViewController.xib */; };
+		108E8AC31E800744005C990F /* SyncParticipantView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 108E8AC21E800744005C990F /* SyncParticipantView.xib */; };
+		108E8AC51E800880005C990F /* NibLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8AC41E800880005C990F /* NibLoading.swift */; };
+		108E8AC81E80142F005C990F /* IpAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8AC71E80142F005C990F /* IpAddress.swift */; };
 		10FFD36A1E7A82A9003EEBCD /* QRDisplayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FFD3691E7A82A9003EEBCD /* QRDisplayService.swift */; };
 		10FFD36C1E7A8384003EEBCD /* QRDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FFD36B1E7A8384003EEBCD /* QRDisplay.swift */; };
 		10FFD36E1E7A8B89003EEBCD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FFD36D1E7A8B89003EEBCD /* BaseViewController.swift */; };
@@ -69,6 +81,8 @@
 		10564A831E7AF56800A9D02B /* ClipboardProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipboardProvider.swift; sourceTree = "<group>"; };
 		10564A851E7AF71000A9D02B /* ClipboardSyncClientService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipboardSyncClientService.swift; sourceTree = "<group>"; };
 		10564A871E7AF71A00A9D02B /* ClipboardSyncClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipboardSyncClient.swift; sourceTree = "<group>"; };
+		105875941E7C0DF2005AA724 /* AppStateService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStateService.swift; sourceTree = "<group>"; };
+		105875961E7C1389005AA724 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		10897D8A1E795E5B002D4C74 /* SocketClientService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketClientService.swift; sourceTree = "<group>"; };
 		10897D8E1E7962D3002D4C74 /* SocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketClient.swift; sourceTree = "<group>"; };
 		10897D941E796AE9002D4C74 /* CLPBRDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CLPBRDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +93,17 @@
 		10897DA41E79765C002D4C74 /* Closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Closures.swift; sourceTree = "<group>"; };
 		10897DA61E7999A9002D4C74 /* QRScannerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerService.swift; sourceTree = "<group>"; };
 		10897DA81E7999B5002D4C74 /* QRScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanner.swift; sourceTree = "<group>"; };
+		108E8AB21E7FE40A005C990F /* ContentBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBuffer.swift; sourceTree = "<group>"; };
+		108E8AB41E7FE41D005C990F /* ContentBuffer+HashColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ContentBuffer+HashColor.swift"; sourceTree = "<group>"; };
+		108E8AB61E7FE70E005C990F /* CompositeContentBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositeContentBuffer.swift; sourceTree = "<group>"; };
+		108E8AB81E7FEF7E005C990F /* ContentBufferTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBufferTests.swift; sourceTree = "<group>"; };
+		108E8ABA1E800260005C990F /* ConnectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionViewController.swift; sourceTree = "<group>"; };
+		108E8ABE1E800669005C990F /* SyncParticipantView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncParticipantView.swift; sourceTree = "<group>"; };
+		108E8AC01E80070F005C990F /* ConnectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectionViewController.xib; sourceTree = "<group>"; };
+		108E8AC21E800744005C990F /* SyncParticipantView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SyncParticipantView.xib; sourceTree = "<group>"; };
+		108E8AC41E800880005C990F /* NibLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoading.swift; sourceTree = "<group>"; };
+		108E8AC61E8013A6005C990F /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		108E8AC71E80142F005C990F /* IpAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IpAddress.swift; sourceTree = "<group>"; };
 		10FFD3691E7A82A9003EEBCD /* QRDisplayService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRDisplayService.swift; sourceTree = "<group>"; };
 		10FFD36B1E7A8384003EEBCD /* QRDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRDisplay.swift; sourceTree = "<group>"; };
 		10FFD36D1E7A8B89003EEBCD /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -119,10 +144,12 @@
 		1052D48B1E7834DA008B22EE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				108E8AC41E800880005C990F /* NibLoading.swift */,
 				10897DA41E79765C002D4C74 /* Closures.swift */,
 				10897DA21E796E3F002D4C74 /* NSError+Errors.swift */,
 				10897DA01E796B4D002D4C74 /* URL+Helpers.swift */,
 				1052D48C1E7834E5008B22EE /* Utils.swift */,
+				108E8AC71E80142F005C990F /* IpAddress.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -150,14 +177,17 @@
 		1053587C1E782B0700908B74 /* CLPBRD */ = {
 			isa = PBXGroup;
 			children = (
-				10564A7E1E7ADCC200A9D02B /* Repositories */,
-				10FFD36F1E7A8BA2003EEBCD /* Router */,
+				108E8AB11E7FE36F005C990F /* ContentBuffer */,
 				1052D4861E783436008B22EE /* Coordinators */,
+				10564A7E1E7ADCC200A9D02B /* Repositories */,
 				1053589C1E782DAD00908B74 /* Resources */,
+				10FFD36F1E7A8BA2003EEBCD /* Router */,
 				10897D891E795DFF002D4C74 /* Services */,
 				1052D48B1E7834DA008B22EE /* Utils */,
 				1053588F1E782C4D00908B74 /* ViewControllers */,
+				108E8ABD1E80061B005C990F /* Views */,
 				1053587D1E782B0700908B74 /* AppDelegate.swift */,
+				108E8AC61E8013A6005C990F /* BridgingHeader.h */,
 			);
 			path = CLPBRD;
 			sourceTree = "<group>";
@@ -165,13 +195,15 @@
 		1053588F1E782C4D00908B74 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				10FFD36D1E7A8B89003EEBCD /* BaseViewController.swift */,
+				108E8ABA1E800260005C990F /* ConnectionViewController.swift */,
+				108E8AC01E80070F005C990F /* ConnectionViewController.xib */,
 				105358901E782CB700908B74 /* MainViewController.swift */,
 				105358911E782CB700908B74 /* MainViewController.xib */,
 				105358941E782CE200908B74 /* QRCodeDisplayViewController.swift */,
 				105358951E782CE200908B74 /* QRCodeDisplayViewController.xib */,
 				105358981E782CEE00908B74 /* QRCodeScanViewController.swift */,
 				105358991E782CEE00908B74 /* QRCodeScanViewController.xib */,
-				10FFD36D1E7A8B89003EEBCD /* BaseViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -191,22 +223,24 @@
 			children = (
 				10564A7F1E7ADCD500A9D02B /* Repository.swift */,
 			);
-			name = Repositories;
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		10897D891E795DFF002D4C74 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				105875961E7C1389005AA724 /* AppState.swift */,
+				105875941E7C0DF2005AA724 /* AppStateService.swift */,
+				10564A831E7AF56800A9D02B /* ClipboardProvider.swift */,
+				10564A811E7AF4F700A9D02B /* ClipboardProviderService.swift */,
+				10564A871E7AF71A00A9D02B /* ClipboardSyncClient.swift */,
+				10564A851E7AF71000A9D02B /* ClipboardSyncClientService.swift */,
+				10FFD36B1E7A8384003EEBCD /* QRDisplay.swift */,
+				10FFD3691E7A82A9003EEBCD /* QRDisplayService.swift */,
+				10897DA81E7999B5002D4C74 /* QRScanner.swift */,
+				10897DA61E7999A9002D4C74 /* QRScannerService.swift */,
 				10897D8E1E7962D3002D4C74 /* SocketClient.swift */,
 				10897D8A1E795E5B002D4C74 /* SocketClientService.swift */,
-				10897DA61E7999A9002D4C74 /* QRScannerService.swift */,
-				10897DA81E7999B5002D4C74 /* QRScanner.swift */,
-				10FFD3691E7A82A9003EEBCD /* QRDisplayService.swift */,
-				10FFD36B1E7A8384003EEBCD /* QRDisplay.swift */,
-				10564A811E7AF4F700A9D02B /* ClipboardProviderService.swift */,
-				10564A831E7AF56800A9D02B /* ClipboardProvider.swift */,
-				10564A851E7AF71000A9D02B /* ClipboardSyncClientService.swift */,
-				10564A871E7AF71A00A9D02B /* ClipboardSyncClient.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -214,10 +248,30 @@
 		10897D951E796AE9002D4C74 /* CLPBRDTests */ = {
 			isa = PBXGroup;
 			children = (
+				108E8AB81E7FEF7E005C990F /* ContentBufferTests.swift */,
 				10897D981E796AE9002D4C74 /* Info.plist */,
 				10897D9E1E796B20002D4C74 /* URLHelpersTests.swift */,
 			);
 			path = CLPBRDTests;
+			sourceTree = "<group>";
+		};
+		108E8AB11E7FE36F005C990F /* ContentBuffer */ = {
+			isa = PBXGroup;
+			children = (
+				108E8AB61E7FE70E005C990F /* CompositeContentBuffer.swift */,
+				108E8AB41E7FE41D005C990F /* ContentBuffer+HashColor.swift */,
+				108E8AB21E7FE40A005C990F /* ContentBuffer.swift */,
+			);
+			path = ContentBuffer;
+			sourceTree = "<group>";
+		};
+		108E8ABD1E80061B005C990F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				108E8ABE1E800669005C990F /* SyncParticipantView.swift */,
+				108E8AC21E800744005C990F /* SyncParticipantView.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		10FFD36F1E7A8BA2003EEBCD /* Router */ = {
@@ -225,7 +279,7 @@
 			children = (
 				10FFD3701E7A8BD6003EEBCD /* Router.swift */,
 			);
-			name = Router;
+			path = Router;
 			sourceTree = "<group>";
 		};
 		22D3B5D2B7F7E2BE5890E97E /* Pods */ = {
@@ -337,7 +391,9 @@
 				105358881E782B0700908B74 /* LaunchScreen.storyboard in Resources */,
 				105358851E782B0700908B74 /* Assets.xcassets in Resources */,
 				105358931E782CB700908B74 /* MainViewController.xib in Resources */,
+				108E8AC31E800744005C990F /* SyncParticipantView.xib in Resources */,
 				1053589B1E782CEE00908B74 /* QRCodeScanViewController.xib in Resources */,
+				108E8AC11E80070F005C990F /* ConnectionViewController.xib in Resources */,
 				105358971E782CE200908B74 /* QRCodeDisplayViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,22 +465,31 @@
 				1053587E1E782B0700908B74 /* AppDelegate.swift in Sources */,
 				10897DA31E796E3F002D4C74 /* NSError+Errors.swift in Sources */,
 				10FFD36C1E7A8384003EEBCD /* QRDisplay.swift in Sources */,
+				108E8ABF1E800669005C990F /* SyncParticipantView.swift in Sources */,
 				10FFD3711E7A8BD6003EEBCD /* Router.swift in Sources */,
 				10564A821E7AF4F800A9D02B /* ClipboardProviderService.swift in Sources */,
+				108E8AB71E7FE70E005C990F /* CompositeContentBuffer.swift in Sources */,
 				105358961E782CE200908B74 /* QRCodeDisplayViewController.swift in Sources */,
 				1052D48A1E783467008B22EE /* Coordinator.swift in Sources */,
 				1052D48D1E7834E5008B22EE /* Utils.swift in Sources */,
+				108E8AC81E80142F005C990F /* IpAddress.swift in Sources */,
+				108E8AC51E800880005C990F /* NibLoading.swift in Sources */,
+				108E8ABB1E800260005C990F /* ConnectionViewController.swift in Sources */,
 				10FFD36E1E7A8B89003EEBCD /* BaseViewController.swift in Sources */,
+				105875951E7C0DF2005AA724 /* AppStateService.swift in Sources */,
 				10897DA51E79765C002D4C74 /* Closures.swift in Sources */,
 				10FFD36A1E7A82A9003EEBCD /* QRDisplayService.swift in Sources */,
 				10564A881E7AF71A00A9D02B /* ClipboardSyncClient.swift in Sources */,
 				105358921E782CB700908B74 /* MainViewController.swift in Sources */,
+				105875971E7C1389005AA724 /* AppState.swift in Sources */,
 				10564A861E7AF71000A9D02B /* ClipboardSyncClientService.swift in Sources */,
 				10897D8B1E795E5B002D4C74 /* SocketClientService.swift in Sources */,
 				1052D4881E78345D008B22EE /* MainCoordinator.swift in Sources */,
 				10897D8F1E7962D3002D4C74 /* SocketClient.swift in Sources */,
+				108E8AB51E7FE41D005C990F /* ContentBuffer+HashColor.swift in Sources */,
 				10897DA91E7999B5002D4C74 /* QRScanner.swift in Sources */,
 				10897DA11E796B4D002D4C74 /* URL+Helpers.swift in Sources */,
+				108E8AB31E7FE40A005C990F /* ContentBuffer.swift in Sources */,
 				1053589A1E782CEE00908B74 /* QRCodeScanViewController.swift in Sources */,
 				10564A801E7ADCD500A9D02B /* Repository.swift in Sources */,
 			);
@@ -435,6 +500,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10897D9F1E796B20002D4C74 /* URLHelpersTests.swift in Sources */,
+				108E8AB91E7FEF7E005C990F /* ContentBufferTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,6 +630,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cayugasoft.CLPBRD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/CLPBRD/BridgingHeader.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -579,6 +646,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cayugasoft.CLPBRD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/CLPBRD/BridgingHeader.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

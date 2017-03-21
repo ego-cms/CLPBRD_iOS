@@ -12,11 +12,15 @@ import Foundation
 final class ClipboardSyncClient: ClipboardSyncClientService {
     var clipboardProviderService: ClipboardProviderService
     var socketClientService: SocketClientService
-    init(clipboardProviderService: ClipboardProviderService, socketClientService: SocketClientService) {
+    var appStateService: AppStateService
+    var onDisconnected: (Error?) -> Void = { _ in }
+    
+    init(clipboardProviderService: ClipboardProviderService, socketClientService: SocketClientService, appStateService: AppStateService) {
         self.clipboardProviderService = clipboardProviderService
         self.socketClientService = socketClientService
+        self.appStateService = appStateService
         socketClientService.onConnected = { [unowned self] in
-            self.socketCliendServiceConnected()
+            self.socketClientServiceConnected()
         }
         
         socketClientService.onDisconnected = { [unowned self](error) in
@@ -30,15 +34,21 @@ final class ClipboardSyncClient: ClipboardSyncClientService {
         clipboardProviderService.onContentChanged = { [unowned self] in
             self.clipboardContentChanged()
         }
+        appStateService.onAppEnterForeground = { [unowned self] in
+            self.appEnteredForeground()
+        }
+        self.changeCount = clipboardProviderService.changeCount
     }
     
-    var onDisconnected: (Error?) -> Void = { _ in }
+    private var host: String?
+    private var lastReceivedText: String?
+    private var changeCount = 0
     
-    private var host: String = ""
-    private var lastReceivedText = ""
-    
-    private func socketCliendServiceConnected() {
-        print("Connected to \(host)")
+    private func socketClientServiceConnected() {
+        print("Connected to \(host!)")
+        if changeCount != clipboardProviderService.changeCount {
+            clipboardContentChanged()
+        }
     }
         
     private func received(text: String) {
@@ -46,21 +56,36 @@ final class ClipboardSyncClient: ClipboardSyncClientService {
             return
         }
         lastReceivedText = text
-        print("\(text) <- \(host)")
+      //  print("\(text) <- \(host!)")
         clipboardProviderService.content = text
     }
     
     private func clipboardContentChanged() {
-        guard let content = clipboardProviderService.content,
-            lastReceivedText != content else {
+        guard
+            let content = clipboardProviderService.content,
+            lastReceivedText != content
+        else {
             return
         }
-        print("\(content) -> \(host)")
+       // print("\(content) -> \(host!)")
+        changeCount = clipboardProviderService.changeCount
         socketClientService.send(text: content)
+    }
+    
+    private func appEnteredForeground() {
+        if let host = self.host {
+            connect(host: host)
+        }
     }
     
     func connect(host: String) {
         socketClientService.connect(host: host)
         self.host = host
+    }
+    
+    func disconnect() {
+        self.host = nil
+        self.lastReceivedText = nil
+        socketClientService.disconnect()
     }
 }

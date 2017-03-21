@@ -12,8 +12,10 @@ import Foundation
 protocol ClipboardSyncClientService: class {
     var clipboardProviderService: ClipboardProviderService { get set }
     var socketClientService: SocketClientService { get set }
-    init(clipboardProviderService: ClipboardProviderService, socketClientService: SocketClientService)
+    var appStateService: AppStateService { get set }
+    init(clipboardProviderService: ClipboardProviderService, socketClientService: SocketClientService, appStateService: AppStateService)
     
     var onDisconnected: (Error?) -> Void { get set }
-    func connect(host: String) 
+    func connect(host: String)
+    func disconnect()
 }
