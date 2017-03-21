@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		102F726C1E817BC300AFDDEB /* ParticipantViewCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102F726B1E817BC300AFDDEB /* ParticipantViewCalculations.swift */; };
 		1052D4881E78345D008B22EE /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1052D4871E78345D008B22EE /* MainCoordinator.swift */; };
 		1052D48A1E783467008B22EE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1052D4891E783467008B22EE /* Coordinator.swift */; };
 		1052D48D1E7834E5008B22EE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1052D48C1E7834E5008B22EE /* Utils.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		102F726B1E817BC300AFDDEB /* ParticipantViewCalculations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantViewCalculations.swift; sourceTree = "<group>"; };
 		1052D4871E78345D008B22EE /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		1052D4891E783467008B22EE /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		1052D48C1E7834E5008B22EE /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				10897DA01E796B4D002D4C74 /* URL+Helpers.swift */,
 				1052D48C1E7834E5008B22EE /* Utils.swift */,
 				108E8AC71E80142F005C990F /* IpAddress.swift */,
+				102F726B1E817BC300AFDDEB /* ParticipantViewCalculations.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 				10564A821E7AF4F800A9D02B /* ClipboardProviderService.swift in Sources */,
 				108E8AB71E7FE70E005C990F /* CompositeContentBuffer.swift in Sources */,
 				105358961E782CE200908B74 /* QRCodeDisplayViewController.swift in Sources */,
+				102F726C1E817BC300AFDDEB /* ParticipantViewCalculations.swift in Sources */,
 				1052D48A1E783467008B22EE /* Coordinator.swift in Sources */,
 				1052D48D1E7834E5008B22EE /* Utils.swift in Sources */,
 				108E8AC81E80142F005C990F /* IpAddress.swift in Sources */,

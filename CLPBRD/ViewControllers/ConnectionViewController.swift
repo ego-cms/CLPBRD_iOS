@@ -53,11 +53,16 @@ class ConnectionViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         localSyncParticipantView = SyncParticipantView.instantiateFromNib()
         remoteSyncParticipantView = SyncParticipantView.instantiateFromNib()
+        let panLocal = UIPanGestureRecognizer(target: self, action: #selector(panned(pan:)))
+        let panRemote = UIPanGestureRecognizer(target: self, action: #selector(panned(pan:)))
+        localSyncParticipantView.addGestureRecognizer(panLocal)
+        remoteSyncParticipantView.addGestureRecognizer(panRemote)
         view.addSubview(localSyncParticipantView)
         view.addSubview(remoteSyncParticipantView)
 
@@ -80,12 +85,13 @@ class ConnectionViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        localSyncParticipantView.frame = CGRect(x: 0, y: 0, width: 120, height: 120)
-        localSyncParticipantView.center = CGPoint(x: 160, y: 300)
-        remoteSyncParticipantView.frame = CGRect(x: 0, y: 500, width: 120, height: 120)
-        remoteSyncParticipantView.center = CGPoint(x: 160, y: 600)
         clipboardContentChanged()
         updateColors()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        (localSyncParticipantView.frame, remoteSyncParticipantView.frame) = participantViewFrames(in: view.bounds)
     }
     
     func enteredForeground() {
@@ -143,13 +149,60 @@ class ConnectionViewController: UIViewController {
         socketClientService.send(text: content)
     }
     
-    @IBAction func sendUpPressed(_ sender: Any) {
-        remoteBuffer.send(to: localBuffer)
+    func frame(for participantView: SyncParticipantView) -> CGRect {
+        let frames = participantViewFrames(in: view.bounds)
+        switch participantView {
+        case localSyncParticipantView: return frames.0
+        case remoteSyncParticipantView: return frames.1
+        default: fatalError()
+        }
     }
     
-
-    @IBAction func sendDownPressed(_ sender: Any) {
-        localBuffer.send(to: remoteBuffer)
+    func panned(pan: UIPanGestureRecognizer) {
+        guard let participantView = pan.view as? SyncParticipantView else { return }
+        let otherParticipantView = otherView(for: participantView)
+        switch pan.state {
+        case .began:
+            view.bringSubview(toFront: participantView)
+            break
+        case .changed:
+            let originalFrame = frame(for: participantView)
+            participantView.center.x = originalFrame.midX + pan.translation(in: view).x
+            participantView.center.y = originalFrame.midY + pan.translation(in: view).y
+            
+            otherParticipantView.set(selected: isFramesCloseEnough(frame1: otherParticipantView.frame, frame2: participantView.frame))
+        case .cancelled:
+            returnBack(participantView: participantView)
+        case .failed:
+            returnBack(participantView: participantView)
+        case .ended:
+            if otherParticipantView.isSelected {
+                let fromBuffer = buffer(for: participantView)
+                let toBuffer = buffer(for: otherParticipantView)
+                fromBuffer.send(to: toBuffer)
+            }
+            returnBack(participantView: participantView)
+        default: return
+        }
+    }
+    
+    func buffer(for participantView: SyncParticipantView) -> ContentBuffer {
+        switch participantView {
+        case localSyncParticipantView: return localBuffer
+        case remoteSyncParticipantView: return remoteBuffer
+        default: fatalError()
+        }
+    }
+    
+    func otherView(for participantView: SyncParticipantView) -> SyncParticipantView {
+        return participantView == localSyncParticipantView ? remoteSyncParticipantView : localSyncParticipantView
+    }
+    
+    func returnBack(participantView: SyncParticipantView) {
+        otherView(for: participantView).set(selected: false)
+        UIView.animate(withDuration: 0.25) { 
+            participantView.frame = self.frame(for: participantView)
+        }
     }
     
     deinit {

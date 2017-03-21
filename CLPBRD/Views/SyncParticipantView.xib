@@ -16,10 +16,10 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JgR-fj-hif">
-                    <rect key="frame" x="0.0" y="0.0" width="179" height="141"/>
+                    <rect key="frame" x="8" y="8" width="163" height="125"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLO-7o-hQv">
-                            <rect key="frame" x="68.5" y="60.5" width="42" height="21"/>
+                            <rect key="frame" x="60.5" y="52.5" width="42" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -34,10 +34,10 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="JgR-fj-hif" secondAttribute="bottom" id="QFY-RX-07S"/>
-                <constraint firstItem="JgR-fj-hif" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cYx-3t-PZQ"/>
-                <constraint firstItem="JgR-fj-hif" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="d4u-zI-5iC"/>
-                <constraint firstItem="JgR-fj-hif" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="m0r-Wh-KbH"/>
+                <constraint firstAttribute="bottom" secondItem="JgR-fj-hif" secondAttribute="bottom" constant="8" id="QFY-RX-07S"/>
+                <constraint firstItem="JgR-fj-hif" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="cYx-3t-PZQ"/>
+                <constraint firstItem="JgR-fj-hif" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="d4u-zI-5iC"/>
+                <constraint firstItem="JgR-fj-hif" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" constant="-8" id="m0r-Wh-KbH"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
