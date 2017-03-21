@@ -30,8 +30,8 @@ class SyncParticipant {
 
 
 class ConnectionViewController: UIViewController {
-    var localSyncParticipant: SyncParticipant!
-    var remoteSyncParticipant: SyncParticipant!
+//    var localSyncParticipant: SyncParticipant!
+//    var remoteSyncParticipant: SyncParticipant!
     
     var localSyncParticipantView: SyncParticipantView!
     var remoteSyncParticipantView: SyncParticipantView!
@@ -39,6 +39,9 @@ class ConnectionViewController: UIViewController {
     let socketClientService: SocketClientService
     let clipboardProviderService: ClipboardProviderService
     let host: String
+    
+    let localBuffer = ContentBuffer()
+    let remoteBuffer = ContentBuffer()
     
     init(hostRepository: Repository<String>, socketClientService: SocketClientService, clipboardProviderService: ClipboardProviderService) {
         self.socketClientService = socketClientService
@@ -55,13 +58,9 @@ class ConnectionViewController: UIViewController {
         super.viewDidLoad()
         localSyncParticipantView = SyncParticipantView.instantiateFromNib()
         remoteSyncParticipantView = SyncParticipantView.instantiateFromNib()
-        localSyncParticipantView.frame = CGRect(x: 0, y: 0, width: 120, height: 120)
-        remoteSyncParticipantView.frame = CGRect(x: 0, y: 0, width: 120, height: 120)
-        localSyncParticipantView.center = CGPoint(x: 150, y: 300)
-        remoteSyncParticipantView.center = CGPoint(x: 150, y: 500)
         view.addSubview(localSyncParticipantView)
         view.addSubview(remoteSyncParticipantView)
-        print(getIFAddresses())
+
         socketClientService.connect(host: host)
         socketClientService.onConnected = { [weak self] in
             self?.socketServiceConnected()
@@ -69,6 +68,30 @@ class ConnectionViewController: UIViewController {
         socketClientService.onReceivedText = { [weak self](text) in
             self?.receivedText(text: text)
         }
+        localBuffer.content = clipboardProviderService.content
+        clipboardProviderService.onContentChanged = { [weak self] in
+            self?.clipboardContentChanged()
+        }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(enteredForeground), name: Notification.Name.UIApplicationWillEnterForeground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(localBufferUpdated), name: ContentBuffer.changeNotificationName, object: localBuffer)
+        NotificationCenter.default.addObserver(self, selector: #selector(remoteBufferUpdated), name: ContentBuffer.changeNotificationName, object: remoteBuffer)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        localSyncParticipantView.frame = CGRect(x: 0, y: 0, width: 120, height: 120)
+        localSyncParticipantView.center = CGPoint(x: 160, y: 300)
+        remoteSyncParticipantView.frame = CGRect(x: 0, y: 500, width: 120, height: 120)
+        remoteSyncParticipantView.center = CGPoint(x: 160, y: 600)
+        clipboardContentChanged()
+        updateColors()
+    }
+    
+    func enteredForeground() {
+        socketClientService.connect(host: host)
+        clipboardContentChanged()
+        updateColors()
     }
     
     func socketServiceConnected() {
@@ -80,61 +103,53 @@ class ConnectionViewController: UIViewController {
     }
     
     func connectParticipants() {
-        let localBuffer = ContentBuffer()
-        let remoteBuffer = ContentBuffer()
-        localSyncParticipantView.hostAddressLabel.text = getLocalIpAddress()
-        remoteSyncParticipantView.hostAddressLabel.text = host
-        remoteSyncParticipant = SyncParticipant(buffer: remoteBuffer, host: host)
-        localSyncParticipant = SyncParticipant(buffer: localBuffer, host: getLocalIpAddress() ?? "")
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(localBufferUpdated), name: ContentBuffer.changeNotificationName, object: localBuffer)
-        NotificationCenter.default.addObserver(self, selector: #selector(remoteBufferUpdated), name: ContentBuffer.changeNotificationName, object: remoteBuffer)
-        localBuffer.content = clipboardProviderService.content
-        clipboardProviderService.onContentChanged = { [weak self] in
-            self?.clipboardContentChanged()
-        }
+        localSyncParticipantView.host = getLocalIpAddress()
+        remoteSyncParticipantView.host = host
     }
     
     func receivedText(text: String) {
-        if remoteSyncParticipant.buffer.content != text {
-            remoteSyncParticipant.buffer.content = text
+        if remoteBuffer.content != text {
+            remoteBuffer.content = text
+        }
+    }
+    
+    func participantView(for buffer: ContentBuffer) -> SyncParticipantView {
+        switch buffer {
+        case localBuffer: return localSyncParticipantView
+        case remoteBuffer: return remoteSyncParticipantView
+        default: fatalError("Unknown buffer \(buffer)")
         }
     }
     
     func clipboardContentChanged() {
-        if clipboardProviderService.content != localSyncParticipant.buffer.content {
-            localSyncParticipant.buffer.content = clipboardProviderService.content
+        if clipboardProviderService.content != localBuffer.content {
+            localBuffer.content = clipboardProviderService.content
         }
+    }
+    
+    func updateColors() {
+        localSyncParticipantView.set(color: localBuffer.hashColor, animated: false)
+        remoteSyncParticipantView.set(color: remoteBuffer.hashColor, animated: false)
     }
     
     func localBufferUpdated() {
-        UIView.animate(withDuration: 0.25) {
-            self.localSyncParticipantView?.container.backgroundColor = self.localSyncParticipant.buffer.hashColor
-        }
-        clipboardProviderService.content = self.localSyncParticipant.buffer.content
+        localSyncParticipantView.set(color: localBuffer.hashColor)
+        clipboardProviderService.content = localBuffer.content
     }
     
     func remoteBufferUpdated() {
-        UIView.animate(withDuration: 0.25) {
-            self.remoteSyncParticipantView?.container.backgroundColor = self.remoteSyncParticipant.buffer.hashColor
-        }
-        
-        guard let content = self.remoteSyncParticipant.buffer.content else { return }
+        remoteSyncParticipantView.set(color: remoteBuffer.hashColor)
+        guard let content = remoteBuffer.content else { return }
         socketClientService.send(text: content)
     }
     
-    func bufferUpdated(notification: Notification) {
-        guard let buffer = notification.object as? ContentBuffer else {
-            return
-        }
-        let isLocalBuffer = buffer == localSyncParticipant.buffer
-        let participantView = isLocalBuffer ? localSyncParticipantView : remoteSyncParticipantView
-        if isLocalBuffer {
-            
-        }
-        UIView.animate(withDuration: 0.25) { 
-            participantView?.container.backgroundColor = buffer.hashColor
-        }
+    @IBAction func sendUpPressed(_ sender: Any) {
+        remoteBuffer.send(to: localBuffer)
+    }
+    
+
+    @IBAction func sendDownPressed(_ sender: Any) {
+        localBuffer.send(to: remoteBuffer)
     }
     
     deinit {
