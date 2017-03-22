@@ -28,12 +28,12 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6uY-gt-EnV">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vj5-yt-Leu" customClass="RoundButton" customModule="CLPBRD" customModuleProvider="target">
-                            <rect key="frame" x="186" y="408" width="70" height="70"/>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2X-Sh-RPE" customClass="RoundButton" customModule="CLPBRD" customModuleProvider="target">
+                            <rect key="frame" x="236" y="277" width="131" height="133"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Scan QR"/>
+                            <state key="normal" title="On/off"/>
                             <connections>
-                                <action selector="scanQRPressed:" destination="-1" eventType="touchUpInside" id="Qi1-1r-SFp"/>
+                                <action selector="togglePressed:" destination="-1" eventType="touchUpInside" id="58i-jE-gjW"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JU5-7L-oZS">
@@ -91,12 +91,12 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2X-Sh-RPE" customClass="RoundButton" customModule="CLPBRD" customModuleProvider="target">
-                            <rect key="frame" x="236" y="277" width="131" height="133"/>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vj5-yt-Leu" customClass="RoundButton" customModule="CLPBRD" customModuleProvider="target">
+                            <rect key="frame" x="204" y="398" width="89" height="89"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="On/off"/>
+                            <state key="normal" image="qr_code"/>
                             <connections>
-                                <action selector="togglePressed:" destination="-1" eventType="touchUpInside" id="58i-jE-gjW"/>
+                                <action selector="scanQRPressed:" destination="-1" eventType="touchUpInside" id="Qi1-1r-SFp"/>
                             </connections>
                         </button>
                     </subviews>
@@ -119,5 +119,6 @@
     </objects>
     <resources>
         <image name="background" width="180" height="320"/>
+        <image name="qr_code" width="46" height="46"/>
     </resources>
 </document>
