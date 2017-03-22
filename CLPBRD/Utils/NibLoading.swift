@@ -1,11 +1,3 @@
-//
-//  NibLoading.swift
-//  BabbleStash
-//
-//  Created by Александр Долоз on 05.01.17.
-//  Copyright © 2017 Cayugasoft LLC. All rights reserved.
-//
-
 import UIKit
 
 

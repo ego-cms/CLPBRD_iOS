@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		102F726C1E817BC300AFDDEB /* ParticipantViewCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102F726B1E817BC300AFDDEB /* ParticipantViewCalculations.swift */; };
+		104EC00B1E829F8500C42D68 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104EC00A1E829F8500C42D68 /* UIColor+Hex.swift */; };
+		104EC00E1E829FB700C42D68 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104EC00D1E829FB700C42D68 /* Colors.swift */; };
+		104EC0121E82A1E400C42D68 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104EC0111E82A1E400C42D68 /* RoundButton.swift */; };
 		1052D4881E78345D008B22EE /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1052D4871E78345D008B22EE /* MainCoordinator.swift */; };
 		1052D48A1E783467008B22EE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1052D4891E783467008B22EE /* Coordinator.swift */; };
 		1052D48D1E7834E5008B22EE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1052D48C1E7834E5008B22EE /* Utils.swift */; };
@@ -64,6 +67,9 @@
 
 /* Begin PBXFileReference section */
 		102F726B1E817BC300AFDDEB /* ParticipantViewCalculations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantViewCalculations.swift; sourceTree = "<group>"; };
+		104EC00A1E829F8500C42D68 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		104EC00D1E829FB700C42D68 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		104EC0111E82A1E400C42D68 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		1052D4871E78345D008B22EE /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		1052D4891E783467008B22EE /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		1052D48C1E7834E5008B22EE /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -134,6 +140,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		104EC00C1E829FAC00C42D68 /* Styling */ = {
+			isa = PBXGroup;
+			children = (
+				104EC00D1E829FB700C42D68 /* Colors.swift */,
+			);
+			name = Styling;
+			sourceTree = "<group>";
+		};
 		1052D4861E783436008B22EE /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +160,7 @@
 		1052D48B1E7834DA008B22EE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				104EC00A1E829F8500C42D68 /* UIColor+Hex.swift */,
 				108E8AC41E800880005C990F /* NibLoading.swift */,
 				10897DA41E79765C002D4C74 /* Closures.swift */,
 				10897DA21E796E3F002D4C74 /* NSError+Errors.swift */,
@@ -180,6 +195,7 @@
 		1053587C1E782B0700908B74 /* CLPBRD */ = {
 			isa = PBXGroup;
 			children = (
+				104EC00C1E829FAC00C42D68 /* Styling */,
 				108E8AB11E7FE36F005C990F /* ContentBuffer */,
 				1052D4861E783436008B22EE /* Coordinators */,
 				10564A7E1E7ADCC200A9D02B /* Repositories */,
@@ -273,6 +289,7 @@
 			children = (
 				108E8ABE1E800669005C990F /* SyncParticipantView.swift */,
 				108E8AC21E800744005C990F /* SyncParticipantView.xib */,
+				104EC0111E82A1E400C42D68 /* RoundButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -484,6 +501,8 @@
 				10897DA51E79765C002D4C74 /* Closures.swift in Sources */,
 				10FFD36A1E7A82A9003EEBCD /* QRDisplayService.swift in Sources */,
 				10564A881E7AF71A00A9D02B /* ClipboardSyncClient.swift in Sources */,
+				104EC00B1E829F8500C42D68 /* UIColor+Hex.swift in Sources */,
+				104EC0121E82A1E400C42D68 /* RoundButton.swift in Sources */,
 				105358921E782CB700908B74 /* MainViewController.swift in Sources */,
 				105875971E7C1389005AA724 /* AppState.swift in Sources */,
 				10564A861E7AF71000A9D02B /* ClipboardSyncClientService.swift in Sources */,
@@ -493,6 +512,7 @@
 				108E8AB51E7FE41D005C990F /* ContentBuffer+HashColor.swift in Sources */,
 				10897DA91E7999B5002D4C74 /* QRScanner.swift in Sources */,
 				10897DA11E796B4D002D4C74 /* URL+Helpers.swift in Sources */,
+				104EC00E1E829FB700C42D68 /* Colors.swift in Sources */,
 				108E8AB31E7FE40A005C990F /* ContentBuffer.swift in Sources */,
 				1053589A1E782CEE00908B74 /* QRCodeScanViewController.swift in Sources */,
 				10564A801E7ADCD500A9D02B /* Repository.swift in Sources */,

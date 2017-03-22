@@ -15,8 +15,8 @@ protocol MainViewControllerDelegate: class {
 }
 
 class MainViewController: UIViewController {
-    @IBOutlet weak var toggleButton: UIButton!
-    @IBOutlet weak var scanQRButton: UIButton!
+    @IBOutlet weak var toggleButton: RoundButton!
+    @IBOutlet weak var scanQRButton: RoundButton!
     @IBOutlet weak var showQRButton: UIButton!
     
     weak var delegate: MainViewControllerDelegate?
@@ -47,6 +47,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         definesPresentationContext = true
+        scanQRButton.highlightColor = Colors.scanQRButtonHighlighted.color
+        scanQRButton.normalColor = Colors.scanQRButtonNormal.color
 //        clipboardSyncClientService.connect(host: "192.168.0.113")
         
 //        clipboardSyncClientService.onDisconnected = { [unowned self](error) in
