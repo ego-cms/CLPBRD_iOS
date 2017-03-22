@@ -6,11 +6,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="CLPBRD" customModuleProvider="target">
             <connections>
+                <outlet property="logo" destination="6ug-WF-NiQ" id="DRD-4m-mwx"/>
                 <outlet property="scanQRButton" destination="vj5-yt-Leu" id="RdL-P4-jVx"/>
                 <outlet property="showQRButton" destination="6Gy-iI-4jb" id="PMD-qn-auC"/>
                 <outlet property="toggleButton" destination="N2X-Sh-RPE" id="pUs-b5-ctQ"/>
@@ -28,79 +30,149 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6uY-gt-EnV">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2X-Sh-RPE" customClass="RoundButton" customModule="CLPBRD" customModuleProvider="target">
-                            <rect key="frame" x="236" y="277" width="131" height="133"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="On/off"/>
-                            <connections>
-                                <action selector="togglePressed:" destination="-1" eventType="touchUpInside" id="58i-jE-gjW"/>
-                            </connections>
-                        </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JU5-7L-oZS">
-                            <rect key="frame" x="154" y="486" width="42" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JCz-0D-jHv">
+                            <rect key="frame" x="0.0" y="220.5" width="375" height="226.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2X-Sh-RPE" customClass="RoundButton" customModule="CLPBRD" customModuleProvider="target">
+                                    <rect key="frame" x="189" y="0.0" width="159" height="151"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="32"/>
+                                    <state key="normal" title="ВКЛ.">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="togglePressed:" destination="-1" eventType="touchUpInside" id="58i-jE-gjW"/>
+                                    </connections>
+                                </button>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hUc-GY-Aac">
+                                    <rect key="frame" x="0.0" y="135.5" width="375" height="91"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="http://192.168.0.121:8080" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JU5-7L-oZS">
+                                            <rect key="frame" x="143" y="26" width="196" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Gy-iI-4jb">
+                                            <rect key="frame" x="8" y="32" width="18" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="qr_code"/>
+                                            <connections>
+                                                <action selector="showQRPressed:" destination="-1" eventType="touchUpInside" id="JGg-mk-T0W"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Используйте этот адрес в браузере, чтобы соединиться" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTB-tJ-fRt">
+                                            <rect key="frame" x="143" y="50" width="224" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ce8-X0-hgZ">
+                                            <rect key="frame" x="34" y="28" width="24" height="27"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="91" id="OYP-sD-e88"/>
+                                    </constraints>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vj5-yt-Leu" customClass="RoundButton" customModule="CLPBRD" customModuleProvider="target">
+                                    <rect key="frame" x="168" y="96" width="89" height="89"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="qr_code"/>
+                                    <connections>
+                                        <action selector="scanQRPressed:" destination="-1" eventType="touchUpInside" id="Qi1-1r-SFp"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="hUc-GY-Aac" firstAttribute="leading" secondItem="JCz-0D-jHv" secondAttribute="leading" id="FAq-gA-NVN"/>
+                                <constraint firstAttribute="bottom" secondItem="hUc-GY-Aac" secondAttribute="bottom" id="Lms-4v-QjZ"/>
+                                <constraint firstAttribute="trailing" secondItem="hUc-GY-Aac" secondAttribute="trailing" id="bKw-Jm-hkA"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WFd-30-85D">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="213.5"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_clpbrd" translatesAutoresizingMaskIntoConstraints="NO" id="6ug-WF-NiQ">
+                                    <rect key="frame" x="81.5" y="24" width="212" height="84"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="6ug-WF-NiQ" secondAttribute="height" multiplier="53:21" id="KRa-5j-GSm"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Отправляйте содержимое буфера обмена Вашего устройства на ПК или другое устройство, просто включив сервис" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S31-Y3-gKb">
+                                    <rect key="frame" x="17.5" y="124" width="340.5" height="81.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="6ug-WF-NiQ" firstAttribute="centerX" secondItem="WFd-30-85D" secondAttribute="centerX" id="D52-WS-2iT"/>
+                                <constraint firstItem="S31-Y3-gKb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WFd-30-85D" secondAttribute="leading" constant="16" id="PTU-kX-FFM"/>
+                                <constraint firstItem="S31-Y3-gKb" firstAttribute="centerX" secondItem="WFd-30-85D" secondAttribute="centerX" id="Q1Q-cQ-z51"/>
+                                <constraint firstItem="6ug-WF-NiQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WFd-30-85D" secondAttribute="leading" constant="80" id="YEd-CE-ZGi"/>
+                                <constraint firstItem="6ug-WF-NiQ" firstAttribute="top" secondItem="WFd-30-85D" secondAttribute="top" constant="24" id="dcS-OC-eLG"/>
+                                <constraint firstAttribute="bottom" secondItem="S31-Y3-gKb" secondAttribute="bottom" constant="8" id="f00-4s-ho8"/>
+                                <constraint firstItem="S31-Y3-gKb" firstAttribute="top" secondItem="6ug-WF-NiQ" secondAttribute="bottom" constant="16" id="tnB-Ug-9Ag"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="YEd-CE-ZGi"/>
+                                </mask>
+                            </variation>
+                        </view>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="sFI-2c-TZ5">
+                            <rect key="frame" x="77" y="603" width="222" height="64"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сделано с любовью в" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCA-HL-jiY">
+                                    <rect key="frame" x="0.0" y="22" width="174" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YNv-kX-ULU">
+                                    <rect key="frame" x="190" y="16" width="32" height="32"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="32" id="jef-HZ-eSR"/>
+                                        <constraint firstAttribute="width" constant="32" id="saf-IY-9Xp"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="64" id="dCM-4Q-iqo"/>
+                            </constraints>
+                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ИЛИ сканируйте QR-код на другом устройстве" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJF-zJ-ZmU">
+                            <rect key="frame" x="88.5" y="463" width="197.5" height="41"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJF-zJ-ZmU">
-                            <rect key="frame" x="154" y="515" width="42" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ce8-X0-hgZ">
-                            <rect key="frame" x="102" y="480" width="44" height="43"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Gy-iI-4jb">
-                            <rect key="frame" x="31" y="486" width="63" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Show QR"/>
-                            <connections>
-                                <action selector="showQRPressed:" destination="-1" eventType="touchUpInside" id="JGg-mk-T0W"/>
-                            </connections>
-                        </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YNv-kX-ULU">
-                            <rect key="frame" x="242" y="603" width="70" height="56"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Отправляйте содержимое буфера обмена Вашего устройства на ПК или другое устройство, просто включив сервис" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S31-Y3-gKb">
-                            <rect key="frame" x="17" y="94" width="341" height="137"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ug-WF-NiQ">
-                            <rect key="frame" x="81" y="19" width="212" height="67"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6YS-Bg-rdP">
-                            <rect key="frame" x="242" y="211" width="42" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Сделано с любовью в" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCA-HL-jiY">
-                            <rect key="frame" x="46" y="621" width="177" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vj5-yt-Leu" customClass="RoundButton" customModule="CLPBRD" customModuleProvider="target">
-                            <rect key="frame" x="204" y="398" width="89" height="89"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" image="qr_code"/>
-                            <connections>
-                                <action selector="scanQRPressed:" destination="-1" eventType="touchUpInside" id="Qi1-1r-SFp"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tJF-zJ-ZmU" secondAttribute="trailing" constant="16" id="2Qa-kg-dnE"/>
+                        <constraint firstItem="WFd-30-85D" firstAttribute="centerX" secondItem="6uY-gt-EnV" secondAttribute="centerX" id="BbD-bv-YRS"/>
+                        <constraint firstItem="JCz-0D-jHv" firstAttribute="centerY" secondItem="6uY-gt-EnV" secondAttribute="centerY" id="JJV-nM-AdW"/>
+                        <constraint firstItem="sFI-2c-TZ5" firstAttribute="centerX" secondItem="6uY-gt-EnV" secondAttribute="centerX" id="KFa-tq-lyR"/>
+                        <constraint firstItem="WFd-30-85D" firstAttribute="top" secondItem="6uY-gt-EnV" secondAttribute="top" id="M1a-O6-cAa"/>
+                        <constraint firstItem="JCz-0D-jHv" firstAttribute="bottom" secondItem="tJF-zJ-ZmU" secondAttribute="top" constant="-16" id="M1h-7B-Hm0"/>
+                        <constraint firstItem="JCz-0D-jHv" firstAttribute="leading" secondItem="6uY-gt-EnV" secondAttribute="leading" id="QXR-Vl-o2V"/>
+                        <constraint firstItem="WFd-30-85D" firstAttribute="leading" secondItem="6uY-gt-EnV" secondAttribute="leading" id="U67-td-xRE"/>
+                        <constraint firstItem="JCz-0D-jHv" firstAttribute="top" secondItem="WFd-30-85D" secondAttribute="bottom" constant="7" id="UCu-po-4Xu"/>
+                        <constraint firstAttribute="bottom" secondItem="sFI-2c-TZ5" secondAttribute="bottom" id="a4M-jE-dwM"/>
+                        <constraint firstAttribute="trailing" secondItem="JCz-0D-jHv" secondAttribute="trailing" id="kiZ-Co-4HY"/>
+                        <constraint firstItem="sFI-2c-TZ5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="tJF-zJ-ZmU" secondAttribute="bottom" constant="8" id="lea-VU-LHu"/>
+                        <constraint firstItem="JCz-0D-jHv" firstAttribute="centerX" secondItem="6uY-gt-EnV" secondAttribute="centerX" id="qpY-1L-Mtx"/>
+                        <constraint firstItem="tJF-zJ-ZmU" firstAttribute="centerX" secondItem="6uY-gt-EnV" secondAttribute="centerX" id="rHL-Y0-YVs"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -114,11 +186,12 @@
                 <constraint firstItem="6uY-gt-EnV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="rB1-cv-Tz0"/>
                 <constraint firstAttribute="trailing" secondItem="6uY-gt-EnV" secondAttribute="trailing" id="raE-vx-GU7"/>
             </constraints>
-            <point key="canvasLocation" x="24.5" y="51.5"/>
+            <point key="canvasLocation" x="-24.5" y="228.5"/>
         </view>
     </objects>
     <resources>
         <image name="background" width="180" height="320"/>
+        <image name="logo_clpbrd" width="204" height="84"/>
         <image name="qr_code" width="46" height="46"/>
     </resources>
 </document>

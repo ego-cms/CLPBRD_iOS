@@ -7,10 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		102109011E82F74500170229 /* ButtonGroupLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102109001E82F74500170229 /* ButtonGroupLayer.swift */; };
 		102F726C1E817BC300AFDDEB /* ParticipantViewCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102F726B1E817BC300AFDDEB /* ParticipantViewCalculations.swift */; };
 		104EC00B1E829F8500C42D68 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104EC00A1E829F8500C42D68 /* UIColor+Hex.swift */; };
 		104EC00E1E829FB700C42D68 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104EC00D1E829FB700C42D68 /* Colors.swift */; };
 		104EC0121E82A1E400C42D68 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104EC0111E82A1E400C42D68 /* RoundButton.swift */; };
+		104EC0141E82A6E800C42D68 /* EnvelopePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104EC0131E82A6E800C42D68 /* EnvelopePath.swift */; };
+		104EC0171E82ABF200C42D68 /* buttons_expanded.svg in Resources */ = {isa = PBXBuildFile; fileRef = 104EC0161E82ABF200C42D68 /* buttons_expanded.svg */; };
+		104EC0191E82AC0F00C42D68 /* buttons_collapsed.svg in Resources */ = {isa = PBXBuildFile; fileRef = 104EC0181E82AC0F00C42D68 /* buttons_collapsed.svg */; };
+		104EC01B1E82B06400C42D68 /* buttons_expanded.path in Resources */ = {isa = PBXBuildFile; fileRef = 104EC01A1E82B06400C42D68 /* buttons_expanded.path */; };
+		104EC01D1E82B0AF00C42D68 /* SVGPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104EC01C1E82B0AF00C42D68 /* SVGPath.swift */; };
+		104EC01F1E82B31500C42D68 /* buttons_collapsed.path in Resources */ = {isa = PBXBuildFile; fileRef = 104EC01E1E82B31500C42D68 /* buttons_collapsed.path */; };
 		1052D4881E78345D008B22EE /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1052D4871E78345D008B22EE /* MainCoordinator.swift */; };
 		1052D48A1E783467008B22EE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1052D4891E783467008B22EE /* Coordinator.swift */; };
 		1052D48D1E7834E5008B22EE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1052D48C1E7834E5008B22EE /* Utils.swift */; };
@@ -66,10 +73,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		102109001E82F74500170229 /* ButtonGroupLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonGroupLayer.swift; sourceTree = "<group>"; };
 		102F726B1E817BC300AFDDEB /* ParticipantViewCalculations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantViewCalculations.swift; sourceTree = "<group>"; };
 		104EC00A1E829F8500C42D68 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		104EC00D1E829FB700C42D68 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		104EC0111E82A1E400C42D68 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		104EC0131E82A6E800C42D68 /* EnvelopePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvelopePath.swift; sourceTree = "<group>"; };
+		104EC0161E82ABF200C42D68 /* buttons_expanded.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = buttons_expanded.svg; sourceTree = "<group>"; };
+		104EC0181E82AC0F00C42D68 /* buttons_collapsed.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = buttons_collapsed.svg; sourceTree = "<group>"; };
+		104EC01A1E82B06400C42D68 /* buttons_expanded.path */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = buttons_expanded.path; sourceTree = "<group>"; };
+		104EC01C1E82B0AF00C42D68 /* SVGPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGPath.swift; sourceTree = "<group>"; };
+		104EC01E1E82B31500C42D68 /* buttons_collapsed.path */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = buttons_collapsed.path; sourceTree = "<group>"; };
 		1052D4871E78345D008B22EE /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		1052D4891E783467008B22EE /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		1052D48C1E7834E5008B22EE /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -148,6 +162,17 @@
 			name = Styling;
 			sourceTree = "<group>";
 		};
+		104EC0151E82ABD500C42D68 /* SVG */ = {
+			isa = PBXGroup;
+			children = (
+				104EC0161E82ABF200C42D68 /* buttons_expanded.svg */,
+				104EC0181E82AC0F00C42D68 /* buttons_collapsed.svg */,
+				104EC01A1E82B06400C42D68 /* buttons_expanded.path */,
+				104EC01E1E82B31500C42D68 /* buttons_collapsed.path */,
+			);
+			name = SVG;
+			sourceTree = "<group>";
+		};
 		1052D4861E783436008B22EE /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +193,8 @@
 				1052D48C1E7834E5008B22EE /* Utils.swift */,
 				108E8AC71E80142F005C990F /* IpAddress.swift */,
 				102F726B1E817BC300AFDDEB /* ParticipantViewCalculations.swift */,
+				104EC01C1E82B0AF00C42D68 /* SVGPath.swift */,
+				102109001E82F74500170229 /* ButtonGroupLayer.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -230,6 +257,7 @@
 		1053589C1E782DAD00908B74 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				104EC0151E82ABD500C42D68 /* SVG */,
 				105358841E782B0700908B74 /* Assets.xcassets */,
 				105358891E782B0700908B74 /* Info.plist */,
 				105358861E782B0700908B74 /* LaunchScreen.storyboard */,
@@ -290,6 +318,7 @@
 				108E8ABE1E800669005C990F /* SyncParticipantView.swift */,
 				108E8AC21E800744005C990F /* SyncParticipantView.xib */,
 				104EC0111E82A1E400C42D68 /* RoundButton.swift */,
+				104EC0131E82A6E800C42D68 /* EnvelopePath.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -408,13 +437,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				104EC0191E82AC0F00C42D68 /* buttons_collapsed.svg in Resources */,
 				105358881E782B0700908B74 /* LaunchScreen.storyboard in Resources */,
 				105358851E782B0700908B74 /* Assets.xcassets in Resources */,
 				105358931E782CB700908B74 /* MainViewController.xib in Resources */,
 				108E8AC31E800744005C990F /* SyncParticipantView.xib in Resources */,
+				104EC01F1E82B31500C42D68 /* buttons_collapsed.path in Resources */,
+				104EC01B1E82B06400C42D68 /* buttons_expanded.path in Resources */,
 				1053589B1E782CEE00908B74 /* QRCodeScanViewController.xib in Resources */,
 				108E8AC11E80070F005C990F /* ConnectionViewController.xib in Resources */,
 				105358971E782CE200908B74 /* QRCodeDisplayViewController.xib in Resources */,
+				104EC0171E82ABF200C42D68 /* buttons_expanded.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +520,7 @@
 				10FFD36C1E7A8384003EEBCD /* QRDisplay.swift in Sources */,
 				108E8ABF1E800669005C990F /* SyncParticipantView.swift in Sources */,
 				10FFD3711E7A8BD6003EEBCD /* Router.swift in Sources */,
+				104EC0141E82A6E800C42D68 /* EnvelopePath.swift in Sources */,
 				10564A821E7AF4F800A9D02B /* ClipboardProviderService.swift in Sources */,
 				108E8AB71E7FE70E005C990F /* CompositeContentBuffer.swift in Sources */,
 				105358961E782CE200908B74 /* QRCodeDisplayViewController.swift in Sources */,
@@ -503,9 +537,11 @@
 				10564A881E7AF71A00A9D02B /* ClipboardSyncClient.swift in Sources */,
 				104EC00B1E829F8500C42D68 /* UIColor+Hex.swift in Sources */,
 				104EC0121E82A1E400C42D68 /* RoundButton.swift in Sources */,
+				102109011E82F74500170229 /* ButtonGroupLayer.swift in Sources */,
 				105358921E782CB700908B74 /* MainViewController.swift in Sources */,
 				105875971E7C1389005AA724 /* AppState.swift in Sources */,
 				10564A861E7AF71000A9D02B /* ClipboardSyncClientService.swift in Sources */,
+				104EC01D1E82B0AF00C42D68 /* SVGPath.swift in Sources */,
 				10897D8B1E795E5B002D4C74 /* SocketClientService.swift in Sources */,
 				1052D4881E78345D008B22EE /* MainCoordinator.swift in Sources */,
 				10897D8F1E7962D3002D4C74 /* SocketClient.swift in Sources */,
