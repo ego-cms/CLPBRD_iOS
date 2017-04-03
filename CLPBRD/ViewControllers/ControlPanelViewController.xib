@@ -14,8 +14,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ControlPanelViewController" customModule="CLPBRD" customModuleProvider="target">
             <connections>
+                <outlet property="buttonBackgroundOffDummy" destination="95D-lH-uK1" id="6Or-C6-93Z"/>
+                <outlet property="buttonBackgroundOnDummy" destination="eu3-Tj-mgr" id="G8Y-r1-EaT"/>
                 <outlet property="scanQRButton" destination="swE-1u-jA5" id="Grh-HR-bsk"/>
+                <outlet property="scanQROffDummy" destination="T9m-Zi-Bdp" id="HVK-1B-Z8R"/>
+                <outlet property="scanQROnDummy" destination="vVn-ja-VBD" id="IqZ-Ps-7yL"/>
                 <outlet property="toggleButton" destination="O3t-vk-fGA" id="FrC-J5-Bmv"/>
+                <outlet property="toggleOffDummy" destination="Y2p-UC-KdD" id="WGU-Nq-Ygm"/>
+                <outlet property="toggleOnDummy" destination="Pdc-7l-u8g" id="txb-eP-Klu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -64,7 +70,7 @@
                     <rect key="frame" x="34" y="219" width="24" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="95D-lH-uK1" userLabel="Buttons Background">
+                <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="95D-lH-uK1" userLabel="Buttons Background">
                     <rect key="frame" x="270" y="20" width="415" height="514"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iw5-7a-PD4">
