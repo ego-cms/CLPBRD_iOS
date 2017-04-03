@@ -12,10 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="CLPBRD" customModuleProvider="target">
             <connections>
+                <outlet property="controlPanelContainer" destination="JCz-0D-jHv" id="UFh-lq-jkj"/>
                 <outlet property="logo" destination="6ug-WF-NiQ" id="DRD-4m-mwx"/>
-                <outlet property="scanQRButton" destination="vj5-yt-Leu" id="RdL-P4-jVx"/>
-                <outlet property="showQRButton" destination="6Gy-iI-4jb" id="PMD-qn-auC"/>
-                <outlet property="toggleButton" destination="N2X-Sh-RPE" id="pUs-b5-ctQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -32,68 +30,7 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JCz-0D-jHv">
                             <rect key="frame" x="0.0" y="220.5" width="375" height="226.5"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2X-Sh-RPE" customClass="RoundButton" customModule="CLPBRD" customModuleProvider="target">
-                                    <rect key="frame" x="189" y="0.0" width="159" height="151"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="32"/>
-                                    <state key="normal" title="ВКЛ.">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="togglePressed:" destination="-1" eventType="touchUpInside" id="58i-jE-gjW"/>
-                                    </connections>
-                                </button>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hUc-GY-Aac">
-                                    <rect key="frame" x="0.0" y="135.5" width="375" height="91"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="http://192.168.0.121:8080" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JU5-7L-oZS">
-                                            <rect key="frame" x="143" y="26" width="196" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Gy-iI-4jb">
-                                            <rect key="frame" x="8" y="32" width="18" height="19"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" image="qr_code"/>
-                                            <connections>
-                                                <action selector="showQRPressed:" destination="-1" eventType="touchUpInside" id="JGg-mk-T0W"/>
-                                            </connections>
-                                        </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Используйте этот адрес в браузере, чтобы соединиться" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTB-tJ-fRt">
-                                            <rect key="frame" x="143" y="50" width="224" height="33"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ce8-X0-hgZ">
-                                            <rect key="frame" x="34" y="28" width="24" height="27"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="91" id="OYP-sD-e88"/>
-                                    </constraints>
-                                </view>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vj5-yt-Leu" customClass="RoundButton" customModule="CLPBRD" customModuleProvider="target">
-                                    <rect key="frame" x="168" y="96" width="89" height="89"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" image="qr_code"/>
-                                    <connections>
-                                        <action selector="scanQRPressed:" destination="-1" eventType="touchUpInside" id="Qi1-1r-SFp"/>
-                                    </connections>
-                                </button>
-                            </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstItem="hUc-GY-Aac" firstAttribute="leading" secondItem="JCz-0D-jHv" secondAttribute="leading" id="FAq-gA-NVN"/>
-                                <constraint firstAttribute="bottom" secondItem="hUc-GY-Aac" secondAttribute="bottom" id="Lms-4v-QjZ"/>
-                                <constraint firstAttribute="trailing" secondItem="hUc-GY-Aac" secondAttribute="trailing" id="bKw-Jm-hkA"/>
-                            </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WFd-30-85D">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="213.5"/>
@@ -192,6 +129,5 @@
     <resources>
         <image name="background" width="180" height="320"/>
         <image name="logo_clpbrd" width="204" height="84"/>
-        <image name="qr_code" width="46" height="46"/>
     </resources>
 </document>

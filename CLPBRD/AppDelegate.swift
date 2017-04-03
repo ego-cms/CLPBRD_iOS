@@ -23,8 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     lazy var appContainer: Container = {
         let container = Container()
+        container.register(ControlPanelViewController.self) { _ in
+            ControlPanelViewController()
+        }
         container.register(MainViewController.self) { r in
-            MainViewController(clipboardSyncClientService: r.resolve(ClipboardSyncClientService.self)!)
+            MainViewController(
+                controlPanelViewController: r.resolve(ControlPanelViewController.self)!,
+                clipboardSyncClientService: r.resolve(ClipboardSyncClientService.self)!
+            )
         }
         container.register(Coordinator.self) { [unowned container](_) in
             MainCoordinator(container: container)

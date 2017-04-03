@@ -55,6 +55,9 @@
 		108E8AC31E800744005C990F /* SyncParticipantView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 108E8AC21E800744005C990F /* SyncParticipantView.xib */; };
 		108E8AC51E800880005C990F /* NibLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8AC41E800880005C990F /* NibLoading.swift */; };
 		108E8AC81E80142F005C990F /* IpAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8AC71E80142F005C990F /* IpAddress.swift */; };
+		10A3396E1E924089004ECFCD /* ButtonBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A3396D1E924089004ECFCD /* ButtonBackgroundView.swift */; };
+		10A339711E9256B3004ECFCD /* ControlPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A3396F1E9256B3004ECFCD /* ControlPanelViewController.swift */; };
+		10A339721E9256B3004ECFCD /* ControlPanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10A339701E9256B3004ECFCD /* ControlPanelViewController.xib */; };
 		10FFD36A1E7A82A9003EEBCD /* QRDisplayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FFD3691E7A82A9003EEBCD /* QRDisplayService.swift */; };
 		10FFD36C1E7A8384003EEBCD /* QRDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FFD36B1E7A8384003EEBCD /* QRDisplay.swift */; };
 		10FFD36E1E7A8B89003EEBCD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FFD36D1E7A8B89003EEBCD /* BaseViewController.swift */; };
@@ -126,6 +129,9 @@
 		108E8AC41E800880005C990F /* NibLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoading.swift; sourceTree = "<group>"; };
 		108E8AC61E8013A6005C990F /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		108E8AC71E80142F005C990F /* IpAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IpAddress.swift; sourceTree = "<group>"; };
+		10A3396D1E924089004ECFCD /* ButtonBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonBackgroundView.swift; sourceTree = "<group>"; };
+		10A3396F1E9256B3004ECFCD /* ControlPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlPanelViewController.swift; sourceTree = "<group>"; };
+		10A339701E9256B3004ECFCD /* ControlPanelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ControlPanelViewController.xib; sourceTree = "<group>"; };
 		10FFD3691E7A82A9003EEBCD /* QRDisplayService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRDisplayService.swift; sourceTree = "<group>"; };
 		10FFD36B1E7A8384003EEBCD /* QRDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRDisplay.swift; sourceTree = "<group>"; };
 		10FFD36D1E7A8B89003EEBCD /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -250,6 +256,8 @@
 				105358951E782CE200908B74 /* QRCodeDisplayViewController.xib */,
 				105358981E782CEE00908B74 /* QRCodeScanViewController.swift */,
 				105358991E782CEE00908B74 /* QRCodeScanViewController.xib */,
+				10A3396F1E9256B3004ECFCD /* ControlPanelViewController.swift */,
+				10A339701E9256B3004ECFCD /* ControlPanelViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -319,6 +327,7 @@
 				108E8AC21E800744005C990F /* SyncParticipantView.xib */,
 				104EC0111E82A1E400C42D68 /* RoundButton.swift */,
 				104EC0131E82A6E800C42D68 /* EnvelopePath.swift */,
+				10A3396D1E924089004ECFCD /* ButtonBackgroundView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -448,6 +457,7 @@
 				108E8AC11E80070F005C990F /* ConnectionViewController.xib in Resources */,
 				105358971E782CE200908B74 /* QRCodeDisplayViewController.xib in Resources */,
 				104EC0171E82ABF200C42D68 /* buttons_expanded.svg in Resources */,
+				10A339721E9256B3004ECFCD /* ControlPanelViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,9 +559,11 @@
 				10897DA91E7999B5002D4C74 /* QRScanner.swift in Sources */,
 				10897DA11E796B4D002D4C74 /* URL+Helpers.swift in Sources */,
 				104EC00E1E829FB700C42D68 /* Colors.swift in Sources */,
+				10A3396E1E924089004ECFCD /* ButtonBackgroundView.swift in Sources */,
 				108E8AB31E7FE40A005C990F /* ContentBuffer.swift in Sources */,
 				1053589A1E782CEE00908B74 /* QRCodeScanViewController.swift in Sources */,
 				10564A801E7ADCD500A9D02B /* Repository.swift in Sources */,
+				10A339711E9256B3004ECFCD /* ControlPanelViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
