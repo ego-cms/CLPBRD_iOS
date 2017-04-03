@@ -18,16 +18,18 @@ protocol ControlPanelViewControllerDelegate: class {
 }
 
 
+func loadAndTranslatePath(fileName: String) -> UIBezierPath {
+    let path = loadSVG(from: fileName)
+    let origin = path.bounds.origin
+    let transform = CGAffineTransform(translationX: -origin.x, y: -origin.y)
+    path.apply(transform)
+    return path
+}
+
+
 class ControlPanelViewController: UIViewController {
-    var expandedPath = loadSVG(from: "buttons_expanded")
-    var collapsedPath = loadSVG(from: "buttons_collapsed")
-  /*  var inset: CGFloat = 16.0
-    var smallCircleRatio: CGFloat = 0.256 // ratio of small circle radius of shape to width of shape
-    var bigCircleRatio: CGFloat = 0.45 // ratio of big circle radius of shape to width of shape
-    var shapeRatio: CGFloat = 0.806 // width / height
-    var buttonRatio: CGFloat = 0.75 // radius of buttons / radius of shape
- 
- */
+    lazy var expandedPath: UIBezierPath = loadAndTranslatePath(fileName: "buttons_expanded")
+    lazy var collapsedPath: UIBezierPath = loadAndTranslatePath(fileName: "buttons_collapsed")
     var animationDuration = 0.5
     
     private(set) var state: State = .off
@@ -48,7 +50,8 @@ class ControlPanelViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        buttonBackgroundOffDummy.isHidden = true
+//        buttonBackgroundOffDummy.isHidden = true
+        view.sendSubview(toBack: buttonBackgroundOffDummy)
         //buttonBackgroundLayer.anchorPoint = CGPoint.zero
         scanQRButton.highlightColor = Colors.scanQRButtonHighlighted.color
         scanQRButton.normalColor = Colors.scanQRButtonNormal.color
@@ -61,6 +64,15 @@ class ControlPanelViewController: UIViewController {
         super.viewWillAppear(animated)
         resizePaths()
         updateState(to: .off, animated: false)
+        CATransaction.begin()
+        //    CATransaction.setAnimationDuration(duration)
+        CATransaction.setDisableActions(true)
+        buttonBackgroundLayer.path = buttonBackgroundLayerPath(for: state).cgPath
+        //buttonBackgroundLayer.position = buttonBackgroundLayerFrame(for: state).center
+        buttonBackgroundLayer.frame = buttonBackgroundLayerFrame(for: state)
+        buttonBackgroundLayer.fillColor = buttonBackgroundLayerColor(for: state).cgColor
+        //        buttonBackgroundLayer.frame = buttonBackgroundLayerFrame(for: state)
+        CATransaction.commit()
     }
     
     override func viewDidLayoutSubviews() {
@@ -127,7 +139,7 @@ class ControlPanelViewController: UIViewController {
     }
     
     func dummyFrame(dummy: UIView) -> CGRect {
-        return dummy.convert(dummy.frame, to: self.view)
+        return dummy.superview!.convert(dummy.frame, to: self.view)
         
         //(dummy.frame, : self.view)
     }
@@ -189,15 +201,7 @@ class ControlPanelViewController: UIViewController {
             self.scanQRButton.alpha = self.qrButtonAlpha(for: state)
         }
 
-        CATransaction.begin()
-    //    CATransaction.setAnimationDuration(duration)
-        CATransaction.setDisableActions(true)
-        buttonBackgroundLayer.path = buttonBackgroundLayerPath(for: state).cgPath
-        //buttonBackgroundLayer.position = buttonBackgroundLayerFrame(for: state).center
-        buttonBackgroundLayer.frame = buttonBackgroundLayerFrame(for: state)
-        buttonBackgroundLayer.fillColor = buttonBackgroundLayerColor(for: state).cgColor
-//        buttonBackgroundLayer.frame = buttonBackgroundLayerFrame(for: state)
-        CATransaction.commit()
+
         
         let morphing = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.path))
         //morphing.fromValue = buttonBackgroundLayerPath(for: self.state)
@@ -220,7 +224,7 @@ class ControlPanelViewController: UIViewController {
         move.toValue = NSValue(cgPoint: buttonBackgroundLayerFrame(for: state).center)
         move.beginTime = CACurrentMediaTime() + duration
         move.duration = duration
-        //buttonBackgroundLayer.add(move, forKey: "move")
+        buttonBackgroundLayer.add(move, forKey: "move")
         UIView.animate(withDuration: duration, delay: duration, options: [], animations: { 
             self.toggleButton.frame = self.toggleButtonFrame(for: state)
         }, completion: nil)
