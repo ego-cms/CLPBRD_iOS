@@ -59,13 +59,15 @@ class ControlPanelViewController: UIViewController {
         super.viewDidLoad()
         view.sendSubview(toBack: scanQRButton)
         view.sendSubview(toBack: buttonBackgroundOffDummy)
-        buttonBackgroundLayer.isHidden = true
+//        buttonBackgroundLayer.isHidden = true
+        buttonBackgroundOffDummy.isHidden = true
         //buttonBackgroundLayer.anchorPoint = CGPoint.zero
         scanQRButton.highlightColor = Colors.scanQRButtonHighlighted.color
         scanQRButton.normalColor = Colors.scanQRButtonNormal.color
         toggleButton.highlightColor = Colors.toggleButtonOffHighlighted.color
         toggleButton.normalColor = Colors.toggleButtonOffNormal.color
         view.layer.addSublayer(buttonBackgroundLayer)
+        buttonBackgroundLayer.zPosition = -1.0
         buttonBackgroundLayer.anchorPoint = CGPoint(x: 1.0, y: 0.0)
         updateContainerVisibility()
     }

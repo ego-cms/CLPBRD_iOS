@@ -16,6 +16,8 @@ class RoundButton: UIButton {
         super.layoutSubviews()
         layer.cornerRadius = min(frame.width, frame.height) * 0.5
         updateBackgroundColor()
+        imageView?.contentMode = .scaleAspectFit
+        setImage(imageView?.image, for: .normal)
     }
     
     override var isHighlighted: Bool {
