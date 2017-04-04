@@ -32,7 +32,11 @@ class ControlPanelViewController: UIViewController {
     lazy var collapsedPath: UIBezierPath = loadAndTranslatePath(fileName: "buttons_collapsed")
     var animationDuration = 0.25//5.0
     
-    private(set) var state: State = .off
+    private(set) var state: State = .off {
+        didSet {
+            updateContainerVisibility()
+        }
+    }
     
     @IBOutlet weak var toggleButton: RoundButton!
     @IBOutlet weak var scanQRButton: RoundButton!
@@ -45,6 +49,9 @@ class ControlPanelViewController: UIViewController {
     @IBOutlet weak var toggleOffDummy: UIView!
     @IBOutlet weak var toggleOnDummy: UIView!
     
+    @IBOutlet weak var serverInfoContainer: UIView!
+    @IBOutlet weak var serverAddressLabel: UILabel!
+    @IBOutlet weak var offInfoContainer: UIView!
     
     weak var delegate: ControlPanelViewControllerDelegate?
     
@@ -60,6 +67,7 @@ class ControlPanelViewController: UIViewController {
         toggleButton.normalColor = Colors.toggleButtonOffNormal.color
         view.layer.addSublayer(buttonBackgroundLayer)
         buttonBackgroundLayer.anchorPoint = CGPoint(x: 1.0, y: 0.0)
+        updateContainerVisibility()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,6 +84,15 @@ class ControlPanelViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         resizePaths()
+    }
+    
+    func updateContainerVisibility() {
+        let visible = state == .off ? offInfoContainer : serverInfoContainer
+        let invisible = state != .off ? offInfoContainer : serverInfoContainer
+        UIView.animate(withDuration: animationDuration) { 
+            visible?.alpha = 1.0
+            invisible?.alpha = 0.0
+        }
     }
     
     func setupButtons() {

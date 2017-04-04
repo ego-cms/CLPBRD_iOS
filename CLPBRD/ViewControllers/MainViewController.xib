@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,7 +29,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JCz-0D-jHv">
-                            <rect key="frame" x="0.0" y="220.5" width="375" height="226.5"/>
+                            <rect key="frame" x="0.0" y="220.5" width="375" height="366.5"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WFd-30-85D">
@@ -86,29 +86,19 @@
                                 <constraint firstAttribute="height" constant="64" id="dCM-4Q-iqo"/>
                             </constraints>
                         </stackView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ИЛИ сканируйте QR-код на другом устройстве" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJF-zJ-ZmU">
-                            <rect key="frame" x="88.5" y="463" width="197.5" height="41"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tJF-zJ-ZmU" secondAttribute="trailing" constant="16" id="2Qa-kg-dnE"/>
                         <constraint firstItem="WFd-30-85D" firstAttribute="centerX" secondItem="6uY-gt-EnV" secondAttribute="centerX" id="BbD-bv-YRS"/>
-                        <constraint firstItem="JCz-0D-jHv" firstAttribute="centerY" secondItem="6uY-gt-EnV" secondAttribute="centerY" id="JJV-nM-AdW"/>
                         <constraint firstItem="sFI-2c-TZ5" firstAttribute="centerX" secondItem="6uY-gt-EnV" secondAttribute="centerX" id="KFa-tq-lyR"/>
                         <constraint firstItem="WFd-30-85D" firstAttribute="top" secondItem="6uY-gt-EnV" secondAttribute="top" id="M1a-O6-cAa"/>
-                        <constraint firstItem="JCz-0D-jHv" firstAttribute="bottom" secondItem="tJF-zJ-ZmU" secondAttribute="top" constant="-16" id="M1h-7B-Hm0"/>
                         <constraint firstItem="JCz-0D-jHv" firstAttribute="leading" secondItem="6uY-gt-EnV" secondAttribute="leading" id="QXR-Vl-o2V"/>
                         <constraint firstItem="WFd-30-85D" firstAttribute="leading" secondItem="6uY-gt-EnV" secondAttribute="leading" id="U67-td-xRE"/>
                         <constraint firstItem="JCz-0D-jHv" firstAttribute="top" secondItem="WFd-30-85D" secondAttribute="bottom" constant="7" id="UCu-po-4Xu"/>
                         <constraint firstAttribute="bottom" secondItem="sFI-2c-TZ5" secondAttribute="bottom" id="a4M-jE-dwM"/>
                         <constraint firstAttribute="trailing" secondItem="JCz-0D-jHv" secondAttribute="trailing" id="kiZ-Co-4HY"/>
-                        <constraint firstItem="sFI-2c-TZ5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="tJF-zJ-ZmU" secondAttribute="bottom" constant="8" id="lea-VU-LHu"/>
+                        <constraint firstItem="sFI-2c-TZ5" firstAttribute="top" secondItem="JCz-0D-jHv" secondAttribute="bottom" constant="16" id="o4Q-gO-umE"/>
                         <constraint firstItem="JCz-0D-jHv" firstAttribute="centerX" secondItem="6uY-gt-EnV" secondAttribute="centerX" id="qpY-1L-Mtx"/>
-                        <constraint firstItem="tJF-zJ-ZmU" firstAttribute="centerX" secondItem="6uY-gt-EnV" secondAttribute="centerX" id="rHL-Y0-YVs"/>
                     </constraints>
                 </view>
             </subviews>
