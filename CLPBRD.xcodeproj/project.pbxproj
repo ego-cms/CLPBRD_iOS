@@ -7,19 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		102109011E82F74500170229 /* ButtonGroupLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102109001E82F74500170229 /* ButtonGroupLayer.swift */; };
-		102F726C1E817BC300AFDDEB /* ParticipantViewCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102F726B1E817BC300AFDDEB /* ParticipantViewCalculations.swift */; };
 		104EC00B1E829F8500C42D68 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104EC00A1E829F8500C42D68 /* UIColor+Hex.swift */; };
 		104EC00E1E829FB700C42D68 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104EC00D1E829FB700C42D68 /* Colors.swift */; };
 		104EC0121E82A1E400C42D68 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104EC0111E82A1E400C42D68 /* RoundButton.swift */; };
-		104EC0141E82A6E800C42D68 /* EnvelopePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104EC0131E82A6E800C42D68 /* EnvelopePath.swift */; };
-		104EC0171E82ABF200C42D68 /* buttons_expanded.svg in Resources */ = {isa = PBXBuildFile; fileRef = 104EC0161E82ABF200C42D68 /* buttons_expanded.svg */; };
-		104EC0191E82AC0F00C42D68 /* buttons_collapsed.svg in Resources */ = {isa = PBXBuildFile; fileRef = 104EC0181E82AC0F00C42D68 /* buttons_collapsed.svg */; };
 		104EC01B1E82B06400C42D68 /* buttons_expanded.path in Resources */ = {isa = PBXBuildFile; fileRef = 104EC01A1E82B06400C42D68 /* buttons_expanded.path */; };
 		104EC01D1E82B0AF00C42D68 /* SVGPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104EC01C1E82B0AF00C42D68 /* SVGPath.swift */; };
 		104EC01F1E82B31500C42D68 /* buttons_collapsed.path in Resources */ = {isa = PBXBuildFile; fileRef = 104EC01E1E82B31500C42D68 /* buttons_collapsed.path */; };
-		1052D4881E78345D008B22EE /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1052D4871E78345D008B22EE /* MainCoordinator.swift */; };
-		1052D48A1E783467008B22EE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1052D4891E783467008B22EE /* Coordinator.swift */; };
 		1052D48D1E7834E5008B22EE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1052D48C1E7834E5008B22EE /* Utils.swift */; };
 		1053587E1E782B0700908B74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1053587D1E782B0700908B74 /* AppDelegate.swift */; };
 		105358851E782B0700908B74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 105358841E782B0700908B74 /* Assets.xcassets */; };
@@ -30,11 +23,8 @@
 		105358971E782CE200908B74 /* QRCodeDisplayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 105358951E782CE200908B74 /* QRCodeDisplayViewController.xib */; };
 		1053589A1E782CEE00908B74 /* QRCodeScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105358981E782CEE00908B74 /* QRCodeScanViewController.swift */; };
 		1053589B1E782CEE00908B74 /* QRCodeScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 105358991E782CEE00908B74 /* QRCodeScanViewController.xib */; };
-		10564A801E7ADCD500A9D02B /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10564A7F1E7ADCD500A9D02B /* Repository.swift */; };
 		10564A821E7AF4F800A9D02B /* ClipboardProviderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10564A811E7AF4F700A9D02B /* ClipboardProviderService.swift */; };
 		10564A841E7AF56800A9D02B /* ClipboardProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10564A831E7AF56800A9D02B /* ClipboardProvider.swift */; };
-		10564A861E7AF71000A9D02B /* ClipboardSyncClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10564A851E7AF71000A9D02B /* ClipboardSyncClientService.swift */; };
-		10564A881E7AF71A00A9D02B /* ClipboardSyncClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10564A871E7AF71A00A9D02B /* ClipboardSyncClient.swift */; };
 		105875951E7C0DF2005AA724 /* AppStateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105875941E7C0DF2005AA724 /* AppStateService.swift */; };
 		105875971E7C1389005AA724 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105875961E7C1389005AA724 /* AppState.swift */; };
 		106C86B01E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C86AF1E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift */; };
@@ -47,23 +37,15 @@
 		10897DA51E79765C002D4C74 /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897DA41E79765C002D4C74 /* Closures.swift */; };
 		10897DA71E7999A9002D4C74 /* QRScannerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897DA61E7999A9002D4C74 /* QRScannerService.swift */; };
 		10897DA91E7999B5002D4C74 /* QRScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897DA81E7999B5002D4C74 /* QRScanner.swift */; };
-		108E8AB31E7FE40A005C990F /* ContentBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8AB21E7FE40A005C990F /* ContentBuffer.swift */; };
-		108E8AB51E7FE41D005C990F /* ContentBuffer+HashColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8AB41E7FE41D005C990F /* ContentBuffer+HashColor.swift */; };
-		108E8AB71E7FE70E005C990F /* CompositeContentBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8AB61E7FE70E005C990F /* CompositeContentBuffer.swift */; };
+		108D74A71E95313B000A09E5 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108D74A61E95313B000A09E5 /* DIContainer.swift */; };
+		108D74A91E95344D000A09E5 /* SVGHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108D74A81E95344D000A09E5 /* SVGHelpers.swift */; };
 		108E8AB91E7FEF7E005C990F /* ContentBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8AB81E7FEF7E005C990F /* ContentBufferTests.swift */; };
-		108E8ABB1E800260005C990F /* ConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8ABA1E800260005C990F /* ConnectionViewController.swift */; };
-		108E8ABF1E800669005C990F /* SyncParticipantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8ABE1E800669005C990F /* SyncParticipantView.swift */; };
-		108E8AC11E80070F005C990F /* ConnectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 108E8AC01E80070F005C990F /* ConnectionViewController.xib */; };
-		108E8AC31E800744005C990F /* SyncParticipantView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 108E8AC21E800744005C990F /* SyncParticipantView.xib */; };
 		108E8AC51E800880005C990F /* NibLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8AC41E800880005C990F /* NibLoading.swift */; };
 		108E8AC81E80142F005C990F /* IpAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8AC71E80142F005C990F /* IpAddress.swift */; };
-		10A3396E1E924089004ECFCD /* ButtonBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A3396D1E924089004ECFCD /* ButtonBackgroundView.swift */; };
 		10A339711E9256B3004ECFCD /* ControlPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A3396F1E9256B3004ECFCD /* ControlPanelViewController.swift */; };
 		10A339721E9256B3004ECFCD /* ControlPanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10A339701E9256B3004ECFCD /* ControlPanelViewController.xib */; };
 		10FFD36A1E7A82A9003EEBCD /* QRDisplayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FFD3691E7A82A9003EEBCD /* QRDisplayService.swift */; };
 		10FFD36C1E7A8384003EEBCD /* QRDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FFD36B1E7A8384003EEBCD /* QRDisplay.swift */; };
-		10FFD36E1E7A8B89003EEBCD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FFD36D1E7A8B89003EEBCD /* BaseViewController.swift */; };
-		10FFD3711E7A8BD6003EEBCD /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FFD3701E7A8BD6003EEBCD /* Router.swift */; };
 		C1F58269AA86D5878A85A1BA /* Pods_CLPBRD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 252F2C9F91B28DA3F225C625 /* Pods_CLPBRD.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,68 +60,50 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		102109001E82F74500170229 /* ButtonGroupLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonGroupLayer.swift; sourceTree = "<group>"; };
-		102F726B1E817BC300AFDDEB /* ParticipantViewCalculations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantViewCalculations.swift; sourceTree = "<group>"; };
 		104EC00A1E829F8500C42D68 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
-		104EC00D1E829FB700C42D68 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		104EC00D1E829FB700C42D68 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Colors.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		104EC0111E82A1E400C42D68 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
-		104EC0131E82A6E800C42D68 /* EnvelopePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvelopePath.swift; sourceTree = "<group>"; };
-		104EC0161E82ABF200C42D68 /* buttons_expanded.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = buttons_expanded.svg; sourceTree = "<group>"; };
-		104EC0181E82AC0F00C42D68 /* buttons_collapsed.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = buttons_collapsed.svg; sourceTree = "<group>"; };
 		104EC01A1E82B06400C42D68 /* buttons_expanded.path */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = buttons_expanded.path; sourceTree = "<group>"; };
 		104EC01C1E82B0AF00C42D68 /* SVGPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGPath.swift; sourceTree = "<group>"; };
 		104EC01E1E82B31500C42D68 /* buttons_collapsed.path */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = buttons_collapsed.path; sourceTree = "<group>"; };
-		1052D4871E78345D008B22EE /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
-		1052D4891E783467008B22EE /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		1052D48C1E7834E5008B22EE /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		1053587A1E782B0700908B74 /* CLPBRD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CLPBRD.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1053587D1E782B0700908B74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1053587D1E782B0700908B74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		105358841E782B0700908B74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		105358871E782B0700908B74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		105358891E782B0700908B74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		105358901E782CB700908B74 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		105358901E782CB700908B74 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MainViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		105358911E782CB700908B74 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		105358941E782CE200908B74 /* QRCodeDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeDisplayViewController.swift; sourceTree = "<group>"; };
 		105358951E782CE200908B74 /* QRCodeDisplayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRCodeDisplayViewController.xib; sourceTree = "<group>"; };
 		105358981E782CEE00908B74 /* QRCodeScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeScanViewController.swift; sourceTree = "<group>"; };
 		105358991E782CEE00908B74 /* QRCodeScanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRCodeScanViewController.xib; sourceTree = "<group>"; };
-		10564A7F1E7ADCD500A9D02B /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
-		10564A811E7AF4F700A9D02B /* ClipboardProviderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipboardProviderService.swift; sourceTree = "<group>"; };
-		10564A831E7AF56800A9D02B /* ClipboardProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipboardProvider.swift; sourceTree = "<group>"; };
-		10564A851E7AF71000A9D02B /* ClipboardSyncClientService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipboardSyncClientService.swift; sourceTree = "<group>"; };
-		10564A871E7AF71A00A9D02B /* ClipboardSyncClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipboardSyncClient.swift; sourceTree = "<group>"; };
-		105875941E7C0DF2005AA724 /* AppStateService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStateService.swift; sourceTree = "<group>"; };
-		105875961E7C1389005AA724 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		106C86AF1E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceOrientationToVideoOrientation.swift; sourceTree = "<group>"; };
-		106C86B11E950614004107EE /* CGRect+Center.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Center.swift"; sourceTree = "<group>"; };
+		10564A811E7AF4F700A9D02B /* ClipboardProviderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ClipboardProviderService.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		10564A831E7AF56800A9D02B /* ClipboardProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ClipboardProvider.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		105875941E7C0DF2005AA724 /* AppStateService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppStateService.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		105875961E7C1389005AA724 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppState.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		106C86AF1E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DeviceOrientationToVideoOrientation.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		106C86B11E950614004107EE /* CGRect+Center.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "CGRect+Center.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		10897D8A1E795E5B002D4C74 /* SocketClientService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketClientService.swift; sourceTree = "<group>"; };
 		10897D8E1E7962D3002D4C74 /* SocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketClient.swift; sourceTree = "<group>"; };
 		10897D941E796AE9002D4C74 /* CLPBRDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CLPBRDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		10897D981E796AE9002D4C74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10897D9E1E796B20002D4C74 /* URLHelpersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLHelpersTests.swift; sourceTree = "<group>"; };
 		10897DA01E796B4D002D4C74 /* URL+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Helpers.swift"; sourceTree = "<group>"; };
-		10897DA21E796E3F002D4C74 /* NSError+Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSError+Errors.swift"; sourceTree = "<group>"; };
-		10897DA41E79765C002D4C74 /* Closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Closures.swift; sourceTree = "<group>"; };
+		10897DA21E796E3F002D4C74 /* NSError+Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "NSError+Errors.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		10897DA41E79765C002D4C74 /* Closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Closures.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		10897DA61E7999A9002D4C74 /* QRScannerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerService.swift; sourceTree = "<group>"; };
 		10897DA81E7999B5002D4C74 /* QRScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanner.swift; sourceTree = "<group>"; };
-		108E8AB21E7FE40A005C990F /* ContentBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBuffer.swift; sourceTree = "<group>"; };
-		108E8AB41E7FE41D005C990F /* ContentBuffer+HashColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ContentBuffer+HashColor.swift"; sourceTree = "<group>"; };
-		108E8AB61E7FE70E005C990F /* CompositeContentBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositeContentBuffer.swift; sourceTree = "<group>"; };
-		108E8AB81E7FEF7E005C990F /* ContentBufferTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBufferTests.swift; sourceTree = "<group>"; };
-		108E8ABA1E800260005C990F /* ConnectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionViewController.swift; sourceTree = "<group>"; };
-		108E8ABE1E800669005C990F /* SyncParticipantView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncParticipantView.swift; sourceTree = "<group>"; };
-		108E8AC01E80070F005C990F /* ConnectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectionViewController.xib; sourceTree = "<group>"; };
-		108E8AC21E800744005C990F /* SyncParticipantView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SyncParticipantView.xib; sourceTree = "<group>"; };
+		108D74A61E95313B000A09E5 /* DIContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		108D74A81E95344D000A09E5 /* SVGHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGHelpers.swift; sourceTree = "<group>"; };
+		108E8AB81E7FEF7E005C990F /* ContentBufferTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ContentBufferTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		108E8AC41E800880005C990F /* NibLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoading.swift; sourceTree = "<group>"; };
-		108E8AC61E8013A6005C990F /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
-		108E8AC71E80142F005C990F /* IpAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IpAddress.swift; sourceTree = "<group>"; };
-		10A3396D1E924089004ECFCD /* ButtonBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonBackgroundView.swift; sourceTree = "<group>"; };
-		10A3396F1E9256B3004ECFCD /* ControlPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlPanelViewController.swift; sourceTree = "<group>"; };
+		108E8AC61E8013A6005C990F /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BridgingHeader.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		108E8AC71E80142F005C990F /* IpAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = IpAddress.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		10A3396F1E9256B3004ECFCD /* ControlPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ControlPanelViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		10A339701E9256B3004ECFCD /* ControlPanelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ControlPanelViewController.xib; sourceTree = "<group>"; };
 		10FFD3691E7A82A9003EEBCD /* QRDisplayService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRDisplayService.swift; sourceTree = "<group>"; };
 		10FFD36B1E7A8384003EEBCD /* QRDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRDisplay.swift; sourceTree = "<group>"; };
-		10FFD36D1E7A8B89003EEBCD /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		10FFD3701E7A8BD6003EEBCD /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		1918E0CF43F359538E369317 /* Pods-CLPBRD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLPBRD.release.xcconfig"; path = "Pods/Target Support Files/Pods-CLPBRD/Pods-CLPBRD.release.xcconfig"; sourceTree = "<group>"; };
 		252F2C9F91B28DA3F225C625 /* Pods_CLPBRD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CLPBRD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E3AF3898465611661472682 /* Pods-CLPBRD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLPBRD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CLPBRD/Pods-CLPBRD.debug.xcconfig"; sourceTree = "<group>"; };
@@ -170,43 +134,33 @@
 				104EC00D1E829FB700C42D68 /* Colors.swift */,
 			);
 			name = Styling;
+			path = Styling;
 			sourceTree = "<group>";
 		};
 		104EC0151E82ABD500C42D68 /* SVG */ = {
 			isa = PBXGroup;
 			children = (
-				104EC0161E82ABF200C42D68 /* buttons_expanded.svg */,
-				104EC0181E82AC0F00C42D68 /* buttons_collapsed.svg */,
-				104EC01A1E82B06400C42D68 /* buttons_expanded.path */,
 				104EC01E1E82B31500C42D68 /* buttons_collapsed.path */,
+				104EC01A1E82B06400C42D68 /* buttons_expanded.path */,
 			);
 			name = SVG;
-			sourceTree = "<group>";
-		};
-		1052D4861E783436008B22EE /* Coordinators */ = {
-			isa = PBXGroup;
-			children = (
-				1052D4891E783467008B22EE /* Coordinator.swift */,
-				1052D4871E78345D008B22EE /* MainCoordinator.swift */,
-			);
-			path = Coordinators;
+			path = SVG;
 			sourceTree = "<group>";
 		};
 		1052D48B1E7834DA008B22EE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				104EC00A1E829F8500C42D68 /* UIColor+Hex.swift */,
-				108E8AC41E800880005C990F /* NibLoading.swift */,
+				106C86B11E950614004107EE /* CGRect+Center.swift */,
 				10897DA41E79765C002D4C74 /* Closures.swift */,
+				106C86AF1E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift */,
+				108E8AC71E80142F005C990F /* IpAddress.swift */,
 				10897DA21E796E3F002D4C74 /* NSError+Errors.swift */,
+				108E8AC41E800880005C990F /* NibLoading.swift */,
+				108D74A81E95344D000A09E5 /* SVGHelpers.swift */,
+				104EC01C1E82B0AF00C42D68 /* SVGPath.swift */,
+				104EC00A1E829F8500C42D68 /* UIColor+Hex.swift */,
 				10897DA01E796B4D002D4C74 /* URL+Helpers.swift */,
 				1052D48C1E7834E5008B22EE /* Utils.swift */,
-				108E8AC71E80142F005C990F /* IpAddress.swift */,
-				102F726B1E817BC300AFDDEB /* ParticipantViewCalculations.swift */,
-				104EC01C1E82B0AF00C42D68 /* SVGPath.swift */,
-				102109001E82F74500170229 /* ButtonGroupLayer.swift */,
-				106C86AF1E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift */,
-				106C86B11E950614004107EE /* CGRect+Center.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -234,18 +188,15 @@
 		1053587C1E782B0700908B74 /* CLPBRD */ = {
 			isa = PBXGroup;
 			children = (
-				104EC00C1E829FAC00C42D68 /* Styling */,
-				108E8AB11E7FE36F005C990F /* ContentBuffer */,
-				1052D4861E783436008B22EE /* Coordinators */,
-				10564A7E1E7ADCC200A9D02B /* Repositories */,
 				1053589C1E782DAD00908B74 /* Resources */,
-				10FFD36F1E7A8BA2003EEBCD /* Router */,
 				10897D891E795DFF002D4C74 /* Services */,
+				104EC00C1E829FAC00C42D68 /* Styling */,
 				1052D48B1E7834DA008B22EE /* Utils */,
 				1053588F1E782C4D00908B74 /* ViewControllers */,
 				108E8ABD1E80061B005C990F /* Views */,
 				1053587D1E782B0700908B74 /* AppDelegate.swift */,
 				108E8AC61E8013A6005C990F /* BridgingHeader.h */,
+				108D74A61E95313B000A09E5 /* DIContainer.swift */,
 			);
 			path = CLPBRD;
 			sourceTree = "<group>";
@@ -253,17 +204,9 @@
 		1053588F1E782C4D00908B74 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				10FFD36D1E7A8B89003EEBCD /* BaseViewController.swift */,
-				108E8ABA1E800260005C990F /* ConnectionViewController.swift */,
-				108E8AC01E80070F005C990F /* ConnectionViewController.xib */,
-				105358901E782CB700908B74 /* MainViewController.swift */,
-				105358911E782CB700908B74 /* MainViewController.xib */,
-				105358941E782CE200908B74 /* QRCodeDisplayViewController.swift */,
-				105358951E782CE200908B74 /* QRCodeDisplayViewController.xib */,
-				105358981E782CEE00908B74 /* QRCodeScanViewController.swift */,
-				105358991E782CEE00908B74 /* QRCodeScanViewController.xib */,
-				10A3396F1E9256B3004ECFCD /* ControlPanelViewController.swift */,
-				10A339701E9256B3004ECFCD /* ControlPanelViewController.xib */,
+				108D74A21E952F52000A09E5 /* Main */,
+				108D74A31E952F58000A09E5 /* QRCodeDisplay */,
+				108D74A41E952F62000A09E5 /* QRCodeScan */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -279,29 +222,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		10564A7E1E7ADCC200A9D02B /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-				10564A7F1E7ADCD500A9D02B /* Repository.swift */,
-			);
-			path = Repositories;
-			sourceTree = "<group>";
-		};
 		10897D891E795DFF002D4C74 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				105875961E7C1389005AA724 /* AppState.swift */,
-				105875941E7C0DF2005AA724 /* AppStateService.swift */,
-				10564A831E7AF56800A9D02B /* ClipboardProvider.swift */,
-				10564A811E7AF4F700A9D02B /* ClipboardProviderService.swift */,
-				10564A871E7AF71A00A9D02B /* ClipboardSyncClient.swift */,
-				10564A851E7AF71000A9D02B /* ClipboardSyncClientService.swift */,
-				10FFD36B1E7A8384003EEBCD /* QRDisplay.swift */,
-				10FFD3691E7A82A9003EEBCD /* QRDisplayService.swift */,
-				10897DA81E7999B5002D4C74 /* QRScanner.swift */,
-				10897DA61E7999A9002D4C74 /* QRScannerService.swift */,
-				10897D8E1E7962D3002D4C74 /* SocketClient.swift */,
-				10897D8A1E795E5B002D4C74 /* SocketClientService.swift */,
+				108D749D1E952E92000A09E5 /* AppStateService */,
+				108D749E1E952EA1000A09E5 /* ClipboardProviderService */,
+				108D749F1E952EBD000A09E5 /* QRDisplayService */,
+				108D74A01E952EC6000A09E5 /* QRScannerService */,
+				108D74A11E952ED1000A09E5 /* SocketClientService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -316,34 +244,103 @@
 			path = CLPBRDTests;
 			sourceTree = "<group>";
 		};
-		108E8AB11E7FE36F005C990F /* ContentBuffer */ = {
+		108D749D1E952E92000A09E5 /* AppStateService */ = {
 			isa = PBXGroup;
 			children = (
-				108E8AB61E7FE70E005C990F /* CompositeContentBuffer.swift */,
-				108E8AB41E7FE41D005C990F /* ContentBuffer+HashColor.swift */,
-				108E8AB21E7FE40A005C990F /* ContentBuffer.swift */,
+				105875961E7C1389005AA724 /* AppState.swift */,
+				105875941E7C0DF2005AA724 /* AppStateService.swift */,
 			);
-			path = ContentBuffer;
+			name = AppStateService;
+			path = AppStateService;
+			sourceTree = "<group>";
+		};
+		108D749E1E952EA1000A09E5 /* ClipboardProviderService */ = {
+			isa = PBXGroup;
+			children = (
+				10564A831E7AF56800A9D02B /* ClipboardProvider.swift */,
+				10564A811E7AF4F700A9D02B /* ClipboardProviderService.swift */,
+			);
+			name = ClipboardProviderService;
+			path = ClipboardProviderService;
+			sourceTree = "<group>";
+		};
+		108D749F1E952EBD000A09E5 /* QRDisplayService */ = {
+			isa = PBXGroup;
+			children = (
+				10FFD36B1E7A8384003EEBCD /* QRDisplay.swift */,
+				10FFD3691E7A82A9003EEBCD /* QRDisplayService.swift */,
+			);
+			name = QRDisplayService;
+			path = QRDisplayService;
+			sourceTree = "<group>";
+		};
+		108D74A01E952EC6000A09E5 /* QRScannerService */ = {
+			isa = PBXGroup;
+			children = (
+				10897DA81E7999B5002D4C74 /* QRScanner.swift */,
+				10897DA61E7999A9002D4C74 /* QRScannerService.swift */,
+			);
+			name = QRScannerService;
+			path = QRScannerService;
+			sourceTree = "<group>";
+		};
+		108D74A11E952ED1000A09E5 /* SocketClientService */ = {
+			isa = PBXGroup;
+			children = (
+				10897D8E1E7962D3002D4C74 /* SocketClient.swift */,
+				10897D8A1E795E5B002D4C74 /* SocketClientService.swift */,
+			);
+			name = SocketClientService;
+			path = SocketClientService;
+			sourceTree = "<group>";
+		};
+		108D74A21E952F52000A09E5 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				108D74A51E952F6A000A09E5 /* ControlPanel */,
+				105358901E782CB700908B74 /* MainViewController.swift */,
+				105358911E782CB700908B74 /* MainViewController.xib */,
+			);
+			name = Main;
+			path = Main;
+			sourceTree = "<group>";
+		};
+		108D74A31E952F58000A09E5 /* QRCodeDisplay */ = {
+			isa = PBXGroup;
+			children = (
+				105358941E782CE200908B74 /* QRCodeDisplayViewController.swift */,
+				105358951E782CE200908B74 /* QRCodeDisplayViewController.xib */,
+			);
+			name = QRCodeDisplay;
+			path = QRCodeDisplay;
+			sourceTree = "<group>";
+		};
+		108D74A41E952F62000A09E5 /* QRCodeScan */ = {
+			isa = PBXGroup;
+			children = (
+				105358981E782CEE00908B74 /* QRCodeScanViewController.swift */,
+				105358991E782CEE00908B74 /* QRCodeScanViewController.xib */,
+			);
+			name = QRCodeScan;
+			path = QRCodeScan;
+			sourceTree = "<group>";
+		};
+		108D74A51E952F6A000A09E5 /* ControlPanel */ = {
+			isa = PBXGroup;
+			children = (
+				10A3396F1E9256B3004ECFCD /* ControlPanelViewController.swift */,
+				10A339701E9256B3004ECFCD /* ControlPanelViewController.xib */,
+			);
+			name = ControlPanel;
+			path = ControlPanel;
 			sourceTree = "<group>";
 		};
 		108E8ABD1E80061B005C990F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				108E8ABE1E800669005C990F /* SyncParticipantView.swift */,
-				108E8AC21E800744005C990F /* SyncParticipantView.xib */,
 				104EC0111E82A1E400C42D68 /* RoundButton.swift */,
-				104EC0131E82A6E800C42D68 /* EnvelopePath.swift */,
-				10A3396D1E924089004ECFCD /* ButtonBackgroundView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		10FFD36F1E7A8BA2003EEBCD /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				10FFD3701E7A8BD6003EEBCD /* Router.swift */,
-			);
-			path = Router;
 			sourceTree = "<group>";
 		};
 		22D3B5D2B7F7E2BE5890E97E /* Pods */ = {
@@ -452,17 +449,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				104EC0191E82AC0F00C42D68 /* buttons_collapsed.svg in Resources */,
 				105358881E782B0700908B74 /* LaunchScreen.storyboard in Resources */,
 				105358851E782B0700908B74 /* Assets.xcassets in Resources */,
 				105358931E782CB700908B74 /* MainViewController.xib in Resources */,
-				108E8AC31E800744005C990F /* SyncParticipantView.xib in Resources */,
 				104EC01F1E82B31500C42D68 /* buttons_collapsed.path in Resources */,
 				104EC01B1E82B06400C42D68 /* buttons_expanded.path in Resources */,
 				1053589B1E782CEE00908B74 /* QRCodeScanViewController.xib in Resources */,
-				108E8AC11E80070F005C990F /* ConnectionViewController.xib in Resources */,
 				105358971E782CE200908B74 /* QRCodeDisplayViewController.xib in Resources */,
-				104EC0171E82ABF200C42D68 /* buttons_expanded.svg in Resources */,
 				10A339721E9256B3004ECFCD /* ControlPanelViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -529,48 +522,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				108D74A71E95313B000A09E5 /* DIContainer.swift in Sources */,
 				10564A841E7AF56800A9D02B /* ClipboardProvider.swift in Sources */,
 				10897DA71E7999A9002D4C74 /* QRScannerService.swift in Sources */,
 				1053587E1E782B0700908B74 /* AppDelegate.swift in Sources */,
 				10897DA31E796E3F002D4C74 /* NSError+Errors.swift in Sources */,
 				10FFD36C1E7A8384003EEBCD /* QRDisplay.swift in Sources */,
-				108E8ABF1E800669005C990F /* SyncParticipantView.swift in Sources */,
-				10FFD3711E7A8BD6003EEBCD /* Router.swift in Sources */,
-				104EC0141E82A6E800C42D68 /* EnvelopePath.swift in Sources */,
 				10564A821E7AF4F800A9D02B /* ClipboardProviderService.swift in Sources */,
-				108E8AB71E7FE70E005C990F /* CompositeContentBuffer.swift in Sources */,
 				105358961E782CE200908B74 /* QRCodeDisplayViewController.swift in Sources */,
-				102F726C1E817BC300AFDDEB /* ParticipantViewCalculations.swift in Sources */,
 				106C86B01E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift in Sources */,
-				1052D48A1E783467008B22EE /* Coordinator.swift in Sources */,
 				1052D48D1E7834E5008B22EE /* Utils.swift in Sources */,
 				108E8AC81E80142F005C990F /* IpAddress.swift in Sources */,
 				108E8AC51E800880005C990F /* NibLoading.swift in Sources */,
-				108E8ABB1E800260005C990F /* ConnectionViewController.swift in Sources */,
-				10FFD36E1E7A8B89003EEBCD /* BaseViewController.swift in Sources */,
 				105875951E7C0DF2005AA724 /* AppStateService.swift in Sources */,
 				10897DA51E79765C002D4C74 /* Closures.swift in Sources */,
 				10FFD36A1E7A82A9003EEBCD /* QRDisplayService.swift in Sources */,
-				10564A881E7AF71A00A9D02B /* ClipboardSyncClient.swift in Sources */,
 				104EC00B1E829F8500C42D68 /* UIColor+Hex.swift in Sources */,
 				104EC0121E82A1E400C42D68 /* RoundButton.swift in Sources */,
-				102109011E82F74500170229 /* ButtonGroupLayer.swift in Sources */,
 				106C86B21E950614004107EE /* CGRect+Center.swift in Sources */,
 				105358921E782CB700908B74 /* MainViewController.swift in Sources */,
 				105875971E7C1389005AA724 /* AppState.swift in Sources */,
-				10564A861E7AF71000A9D02B /* ClipboardSyncClientService.swift in Sources */,
 				104EC01D1E82B0AF00C42D68 /* SVGPath.swift in Sources */,
+				108D74A91E95344D000A09E5 /* SVGHelpers.swift in Sources */,
 				10897D8B1E795E5B002D4C74 /* SocketClientService.swift in Sources */,
-				1052D4881E78345D008B22EE /* MainCoordinator.swift in Sources */,
 				10897D8F1E7962D3002D4C74 /* SocketClient.swift in Sources */,
-				108E8AB51E7FE41D005C990F /* ContentBuffer+HashColor.swift in Sources */,
 				10897DA91E7999B5002D4C74 /* QRScanner.swift in Sources */,
 				10897DA11E796B4D002D4C74 /* URL+Helpers.swift in Sources */,
 				104EC00E1E829FB700C42D68 /* Colors.swift in Sources */,
-				10A3396E1E924089004ECFCD /* ButtonBackgroundView.swift in Sources */,
-				108E8AB31E7FE40A005C990F /* ContentBuffer.swift in Sources */,
 				1053589A1E782CEE00908B74 /* QRCodeScanViewController.swift in Sources */,
-				10564A801E7ADCD500A9D02B /* Repository.swift in Sources */,
 				10A339711E9256B3004ECFCD /* ControlPanelViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

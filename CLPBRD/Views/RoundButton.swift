@@ -1,11 +1,3 @@
-//
-//  RoundButton.swift
-//  CLPBRD
-//
-//  Created by Александр Долоз on 22.03.17.
-//  Copyright © 2017 Cayugasoft LLC. All rights reserved.
-//
-
 import UIKit
 
 class RoundButton: UIButton {

@@ -1,11 +1,3 @@
-//
-//  SVGPath.swift
-//  SVGPath
-//
-//  Created by Tim Wood on 1/21/15.
-//  Copyright (c) 2015 Tim Wood. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
