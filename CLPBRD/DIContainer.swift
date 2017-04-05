@@ -47,8 +47,7 @@ func createContainer() -> Container {
     }
     
     container.register(SocketClientService.self) { _ in
-        SocketClient()
+        SWSSocketClient()
     }
-    
     return container
 }

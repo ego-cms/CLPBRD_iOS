@@ -19,7 +19,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Starscream.xcscheme</key>
+		<key>SwiftWebSocket.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,32 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>039729689AB51FCB4705921CF8625A44</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>1252D2FE5A3F0266E8959BB670344352</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>19EF74194A12A9945823E83A4B8EC1D5</key>
+		<key>324AD88DCF496733850AAFADDF4DE7D3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4BE887150666F6C3067AD31E6B0AD743</key>
+		<key>3E20E8D9BA37DABEDCD64975FE8EA786</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9E98A4ABAF641BFAA0C8E9F7D4B0D32B</key>
+		<key>4D9D49DA34A25D6ACC9BD687D9716B65</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FEC0B7F0D2F4247D99BD7B64CF877865</key>
+		<key>508A110C5293D7827C8EC4E95E644B61</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AE15F794A208AE44271686CE98CB1F01</key>
 		<dict>
 			<key>primary</key>
 			<true/>

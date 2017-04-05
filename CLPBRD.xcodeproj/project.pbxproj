@@ -30,7 +30,6 @@
 		106C86B01E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C86AF1E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift */; };
 		106C86B21E950614004107EE /* CGRect+Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C86B11E950614004107EE /* CGRect+Center.swift */; };
 		10897D8B1E795E5B002D4C74 /* SocketClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897D8A1E795E5B002D4C74 /* SocketClientService.swift */; };
-		10897D8F1E7962D3002D4C74 /* SocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897D8E1E7962D3002D4C74 /* SocketClient.swift */; };
 		10897D9F1E796B20002D4C74 /* URLHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897D9E1E796B20002D4C74 /* URLHelpersTests.swift */; };
 		10897DA11E796B4D002D4C74 /* URL+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897DA01E796B4D002D4C74 /* URL+Helpers.swift */; };
 		10897DA31E796E3F002D4C74 /* NSError+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897DA21E796E3F002D4C74 /* NSError+Errors.swift */; };
@@ -39,6 +38,7 @@
 		10897DA91E7999B5002D4C74 /* QRScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897DA81E7999B5002D4C74 /* QRScanner.swift */; };
 		108D74A71E95313B000A09E5 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108D74A61E95313B000A09E5 /* DIContainer.swift */; };
 		108D74A91E95344D000A09E5 /* SVGHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108D74A81E95344D000A09E5 /* SVGHelpers.swift */; };
+		108D74AB1E95368C000A09E5 /* SWSSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108D74AA1E95368C000A09E5 /* SWSSocketClient.swift */; };
 		108E8AB91E7FEF7E005C990F /* ContentBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8AB81E7FEF7E005C990F /* ContentBufferTests.swift */; };
 		108E8AC51E800880005C990F /* NibLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8AC41E800880005C990F /* NibLoading.swift */; };
 		108E8AC81E80142F005C990F /* IpAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8AC71E80142F005C990F /* IpAddress.swift */; };
@@ -85,7 +85,6 @@
 		106C86AF1E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DeviceOrientationToVideoOrientation.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		106C86B11E950614004107EE /* CGRect+Center.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "CGRect+Center.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		10897D8A1E795E5B002D4C74 /* SocketClientService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketClientService.swift; sourceTree = "<group>"; };
-		10897D8E1E7962D3002D4C74 /* SocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketClient.swift; sourceTree = "<group>"; };
 		10897D941E796AE9002D4C74 /* CLPBRDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CLPBRDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		10897D981E796AE9002D4C74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10897D9E1E796B20002D4C74 /* URLHelpersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLHelpersTests.swift; sourceTree = "<group>"; };
@@ -96,6 +95,7 @@
 		10897DA81E7999B5002D4C74 /* QRScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanner.swift; sourceTree = "<group>"; };
 		108D74A61E95313B000A09E5 /* DIContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		108D74A81E95344D000A09E5 /* SVGHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGHelpers.swift; sourceTree = "<group>"; };
+		108D74AA1E95368C000A09E5 /* SWSSocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWSSocketClient.swift; sourceTree = "<group>"; };
 		108E8AB81E7FEF7E005C990F /* ContentBufferTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ContentBufferTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		108E8AC41E800880005C990F /* NibLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoading.swift; sourceTree = "<group>"; };
 		108E8AC61E8013A6005C990F /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BridgingHeader.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -133,7 +133,6 @@
 			children = (
 				104EC00D1E829FB700C42D68 /* Colors.swift */,
 			);
-			name = Styling;
 			path = Styling;
 			sourceTree = "<group>";
 		};
@@ -143,7 +142,6 @@
 				104EC01E1E82B31500C42D68 /* buttons_collapsed.path */,
 				104EC01A1E82B06400C42D68 /* buttons_expanded.path */,
 			);
-			name = SVG;
 			path = SVG;
 			sourceTree = "<group>";
 		};
@@ -250,7 +248,6 @@
 				105875961E7C1389005AA724 /* AppState.swift */,
 				105875941E7C0DF2005AA724 /* AppStateService.swift */,
 			);
-			name = AppStateService;
 			path = AppStateService;
 			sourceTree = "<group>";
 		};
@@ -260,7 +257,6 @@
 				10564A831E7AF56800A9D02B /* ClipboardProvider.swift */,
 				10564A811E7AF4F700A9D02B /* ClipboardProviderService.swift */,
 			);
-			name = ClipboardProviderService;
 			path = ClipboardProviderService;
 			sourceTree = "<group>";
 		};
@@ -270,7 +266,6 @@
 				10FFD36B1E7A8384003EEBCD /* QRDisplay.swift */,
 				10FFD3691E7A82A9003EEBCD /* QRDisplayService.swift */,
 			);
-			name = QRDisplayService;
 			path = QRDisplayService;
 			sourceTree = "<group>";
 		};
@@ -280,17 +275,15 @@
 				10897DA81E7999B5002D4C74 /* QRScanner.swift */,
 				10897DA61E7999A9002D4C74 /* QRScannerService.swift */,
 			);
-			name = QRScannerService;
 			path = QRScannerService;
 			sourceTree = "<group>";
 		};
 		108D74A11E952ED1000A09E5 /* SocketClientService */ = {
 			isa = PBXGroup;
 			children = (
-				10897D8E1E7962D3002D4C74 /* SocketClient.swift */,
 				10897D8A1E795E5B002D4C74 /* SocketClientService.swift */,
+				108D74AA1E95368C000A09E5 /* SWSSocketClient.swift */,
 			);
-			name = SocketClientService;
 			path = SocketClientService;
 			sourceTree = "<group>";
 		};
@@ -301,7 +294,6 @@
 				105358901E782CB700908B74 /* MainViewController.swift */,
 				105358911E782CB700908B74 /* MainViewController.xib */,
 			);
-			name = Main;
 			path = Main;
 			sourceTree = "<group>";
 		};
@@ -311,7 +303,6 @@
 				105358941E782CE200908B74 /* QRCodeDisplayViewController.swift */,
 				105358951E782CE200908B74 /* QRCodeDisplayViewController.xib */,
 			);
-			name = QRCodeDisplay;
 			path = QRCodeDisplay;
 			sourceTree = "<group>";
 		};
@@ -321,7 +312,6 @@
 				105358981E782CEE00908B74 /* QRCodeScanViewController.swift */,
 				105358991E782CEE00908B74 /* QRCodeScanViewController.xib */,
 			);
-			name = QRCodeScan;
 			path = QRCodeScan;
 			sourceTree = "<group>";
 		};
@@ -331,7 +321,6 @@
 				10A3396F1E9256B3004ECFCD /* ControlPanelViewController.swift */,
 				10A339701E9256B3004ECFCD /* ControlPanelViewController.xib */,
 			);
-			name = ControlPanel;
 			path = ControlPanel;
 			sourceTree = "<group>";
 		};
@@ -545,10 +534,10 @@
 				104EC01D1E82B0AF00C42D68 /* SVGPath.swift in Sources */,
 				108D74A91E95344D000A09E5 /* SVGHelpers.swift in Sources */,
 				10897D8B1E795E5B002D4C74 /* SocketClientService.swift in Sources */,
-				10897D8F1E7962D3002D4C74 /* SocketClient.swift in Sources */,
 				10897DA91E7999B5002D4C74 /* QRScanner.swift in Sources */,
 				10897DA11E796B4D002D4C74 /* URL+Helpers.swift in Sources */,
 				104EC00E1E829FB700C42D68 /* Colors.swift in Sources */,
+				108D74AB1E95368C000A09E5 /* SWSSocketClient.swift in Sources */,
 				1053589A1E782CEE00908B74 /* QRCodeScanViewController.swift in Sources */,
 				10A339711E9256B3004ECFCD /* ControlPanelViewController.swift in Sources */,
 			);

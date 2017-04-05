@@ -1,22 +1,22 @@
 import Foundation
+import SwiftWebSocket
 import Result
-import Starscream
 import SwiftyJSON
 
 
-class SocketClient: SocketClientService {
+class SWSSocketClient: SocketClientService {
     private(set) var url: URL?
     var host: String?
-    private var webSocket: WebSocket?
-    
+    var webSocket: SwiftWebSocket.WebSocket?
+        
     var onReceivedText: (String) -> Void = { _ in }
     var onConnected: VoidClosure = {}
     var onDisconnected: (Error?) -> Void = { _ in }
-    
+        
     fileprivate var initialText: String?
-    
+        
     func connect(host: String) {
-        if let ws = webSocket, ws.isConnected { return }
+        if let ws = webSocket, ws.readyState == .open { return }
         requestHostParameters(host: host) { [weak self](result) in
             switch result {
             case .success(let json):
@@ -31,15 +31,15 @@ class SocketClient: SocketClientService {
                 }
                 self?.webSocket = WebSocket(url: webSocketURL)
                 self?.webSocket?.delegate = self
-                self?.webSocket?.callbackQueue = .main
-                self?.webSocket?.connect()
+                self?.webSocket?.eventQueue = DispatchQueue.main
+                self?.webSocket?.open()
             case .failure(let error):
                 call(closure: self?.onDisconnected, parameter: error)
             }
         }
         
     }
-    
+        
     private func requestHostParameters(host: String, completion: @escaping (Result<JSON, NSError>) -> Void) {
         guard let httpServerURL = URL.createParametersURL(with: host) else {
             let error = NSError.error(text: "Wrong host \(host)")
@@ -63,39 +63,37 @@ class SocketClient: SocketClientService {
             completion(.success(json))
         }.resume()
     }
-    
+        
     func send(text: String) {
-        webSocket?.write(string: text)
+        webSocket?.send(text: text)
     }
-    
+        
     func disconnect() {
-        guard let ws = webSocket, !ws.isConnected else { return }
-        webSocket?.disconnect()
+        guard let ws = webSocket, ws.readyState != .closed else { return }
+        webSocket?.close()
         webSocket = nil
     }
 }
 
-
-extension SocketClient: WebSocketDelegate {
-    func websocketDidConnect(socket: WebSocket) {
+extension SWSSocketClient: WebSocketDelegate {
+    func webSocketOpen() {
         onConnected()
-        host = socket.currentURL.host
+        host = webSocket?.url
         if let initialText = self.initialText {
             onReceivedText(initialText)
             self.initialText = nil
         }
     }
     
-    func websocketDidDisconnect(socket: WebSocket, error: NSError?) {
-        host = nil
-        onDisconnected(error)
-    }
-    
-    func websocketDidReceiveMessage(socket: WebSocket, text: String) {
+    func webSocketClose(_ code: Int, reason: String, wasClean: Bool) {}
+    func webSocketError(_ error: NSError) {}
+
+    func webSocketMessageText(_ text: String) {
         onReceivedText(text)
     }
-    
-    func websocketDidReceiveData(socket: WebSocket, data: Data) {
-        print("Received data from \(socket.currentURL), it will be discarded – we accept only text")
+
+    func webSocketEnd(_ code: Int, reason: String, wasClean: Bool, error: NSError?) {
+        host = nil
+        onDisconnected(error)
     }
 }
