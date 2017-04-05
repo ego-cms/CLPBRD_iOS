@@ -56,6 +56,7 @@ class ControlPanelViewController: UIViewController {
     
     var serverIp: String?
     var receivedText: String?
+    var alreadyRecognized = false
     
     var socketClientService: SocketClientService
     var clipboardProviderService: ClipboardProviderService
@@ -289,11 +290,12 @@ extension ControlPanelViewController: QRCodeScanViewControllerDelegate {
     }
     
     func qrCodeScanViewController(_ viewController: QRCodeScanViewController, detectedText: String) {
-        if serverIp != nil { return }
+        if alreadyRecognized { return }
         guard let host = host(from: detectedText) else {
             viewController.showInvalidQRWarning(qrText: detectedText)
             return
         }
+        alreadyRecognized = true
         dismiss(animated: true, completion: nil)
         serverIp = host
         socketClientService.connect(host: host)
@@ -313,6 +315,7 @@ extension ControlPanelViewController {
     
     func socketClientServiceDisconnected(error: Error?) {
         updateState(to: .off)
+        alreadyRecognized = false
         if let error = error {
             print(error)
             if let host = serverIp {

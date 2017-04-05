@@ -3,7 +3,7 @@ PODS:
     - GCDWebServer/Core (= 3.3.3)
   - GCDWebServer/Core (3.3.3)
   - Result (3.2.1)
-  - Starscream (2.0.3)
+  - Starscream (2.0.4)
   - SwiftyJSON (3.1.4)
   - Swinject (2.0.0)
 
@@ -17,7 +17,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   GCDWebServer: 1c39a1f0763e4eb492bee021e4270fce097d3555
   Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
-  Starscream: 3fdd5c277e57cca6b5c406d274e3f34a7c88f2ce
+  Starscream: df5974ee928b157c8eda8af8de7c620276b7dfcc
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   Swinject: 2e964a80d70ab09b3949c99032711f89147bfd60
 
