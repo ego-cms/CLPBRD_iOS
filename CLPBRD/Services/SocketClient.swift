@@ -62,7 +62,7 @@ class SocketClient: SocketClientService {
             guard let data = data else {
                 completion(
                     .failure(
-                        NSError.error(text: "Can't get port from clipboard JSON (\(response?.url))")
+                        NSError.error(text: "Can't get port from clipboard JSON (\(String(describing: response?.url)))")
                     )
                 )
                 return

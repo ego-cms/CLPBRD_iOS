@@ -45,6 +45,14 @@ func getLocalIpAddress() -> String? {
     return address
 }
 
+func localServerURL() -> URL? {
+    var urlComponents = URLComponents()
+    urlComponents.scheme = "http"
+    urlComponents.host = getLocalIpAddress()
+    urlComponents.port = 8080
+    return urlComponents.url
+}
+
 
 func getIFAddresses() -> [String] {
     var addresses = [String]()
@@ -76,4 +84,9 @@ func getIFAddresses() -> [String] {
     
     freeifaddrs(ifaddr)
     return addresses
+}
+
+
+func host(from string: String) -> String? {
+    return URL(string: string)?.host
 }

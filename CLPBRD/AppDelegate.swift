@@ -20,11 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
 
-    
     lazy var appContainer: Container = {
         let container = Container()
-        container.register(ControlPanelViewController.self) { _ in
-            ControlPanelViewController()
+        container.register(ControlPanelViewController.self) { [unowned container](r) in
+            ControlPanelViewController(
+                container: container,
+                socketClientService: r.resolve(SocketClientService.self)!,
+                clipboardProviderService: r.resolve(ClipboardProviderService.self)!,
+                appStateService: r.resolve(AppStateService.self)!
+            )
         }
         container.register(MainViewController.self) { r in
             MainViewController(

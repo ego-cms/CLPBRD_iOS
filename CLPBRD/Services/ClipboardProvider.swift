@@ -32,6 +32,7 @@ class ClipboardProvider: NSObject, ClipboardProviderService {
         super.init()
         NotificationCenter.default.addObserver(self, selector: #selector(contentChanged), name: Notification.Name.UIPasteboardChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(contentChanged), name: Notification.Name.UIPasteboardRemoved, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(contentChanged), name: Notification.Name.UIApplicationWillEnterForeground, object: nil)
     }
     
     func contentChanged() {

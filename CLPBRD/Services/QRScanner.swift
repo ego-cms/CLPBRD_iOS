@@ -53,15 +53,25 @@ final class QRScanner: NSObject, QRScannerService {
     }
     
     func startScanning() {
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceRotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         guard authorizationStatus == .authorized else {
             print("Not authorized to scan QR code")
             return
         }
+        deviceRotated()
         captureSession.startRunning()
     }
     
     func stopScanning() {
+        NotificationCenter.default.removeObserver(self)
         captureSession.stopRunning()
+    }
+    
+    func deviceRotated() {
+        guard let previewLayer = self.previewLayer as? AVCaptureVideoPreviewLayer else {
+            return
+        }
+        previewLayer.connection.videoOrientation = deviceOrientationToVideoOrientation(deviceOrientation: UIDevice.current.orientation)
     }
 }
 

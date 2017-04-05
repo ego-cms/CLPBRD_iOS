@@ -44,6 +44,15 @@ class QRCodeScanViewController: UIViewController {
         qrScannerService.setup()
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+    }
+    
+//    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+//        guard let previewLayer
+//    }
+    
     func scannerSetupCompleted(error: Error?) {
         guard error == nil else {
             print("Error happened \(error!)")
@@ -57,6 +66,10 @@ class QRCodeScanViewController: UIViewController {
             self.updatePreviewLayerFrame()
             self.qrScannerService.startScanning()
         }
+    }
+    
+    func showInvalidQRWarning(qrText: String) {
+        print("Invalid QR \(qrText)")
     }
     
     override func viewDidLayoutSubviews() {

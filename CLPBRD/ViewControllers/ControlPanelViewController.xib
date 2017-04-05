@@ -56,7 +56,7 @@
                             <rect key="frame" x="0.0" y="292" width="205" height="204.5"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T9m-Zi-Bdp" userLabel="Scan QR Button Place">
-                                    <rect key="frame" x="31.5" y="31.5" width="143.5" height="143.5"/>
+                                    <rect key="frame" x="31.5" y="30.5" width="143.5" height="143.5"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="T9m-Zi-Bdp" secondAttribute="height" multiplier="1:1" id="wJH-pp-gfI"/>
@@ -142,7 +142,7 @@
                     <rect key="frame" x="0.0" y="557" width="628" height="110"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="bHV-tq-MOb">
-                            <rect key="frame" x="132" y="37" width="364" height="36.5"/>
+                            <rect key="frame" x="-11356" y="43" width="23340" height="24.5"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZY4-pG-HAQ">
                                     <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
@@ -156,16 +156,16 @@
                                     <rect key="frame" x="40" y="0.0" width="24" height="24"/>
                                 </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="AzH-gg-qg3">
-                                    <rect key="frame" x="80" y="0.0" width="284" height="36.5"/>
+                                    <rect key="frame" x="80" y="0.0" width="23260" height="24.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="http://192.168.0.121:8080" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9Z-Ns-C5H">
-                                            <rect key="frame" x="0.0" y="0.0" width="284" height="20.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="23260" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Используйте этот адрес в браузере, чтобы соединиться" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9MM-J3-bNX">
-                                            <rect key="frame" x="0.0" y="24.5" width="284" height="12"/>
+                                            <rect key="frame" x="0.0" y="24.5" width="23260" height="0.0"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -211,6 +211,9 @@
                     <rect key="frame" x="0.0" y="159" width="89" height="89"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="qr_code"/>
+                    <connections>
+                        <action selector="scanQRPressed" destination="-1" eventType="touchUpInside" id="jJ6-dk-JY2"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

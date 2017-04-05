@@ -37,6 +37,8 @@
 		10564A881E7AF71A00A9D02B /* ClipboardSyncClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10564A871E7AF71A00A9D02B /* ClipboardSyncClient.swift */; };
 		105875951E7C0DF2005AA724 /* AppStateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105875941E7C0DF2005AA724 /* AppStateService.swift */; };
 		105875971E7C1389005AA724 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105875961E7C1389005AA724 /* AppState.swift */; };
+		106C86B01E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C86AF1E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift */; };
+		106C86B21E950614004107EE /* CGRect+Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C86B11E950614004107EE /* CGRect+Center.swift */; };
 		10897D8B1E795E5B002D4C74 /* SocketClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897D8A1E795E5B002D4C74 /* SocketClientService.swift */; };
 		10897D8F1E7962D3002D4C74 /* SocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897D8E1E7962D3002D4C74 /* SocketClient.swift */; };
 		10897D9F1E796B20002D4C74 /* URLHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897D9E1E796B20002D4C74 /* URLHelpersTests.swift */; };
@@ -108,6 +110,8 @@
 		10564A871E7AF71A00A9D02B /* ClipboardSyncClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipboardSyncClient.swift; sourceTree = "<group>"; };
 		105875941E7C0DF2005AA724 /* AppStateService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStateService.swift; sourceTree = "<group>"; };
 		105875961E7C1389005AA724 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		106C86AF1E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceOrientationToVideoOrientation.swift; sourceTree = "<group>"; };
+		106C86B11E950614004107EE /* CGRect+Center.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Center.swift"; sourceTree = "<group>"; };
 		10897D8A1E795E5B002D4C74 /* SocketClientService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketClientService.swift; sourceTree = "<group>"; };
 		10897D8E1E7962D3002D4C74 /* SocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketClient.swift; sourceTree = "<group>"; };
 		10897D941E796AE9002D4C74 /* CLPBRDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CLPBRDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -201,6 +205,8 @@
 				102F726B1E817BC300AFDDEB /* ParticipantViewCalculations.swift */,
 				104EC01C1E82B0AF00C42D68 /* SVGPath.swift */,
 				102109001E82F74500170229 /* ButtonGroupLayer.swift */,
+				106C86AF1E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift */,
+				106C86B11E950614004107EE /* CGRect+Center.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -535,6 +541,7 @@
 				108E8AB71E7FE70E005C990F /* CompositeContentBuffer.swift in Sources */,
 				105358961E782CE200908B74 /* QRCodeDisplayViewController.swift in Sources */,
 				102F726C1E817BC300AFDDEB /* ParticipantViewCalculations.swift in Sources */,
+				106C86B01E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift in Sources */,
 				1052D48A1E783467008B22EE /* Coordinator.swift in Sources */,
 				1052D48D1E7834E5008B22EE /* Utils.swift in Sources */,
 				108E8AC81E80142F005C990F /* IpAddress.swift in Sources */,
@@ -548,6 +555,7 @@
 				104EC00B1E829F8500C42D68 /* UIColor+Hex.swift in Sources */,
 				104EC0121E82A1E400C42D68 /* RoundButton.swift in Sources */,
 				102109011E82F74500170229 /* ButtonGroupLayer.swift in Sources */,
+				106C86B21E950614004107EE /* CGRect+Center.swift in Sources */,
 				105358921E782CB700908B74 /* MainViewController.swift in Sources */,
 				105875971E7C1389005AA724 /* AppState.swift in Sources */,
 				10564A861E7AF71000A9D02B /* ClipboardSyncClientService.swift in Sources */,

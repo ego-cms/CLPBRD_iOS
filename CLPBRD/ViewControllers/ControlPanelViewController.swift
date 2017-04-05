@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Swinject
 
 
 protocol ControlPanelViewControllerDelegate: class {
@@ -53,7 +54,34 @@ class ControlPanelViewController: UIViewController {
     @IBOutlet weak var serverAddressLabel: UILabel!
     @IBOutlet weak var offInfoContainer: UIView!
     
-    weak var delegate: ControlPanelViewControllerDelegate?
+    var serverIp: String?
+    var receivedText: String?
+    
+    var socketClientService: SocketClientService
+    var clipboardProviderService: ClipboardProviderService
+    var appStateService: AppStateService
+    unowned var container: Container
+    
+    init(container: Container, socketClientService: SocketClientService, clipboardProviderService: ClipboardProviderService, appStateService: AppStateService) {
+        self.container = container
+        self.socketClientService = socketClientService
+        self.appStateService = appStateService
+        self.clipboardProviderService = clipboardProviderService
+        super.init(nibName: String(describing: type(of: self)), bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    @IBAction func scanQRPressed() {
+        print("Pressed")
+        let qrCodeScanViewController = container.resolve(QRCodeScanViewController.self)!
+        qrCodeScanViewController.delegate = self
+        let navigationController = UINavigationController(rootViewController: qrCodeScanViewController)
+        navigationController.modalPresentationStyle = .overFullScreen
+        present(navigationController, animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +108,7 @@ class ControlPanelViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        resizePaths()
         setupButtons()
     }
     
@@ -105,10 +134,16 @@ class ControlPanelViewController: UIViewController {
     }
     
     @IBAction func toggleButtonPressed(_ sender: Any) {
-        if state == .off {
-            updateState(to: .on)
-        } else {
+        switch state {
+        case .clientOn:
+            serverIp = nil
+            socketClientService.disconnect()
             updateState(to: .off)
+        case .clientGotUpdates:
+            clipboardProviderService.content = receivedText
+            updateState(to: .clientOn)
+        default:
+            print("Button in state \(state). can't handle it yet")
         }
     }
     
@@ -162,25 +197,27 @@ class ControlPanelViewController: UIViewController {
     }
     
     func buttonBackgroundLayerColor(for state: State) -> UIColor {
-        switch state {
-        case .off: return Colors.buttonGroupExpanded.color
-        default: return Colors.buttonGroupCollapsed.color
-        }
+        if state.isOn { return Colors.buttonGroupCollapsed.color }
+        if state.gotUpdates { return Colors.buttonGroupGotUpdates.color }
+        return Colors.buttonGroupExpanded.color
     }
     
-    func toggleButtonColor(for state: State) -> UIColor {
-        switch state {
-        case .off: return Colors.toggleButtonOffNormal.color
-        default: return Colors.toggleButtonOnNormal.color
-        }
+    func toggleButtonNormalColor(for state: State) -> UIColor {
+        if state.isOn { return Colors.toggleButtonOnNormal.color }
+        if state.gotUpdates { return Colors.toggleButtonGotUpdatesNormal.color }
+        return Colors.toggleButtonOffNormal.color
+    }
+    
+    func toggleButtonHighlightedColor(for state: State) -> UIColor {
+        if state.isOn { return Colors.toggleButtonOnHighlighted.color }
+        if state.gotUpdates { return Colors.toggleButtonGotUpdatesHighlighted.color }
+        return Colors.toggleButtonOffHighlighted.color
     }
     
     func toggleButtonTitle(for state: State) -> String {
-        switch state {
-        case .off: return "ВКЛ."
-        case .on: return "ВЫКЛ."
-        case .gotUpdates: return "↓"
-        }
+        if state.isOn { return "ВЫКЛ." }
+        if state.gotUpdates { return "↓" }
+        return "ВКЛ."
     }
     
     func resizePaths() {
@@ -206,7 +243,8 @@ class ControlPanelViewController: UIViewController {
         
         UIView.animate(withDuration: duration, animations: {
             self.scanQRButton.frame = self.qrButtonFrame(for: state)
-            self.toggleButton.normalColor = self.toggleButtonColor(for: state)
+            self.toggleButton.normalColor = self.toggleButtonNormalColor(for: state)
+            self.toggleButton.highlightColor = self.toggleButtonHighlightedColor(for: state)
             self.scanQRButton.alpha = self.qrButtonAlpha(for: state)
         }, completion: { _ in
             self.buttonBackgroundLayer.position = self.buttonBackgroundLayerPosition(for: state)
@@ -244,18 +282,91 @@ class ControlPanelViewController: UIViewController {
 }
 
 
+extension ControlPanelViewController: QRCodeScanViewControllerDelegate {
+    func qrCodeScanViewControllerCancel(_ viewController: QRCodeScanViewController) {
+        print("Cancel")
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func qrCodeScanViewController(_ viewController: QRCodeScanViewController, detectedText: String) {
+        if serverIp != nil { return }
+        guard let host = host(from: detectedText) else {
+            viewController.showInvalidQRWarning(qrText: detectedText)
+            return
+        }
+        dismiss(animated: true, completion: nil)
+        serverIp = host
+        socketClientService.connect(host: host)
+        socketClientService.onConnected = socketClientServiceConnected
+        socketClientService.onDisconnected = socketClientServiceDisconnected
+        socketClientService.onReceivedText = socketClientServiceReceivedText
+        clipboardProviderService.onContentChanged = clipboardContentChanged
+        appStateService.onAppEnterForeground = appEnteredForeground
+    }
+}
+
+
+extension ControlPanelViewController {
+    func socketClientServiceConnected() {
+        updateState(to: .clientOn)
+    }
+    
+    func socketClientServiceDisconnected(error: Error?) {
+        updateState(to: .off)
+        if let error = error {
+            print(error)
+            if let host = serverIp {
+                socketClientService.connect(host: host)
+            }
+        }
+//        serverIp = nil
+    }
+    
+    func socketClientServiceReceivedText(text: String) {
+        if text != "" && text != clipboardProviderService.content {
+            receivedText = text
+            updateState(to: .clientGotUpdates)
+        }
+    }
+    
+    func clipboardContentChanged() {
+        guard
+            let content = clipboardProviderService.content,
+            content != receivedText
+        else {
+            return
+        }
+        socketClientService.send(text: content)
+    }
+    
+    func appEnteredForeground() {
+        if let host = serverIp {
+            socketClientService.connect(host: host)
+        }
+    }
+}
+
+
 extension ControlPanelViewController {
     enum State {
         case off
-        case on
-        case gotUpdates
+        case clientOn
+        case clientGotUpdates
+        case serverOn
+        case serverGotUpdates
         
+        var gotUpdates: Bool {
+            return self == .clientGotUpdates || self == .serverGotUpdates
+        }
+        
+        var isOff: Bool {
+            return self == .off
+        }
+        
+        var isOn: Bool {
+            return self == .clientOn || self == .serverOn
+        }
     }
 }
 
 
-extension CGRect {
-    var center: CGPoint {
-        return CGPoint(x: midX, y: midY)
-    }
-}
