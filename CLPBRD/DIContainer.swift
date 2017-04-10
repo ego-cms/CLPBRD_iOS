@@ -16,7 +16,9 @@ func createContainer() -> Container {
             container: container,
             socketClientService: r.resolve(SocketClientService.self)!,
             clipboardProviderService: r.resolve(ClipboardProviderService.self)!,
-            appStateService: r.resolve(AppStateService.self)!
+            appStateService: r.resolve(AppStateService.self)!,
+            httpServerService: r.resolve(HTTPServerService.self)!,
+            socketServerService: r.resolve(SocketServerService.self)!
         )
     }
     
@@ -49,5 +51,14 @@ func createContainer() -> Container {
     container.register(SocketClientService.self) { _ in
         SWSSocketClient()
     }
+    
+    container.register(HTTPServerService.self) { _ in
+        HTTPServer()
+    }
+    
+    container.register(SocketServerService.self) { _ in
+        SocketServer()
+    }
+    
     return container
 }

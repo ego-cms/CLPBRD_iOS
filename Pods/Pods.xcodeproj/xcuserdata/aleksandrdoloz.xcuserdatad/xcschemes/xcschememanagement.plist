@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PocketSocket.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-CLPBRD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,32 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>002FA990C60DAE385E3985C5B720C782</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>1252D2FE5A3F0266E8959BB670344352</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>324AD88DCF496733850AAFADDF4DE7D3</key>
+		<key>13F8C2A5C6BCA89D1133F293A174F9C9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3E20E8D9BA37DABEDCD64975FE8EA786</key>
+		<key>587288E593E70D5EFE3AB0E8F533032D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4D9D49DA34A25D6ACC9BD687D9716B65</key>
+		<key>7B67696F0F6D9ADB2BFA0C79ACD25E5A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>508A110C5293D7827C8EC4E95E644B61</key>
+		<key>9292FDEF1823A4483C7CA174F93E07A6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AE15F794A208AE44271686CE98CB1F01</key>
+		<key>D7585C1B49B20CA7CB2B1D350C81F8AE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

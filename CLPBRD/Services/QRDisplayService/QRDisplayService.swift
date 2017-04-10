@@ -4,7 +4,6 @@ import Result
 
 enum QRDisplayError: Error {
     case textError
-//    case textTooBig
     case qrGenerationError
 }
 

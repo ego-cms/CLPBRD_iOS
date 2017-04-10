@@ -23,7 +23,7 @@ func loadAndTranslatePath(fileName: String) -> UIBezierPath {
 class ControlPanelViewController: UIViewController {
     lazy var expandedPath: UIBezierPath = loadAndTranslatePath(fileName: "buttons_expanded")
     lazy var collapsedPath: UIBezierPath = loadAndTranslatePath(fileName: "buttons_collapsed")
-    var animationDuration = 0.25//5.0
+    var animationDuration = 0.25
     
     private(set) var state: State = .off {
         didSet {
@@ -53,13 +53,25 @@ class ControlPanelViewController: UIViewController {
     var socketClientService: SocketClientService
     var clipboardProviderService: ClipboardProviderService
     var appStateService: AppStateService
+    var httpServerService: HTTPServerService
+    var socketServerService: SocketServerService
+    
     unowned var container: Container
     
-    init(container: Container, socketClientService: SocketClientService, clipboardProviderService: ClipboardProviderService, appStateService: AppStateService) {
+    init(
+        container: Container,
+        socketClientService: SocketClientService,
+        clipboardProviderService: ClipboardProviderService,
+        appStateService: AppStateService,
+        httpServerService: HTTPServerService,
+        socketServerService: SocketServerService
+    ) {
         self.container = container
         self.socketClientService = socketClientService
         self.appStateService = appStateService
         self.clipboardProviderService = clipboardProviderService
+        self.httpServerService = httpServerService
+        self.socketServerService = socketServerService
         super.init(nibName: String(describing: type(of: self)), bundle: nil)
     }
     

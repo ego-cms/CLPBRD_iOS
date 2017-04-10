@@ -5,4 +5,5 @@ target "CLPBRD" do
 	pod 'Result'
 	pod 'SwiftyJSON', '~>3.1.4'
 	pod 'SwiftWebSocket'
+    pod 'PocketSocket'
 end

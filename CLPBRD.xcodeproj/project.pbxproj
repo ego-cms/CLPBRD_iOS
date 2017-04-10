@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		103618551E9BDF1100223B27 /* SocketServerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103618531E9BDF1100223B27 /* SocketServerService.swift */; };
+		103618561E9BDF1100223B27 /* SocketServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103618541E9BDF1100223B27 /* SocketServer.swift */; };
+		103618591E9BDF4D00223B27 /* HTTPServerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103618581E9BDF4D00223B27 /* HTTPServerService.swift */; };
+		1036185B1E9BDF5900223B27 /* HTTPServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1036185A1E9BDF5900223B27 /* HTTPServer.swift */; };
+		1036185D1E9BDF7C00223B27 /* ClientId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1036185C1E9BDF7C00223B27 /* ClientId.swift */; };
+		1036185F1E9BEE4C00223B27 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 1036185E1E9BEE4C00223B27 /* www */; };
 		104EC00B1E829F8500C42D68 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104EC00A1E829F8500C42D68 /* UIColor+Hex.swift */; };
 		104EC00E1E829FB700C42D68 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104EC00D1E829FB700C42D68 /* Colors.swift */; };
 		104EC0121E82A1E400C42D68 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104EC0111E82A1E400C42D68 /* RoundButton.swift */; };
@@ -60,6 +66,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		103618531E9BDF1100223B27 /* SocketServerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketServerService.swift; sourceTree = "<group>"; };
+		103618541E9BDF1100223B27 /* SocketServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketServer.swift; sourceTree = "<group>"; };
+		103618581E9BDF4D00223B27 /* HTTPServerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPServerService.swift; sourceTree = "<group>"; };
+		1036185A1E9BDF5900223B27 /* HTTPServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPServer.swift; sourceTree = "<group>"; };
+		1036185C1E9BDF7C00223B27 /* ClientId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientId.swift; sourceTree = "<group>"; };
+		1036185E1E9BEE4C00223B27 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 		104EC00A1E829F8500C42D68 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		104EC00D1E829FB700C42D68 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Colors.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		104EC0111E82A1E400C42D68 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
@@ -128,6 +140,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		103618521E9BDF0000223B27 /* SocketServerService */ = {
+			isa = PBXGroup;
+			children = (
+				103618531E9BDF1100223B27 /* SocketServerService.swift */,
+				103618541E9BDF1100223B27 /* SocketServer.swift */,
+				1036185C1E9BDF7C00223B27 /* ClientId.swift */,
+			);
+			name = SocketServerService;
+			sourceTree = "<group>";
+		};
+		103618571E9BDF2A00223B27 /* HTTPServerService */ = {
+			isa = PBXGroup;
+			children = (
+				103618581E9BDF4D00223B27 /* HTTPServerService.swift */,
+				1036185A1E9BDF5900223B27 /* HTTPServer.swift */,
+			);
+			name = HTTPServerService;
+			sourceTree = "<group>";
+		};
 		104EC00C1E829FAC00C42D68 /* Styling */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +217,7 @@
 		1053587C1E782B0700908B74 /* CLPBRD */ = {
 			isa = PBXGroup;
 			children = (
+				1036185E1E9BEE4C00223B27 /* www */,
 				1053589C1E782DAD00908B74 /* Resources */,
 				10897D891E795DFF002D4C74 /* Services */,
 				104EC00C1E829FAC00C42D68 /* Styling */,
@@ -223,6 +255,8 @@
 		10897D891E795DFF002D4C74 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				103618571E9BDF2A00223B27 /* HTTPServerService */,
+				103618521E9BDF0000223B27 /* SocketServerService */,
 				108D749D1E952E92000A09E5 /* AppStateService */,
 				108D749E1E952EA1000A09E5 /* ClipboardProviderService */,
 				108D749F1E952EBD000A09E5 /* QRDisplayService */,
@@ -438,6 +472,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1036185F1E9BEE4C00223B27 /* www in Resources */,
 				105358881E782B0700908B74 /* LaunchScreen.storyboard in Resources */,
 				105358851E782B0700908B74 /* Assets.xcassets in Resources */,
 				105358931E782CB700908B74 /* MainViewController.xib in Resources */,
@@ -522,19 +557,24 @@
 				106C86B01E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift in Sources */,
 				1052D48D1E7834E5008B22EE /* Utils.swift in Sources */,
 				108E8AC81E80142F005C990F /* IpAddress.swift in Sources */,
+				1036185B1E9BDF5900223B27 /* HTTPServer.swift in Sources */,
 				108E8AC51E800880005C990F /* NibLoading.swift in Sources */,
 				105875951E7C0DF2005AA724 /* AppStateService.swift in Sources */,
 				10897DA51E79765C002D4C74 /* Closures.swift in Sources */,
 				10FFD36A1E7A82A9003EEBCD /* QRDisplayService.swift in Sources */,
+				103618551E9BDF1100223B27 /* SocketServerService.swift in Sources */,
 				104EC00B1E829F8500C42D68 /* UIColor+Hex.swift in Sources */,
 				104EC0121E82A1E400C42D68 /* RoundButton.swift in Sources */,
 				106C86B21E950614004107EE /* CGRect+Center.swift in Sources */,
 				105358921E782CB700908B74 /* MainViewController.swift in Sources */,
+				103618561E9BDF1100223B27 /* SocketServer.swift in Sources */,
 				105875971E7C1389005AA724 /* AppState.swift in Sources */,
 				104EC01D1E82B0AF00C42D68 /* SVGPath.swift in Sources */,
 				108D74A91E95344D000A09E5 /* SVGHelpers.swift in Sources */,
+				1036185D1E9BDF7C00223B27 /* ClientId.swift in Sources */,
 				10897D8B1E795E5B002D4C74 /* SocketClientService.swift in Sources */,
 				10897DA91E7999B5002D4C74 /* QRScanner.swift in Sources */,
+				103618591E9BDF4D00223B27 /* HTTPServerService.swift in Sources */,
 				10897DA11E796B4D002D4C74 /* URL+Helpers.swift in Sources */,
 				104EC00E1E829FB700C42D68 /* Colors.swift in Sources */,
 				108D74AB1E95368C000A09E5 /* SWSSocketClient.swift in Sources */,
