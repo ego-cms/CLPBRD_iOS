@@ -37,6 +37,7 @@ build
 /*.gcno
 DerivedData/
 xcuserdata/
+.vscode
 CLPBRD.xcworkspace/xcuserdata/
 
 # End of https://www.gitignore.io/api/xcode,macos

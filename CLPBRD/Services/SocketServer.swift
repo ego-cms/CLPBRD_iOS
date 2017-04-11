@@ -1,7 +1,7 @@
 import Foundation
 
 
-class SocketServer: NSObject, SocketServerService {
+class SocketServer: NSObject, WebSocketServerService {
     fileprivate var pocketSocketServer: PSWebSocketServer?
     fileprivate var openedWebSockets: [ClientId: PSWebSocket] = [:]
     private let pingInterval: TimeInterval = 5.0

@@ -9,5 +9,5 @@ protocol HTTPServerService: class {
     
     var serverURL: URL? { get }
     
-    var websocketConfigurationJSON: [String: Any] { get set } // json sent to GET /clipboard request
+    var webSocketConfigurationJSON: [String: Any] { get set } // json sent to GET /clipboard request
 }

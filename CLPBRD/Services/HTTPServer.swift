@@ -4,7 +4,7 @@ import GCDWebServer
 
 class HTTPServer: HTTPServerService {
     private let webServer = GCDWebServer()!
-    var websocketConfigurationJSON: [String : Any] = [:]
+    var webSocketConfigurationJSON: [String : Any] = [:]
     
     var serverURL: URL? {
         return webServer.serverURL
@@ -20,7 +20,7 @@ class HTTPServer: HTTPServerService {
 //                "text": "Blablabla",
 //                "host": webServer?.serverURL.host ?? ""
 //            ]
-            let response = GCDWebServerDataResponse(jsonObject: self.websocketConfigurationJSON)
+            let response = GCDWebServerDataResponse(jsonObject: self.webSocketConfigurationJSON)
             return response
         }
         webServer.start(withPort: port, bonjourName: nil)

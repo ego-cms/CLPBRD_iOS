@@ -18,7 +18,7 @@ func createContainer() -> Container {
             clipboardProviderService: r.resolve(ClipboardProviderService.self)!,
             appStateService: r.resolve(AppStateService.self)!,
             httpServerService: r.resolve(HTTPServerService.self)!,
-            socketServerService: r.resolve(SocketServerService.self)!
+            socketServerService: r.resolve(WebSocketServerService.self)!
         )
     }
     
@@ -56,8 +56,29 @@ func createContainer() -> Container {
         HTTPServer()
     }
     
-    container.register(SocketServerService.self) { _ in
+    container.register(WebSocketServerService.self) { _ in
         SocketServer()
+    }
+    
+    container.register(ClipboardSyncServerService.self) { r in
+        SyncServer(
+            httpServerService: r.resolve(HTTPServerService.self)!,
+            webSocketServerService: r.resolve(WebSocketServerService.self)!,
+            clipboardProviderService: r.resolve(ClipboardProviderService.self)!,
+            appStateService: r.resolve(AppStateService.self)!
+        )
+    }
+    
+    container.register(SyncServerDebugViewController.self) { r in
+        SyncServerDebugViewController(clipboardSyncServerService: r.resolve(ClipboardSyncServerService.self)!)
+    }
+    
+    container.register(UIViewController.self, name: "root") { r in
+        if ProcessInfo.processInfo.arguments.contains("DEBUG_SYNC_SERVER") {
+            return r.resolve(SyncServerDebugViewController.self)!
+        }
+        
+        return r.resolve(MainViewController.self)!
     }
     
     return container

@@ -1,8 +1,7 @@
 import Foundation
-import SwiftWebSocket
 
 
-protocol SocketServerService: class {
+protocol WebSocketServerService: class {
     func listen(ipAddress: String, port: UInt)
     func disconnectClient(withId: ClientId)
     func send(message: String, to: ClientId)

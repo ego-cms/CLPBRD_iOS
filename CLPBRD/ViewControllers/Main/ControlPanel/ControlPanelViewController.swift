@@ -50,11 +50,13 @@ class ControlPanelViewController: UIViewController {
     var receivedText: String?
     var alreadyRecognized = false
     
+    var localServerURL: URL?
+    
     var socketClientService: SocketClientService
     var clipboardProviderService: ClipboardProviderService
     var appStateService: AppStateService
     var httpServerService: HTTPServerService
-    var socketServerService: SocketServerService
+    var socketServerService: WebSocketServerService
     
     unowned var container: Container
     
@@ -64,7 +66,7 @@ class ControlPanelViewController: UIViewController {
         clipboardProviderService: ClipboardProviderService,
         appStateService: AppStateService,
         httpServerService: HTTPServerService,
-        socketServerService: SocketServerService
+        socketServerService: WebSocketServerService
     ) {
         self.container = container
         self.socketClientService = socketClientService
@@ -92,9 +94,7 @@ class ControlPanelViewController: UIViewController {
         super.viewDidLoad()
         view.sendSubview(toBack: scanQRButton)
         view.sendSubview(toBack: buttonBackgroundOffDummy)
-//        buttonBackgroundLayer.isHidden = true
         buttonBackgroundOffDummy.isHidden = true
-        //buttonBackgroundLayer.anchorPoint = CGPoint.zero
         scanQRButton.highlightColor = Colors.scanQRButtonHighlighted.color
         scanQRButton.normalColor = Colors.scanQRButtonNormal.color
         toggleButton.highlightColor = Colors.toggleButtonOffHighlighted.color
@@ -108,13 +108,13 @@ class ControlPanelViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         resizePaths()
-        setupButtons()
+        updateButtonFrames()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         resizePaths()
-        setupButtons()
+        updateButtonFrames()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -131,7 +131,7 @@ class ControlPanelViewController: UIViewController {
         }
     }
     
-    func setupButtons() {
+    func updateButtonFrames() {
         DispatchQueue.main.async {
             self.toggleButton.frame = self.toggleButtonFrame(for: self.state)
             self.scanQRButton.frame = self.qrButtonFrame(for: self.state)
@@ -147,6 +147,11 @@ class ControlPanelViewController: UIViewController {
         case .clientGotUpdates:
             clipboardProviderService.content = receivedText
             updateState(to: .clientOn)
+        case .off:
+            socketClientService.disconnect()
+            httpServerService.startServer(port: 8080)
+            serverAddressLabel.text = httpServerService.serverURL?.absoluteString ?? ""
+            updateState(to: .serverOn)
         default:
             print("Button in state \(state). can't handle it yet")
         }
@@ -373,6 +378,12 @@ extension ControlPanelViewController {
         var isOn: Bool {
             return self == .clientOn || self == .serverOn
         }
+    }
+    
+    enum Parameters {
+        case none
+        case client(serverURL: URL)
+        
     }
 }
 
