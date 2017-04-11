@@ -40,6 +40,7 @@
 		1085636B1E9CCBF90031FD54 /* SyncServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1085636A1E9CCBF90031FD54 /* SyncServer.swift */; };
 		1085636F1E9CCE5E0031FD54 /* SyncServerDebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1085636D1E9CCE5E0031FD54 /* SyncServerDebugViewController.swift */; };
 		108563701E9CCE5E0031FD54 /* SyncServerDebugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1085636E1E9CCE5E0031FD54 /* SyncServerDebugViewController.xib */; };
+		108563731E9CDA880031FD54 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108563721E9CDA880031FD54 /* Random.swift */; };
 		10897D8B1E795E5B002D4C74 /* SocketClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897D8A1E795E5B002D4C74 /* SocketClientService.swift */; };
 		10897D9F1E796B20002D4C74 /* URLHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897D9E1E796B20002D4C74 /* URLHelpersTests.swift */; };
 		10897DA11E796B4D002D4C74 /* URL+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897DA01E796B4D002D4C74 /* URL+Helpers.swift */; };
@@ -106,6 +107,7 @@
 		1085636A1E9CCBF90031FD54 /* SyncServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SyncServer.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		1085636D1E9CCE5E0031FD54 /* SyncServerDebugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncServerDebugViewController.swift; sourceTree = "<group>"; };
 		1085636E1E9CCE5E0031FD54 /* SyncServerDebugViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SyncServerDebugViewController.xib; sourceTree = "<group>"; };
+		108563721E9CDA880031FD54 /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		10897D8A1E795E5B002D4C74 /* SocketClientService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketClientService.swift; sourceTree = "<group>"; };
 		10897D941E796AE9002D4C74 /* CLPBRDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CLPBRDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		10897D981E796AE9002D4C74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -153,21 +155,23 @@
 		103618521E9BDF0000223B27 /* WebSocketServerService */ = {
 			isa = PBXGroup;
 			children = (
-				103618531E9BDF1100223B27 /* WebSocketServerService.swift */,
-				103618541E9BDF1100223B27 /* SocketServer.swift */,
 				1036185C1E9BDF7C00223B27 /* ClientId.swift */,
+				103618541E9BDF1100223B27 /* SocketServer.swift */,
+				103618531E9BDF1100223B27 /* WebSocketServerService.swift */,
 			);
 			name = WebSocketServerService;
+			path = WebSocketServerService;
 			sourceTree = "<group>";
 		};
 		103618571E9BDF2A00223B27 /* HTTPServerService */ = {
 			isa = PBXGroup;
 			children = (
+				1036185A1E9BDF5900223B27 /* HTTPServer.swift */,
 				103618581E9BDF4D00223B27 /* HTTPServerService.swift */,
 				108563651E9CBE2F0031FD54 /* WebSocketConfigurationGenerator.swift */,
-				1036185A1E9BDF5900223B27 /* HTTPServer.swift */,
 			);
 			name = HTTPServerService;
+			path = HTTPServerService;
 			sourceTree = "<group>";
 		};
 		104EC00C1E829FAC00C42D68 /* Styling */ = {
@@ -196,6 +200,7 @@
 				108E8AC71E80142F005C990F /* IpAddress.swift */,
 				10897DA21E796E3F002D4C74 /* NSError+Errors.swift */,
 				108E8AC41E800880005C990F /* NibLoading.swift */,
+				108563721E9CDA880031FD54 /* Random.swift */,
 				108D74A81E95344D000A09E5 /* SVGHelpers.swift */,
 				104EC01C1E82B0AF00C42D68 /* SVGPath.swift */,
 				104EC00A1E829F8500C42D68 /* UIColor+Hex.swift */,
@@ -228,7 +233,6 @@
 		1053587C1E782B0700908B74 /* CLPBRD */ = {
 			isa = PBXGroup;
 			children = (
-				1036185E1E9BEE4C00223B27 /* www */,
 				1053589C1E782DAD00908B74 /* Resources */,
 				10897D891E795DFF002D4C74 /* Services */,
 				104EC00C1E829FAC00C42D68 /* Styling */,
@@ -238,6 +242,7 @@
 				1053587D1E782B0700908B74 /* AppDelegate.swift */,
 				108E8AC61E8013A6005C990F /* BridgingHeader.h */,
 				108D74A61E95313B000A09E5 /* DIContainer.swift */,
+				1036185E1E9BEE4C00223B27 /* www */,
 			);
 			path = CLPBRD;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 				1085636A1E9CCBF90031FD54 /* SyncServer.swift */,
 			);
 			name = ClipboardSyncServerService;
+			path = ClipboardSyncServerService;
 			sourceTree = "<group>";
 		};
 		1085636C1E9CCE340031FD54 /* Debug */ = {
@@ -279,6 +285,7 @@
 				108563711E9CCE640031FD54 /* SyncServerDebugViewController */,
 			);
 			name = Debug;
+			path = Debug;
 			sourceTree = "<group>";
 		};
 		108563711E9CCE640031FD54 /* SyncServerDebugViewController */ = {
@@ -288,19 +295,20 @@
 				1085636E1E9CCE5E0031FD54 /* SyncServerDebugViewController.xib */,
 			);
 			name = SyncServerDebugViewController;
+			path = SyncServerDebugViewController;
 			sourceTree = "<group>";
 		};
 		10897D891E795DFF002D4C74 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				103618571E9BDF2A00223B27 /* HTTPServerService */,
-				103618521E9BDF0000223B27 /* WebSocketServerService */,
 				108D749D1E952E92000A09E5 /* AppStateService */,
 				108D749E1E952EA1000A09E5 /* ClipboardProviderService */,
+				108563691E9CCBE60031FD54 /* ClipboardSyncServerService */,
+				103618571E9BDF2A00223B27 /* HTTPServerService */,
 				108D749F1E952EBD000A09E5 /* QRDisplayService */,
 				108D74A01E952EC6000A09E5 /* QRScannerService */,
 				108D74A11E952ED1000A09E5 /* SocketClientService */,
-				108563691E9CCBE60031FD54 /* ClipboardSyncServerService */,
+				103618521E9BDF0000223B27 /* WebSocketServerService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -354,8 +362,8 @@
 		108D74A11E952ED1000A09E5 /* SocketClientService */ = {
 			isa = PBXGroup;
 			children = (
-				10897D8A1E795E5B002D4C74 /* SocketClientService.swift */,
 				108D74AA1E95368C000A09E5 /* SWSSocketClient.swift */,
+				10897D8A1E795E5B002D4C74 /* SocketClientService.swift */,
 			);
 			path = SocketClientService;
 			sourceTree = "<group>";
@@ -588,6 +596,7 @@
 			files = (
 				108D74A71E95313B000A09E5 /* DIContainer.swift in Sources */,
 				10564A841E7AF56800A9D02B /* ClipboardProvider.swift in Sources */,
+				108563731E9CDA880031FD54 /* Random.swift in Sources */,
 				10897DA71E7999A9002D4C74 /* QRScannerService.swift in Sources */,
 				1053587E1E782B0700908B74 /* AppDelegate.swift in Sources */,
 				10897DA31E796E3F002D4C74 /* NSError+Errors.swift in Sources */,

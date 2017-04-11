@@ -33,7 +33,6 @@ class SocketServer: NSObject, WebSocketServerService {
         pocketSocketServer?.delegate = self
         pocketSocketServer?.delegateQueue = .main
         pocketSocketServer?.start()
-        isRunning = true
         schedulePing()
     }
     
@@ -64,7 +63,10 @@ class SocketServer: NSObject, WebSocketServerService {
     }
     
     func stop() {
-        isRunning = false
+        pocketSocketServer?.stop()
+        pocketSocketServer = nil
+        timer?.invalidate()
+        timer = nil
     }
     
     fileprivate func clientId(for webSocket: PSWebSocket) -> ClientId? {
@@ -81,21 +83,14 @@ class SocketServer: NSObject, WebSocketServerService {
         disconnectClient(withId: id)
     }
     
-    fileprivate(set) var isRunning: Bool = false {
-        didSet {
-            if !isRunning {
-                pocketSocketServer?.stop()
-                pocketSocketServer = nil
-                timer?.invalidate()
-                timer = nil
-            }
-        }
-    }
+    fileprivate(set) var isRunning: Bool = false
+        
     
     var clientIds: Set<ClientId> {
         return Set(openedWebSockets.keys)
     }
     
+    var onServerStarted: (Void) -> Void = { }
     var onServerStopped: (Error?) -> Void = { _ in }
     var onClientConnected: (ClientId) -> Void = { _ in }
     var onClientDisconnected: (ClientId, Error?) -> Void = { _ in }
@@ -106,6 +101,8 @@ class SocketServer: NSObject, WebSocketServerService {
 extension SocketServer: PSWebSocketServerDelegate {
     func serverDidStart(_ server: PSWebSocketServer!) {
         print("Server started")
+        isRunning = true
+        onServerStarted()
     }
     
     func server(_ server: PSWebSocketServer!, didFailWithError error: Error!) {
@@ -115,8 +112,8 @@ extension SocketServer: PSWebSocketServerDelegate {
     }
     
     func serverDidStop(_ server: PSWebSocketServer!) {
-        onServerStopped(nil)
         isRunning = false
+        onServerStopped(nil)
     }
     
     func server(_ server: PSWebSocketServer!, webSocketDidOpen webSocket: PSWebSocket!) {
@@ -165,3 +162,4 @@ extension SocketServer: PSWebSocketServerDelegate {
         onClientDisconnected(id, nil)
     }
 }
+
