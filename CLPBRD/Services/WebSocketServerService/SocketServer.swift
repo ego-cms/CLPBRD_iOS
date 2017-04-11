@@ -90,6 +90,13 @@ class SocketServer: NSObject, WebSocketServerService {
         return Set(openedWebSockets.keys)
     }
     
+    deinit {
+        pocketSocketServer?.stop()
+        pocketSocketServer = nil
+        timer?.invalidate()
+        timer = nil
+    }
+    
     var onServerStarted: (Void) -> Void = { }
     var onServerStopped: (Error?) -> Void = { _ in }
     var onClientConnected: (ClientId) -> Void = { _ in }

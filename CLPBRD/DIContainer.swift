@@ -17,8 +17,7 @@ func createContainer() -> Container {
             socketClientService: r.resolve(SocketClientService.self)!,
             clipboardProviderService: r.resolve(ClipboardProviderService.self)!,
             appStateService: r.resolve(AppStateService.self)!,
-            httpServerService: r.resolve(HTTPServerService.self)!,
-            socketServerService: r.resolve(WebSocketServerService.self)!
+            clipboardSyncServerService: r.resolve(ClipboardSyncServerService.self)!
         )
     }
     

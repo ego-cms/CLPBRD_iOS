@@ -55,8 +55,7 @@ class ControlPanelViewController: UIViewController {
     var socketClientService: SocketClientService
     var clipboardProviderService: ClipboardProviderService
     var appStateService: AppStateService
-    var httpServerService: HTTPServerService
-    var socketServerService: WebSocketServerService
+    var clipboardSyncServerService: ClipboardSyncServerService
     
     unowned var container: Container
     
@@ -65,16 +64,28 @@ class ControlPanelViewController: UIViewController {
         socketClientService: SocketClientService,
         clipboardProviderService: ClipboardProviderService,
         appStateService: AppStateService,
-        httpServerService: HTTPServerService,
-        socketServerService: WebSocketServerService
+        clipboardSyncServerService: ClipboardSyncServerService
     ) {
         self.container = container
         self.socketClientService = socketClientService
         self.appStateService = appStateService
         self.clipboardProviderService = clipboardProviderService
-        self.httpServerService = httpServerService
-        self.socketServerService = socketServerService
+        self.clipboardSyncServerService = clipboardSyncServerService
         super.init(nibName: String(describing: type(of: self)), bundle: nil)
+        clipboardSyncServerService.onStateChanged = clipboardSyncServiceStateChanged
+        clipboardSyncServerService.onUpdatesReceived = updatesReceived
+    }
+    
+    func clipboardSyncServiceStateChanged(newState: ServerState) {
+        if newState == .off {
+            updateState(to: .off)
+        } else {
+            updateState(to: .serverOn)
+        }
+    }
+    
+    func updatesReceived() {
+        updateState(to: .serverGotUpdates)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -141,6 +152,7 @@ class ControlPanelViewController: UIViewController {
     @IBAction func toggleButtonPressed(_ sender: Any) {
         switch state {
         case .clientOn:
+            clipboardSyncServerService.stop()
             serverIp = nil
             socketClientService.disconnect()
             updateState(to: .off)
@@ -149,8 +161,12 @@ class ControlPanelViewController: UIViewController {
             updateState(to: .clientOn)
         case .off:
             socketClientService.disconnect()
-            httpServerService.startServer(port: 8080)
-            serverAddressLabel.text = httpServerService.serverURL?.absoluteString ?? ""
+            clipboardSyncServerService.start(port: 8080)
+            serverAddressLabel.text = clipboardSyncServerService.serverURL?.absoluteString ?? ""
+        case .serverOn:
+            clipboardSyncServerService.stop()
+        case .serverGotUpdates:
+            clipboardSyncServerService.takeUpdates()
             updateState(to: .serverOn)
         default:
             print("Button in state \(state). can't handle it yet")

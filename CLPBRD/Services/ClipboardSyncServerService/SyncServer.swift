@@ -118,5 +118,6 @@ class SyncServer: ClipboardSyncServerService {
     }
     
     func httpServerIsRunningChanged(isRunning: Bool) {
+        state = isRunning ? .on : .off
     }
 }
