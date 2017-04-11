@@ -26,12 +26,10 @@ class QRCodeDisplayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         qrDisplayService.onQRCodeReady = { [unowned self] in
-            self.qrCodeCreationFinished(text: $0, result: $1)
+            self.qrCodeCreationFinished(result: $1)
         }
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelPressed))
         title = "QR Code"
-        createQRCode()
-        
         blurView.effect = nil
     }
     
@@ -39,7 +37,9 @@ class QRCodeDisplayViewController: UIViewController {
         super.viewWillAppear(animated)
         blurView.effect = nil
         view.backgroundColor = UIColor.white
-
+        if let lastResult = qrDisplayService.lastResult {
+            qrCodeCreationFinished(result: lastResult)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,11 +50,7 @@ class QRCodeDisplayViewController: UIViewController {
         }
     }
     
-    func createQRCode() {
-        qrDisplayService.text = "blablabla"
-    }
-    
-    func qrCodeCreationFinished(text: String, result: Result<UIImage, QRDisplayError>) {
+    func qrCodeCreationFinished(result: Result<UIImage, QRDisplayError>) {
         switch result {
         case .success(let qrCodeImage):
             qrImageView.image = qrCodeImage

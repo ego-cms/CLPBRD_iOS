@@ -2,6 +2,7 @@ import UIKit
 
 
 enum Colors {
+    case accent
     case scanQRButtonNormal
     case scanQRButtonHighlighted
     case toggleButtonOnNormal
@@ -16,6 +17,7 @@ enum Colors {
     
     var color: UIColor {
         switch self {
+        case .accent: return UIColor(hex: "c8280d")
         case .scanQRButtonNormal: return UIColor(hex: "e2b428")
         case .scanQRButtonHighlighted: return UIColor(hex: "ab881e")
         case .toggleButtonOffNormal: return UIColor(hex: "4fc80d")

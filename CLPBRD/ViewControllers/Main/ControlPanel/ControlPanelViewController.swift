@@ -2,15 +2,6 @@ import UIKit
 import Swinject
 
 
-protocol ControlPanelViewControllerDelegate: class {
-    func controlPanelViewController(_ cpVC: ControlPanelViewController, didChangeStateFrom: ControlPanelViewController.State, to: ControlPanelViewController.State)
-    func controlPanelViewControllerDidPressOnButton(_ cpVC: ControlPanelViewController)
-    func controlPanelViewControllerDidPressQRScanButton(_ cpVC: ControlPanelViewController)
-    func controlPanelViewControllerDidPressOffButton(_ cpVC: ControlPanelViewController)
-    func controlPanelViewControllerDidPressReceiveButton(_ cpVC: ControlPanelViewController)
-}
-
-
 func loadAndTranslatePath(fileName: String) -> UIBezierPath {
     let path = loadSVG(from: fileName)
     let origin = path.bounds.origin
@@ -46,11 +37,17 @@ class ControlPanelViewController: UIViewController {
     @IBOutlet weak var serverAddressLabel: UILabel!
     @IBOutlet weak var offInfoContainer: UIView!
     
+
+    
     var serverIp: String?
     var receivedText: String?
     var alreadyRecognized = false
     
-    var localServerURL: URL?
+    var localServerURL: URL? {
+        didSet {
+            serverAddressLabel.text = clipboardSyncServerService.serverURL?.absoluteString ?? ""
+        }
+    }
     
     var socketClientService: SocketClientService
     var clipboardProviderService: ClipboardProviderService
@@ -93,10 +90,19 @@ class ControlPanelViewController: UIViewController {
     }
     
     @IBAction func scanQRPressed() {
-        print("Pressed")
         let qrCodeScanViewController = container.resolve(QRCodeScanViewController.self)!
         qrCodeScanViewController.delegate = self
         let navigationController = UINavigationController(rootViewController: qrCodeScanViewController)
+        navigationController.modalPresentationStyle = .overFullScreen
+        present(navigationController, animated: true, completion: nil)
+    }
+    
+    @IBAction func showQRPressed(_ sender: Any) {
+        let qrCodeDisplayViewController = container.resolve(QRCodeDisplayViewController.self)!
+        qrCodeDisplayViewController.delegate = self
+        qrCodeDisplayViewController.qrDisplayService.text = "clpbrd://" + (localServerURL?.host ?? "")
+        let navigationController = UINavigationController(rootViewController: qrCodeDisplayViewController)
+        navigationController.view.backgroundColor = .clear
         navigationController.modalPresentationStyle = .overFullScreen
         present(navigationController, animated: true, completion: nil)
     }
@@ -162,7 +168,7 @@ class ControlPanelViewController: UIViewController {
         case .off:
             socketClientService.disconnect()
             clipboardSyncServerService.start(port: 8080)
-            serverAddressLabel.text = clipboardSyncServerService.serverURL?.absoluteString ?? ""
+            localServerURL = clipboardSyncServerService.serverURL
         case .serverOn:
             clipboardSyncServerService.stop()
         case .serverGotUpdates:
@@ -327,6 +333,13 @@ extension ControlPanelViewController: QRCodeScanViewControllerDelegate {
         socketClientService.onReceivedText = socketClientServiceReceivedText
         clipboardProviderService.onContentChanged = clipboardContentChanged
         appStateService.onAppEnterForeground = appEnteredForeground
+    }
+}
+
+
+extension ControlPanelViewController: QRCodeDisplayViewControllerDelegate {
+    func qrCodeDisplayViewControllerCancel(_ viewController: QRCodeDisplayViewController) {
+        dismiss(animated: true, completion: nil)
     }
 }
 

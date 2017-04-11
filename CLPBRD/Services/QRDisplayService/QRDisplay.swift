@@ -13,27 +13,30 @@ class QRDisplay: QRDisplayService {
     var side: CGFloat = 240.0
     var onQRCodeReady: (String, Result<UIImage, QRDisplayError>) -> Void = { _ in }
     
+    private(set) var lastResult: Result<UIImage, QRDisplayError>?
+    
+    func notifyOfResultOnMain(result: Result<UIImage, QRDisplayError>) {
+        DispatchQueue.main.async {
+            self.lastResult = result
+            self.onQRCodeReady(self.text, result)
+        }
+    }
+    
     private func prepareQRCode() {
         DispatchQueue.global(qos: .userInitiated).async {
             guard let data = self.text.data(using: .utf8) else {
-                DispatchQueue.main.async {
-                    self.onQRCodeReady(self.text, .failure(QRDisplayError.textError))
-                }
+                self.notifyOfResultOnMain(result: .failure(QRDisplayError.textError))
                 return
             }
             let filter = CIFilter(name: "CIQRCodeGenerator")
             filter?.setValue(data, forKey: "inputMessage")
             filter?.setValue("L", forKey: "inputCorrectionLevel")
             guard let image = filter?.outputImage else {
-                DispatchQueue.main.async {
-                    self.onQRCodeReady(self.text, .failure(QRDisplayError.qrGenerationError))
-                }
+                self.notifyOfResultOnMain(result: .failure(QRDisplayError.qrGenerationError))
                 return
             }
             let uiimage = UIImage(ciImage: self.resizedImage(input: image))
-            DispatchQueue.main.async {
-                self.onQRCodeReady(self.text, .success(uiimage))
-            }
+            self.notifyOfResultOnMain(result: .success(uiimage))
         }
     }
     

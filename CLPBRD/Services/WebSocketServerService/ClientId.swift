@@ -20,6 +20,6 @@ struct ClientId: Hashable {
     }
     
     var hashValue: Int {
-        return Int(int)
+        return int.hashValue
     }
 }

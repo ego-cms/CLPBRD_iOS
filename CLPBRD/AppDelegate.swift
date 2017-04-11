@@ -12,6 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         let rootVC = appContainer.resolve(UIViewController.self, name: "root")!
         window?.rootViewController = rootVC
+        window?.tintColor = Colors.accent.color
         window?.makeKeyAndVisible()
         return true
     }
