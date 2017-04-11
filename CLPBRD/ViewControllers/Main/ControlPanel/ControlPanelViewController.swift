@@ -168,8 +168,6 @@ class ControlPanelViewController: UIViewController {
         case .serverGotUpdates:
             clipboardSyncServerService.takeUpdates()
             updateState(to: .serverOn)
-        default:
-            print("Button in state \(state). can't handle it yet")
         }
     }
     
