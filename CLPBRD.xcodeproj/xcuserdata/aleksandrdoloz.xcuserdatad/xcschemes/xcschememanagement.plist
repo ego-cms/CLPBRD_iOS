@@ -9,6 +9,18 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>Copy of Debug Sync Server.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Debug Sync Client.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>Debug Sync Server.xcscheme</key>
 		<dict>
 			<key>orderHint</key>

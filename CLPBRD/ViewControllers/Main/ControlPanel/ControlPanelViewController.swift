@@ -409,7 +409,6 @@ extension ControlPanelViewController {
     enum Parameters {
         case none
         case client(serverURL: URL)
-        
     }
 }
 

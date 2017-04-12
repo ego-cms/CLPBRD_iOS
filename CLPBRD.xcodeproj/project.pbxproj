@@ -41,6 +41,10 @@
 		1085636F1E9CCE5E0031FD54 /* SyncServerDebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1085636D1E9CCE5E0031FD54 /* SyncServerDebugViewController.swift */; };
 		108563701E9CCE5E0031FD54 /* SyncServerDebugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1085636E1E9CCE5E0031FD54 /* SyncServerDebugViewController.xib */; };
 		108563731E9CDA880031FD54 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108563721E9CDA880031FD54 /* Random.swift */; };
+		10875A5D1E9E480F00EDC0A2 /* ClipboardSyncClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10875A5C1E9E480F00EDC0A2 /* ClipboardSyncClientService.swift */; };
+		10875A5F1E9E4A4900EDC0A2 /* SyncClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10875A5E1E9E4A4900EDC0A2 /* SyncClient.swift */; };
+		10875A631E9E4E6900EDC0A2 /* SyncClientDebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10875A611E9E4E6900EDC0A2 /* SyncClientDebugViewController.swift */; };
+		10875A641E9E4E6900EDC0A2 /* SyncClientDebugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10875A621E9E4E6900EDC0A2 /* SyncClientDebugViewController.xib */; };
 		10897D8B1E795E5B002D4C74 /* WebSocketClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897D8A1E795E5B002D4C74 /* WebSocketClientService.swift */; };
 		10897D9F1E796B20002D4C74 /* URLHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897D9E1E796B20002D4C74 /* URLHelpersTests.swift */; };
 		10897DA11E796B4D002D4C74 /* URL+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897DA01E796B4D002D4C74 /* URL+Helpers.swift */; };
@@ -108,6 +112,10 @@
 		1085636D1E9CCE5E0031FD54 /* SyncServerDebugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncServerDebugViewController.swift; sourceTree = "<group>"; };
 		1085636E1E9CCE5E0031FD54 /* SyncServerDebugViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SyncServerDebugViewController.xib; sourceTree = "<group>"; };
 		108563721E9CDA880031FD54 /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
+		10875A5C1E9E480F00EDC0A2 /* ClipboardSyncClientService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipboardSyncClientService.swift; sourceTree = "<group>"; };
+		10875A5E1E9E4A4900EDC0A2 /* SyncClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncClient.swift; sourceTree = "<group>"; };
+		10875A611E9E4E6900EDC0A2 /* SyncClientDebugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncClientDebugViewController.swift; sourceTree = "<group>"; };
+		10875A621E9E4E6900EDC0A2 /* SyncClientDebugViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SyncClientDebugViewController.xib; sourceTree = "<group>"; };
 		10897D8A1E795E5B002D4C74 /* WebSocketClientService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketClientService.swift; sourceTree = "<group>"; };
 		10897D941E796AE9002D4C74 /* CLPBRDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CLPBRDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		10897D981E796AE9002D4C74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -279,6 +287,7 @@
 		1085636C1E9CCE340031FD54 /* Debug */ = {
 			isa = PBXGroup;
 			children = (
+				10875A601E9E4E5800EDC0A2 /* SyncClientDebugViewController */,
 				108563711E9CCE640031FD54 /* SyncServerDebugViewController */,
 			);
 			path = Debug;
@@ -293,11 +302,31 @@
 			path = SyncServerDebugViewController;
 			sourceTree = "<group>";
 		};
+		10875A5B1E9E47EE00EDC0A2 /* ClipboardSyncClientService */ = {
+			isa = PBXGroup;
+			children = (
+				10875A5C1E9E480F00EDC0A2 /* ClipboardSyncClientService.swift */,
+				10875A5E1E9E4A4900EDC0A2 /* SyncClient.swift */,
+			);
+			path = ClipboardSyncClientService;
+			sourceTree = "<group>";
+		};
+		10875A601E9E4E5800EDC0A2 /* SyncClientDebugViewController */ = {
+			isa = PBXGroup;
+			children = (
+				10875A611E9E4E6900EDC0A2 /* SyncClientDebugViewController.swift */,
+				10875A621E9E4E6900EDC0A2 /* SyncClientDebugViewController.xib */,
+			);
+			name = SyncClientDebugViewController;
+			path = SyncClientDebugViewController;
+			sourceTree = "<group>";
+		};
 		10897D891E795DFF002D4C74 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				108D749D1E952E92000A09E5 /* AppStateService */,
 				108D749E1E952EA1000A09E5 /* ClipboardProviderService */,
+				10875A5B1E9E47EE00EDC0A2 /* ClipboardSyncClientService */,
 				108563691E9CCBE60031FD54 /* ClipboardSyncServerService */,
 				103618571E9BDF2A00223B27 /* HTTPServerService */,
 				108D749F1E952EBD000A09E5 /* QRDisplayService */,
@@ -360,8 +389,7 @@
 				108D74AA1E95368C000A09E5 /* WebSocketClient.swift */,
 				10897D8A1E795E5B002D4C74 /* WebSocketClientService.swift */,
 			);
-			name = WebSocketClientService;
-			path = SocketClientService;
+			path = WebSocketClientService;
 			sourceTree = "<group>";
 		};
 		108D74A21E952F52000A09E5 /* Main */ = {
@@ -521,6 +549,7 @@
 				105358851E782B0700908B74 /* Assets.xcassets in Resources */,
 				105358931E782CB700908B74 /* MainViewController.xib in Resources */,
 				104EC01F1E82B31500C42D68 /* buttons_collapsed.path in Resources */,
+				10875A641E9E4E6900EDC0A2 /* SyncClientDebugViewController.xib in Resources */,
 				104EC01B1E82B06400C42D68 /* buttons_expanded.path in Resources */,
 				1053589B1E782CEE00908B74 /* QRCodeScanViewController.xib in Resources */,
 				105358971E782CE200908B74 /* QRCodeDisplayViewController.xib in Resources */,
@@ -615,6 +644,7 @@
 				104EC0121E82A1E400C42D68 /* RoundButton.swift in Sources */,
 				106C86B21E950614004107EE /* CGRect+Center.swift in Sources */,
 				105358921E782CB700908B74 /* MainViewController.swift in Sources */,
+				10875A5F1E9E4A4900EDC0A2 /* SyncClient.swift in Sources */,
 				103618561E9BDF1100223B27 /* SocketServer.swift in Sources */,
 				105875971E7C1389005AA724 /* AppState.swift in Sources */,
 				104EC01D1E82B0AF00C42D68 /* SVGPath.swift in Sources */,
@@ -622,10 +652,12 @@
 				1036185D1E9BDF7C00223B27 /* ClientId.swift in Sources */,
 				1085636B1E9CCBF90031FD54 /* SyncServer.swift in Sources */,
 				10897D8B1E795E5B002D4C74 /* WebSocketClientService.swift in Sources */,
+				10875A5D1E9E480F00EDC0A2 /* ClipboardSyncClientService.swift in Sources */,
 				10897DA91E7999B5002D4C74 /* QRScanner.swift in Sources */,
 				103618591E9BDF4D00223B27 /* HTTPServerService.swift in Sources */,
 				10897DA11E796B4D002D4C74 /* URL+Helpers.swift in Sources */,
 				104EC00E1E829FB700C42D68 /* Colors.swift in Sources */,
+				10875A631E9E4E6900EDC0A2 /* SyncClientDebugViewController.swift in Sources */,
 				108D74AB1E95368C000A09E5 /* WebSocketClient.swift in Sources */,
 				1053589A1E782CEE00908B74 /* QRCodeScanViewController.swift in Sources */,
 				10A339711E9256B3004ECFCD /* ControlPanelViewController.swift in Sources */,

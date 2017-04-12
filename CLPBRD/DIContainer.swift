@@ -68,13 +68,32 @@ func createContainer() -> Container {
         )
     }
     
+    container.register(ClipboardSyncClientService.self) {
+        r in
+        SyncClient(
+            webSocketClientService: r.resolve(WebSocketClientService.self)!,
+            clipboardProviderService: r.resolve(ClipboardProviderService.self)!,
+            appStateService: r.resolve(AppStateService.self)!
+        )
+    }
+    
     container.register(SyncServerDebugViewController.self) { r in
         SyncServerDebugViewController(clipboardSyncServerService: r.resolve(ClipboardSyncServerService.self)!)
     }
     
+    container.register(SyncClientDebugViewController.self) { r in
+        SyncClientDebugViewController(clipboardSyncClientService: r.resolve(ClipboardSyncClientService.self)!)
+    }
+    
     container.register(UIViewController.self, name: "root") { r in
-        if ProcessInfo.processInfo.arguments.contains("DEBUG_SYNC_SERVER") {
+        
+        let arguments = ProcessInfo.processInfo.arguments
+        if arguments.contains("DEBUG_SYNC_SERVER") {
             return r.resolve(SyncServerDebugViewController.self)!
+        }
+        
+        if arguments.contains("DEBUG_SYNC_CLIENT") {
+            return r.resolve(SyncClientDebugViewController.self)!
         }
         
         return r.resolve(MainViewController.self)!
