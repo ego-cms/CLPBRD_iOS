@@ -13,6 +13,15 @@ class SyncClientDebugViewController: UIViewController {
     
     init(clipboardSyncClientService: ClipboardSyncClientService) {
         self.clipboardSyncClientService = clipboardSyncClientService
+        clipboardSyncClientService.onConnected = {
+            print("Client connected")
+        }
+        clipboardSyncClientService.onDisconnected = { error in
+            print("Client disconnected with \(error)")
+        }
+        clipboardSyncClientService.onUpdatesReceived = {
+            print("Got updates")
+        }
         super.init(nibName: String(describing: type(of: self)), bundle: nil)
     }
     

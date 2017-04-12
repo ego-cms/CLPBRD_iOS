@@ -34,7 +34,7 @@ protocol ClipboardSyncClientService: class {
     /// Called when client was disconnected
     var onDisconnected: (Error?) -> Void { get set }
     
-    /// Called when some of the clients
+    /// Called when server got the updates
     var onUpdatesReceived: (Void) -> Void { get set }
     
     /// Store updates in clipboard and send them to all other clients (except the one which sent original updates)
