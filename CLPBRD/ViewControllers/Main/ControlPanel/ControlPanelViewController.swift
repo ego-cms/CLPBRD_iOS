@@ -49,7 +49,7 @@ class ControlPanelViewController: UIViewController {
         }
     }
     
-    var socketClientService: SocketClientService
+    var webSocketClientService: WebSocketClientService
     var clipboardProviderService: ClipboardProviderService
     var appStateService: AppStateService
     var clipboardSyncServerService: ClipboardSyncServerService
@@ -58,13 +58,13 @@ class ControlPanelViewController: UIViewController {
     
     init(
         container: Container,
-        socketClientService: SocketClientService,
+        webSocketClientService: WebSocketClientService,
         clipboardProviderService: ClipboardProviderService,
         appStateService: AppStateService,
         clipboardSyncServerService: ClipboardSyncServerService
     ) {
         self.container = container
-        self.socketClientService = socketClientService
+        self.webSocketClientService = webSocketClientService
         self.appStateService = appStateService
         self.clipboardProviderService = clipboardProviderService
         self.clipboardSyncServerService = clipboardSyncServerService
@@ -160,13 +160,13 @@ class ControlPanelViewController: UIViewController {
         case .clientOn:
             clipboardSyncServerService.stop()
             serverIp = nil
-            socketClientService.disconnect()
+            webSocketClientService.disconnect()
             updateState(to: .off)
         case .clientGotUpdates:
             clipboardProviderService.content = receivedText
             updateState(to: .clientOn)
         case .off:
-            socketClientService.disconnect()
+            webSocketClientService.disconnect()
             clipboardSyncServerService.start(port: 8080)
             localServerURL = clipboardSyncServerService.serverURL
         case .serverOn:
@@ -327,10 +327,10 @@ extension ControlPanelViewController: QRCodeScanViewControllerDelegate {
         alreadyRecognized = true
         dismiss(animated: true, completion: nil)
         serverIp = host
-        socketClientService.connect(host: host)
-        socketClientService.onConnected = socketClientServiceConnected
-        socketClientService.onDisconnected = socketClientServiceDisconnected
-        socketClientService.onReceivedText = socketClientServiceReceivedText
+        webSocketClientService.connect(host: host)
+        webSocketClientService.onConnected = socketClientServiceConnected
+        webSocketClientService.onDisconnected = socketClientServiceDisconnected
+        webSocketClientService.onReceivedText = socketClientServiceReceivedText
         clipboardProviderService.onContentChanged = clipboardContentChanged
         appStateService.onAppEnterForeground = appEnteredForeground
     }
@@ -355,10 +355,9 @@ extension ControlPanelViewController {
         if let error = error {
             print(error)
             if let host = serverIp {
-                socketClientService.connect(host: host)
+                webSocketClientService.connect(host: host)
             }
         }
-//        serverIp = nil
     }
     
     func socketClientServiceReceivedText(text: String) {
@@ -375,12 +374,12 @@ extension ControlPanelViewController {
         else {
             return
         }
-        socketClientService.send(text: content)
+        webSocketClientService.send(text: content)
     }
     
     func appEnteredForeground() {
         if let host = serverIp {
-            socketClientService.connect(host: host)
+            webSocketClientService.connect(host: host)
         }
     }
 }

@@ -1,7 +1,7 @@
 import Foundation
 
 
-class SocketServer: NSObject, WebSocketServerService {
+class WebSocketServer: NSObject, WebSocketServerService {
     fileprivate var pocketSocketServer: PSWebSocketServer?
     fileprivate var openedWebSockets: [ClientId: PSWebSocket] = [:]
     private let pingInterval: TimeInterval = 5.0
@@ -16,8 +16,8 @@ class SocketServer: NSObject, WebSocketServerService {
                 return
             }
             for (id, socket) in openedWebSockets {
-                socket.ping(SocketServer.pingData) { data in
-                    if data != SocketServer.pingData { // ping failed
+                socket.ping(WebSocketServer.pingData) { data in
+                    if data != WebSocketServer.pingData { // ping failed
                         self?.disconnectClient(withId: id)
                     }
                 }
@@ -105,7 +105,7 @@ class SocketServer: NSObject, WebSocketServerService {
 }
 
 
-extension SocketServer: PSWebSocketServerDelegate {
+extension WebSocketServer: PSWebSocketServerDelegate {
     func serverDidStart(_ server: PSWebSocketServer!) {
         print("Server started")
         isRunning = true

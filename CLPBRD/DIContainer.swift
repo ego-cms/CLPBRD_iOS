@@ -14,7 +14,7 @@ func createContainer() -> Container {
     container.register(ControlPanelViewController.self) { [unowned container](r) in
         ControlPanelViewController(
             container: container,
-            socketClientService: r.resolve(SocketClientService.self)!,
+            webSocketClientService: r.resolve(WebSocketClientService.self)!,
             clipboardProviderService: r.resolve(ClipboardProviderService.self)!,
             appStateService: r.resolve(AppStateService.self)!,
             clipboardSyncServerService: r.resolve(ClipboardSyncServerService.self)!
@@ -47,8 +47,8 @@ func createContainer() -> Container {
         ClipboardProvider()
     }
     
-    container.register(SocketClientService.self) { _ in
-        SWSSocketClient()
+    container.register(WebSocketClientService.self) { _ in
+        WebSocketClient()
     }
     
     container.register(HTTPServerService.self) { _ in
@@ -56,7 +56,7 @@ func createContainer() -> Container {
     }
     
     container.register(WebSocketServerService.self) { _ in
-        SocketServer()
+        WebSocketServer()
     }
     
     container.register(ClipboardSyncServerService.self) { r in

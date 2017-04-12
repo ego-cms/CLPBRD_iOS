@@ -2,7 +2,7 @@ import Foundation
 import Result
 
 
-protocol SocketClientService: class {
+protocol WebSocketClientService: class {
     var onDisconnected: (Error?) -> Void { get set }
     var onConnected: VoidClosure { get set }
     var onReceivedText: (String) -> Void { get set }

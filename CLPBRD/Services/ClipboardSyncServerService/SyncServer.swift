@@ -85,8 +85,6 @@ class SyncServer: ClipboardSyncServerService {
         self.appStateService = appStateService
         
         clipboardProviderService.onContentChanged = clipboardContentChanged
-//        webSocketServerService.on
-        
         webSocketServerService.onClientConnected = clientConnected
         webSocketServerService.onClientDisconnected = clientDisconnected
         webSocketServerService.onMessageReceived = messageReceived

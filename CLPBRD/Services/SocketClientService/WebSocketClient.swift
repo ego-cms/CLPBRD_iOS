@@ -4,7 +4,7 @@ import Result
 import SwiftyJSON
 
 
-class SWSSocketClient: SocketClientService {
+class WebSocketClient: WebSocketClientService {
     private(set) var url: URL?
     var host: String?
     var webSocket: SwiftWebSocket.WebSocket?
@@ -75,7 +75,7 @@ class SWSSocketClient: SocketClientService {
     }
 }
 
-extension SWSSocketClient: WebSocketDelegate {
+extension WebSocketClient: WebSocketDelegate {
     func webSocketOpen() {
         onConnected()
         host = webSocket?.url
