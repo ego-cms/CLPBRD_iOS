@@ -71,14 +71,15 @@ class SyncClient: NSObject, ClipboardSyncClientService {
     }
     
     func textReceived(text: String) {
-        guard clipboardProviderService.content != text else { return }
+        //guard clipboardProviderService.content != text else { return }
+        guard text != "" else { return }
         lastReceivedText = text
         onUpdatesReceived()
     }
     
     func clipboardContentChanged() {
-        guard let content =  clipboardProviderService.content,
-            content != lastReceivedText else { return }
+        guard let content = clipboardProviderService.content else { return }
+//            content != lastReceivedText else { return }
         webSocketClientService.send(text: content)
     }
     
@@ -91,7 +92,7 @@ class SyncClient: NSObject, ClipboardSyncClientService {
     /// Store updates in clipboard and send them to all other clients (except the one which sent original updates)
     func takeUpdates() {
         guard let lastUpdate = lastReceivedText else { return }
-        clipboardProviderService.content = lastUpdate
+        clipboardProviderService.updateContentWithoutNotification(newContent: lastUpdate)
         lastReceivedText = nil
     }
 }

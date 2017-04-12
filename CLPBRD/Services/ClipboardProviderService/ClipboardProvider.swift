@@ -14,6 +14,8 @@ class ClipboardProvider: NSObject, ClipboardProviderService {
         }
     }
     
+    private var shouldNotify = true
+    
     var changeCount: Int {
         return pasteboard.changeCount
     }
@@ -28,7 +30,16 @@ class ClipboardProvider: NSObject, ClipboardProviderService {
     }
     
     func contentChanged() {
+        guard shouldNotify else {
+            shouldNotify = true
+            return
+        }
         onContentChanged()
+    }
+    
+    func updateContentWithoutNotification(newContent: String) {
+        shouldNotify = false
+        content = newContent
     }
     
     deinit {

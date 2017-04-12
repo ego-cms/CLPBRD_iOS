@@ -37,9 +37,6 @@ class ControlPanelViewController: UIViewController {
     @IBOutlet weak var serverAddressLabel: UILabel!
     @IBOutlet weak var offInfoContainer: UIView!
     
-
-    
-    var serverIp: String?
     var receivedText: String?
     var alreadyRecognized = false
     
@@ -49,28 +46,25 @@ class ControlPanelViewController: UIViewController {
         }
     }
     
-    var webSocketClientService: WebSocketClientService
-    var clipboardProviderService: ClipboardProviderService
-    var appStateService: AppStateService
     var clipboardSyncServerService: ClipboardSyncServerService
+    var clipboardSyncClientService: ClipboardSyncClientService
     
     unowned var container: Container
     
     init(
         container: Container,
-        webSocketClientService: WebSocketClientService,
-        clipboardProviderService: ClipboardProviderService,
-        appStateService: AppStateService,
-        clipboardSyncServerService: ClipboardSyncServerService
+        clipboardSyncServerService: ClipboardSyncServerService,
+        clipboardSyncClientService: ClipboardSyncClientService
     ) {
         self.container = container
-        self.webSocketClientService = webSocketClientService
-        self.appStateService = appStateService
-        self.clipboardProviderService = clipboardProviderService
         self.clipboardSyncServerService = clipboardSyncServerService
+        self.clipboardSyncClientService = clipboardSyncClientService
         super.init(nibName: String(describing: type(of: self)), bundle: nil)
         clipboardSyncServerService.onStateChanged = clipboardSyncServiceStateChanged
         clipboardSyncServerService.onUpdatesReceived = updatesReceived
+        clipboardSyncClientService.onConnected = clientConnected
+        clipboardSyncClientService.onUpdatesReceived = clientReceivedUpdates
+        clipboardSyncClientService.onDisconnected = clientDisconnected
     }
     
     func clipboardSyncServiceStateChanged(newState: ServerState) {
@@ -139,6 +133,20 @@ class ControlPanelViewController: UIViewController {
         resizePaths()
     }
     
+    // MARK: Client callbacks
+    
+    func clientConnected() {
+        updateState(to: .clientOn)
+    }
+    
+    func clientReceivedUpdates() {
+        updateState(to: .clientGotUpdates)
+    }
+    
+    func clientDisconnected(error: Error?) {
+        updateState(to: .off)
+    }
+    
     func updateContainerVisibility() {
         let visible = state == .off ? offInfoContainer : serverInfoContainer
         let invisible = state != .off ? offInfoContainer : serverInfoContainer
@@ -157,23 +165,25 @@ class ControlPanelViewController: UIViewController {
     
     @IBAction func toggleButtonPressed(_ sender: Any) {
         switch state {
-        case .clientOn:
-            clipboardSyncServerService.stop()
-            serverIp = nil
-            webSocketClientService.disconnect()
-            updateState(to: .off)
-        case .clientGotUpdates:
-            clipboardProviderService.content = receivedText
-            updateState(to: .clientOn)
-        case .off:
-            webSocketClientService.disconnect()
-            clipboardSyncServerService.start(port: 8080)
-            localServerURL = clipboardSyncServerService.serverURL
         case .serverOn:
             clipboardSyncServerService.stop()
+            clipboardSyncClientService.disconnect()
+            updateState(to: .off)
         case .serverGotUpdates:
             clipboardSyncServerService.takeUpdates()
             updateState(to: .serverOn)
+            
+        case .clientOn:
+            clipboardSyncServerService.stop()
+            clipboardSyncClientService.disconnect()
+            updateState(to: .off)
+        case .clientGotUpdates:
+            clipboardSyncClientService.takeUpdates()
+            updateState(to: .clientOn)
+        case .off:
+            clipboardSyncClientService.disconnect()
+            clipboardSyncServerService.start(port: 8080)
+            localServerURL = clipboardSyncServerService.serverURL
         }
     }
     
@@ -268,6 +278,7 @@ class ControlPanelViewController: UIViewController {
     }
     
     func updateState(to state: State, animated: Bool = true) {
+        guard self.state != state else { return }
         let duration = animated ? animationDuration : 0.0
         toggleButton.setTitle(toggleButtonTitle(for: state), for: .normal)
         
@@ -319,20 +330,12 @@ extension ControlPanelViewController: QRCodeScanViewControllerDelegate {
     }
     
     func qrCodeScanViewController(_ viewController: QRCodeScanViewController, detectedText: String) {
-        if alreadyRecognized { return }
         guard let host = host(from: detectedText) else {
             viewController.showInvalidQRWarning(qrText: detectedText)
             return
         }
-        alreadyRecognized = true
         dismiss(animated: true, completion: nil)
-        serverIp = host
-        webSocketClientService.connect(host: host)
-        webSocketClientService.onConnected = socketClientServiceConnected
-        webSocketClientService.onDisconnected = socketClientServiceDisconnected
-        webSocketClientService.onReceivedText = socketClientServiceReceivedText
-        clipboardProviderService.onContentChanged = clipboardContentChanged
-        appStateService.onAppEnterForeground = appEnteredForeground
+        clipboardSyncClientService.connect(host: host, port: 8080)
     }
 }
 
@@ -340,47 +343,6 @@ extension ControlPanelViewController: QRCodeScanViewControllerDelegate {
 extension ControlPanelViewController: QRCodeDisplayViewControllerDelegate {
     func qrCodeDisplayViewControllerCancel(_ viewController: QRCodeDisplayViewController) {
         dismiss(animated: true, completion: nil)
-    }
-}
-
-
-extension ControlPanelViewController {
-    func socketClientServiceConnected() {
-        updateState(to: .clientOn)
-    }
-    
-    func socketClientServiceDisconnected(error: Error?) {
-        updateState(to: .off)
-        alreadyRecognized = false
-        if let error = error {
-            print(error)
-            if let host = serverIp {
-                webSocketClientService.connect(host: host)
-            }
-        }
-    }
-    
-    func socketClientServiceReceivedText(text: String) {
-        if text != "" && text != clipboardProviderService.content {
-            receivedText = text
-            updateState(to: .clientGotUpdates)
-        }
-    }
-    
-    func clipboardContentChanged() {
-        guard
-            let content = clipboardProviderService.content,
-            content != receivedText
-        else {
-            return
-        }
-        webSocketClientService.send(text: content)
-    }
-    
-    func appEnteredForeground() {
-        if let host = serverIp {
-            webSocketClientService.connect(host: host)
-        }
     }
 }
 

@@ -11,6 +11,8 @@ class QRCodeScanViewController: UIViewController {
     var qrScannerService: QRScannerService
     weak var delegate: QRCodeScanViewControllerDelegate?
     
+    private var lastText: String?
+    
     init(qrScannerService: QRScannerService) {
         self.qrScannerService = qrScannerService
         super.init(nibName: String(describing: type(of: self)), bundle: nil)
@@ -51,6 +53,11 @@ class QRCodeScanViewController: UIViewController {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        lastText = nil
+    }
+    
     func showInvalidQRWarning(qrText: String) {
         print("Invalid QR \(qrText)")
     }
@@ -65,6 +72,8 @@ class QRCodeScanViewController: UIViewController {
     }
     
     func textDetected(text: String) {
+        if text == lastText { return }
+        lastText = text
         delegate?.qrCodeScanViewController(self, detectedText: text)
     }
     

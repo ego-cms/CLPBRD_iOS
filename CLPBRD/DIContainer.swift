@@ -14,10 +14,8 @@ func createContainer() -> Container {
     container.register(ControlPanelViewController.self) { [unowned container](r) in
         ControlPanelViewController(
             container: container,
-            webSocketClientService: r.resolve(WebSocketClientService.self)!,
-            clipboardProviderService: r.resolve(ClipboardProviderService.self)!,
-            appStateService: r.resolve(AppStateService.self)!,
-            clipboardSyncServerService: r.resolve(ClipboardSyncServerService.self)!
+            clipboardSyncServerService: r.resolve(ClipboardSyncServerService.self)!,
+            clipboardSyncClientService: r.resolve(ClipboardSyncClientService.self)!
         )
     }
     
