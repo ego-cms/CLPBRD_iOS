@@ -46,7 +46,7 @@ func createContainer() -> Container {
     }
     
     container.register(WebSocketClientService.self) { _ in
-        WebSocketClient()
+        PocketSocketClient()
     }
     
     container.register(HTTPServerService.self) { _ in

@@ -17,7 +17,7 @@ class SyncClientDebugViewController: UIViewController {
             print("Client connected")
         }
         clipboardSyncClientService.onDisconnected = { error in
-            print("Client disconnected with \(error)")
+            print("Client disconnected with \(String(describing: error))")
         }
         clipboardSyncClientService.onUpdatesReceived = {
             print("Got updates")

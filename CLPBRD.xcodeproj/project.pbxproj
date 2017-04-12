@@ -45,6 +45,7 @@
 		10875A5F1E9E4A4900EDC0A2 /* SyncClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10875A5E1E9E4A4900EDC0A2 /* SyncClient.swift */; };
 		10875A631E9E4E6900EDC0A2 /* SyncClientDebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10875A611E9E4E6900EDC0A2 /* SyncClientDebugViewController.swift */; };
 		10875A641E9E4E6900EDC0A2 /* SyncClientDebugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10875A621E9E4E6900EDC0A2 /* SyncClientDebugViewController.xib */; };
+		10875A661E9E863900EDC0A2 /* PocketSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10875A651E9E863900EDC0A2 /* PocketSocketClient.swift */; };
 		10897D8B1E795E5B002D4C74 /* WebSocketClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897D8A1E795E5B002D4C74 /* WebSocketClientService.swift */; };
 		10897D9F1E796B20002D4C74 /* URLHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897D9E1E796B20002D4C74 /* URLHelpersTests.swift */; };
 		10897DA11E796B4D002D4C74 /* URL+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897DA01E796B4D002D4C74 /* URL+Helpers.swift */; };
@@ -116,6 +117,7 @@
 		10875A5E1E9E4A4900EDC0A2 /* SyncClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncClient.swift; sourceTree = "<group>"; };
 		10875A611E9E4E6900EDC0A2 /* SyncClientDebugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncClientDebugViewController.swift; sourceTree = "<group>"; };
 		10875A621E9E4E6900EDC0A2 /* SyncClientDebugViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SyncClientDebugViewController.xib; sourceTree = "<group>"; };
+		10875A651E9E863900EDC0A2 /* PocketSocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PocketSocketClient.swift; sourceTree = "<group>"; };
 		10897D8A1E795E5B002D4C74 /* WebSocketClientService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketClientService.swift; sourceTree = "<group>"; };
 		10897D941E796AE9002D4C74 /* CLPBRDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CLPBRDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		10897D981E796AE9002D4C74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -317,7 +319,6 @@
 				10875A611E9E4E6900EDC0A2 /* SyncClientDebugViewController.swift */,
 				10875A621E9E4E6900EDC0A2 /* SyncClientDebugViewController.xib */,
 			);
-			name = SyncClientDebugViewController;
 			path = SyncClientDebugViewController;
 			sourceTree = "<group>";
 		};
@@ -388,6 +389,7 @@
 			children = (
 				108D74AA1E95368C000A09E5 /* WebSocketClient.swift */,
 				10897D8A1E795E5B002D4C74 /* WebSocketClientService.swift */,
+				10875A651E9E863900EDC0A2 /* PocketSocketClient.swift */,
 			);
 			path = WebSocketClientService;
 			sourceTree = "<group>";
@@ -656,6 +658,7 @@
 				10897DA91E7999B5002D4C74 /* QRScanner.swift in Sources */,
 				103618591E9BDF4D00223B27 /* HTTPServerService.swift in Sources */,
 				10897DA11E796B4D002D4C74 /* URL+Helpers.swift in Sources */,
+				10875A661E9E863900EDC0A2 /* PocketSocketClient.swift in Sources */,
 				104EC00E1E829FB700C42D68 /* Colors.swift in Sources */,
 				10875A631E9E4E6900EDC0A2 /* SyncClientDebugViewController.swift in Sources */,
 				108D74AB1E95368C000A09E5 /* WebSocketClient.swift in Sources */,
