@@ -92,7 +92,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/GCDWebServer/GCDWebServer.framework"
   install_framework "$BUILT_PRODUCTS_DIR/PocketSocket/PocketSocket.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Result/Result.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SwiftWebSocket/SwiftWebSocket.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON/SwiftyJSON.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Swinject/Swinject.framework"
 fi
@@ -100,7 +99,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/GCDWebServer/GCDWebServer.framework"
   install_framework "$BUILT_PRODUCTS_DIR/PocketSocket/PocketSocket.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Result/Result.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SwiftWebSocket/SwiftWebSocket.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON/SwiftyJSON.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Swinject/Swinject.framework"
 fi

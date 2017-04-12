@@ -1,12 +1,10 @@
 import Foundation
-import SwiftWebSocket
 import Result
 import SwiftyJSON
 
 
 class PocketSocketClient: NSObject, WebSocketClientService {
     private(set) var url: URL?
-//    var host: String?
     var webSocket: PSWebSocket?
     
     var onReceivedText: (String) -> Void = { _ in }
@@ -81,7 +79,6 @@ class PocketSocketClient: NSObject, WebSocketClientService {
 extension PocketSocketClient: PSWebSocketDelegate {
     func webSocketDidOpen(_ webSocket: PSWebSocket!) {
         onConnected()
-//        host = webSocket.//webSocket?.url
         if let initialText = self.initialText {
             onReceivedText(initialText)
             self.initialText = nil
@@ -89,7 +86,6 @@ extension PocketSocketClient: PSWebSocketDelegate {
     }
     
     func webSocket(_ webSocket: PSWebSocket!, didFailWithError error: Error!) {
-//        host = nil
         onDisconnected(error)
     }
     
@@ -102,24 +98,3 @@ extension PocketSocketClient: PSWebSocketDelegate {
         
     }
 }
-
-
-/*
-extension WebSocketClient: WebSocketDelegate {
-    func webSocketOpen() {
-
-    }
-    
-    func webSocketClose(_ code: Int, reason: String, wasClean: Bool) {}
-    func webSocketError(_ error: NSError) {}
-    
-    func webSocketMessageText(_ text: String) {
- 
-    }
-    
-    func webSocketEnd(_ code: Int, reason: String, wasClean: Bool, error: NSError?) {
-
-    }
-}
-
-*/

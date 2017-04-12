@@ -55,7 +55,6 @@
 		10897DA91E7999B5002D4C74 /* QRScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897DA81E7999B5002D4C74 /* QRScanner.swift */; };
 		108D74A71E95313B000A09E5 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108D74A61E95313B000A09E5 /* DIContainer.swift */; };
 		108D74A91E95344D000A09E5 /* SVGHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108D74A81E95344D000A09E5 /* SVGHelpers.swift */; };
-		108D74AB1E95368C000A09E5 /* WebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108D74AA1E95368C000A09E5 /* WebSocketClient.swift */; };
 		108E8AB91E7FEF7E005C990F /* ContentBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8AB81E7FEF7E005C990F /* ContentBufferTests.swift */; };
 		108E8AC51E800880005C990F /* NibLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8AC41E800880005C990F /* NibLoading.swift */; };
 		108E8AC81E80142F005C990F /* IpAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8AC71E80142F005C990F /* IpAddress.swift */; };
@@ -129,7 +128,6 @@
 		10897DA81E7999B5002D4C74 /* QRScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanner.swift; sourceTree = "<group>"; };
 		108D74A61E95313B000A09E5 /* DIContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DIContainer.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		108D74A81E95344D000A09E5 /* SVGHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGHelpers.swift; sourceTree = "<group>"; };
-		108D74AA1E95368C000A09E5 /* WebSocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
 		108E8AB81E7FEF7E005C990F /* ContentBufferTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ContentBufferTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		108E8AC41E800880005C990F /* NibLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoading.swift; sourceTree = "<group>"; };
 		108E8AC61E8013A6005C990F /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BridgingHeader.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -387,7 +385,6 @@
 		108D74A11E952ED1000A09E5 /* WebSocketClientService */ = {
 			isa = PBXGroup;
 			children = (
-				108D74AA1E95368C000A09E5 /* WebSocketClient.swift */,
 				10897D8A1E795E5B002D4C74 /* WebSocketClientService.swift */,
 				10875A651E9E863900EDC0A2 /* PocketSocketClient.swift */,
 			);
@@ -661,7 +658,6 @@
 				10875A661E9E863900EDC0A2 /* PocketSocketClient.swift in Sources */,
 				104EC00E1E829FB700C42D68 /* Colors.swift in Sources */,
 				10875A631E9E4E6900EDC0A2 /* SyncClientDebugViewController.swift in Sources */,
-				108D74AB1E95368C000A09E5 /* WebSocketClient.swift in Sources */,
 				1053589A1E782CEE00908B74 /* QRCodeScanViewController.swift in Sources */,
 				10A339711E9256B3004ECFCD /* ControlPanelViewController.swift in Sources */,
 			);

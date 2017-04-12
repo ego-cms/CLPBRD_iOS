@@ -8,7 +8,6 @@ protocol WebSocketClientService: class {
     var onReceivedText: (String) -> Void { get set }
     
     var url: URL? { get }
-//    var host: String? { get }
     
     // should be idempotent
     func connect(host: String)

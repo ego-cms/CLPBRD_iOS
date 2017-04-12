@@ -1,6 +1,5 @@
 import Foundation
 import GCDWebServer
-import SwiftWebSocket
 
 
 protocol HTTPServerService: class {
