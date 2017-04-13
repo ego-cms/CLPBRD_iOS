@@ -25,6 +25,11 @@ class QRCodeScanViewController: UIViewController {
     
     @IBOutlet weak var previewContainer: UIView!
     
+    @IBAction func settingsButtonPressed(_ sender: Any) {
+        guard let settingsURL = URL(string: UIApplicationOpenSettingsURLString) else { return }
+        UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelPressed))
@@ -41,6 +46,7 @@ class QRCodeScanViewController: UIViewController {
     func scannerSetupCompleted(error: Error?) {
         guard error == nil else {
             print("Error happened \(error!)")
+            previewContainer.isHidden = true
             return
         }
         guard let layer = qrScannerService.previewLayer else {
