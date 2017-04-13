@@ -1,7 +1,8 @@
 import Foundation
 
 
-class SyncServer: ClipboardSyncServerService {
+class SyncServer: NSObject, ClipboardSyncServerService {
+
     /// URL of running HTTP server if any
     var serverURL: URL? {
         return httpServerService.serverURL
@@ -46,12 +47,16 @@ class SyncServer: ClipboardSyncServerService {
         if httpServerService.webSocketConfigurationJSON == nil {
             generateNewWebSocketPort()
             httpServerService.webSocketConfigurationJSON = webSocketConfigurationJSON
-            guard let serverURL = self.serverURL, let host = serverURL.host else {
-                print("Can't launch websocket server – no server url")
-                return
-            }
-            webSocketServerService.listen(ipAddress: host, port: currentWebSocketPort)
+//            webSocketListenOnCurrentPort()
         }
+    }
+    
+    func webSocketListenOnCurrentPort() {
+        guard let serverURL = self.serverURL, let host = serverURL.host else {
+            print("Can't launch websocket server – no server url")
+            return
+        }
+        webSocketServerService.listen(ipAddress: host, port: currentWebSocketPort)
     }
     
     /// Stops the servers
@@ -83,12 +88,14 @@ class SyncServer: ClipboardSyncServerService {
         self.webSocketServerService = webSocketServerService
         self.clipboardProviderService = clipboardProviderService
         self.appStateService = appStateService
+        super.init()
         
         clipboardProviderService.onContentChanged = clipboardContentChanged
         webSocketServerService.onClientConnected = clientConnected
         webSocketServerService.onClientDisconnected = clientDisconnected
         webSocketServerService.onMessageReceived = messageReceived
         httpServerService.onRunningChanged = httpServerIsRunningChanged
+        appStateService.onAppEnterForeground = appEnteredForeground
     }
     
     func clipboardContentChanged() {
@@ -117,5 +124,15 @@ class SyncServer: ClipboardSyncServerService {
     
     func httpServerIsRunningChanged(isRunning: Bool) {
         state = isRunning ? .on : .off
+        print("--- http server is running \(isRunning)")
+        if isRunning {
+            webSocketListenOnCurrentPort()
+        } else {
+            webSocketServerService.stop()
+        }
+    }
+    
+    func appEnteredForeground() {
+//        webSocketListenOnCurrentPort()
     }
 }

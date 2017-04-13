@@ -39,7 +39,7 @@ func createContainer() -> Container {
     
     container.register(AppStateService.self) { _ in
         AppState()
-    }
+    }.inObjectScope(.transient)
     
     container.register(ClipboardProviderService.self) { _ in
         ClipboardProvider()

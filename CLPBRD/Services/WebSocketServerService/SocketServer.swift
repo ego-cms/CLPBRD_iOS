@@ -65,6 +65,7 @@ class WebSocketServer: NSObject, WebSocketServerService {
     func stop() {
         pocketSocketServer?.stop()
         pocketSocketServer = nil
+        openedWebSockets = [:]
         timer?.invalidate()
         timer = nil
     }
@@ -107,23 +108,25 @@ class WebSocketServer: NSObject, WebSocketServerService {
 
 extension WebSocketServer: PSWebSocketServerDelegate {
     func serverDidStart(_ server: PSWebSocketServer!) {
-        print("Server started")
+        print("Websocket server started")
         isRunning = true
         onServerStarted()
     }
     
     func server(_ server: PSWebSocketServer!, didFailWithError error: Error!) {
-        print("Failed with error: \(error)")
+        print("Websocket server failed with error: \(error)")
         isRunning = false
         onServerStopped(error)
     }
     
     func serverDidStop(_ server: PSWebSocketServer!) {
+        print("Websocket server stopped")
         isRunning = false
         onServerStopped(nil)
     }
     
     func server(_ server: PSWebSocketServer!, webSocketDidOpen webSocket: PSWebSocket!) {
+        print("Websocket server did open socket \(webSocket)")
         let id = ClientId()
         openedWebSockets[id] = webSocket
         onClientConnected(id)

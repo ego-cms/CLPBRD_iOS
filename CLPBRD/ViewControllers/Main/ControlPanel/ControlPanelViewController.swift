@@ -171,6 +171,7 @@ class ControlPanelViewController: UIViewController {
             updateState(to: .off)
         case .serverGotUpdates:
             clipboardSyncServerService.takeUpdates()
+            makeNotification(clipboardContent: UIPasteboard.general.string ?? "")
             updateState(to: .serverOn)
             
         case .clientOn:
@@ -179,6 +180,7 @@ class ControlPanelViewController: UIViewController {
             updateState(to: .off)
         case .clientGotUpdates:
             clipboardSyncClientService.takeUpdates()
+            makeNotification(clipboardContent: UIPasteboard.general.string ?? "")
             updateState(to: .clientOn)
         case .off:
             clipboardSyncClientService.disconnect()
@@ -320,6 +322,10 @@ class ControlPanelViewController: UIViewController {
         }, completion: nil)
         self.state = state
     }
+    
+    func makeNotification(clipboardContent: String) {
+        showLocalNotification(text: clipboardContent)
+    }
 }
 
 
@@ -366,11 +372,6 @@ extension ControlPanelViewController {
         var isOn: Bool {
             return self == .clientOn || self == .serverOn
         }
-    }
-    
-    enum Parameters {
-        case none
-        case client(serverURL: URL)
     }
 }
 

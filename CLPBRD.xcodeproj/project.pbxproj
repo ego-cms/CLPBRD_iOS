@@ -33,6 +33,7 @@
 		10564A841E7AF56800A9D02B /* ClipboardProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10564A831E7AF56800A9D02B /* ClipboardProvider.swift */; };
 		105875951E7C0DF2005AA724 /* AppStateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105875941E7C0DF2005AA724 /* AppStateService.swift */; };
 		105875971E7C1389005AA724 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105875961E7C1389005AA724 /* AppState.swift */; };
+		1058EE321E9F76FF00DAB3ED /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1058EE311E9F76FF00DAB3ED /* Notifications.swift */; };
 		106C86B01E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C86AF1E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift */; };
 		106C86B21E950614004107EE /* CGRect+Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C86B11E950614004107EE /* CGRect+Center.swift */; };
 		108563661E9CBE2F0031FD54 /* WebSocketConfigurationGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108563651E9CBE2F0031FD54 /* WebSocketConfigurationGenerator.swift */; };
@@ -104,6 +105,7 @@
 		10564A831E7AF56800A9D02B /* ClipboardProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ClipboardProvider.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		105875941E7C0DF2005AA724 /* AppStateService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppStateService.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		105875961E7C1389005AA724 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppState.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		1058EE311E9F76FF00DAB3ED /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		106C86AF1E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DeviceOrientationToVideoOrientation.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		106C86B11E950614004107EE /* CGRect+Center.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "CGRect+Center.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		108563651E9CBE2F0031FD54 /* WebSocketConfigurationGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketConfigurationGenerator.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				104EC00A1E829F8500C42D68 /* UIColor+Hex.swift */,
 				10897DA01E796B4D002D4C74 /* URL+Helpers.swift */,
 				1052D48C1E7834E5008B22EE /* Utils.swift */,
+				1058EE311E9F76FF00DAB3ED /* Notifications.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -620,6 +623,7 @@
 			files = (
 				108D74A71E95313B000A09E5 /* DIContainer.swift in Sources */,
 				10564A841E7AF56800A9D02B /* ClipboardProvider.swift in Sources */,
+				1058EE321E9F76FF00DAB3ED /* Notifications.swift in Sources */,
 				108563731E9CDA880031FD54 /* Random.swift in Sources */,
 				10897DA71E7999A9002D4C74 /* QRScannerService.swift in Sources */,
 				1053587E1E782B0700908B74 /* AppDelegate.swift in Sources */,
