@@ -289,47 +289,49 @@ class ControlPanelViewController: UIViewController {
     
     func updateState(to state: State, animated: Bool = true) {
         guard self.state != state else { return }
-        addressDescriptionLabel.text = addressDescription(for: state)
-        showQRButton.isHidden = state.isClient
-        let duration = animated ? animationDuration : 0.0
-        toggleButton.setTitle(toggleButtonTitle(for: state), for: .normal)
-        
-        UIView.animate(withDuration: duration, animations: {
-            self.scanQRButton.frame = self.qrButtonFrame(for: state)
-            self.toggleButton.normalColor = self.toggleButtonNormalColor(for: state)
-            self.toggleButton.highlightColor = self.toggleButtonHighlightedColor(for: state)
-            self.scanQRButton.alpha = self.qrButtonAlpha(for: state)
-        }, completion: { _ in
+        DispatchQueue.main.async {
+            self.addressDescriptionLabel.text = self.addressDescription(for: state)
+            self.showQRButton.isHidden = state.isClient
+            let duration = animated ? self.animationDuration : 0.0
+            self.toggleButton.setTitle(self.toggleButtonTitle(for: state), for: .normal)
+            
+            UIView.animate(withDuration: duration, animations: {
+                self.scanQRButton.frame = self.qrButtonFrame(for: state)
+                self.toggleButton.normalColor = self.toggleButtonNormalColor(for: state)
+                self.toggleButton.highlightColor = self.toggleButtonHighlightedColor(for: state)
+                self.scanQRButton.alpha = self.qrButtonAlpha(for: state)
+            }, completion: { _ in
+                self.buttonBackgroundLayer.position = self.buttonBackgroundLayerPosition(for: state)
+            })
+            self.buttonBackgroundLayer.path = self.buttonBackgroundLayerPath(for: state).cgPath
+            self.buttonBackgroundLayer.fillColor = self.buttonBackgroundLayerColor(for: state).cgColor
             self.buttonBackgroundLayer.position = self.buttonBackgroundLayerPosition(for: state)
-        })
-        buttonBackgroundLayer.path = buttonBackgroundLayerPath(for: state).cgPath
-        buttonBackgroundLayer.fillColor = buttonBackgroundLayerColor(for: state).cgColor
-        buttonBackgroundLayer.position = buttonBackgroundLayerPosition(for: state)
-        let morphing = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.path))
-        //morphing.fromValue = buttonBackgroundLayerPath(for: self.state)
-        morphing.fromValue = buttonBackgroundLayerPath(for: self.state).cgPath
-        morphing.toValue = buttonBackgroundLayerPath(for: state).cgPath
-        //morphing.beginTime = duration
-        morphing.duration = duration
-        let changeColor = CABasicAnimation(keyPath: "fillColor")
-        //changeColor.fromValue = state.color.cgColor
-        changeColor.toValue = buttonBackgroundLayerColor(for: state).cgColor
-        changeColor.duration = duration
-        /*let group = CAAnimationGroup()
-        group.duration = ButtonBackgroundView.animationDuration
-        group.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        group.animations = [morphing, changeColor]*/
-        //backgroundLayer.add(group, forKey: "state_animation")
-        let move = CABasicAnimation(keyPath: "position")
-        move.toValue = NSValue(cgPoint: buttonBackgroundLayerPosition(for: state))
-        move.beginTime = CACurrentMediaTime() + duration
-        move.duration = duration
-        buttonBackgroundLayer.add(changeColor, forKey: "change_color")
-        buttonBackgroundLayer.add(morphing, forKey: "morphing")
-        buttonBackgroundLayer.add(move, forKey: "move")
-        UIView.animate(withDuration: duration, delay: duration, options: [], animations: { 
-            self.toggleButton.frame = self.toggleButtonFrame(for: state)
-        }, completion: nil)
+            let morphing = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.path))
+            //morphing.fromValue = buttonBackgroundLayerPath(for: self.state)
+            morphing.fromValue = self.buttonBackgroundLayerPath(for: self.state).cgPath
+            morphing.toValue = self.buttonBackgroundLayerPath(for: state).cgPath
+            //morphing.beginTime = duration
+            morphing.duration = duration
+            let changeColor = CABasicAnimation(keyPath: "fillColor")
+            //changeColor.fromValue = state.color.cgColor
+            changeColor.toValue = self.buttonBackgroundLayerColor(for: state).cgColor
+            changeColor.duration = duration
+            /*let group = CAAnimationGroup()
+             group.duration = ButtonBackgroundView.animationDuration
+             group.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+             group.animations = [morphing, changeColor]*/
+            //backgroundLayer.add(group, forKey: "state_animation")
+            let move = CABasicAnimation(keyPath: "position")
+            move.toValue = NSValue(cgPoint: self.buttonBackgroundLayerPosition(for: state))
+            move.beginTime = CACurrentMediaTime() + duration
+            move.duration = duration
+            self.buttonBackgroundLayer.add(changeColor, forKey: "change_color")
+            self.buttonBackgroundLayer.add(morphing, forKey: "morphing")
+            self.buttonBackgroundLayer.add(move, forKey: "move")
+            UIView.animate(withDuration: duration, delay: duration, options: [], animations: {
+                self.toggleButton.frame = self.toggleButtonFrame(for: state)
+            }, completion: nil)
+        }
         self.state = state
     }
     

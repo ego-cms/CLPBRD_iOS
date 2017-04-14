@@ -53,6 +53,11 @@
 		10897DA51E79765C002D4C74 /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897DA41E79765C002D4C74 /* Closures.swift */; };
 		10897DA71E7999A9002D4C74 /* QRScannerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897DA61E7999A9002D4C74 /* QRScannerService.swift */; };
 		10897DA91E7999B5002D4C74 /* QRScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897DA81E7999B5002D4C74 /* QRScanner.swift */; };
+		108C67B81EA1035A004FA943 /* KaushanScript-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 108C67B41EA10328004FA943 /* KaushanScript-Regular.ttf */; };
+		108C67B91EA1035A004FA943 /* Parsek-Cyrillic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 108C67B51EA10328004FA943 /* Parsek-Cyrillic.ttf */; };
+		108C67BA1EA1035A004FA943 /* Raleway-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 108C67B61EA10328004FA943 /* Raleway-ExtraBold.ttf */; };
+		108C67BB1EA1035A004FA943 /* Ubuntu-R.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 108C67B71EA10328004FA943 /* Ubuntu-R.ttf */; };
+		108C67BD1EA103F6004FA943 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108C67BC1EA103F6004FA943 /* Fonts.swift */; };
 		108D74A71E95313B000A09E5 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108D74A61E95313B000A09E5 /* DIContainer.swift */; };
 		108D74A91E95344D000A09E5 /* SVGHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108D74A81E95344D000A09E5 /* SVGHelpers.swift */; };
 		108E8AC51E800880005C990F /* NibLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8AC41E800880005C990F /* NibLoading.swift */; };
@@ -113,6 +118,11 @@
 		10897DA41E79765C002D4C74 /* Closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Closures.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		10897DA61E7999A9002D4C74 /* QRScannerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerService.swift; sourceTree = "<group>"; };
 		10897DA81E7999B5002D4C74 /* QRScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanner.swift; sourceTree = "<group>"; };
+		108C67B41EA10328004FA943 /* KaushanScript-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KaushanScript-Regular.ttf"; sourceTree = "<group>"; };
+		108C67B51EA10328004FA943 /* Parsek-Cyrillic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Parsek-Cyrillic.ttf"; sourceTree = "<group>"; };
+		108C67B61EA10328004FA943 /* Raleway-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-ExtraBold.ttf"; sourceTree = "<group>"; };
+		108C67B71EA10328004FA943 /* Ubuntu-R.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-R.ttf"; sourceTree = "<group>"; };
+		108C67BC1EA103F6004FA943 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		108D74A61E95313B000A09E5 /* DIContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DIContainer.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		108D74A81E95344D000A09E5 /* SVGHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGHelpers.swift; sourceTree = "<group>"; };
 		108E8AC41E800880005C990F /* NibLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoading.swift; sourceTree = "<group>"; };
@@ -163,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				104EC00D1E829FB700C42D68 /* Colors.swift */,
+				108C67BC1EA103F6004FA943 /* Fonts.swift */,
 			);
 			path = Styling;
 			sourceTree = "<group>";
@@ -245,6 +256,7 @@
 		1053589C1E782DAD00908B74 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				108C67B31EA102F3004FA943 /* Fonts */,
 				104EC0151E82ABD500C42D68 /* SVG */,
 				105358841E782B0700908B74 /* Assets.xcassets */,
 				105358891E782B0700908B74 /* Info.plist */,
@@ -312,6 +324,17 @@
 				103618521E9BDF0000223B27 /* WebSocketServerService */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		108C67B31EA102F3004FA943 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				108C67B41EA10328004FA943 /* KaushanScript-Regular.ttf */,
+				108C67B51EA10328004FA943 /* Parsek-Cyrillic.ttf */,
+				108C67B61EA10328004FA943 /* Raleway-ExtraBold.ttf */,
+				108C67B71EA10328004FA943 /* Ubuntu-R.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		108D749D1E952E92000A09E5 /* AppStateService */ = {
@@ -490,8 +513,12 @@
 				105358851E782B0700908B74 /* Assets.xcassets in Resources */,
 				105358931E782CB700908B74 /* MainViewController.xib in Resources */,
 				104EC01F1E82B31500C42D68 /* buttons_collapsed.path in Resources */,
+				108C67BB1EA1035A004FA943 /* Ubuntu-R.ttf in Resources */,
+				108C67BA1EA1035A004FA943 /* Raleway-ExtraBold.ttf in Resources */,
+				108C67B91EA1035A004FA943 /* Parsek-Cyrillic.ttf in Resources */,
 				10875A641E9E4E6900EDC0A2 /* SyncClientDebugViewController.xib in Resources */,
 				104EC01B1E82B06400C42D68 /* buttons_expanded.path in Resources */,
+				108C67B81EA1035A004FA943 /* KaushanScript-Regular.ttf in Resources */,
 				1053589B1E782CEE00908B74 /* QRCodeScanViewController.xib in Resources */,
 				105358971E782CE200908B74 /* QRCodeDisplayViewController.xib in Resources */,
 				10A339721E9256B3004ECFCD /* ControlPanelViewController.xib in Resources */,
@@ -561,6 +588,7 @@
 				1053587E1E782B0700908B74 /* AppDelegate.swift in Sources */,
 				10897DA31E796E3F002D4C74 /* NSError+Errors.swift in Sources */,
 				10FFD36C1E7A8384003EEBCD /* QRDisplay.swift in Sources */,
+				108C67BD1EA103F6004FA943 /* Fonts.swift in Sources */,
 				10564A821E7AF4F800A9D02B /* ClipboardProviderService.swift in Sources */,
 				105358961E782CE200908B74 /* QRCodeDisplayViewController.swift in Sources */,
 				106C86B01E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift in Sources */,
