@@ -36,6 +36,8 @@ class ControlPanelViewController: UIViewController {
     @IBOutlet weak var serverInfoContainer: UIView!
     @IBOutlet weak var serverAddressLabel: UILabel!
     @IBOutlet weak var offInfoContainer: UIView!
+    @IBOutlet weak var showQRButton: UIButton!
+    @IBOutlet weak var addressDescriptionLabel: UILabel!
     
     var receivedText: String?
     var alreadyRecognized = false
@@ -275,12 +277,20 @@ class ControlPanelViewController: UIViewController {
         CATransaction.commit()
     }
     
+    func addressDescription(for state: State) -> String {
+        if state.isClient { return "Вы соединены с устройством по этому адресу" }
+        if state.isServer { return "Используйте этот адрес в браузере, чтобы соединиться" }
+        return ""
+    }
+    
     func animateButtonBackgroundLayer(to state: State) {
         
     }
     
     func updateState(to state: State, animated: Bool = true) {
         guard self.state != state else { return }
+        addressDescriptionLabel.text = addressDescription(for: state)
+        showQRButton.isHidden = state.isClient
         let duration = animated ? animationDuration : 0.0
         toggleButton.setTitle(toggleButtonTitle(for: state), for: .normal)
         
@@ -371,6 +381,14 @@ extension ControlPanelViewController {
         
         var isOn: Bool {
             return self == .clientOn || self == .serverOn
+        }
+        
+        var isClient: Bool {
+            return self == .clientOn || self == .clientGotUpdates
+        }
+        
+        var isServer: Bool {
+            return self == .serverOn || self == .serverGotUpdates
         }
     }
 }

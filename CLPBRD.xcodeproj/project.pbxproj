@@ -48,7 +48,6 @@
 		10875A641E9E4E6900EDC0A2 /* SyncClientDebugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10875A621E9E4E6900EDC0A2 /* SyncClientDebugViewController.xib */; };
 		10875A661E9E863900EDC0A2 /* PocketSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10875A651E9E863900EDC0A2 /* PocketSocketClient.swift */; };
 		10897D8B1E795E5B002D4C74 /* WebSocketClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897D8A1E795E5B002D4C74 /* WebSocketClientService.swift */; };
-		10897D9F1E796B20002D4C74 /* URLHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897D9E1E796B20002D4C74 /* URLHelpersTests.swift */; };
 		10897DA11E796B4D002D4C74 /* URL+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897DA01E796B4D002D4C74 /* URL+Helpers.swift */; };
 		10897DA31E796E3F002D4C74 /* NSError+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897DA21E796E3F002D4C74 /* NSError+Errors.swift */; };
 		10897DA51E79765C002D4C74 /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897DA41E79765C002D4C74 /* Closures.swift */; };
@@ -56,7 +55,6 @@
 		10897DA91E7999B5002D4C74 /* QRScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10897DA81E7999B5002D4C74 /* QRScanner.swift */; };
 		108D74A71E95313B000A09E5 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108D74A61E95313B000A09E5 /* DIContainer.swift */; };
 		108D74A91E95344D000A09E5 /* SVGHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108D74A81E95344D000A09E5 /* SVGHelpers.swift */; };
-		108E8AB91E7FEF7E005C990F /* ContentBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8AB81E7FEF7E005C990F /* ContentBufferTests.swift */; };
 		108E8AC51E800880005C990F /* NibLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8AC41E800880005C990F /* NibLoading.swift */; };
 		108E8AC81E80142F005C990F /* IpAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8AC71E80142F005C990F /* IpAddress.swift */; };
 		10A339711E9256B3004ECFCD /* ControlPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A3396F1E9256B3004ECFCD /* ControlPanelViewController.swift */; };
@@ -65,16 +63,6 @@
 		10FFD36C1E7A8384003EEBCD /* QRDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FFD36B1E7A8384003EEBCD /* QRDisplay.swift */; };
 		C1F58269AA86D5878A85A1BA /* Pods_CLPBRD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 252F2C9F91B28DA3F225C625 /* Pods_CLPBRD.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		10897D991E796AE9002D4C74 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 105358721E782B0700908B74 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 105358791E782B0700908B74;
-			remoteInfo = CLPBRD;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		103618531E9BDF1100223B27 /* WebSocketServerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = WebSocketServerService.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -120,9 +108,6 @@
 		10875A621E9E4E6900EDC0A2 /* SyncClientDebugViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SyncClientDebugViewController.xib; sourceTree = "<group>"; };
 		10875A651E9E863900EDC0A2 /* PocketSocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PocketSocketClient.swift; sourceTree = "<group>"; };
 		10897D8A1E795E5B002D4C74 /* WebSocketClientService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketClientService.swift; sourceTree = "<group>"; };
-		10897D941E796AE9002D4C74 /* CLPBRDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CLPBRDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		10897D981E796AE9002D4C74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		10897D9E1E796B20002D4C74 /* URLHelpersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLHelpersTests.swift; sourceTree = "<group>"; };
 		10897DA01E796B4D002D4C74 /* URL+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Helpers.swift"; sourceTree = "<group>"; };
 		10897DA21E796E3F002D4C74 /* NSError+Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "NSError+Errors.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		10897DA41E79765C002D4C74 /* Closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Closures.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -130,7 +115,6 @@
 		10897DA81E7999B5002D4C74 /* QRScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanner.swift; sourceTree = "<group>"; };
 		108D74A61E95313B000A09E5 /* DIContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DIContainer.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		108D74A81E95344D000A09E5 /* SVGHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGHelpers.swift; sourceTree = "<group>"; };
-		108E8AB81E7FEF7E005C990F /* ContentBufferTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ContentBufferTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		108E8AC41E800880005C990F /* NibLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoading.swift; sourceTree = "<group>"; };
 		108E8AC61E8013A6005C990F /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BridgingHeader.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		108E8AC71E80142F005C990F /* IpAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = IpAddress.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -149,13 +133,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1F58269AA86D5878A85A1BA /* Pods_CLPBRD.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		10897D911E796AE9002D4C74 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,7 +200,6 @@
 			isa = PBXGroup;
 			children = (
 				1053587C1E782B0700908B74 /* CLPBRD */,
-				10897D951E796AE9002D4C74 /* CLPBRDTests */,
 				6A4D699574C0710DEB194631 /* Frameworks */,
 				22D3B5D2B7F7E2BE5890E97E /* Pods */,
 				1053587B1E782B0700908B74 /* Products */,
@@ -234,7 +210,6 @@
 			isa = PBXGroup;
 			children = (
 				1053587A1E782B0700908B74 /* CLPBRD.app */,
-				10897D941E796AE9002D4C74 /* CLPBRDTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -337,16 +312,6 @@
 				103618521E9BDF0000223B27 /* WebSocketServerService */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		10897D951E796AE9002D4C74 /* CLPBRDTests */ = {
-			isa = PBXGroup;
-			children = (
-				108E8AB81E7FEF7E005C990F /* ContentBufferTests.swift */,
-				10897D981E796AE9002D4C74 /* Info.plist */,
-				10897D9E1E796B20002D4C74 /* URLHelpersTests.swift */,
-			);
-			path = CLPBRDTests;
 			sourceTree = "<group>";
 		};
 		108D749D1E952E92000A09E5 /* AppStateService */ = {
@@ -479,24 +444,6 @@
 			productReference = 1053587A1E782B0700908B74 /* CLPBRD.app */;
 			productType = "com.apple.product-type.application";
 		};
-		10897D931E796AE9002D4C74 /* CLPBRDTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 10897D9B1E796AE9002D4C74 /* Build configuration list for PBXNativeTarget "CLPBRDTests" */;
-			buildPhases = (
-				10897D901E796AE9002D4C74 /* Sources */,
-				10897D911E796AE9002D4C74 /* Frameworks */,
-				10897D921E796AE9002D4C74 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				10897D9A1E796AE9002D4C74 /* PBXTargetDependency */,
-			);
-			name = CLPBRDTests;
-			productName = CLPBRDTests;
-			productReference = 10897D941E796AE9002D4C74 /* CLPBRDTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -511,13 +458,6 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 579QBLN47H;
 						ProvisioningStyle = Automatic;
-					};
-					10897D931E796AE9002D4C74 = {
-						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 579QBLN47H;
-						LastSwiftMigration = 0820;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 105358791E782B0700908B74;
 					};
 				};
 			};
@@ -535,7 +475,6 @@
 			projectRoot = "";
 			targets = (
 				105358791E782B0700908B74 /* CLPBRD */,
-				10897D931E796AE9002D4C74 /* CLPBRDTests */,
 			);
 		};
 /* End PBXProject section */
@@ -556,13 +495,6 @@
 				1053589B1E782CEE00908B74 /* QRCodeScanViewController.xib in Resources */,
 				105358971E782CE200908B74 /* QRCodeDisplayViewController.xib in Resources */,
 				10A339721E9256B3004ECFCD /* ControlPanelViewController.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		10897D921E796AE9002D4C74 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,24 +599,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		10897D901E796AE9002D4C74 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				10897D9F1E796B20002D4C74 /* URLHelpersTests.swift in Sources */,
-				108E8AB91E7FEF7E005C990F /* ContentBufferTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		10897D9A1E796AE9002D4C74 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 105358791E782B0700908B74 /* CLPBRD */;
-			targetProxy = 10897D991E796AE9002D4C74 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		105358861E782B0700908B74 /* LaunchScreen.storyboard */ = {
@@ -824,37 +739,6 @@
 			};
 			name = Release;
 		};
-		10897D9C1E796AE9002D4C74 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 579QBLN47H;
-				INFOPLIST_FILE = CLPBRDTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cayugasoft.CLPBRDTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CLPBRD.app/CLPBRD";
-			};
-			name = Debug;
-		};
-		10897D9D1E796AE9002D4C74 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 579QBLN47H;
-				INFOPLIST_FILE = CLPBRDTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cayugasoft.CLPBRDTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CLPBRD.app/CLPBRD";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -872,15 +756,6 @@
 			buildConfigurations = (
 				1053588D1E782B0700908B74 /* Debug */,
 				1053588E1E782B0700908B74 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		10897D9B1E796AE9002D4C74 /* Build configuration list for PBXNativeTarget "CLPBRDTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				10897D9C1E796AE9002D4C74 /* Debug */,
-				10897D9D1E796AE9002D4C74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

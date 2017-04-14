@@ -14,6 +14,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ControlPanelViewController" customModule="CLPBRD" customModuleProvider="target">
             <connections>
+                <outlet property="addressDescriptionLabel" destination="9MM-J3-bNX" id="y1m-Q9-UX5"/>
                 <outlet property="buttonBackgroundOffDummy" destination="95D-lH-uK1" id="6Or-C6-93Z"/>
                 <outlet property="buttonBackgroundOnDummy" destination="eu3-Tj-mgr" id="G8Y-r1-EaT"/>
                 <outlet property="offInfoContainer" destination="a8e-Sf-6Ie" id="V36-Wr-hyl"/>
@@ -22,6 +23,7 @@
                 <outlet property="scanQROnDummy" destination="vVn-ja-VBD" id="IqZ-Ps-7yL"/>
                 <outlet property="serverAddressLabel" destination="k9Z-Ns-C5H" id="X2K-PM-H2V"/>
                 <outlet property="serverInfoContainer" destination="iTy-Eq-O9c" id="nUP-8X-LKS"/>
+                <outlet property="showQRButton" destination="ZY4-pG-HAQ" id="EaG-Np-8Ep"/>
                 <outlet property="toggleButton" destination="O3t-vk-fGA" id="FrC-J5-Bmv"/>
                 <outlet property="toggleOffDummy" destination="Y2p-UC-KdD" id="WGU-Nq-Ygm"/>
                 <outlet property="toggleOnDummy" destination="Pdc-7l-u8g" id="txb-eP-Klu"/>
