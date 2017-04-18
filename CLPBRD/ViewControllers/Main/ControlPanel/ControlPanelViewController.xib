@@ -22,6 +22,7 @@
                 <outlet property="addressDescriptionLabel" destination="9MM-J3-bNX" id="y1m-Q9-UX5"/>
                 <outlet property="buttonBackgroundOffDummy" destination="95D-lH-uK1" id="6Or-C6-93Z"/>
                 <outlet property="buttonBackgroundOnDummy" destination="eu3-Tj-mgr" id="G8Y-r1-EaT"/>
+                <outlet property="buttonBackgroundView" destination="Aby-Rl-y7t" id="w8T-Lp-wi0"/>
                 <outlet property="offInfoContainer" destination="a8e-Sf-6Ie" id="V36-Wr-hyl"/>
                 <outlet property="scanQRButton" destination="swE-1u-jA5" id="Grh-HR-bsk"/>
                 <outlet property="scanQROffDummy" destination="T9m-Zi-Bdp" id="HVK-1B-Z8R"/>
@@ -40,6 +41,11 @@
             <rect key="frame" x="0.0" y="0.0" width="628" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aby-Rl-y7t" customClass="ButtonBackgroundView" customModule="CLPBRD" customModuleProvider="target">
+                    <rect key="frame" x="14" y="209" width="94" height="76"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3t-vk-fGA" customClass="RoundButton" customModule="CLPBRD" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="159" height="151"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

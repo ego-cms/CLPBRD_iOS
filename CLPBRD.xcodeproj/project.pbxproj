@@ -64,6 +64,9 @@
 		108E8AC81E80142F005C990F /* IpAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E8AC71E80142F005C990F /* IpAddress.swift */; };
 		10A339711E9256B3004ECFCD /* ControlPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A3396F1E9256B3004ECFCD /* ControlPanelViewController.swift */; };
 		10A339721E9256B3004ECFCD /* ControlPanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10A339701E9256B3004ECFCD /* ControlPanelViewController.xib */; };
+		10B86F2C1EA61F810012BCC6 /* ButtonBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B86F2B1EA61F810012BCC6 /* ButtonBackgroundView.swift */; };
+		10B86F2E1EA691CE0012BCC6 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B86F2D1EA691CE0012BCC6 /* Delay.swift */; };
+		10B86F301EA6945B0012BCC6 /* ControlPanelViewController+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B86F2F1EA6945B0012BCC6 /* ControlPanelViewController+State.swift */; };
 		10FFD36A1E7A82A9003EEBCD /* QRDisplayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FFD3691E7A82A9003EEBCD /* QRDisplayService.swift */; };
 		10FFD36C1E7A8384003EEBCD /* QRDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FFD36B1E7A8384003EEBCD /* QRDisplay.swift */; };
 		C1F58269AA86D5878A85A1BA /* Pods_CLPBRD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 252F2C9F91B28DA3F225C625 /* Pods_CLPBRD.framework */; };
@@ -130,6 +133,9 @@
 		108E8AC71E80142F005C990F /* IpAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = IpAddress.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		10A3396F1E9256B3004ECFCD /* ControlPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ControlPanelViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		10A339701E9256B3004ECFCD /* ControlPanelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ControlPanelViewController.xib; sourceTree = "<group>"; };
+		10B86F2B1EA61F810012BCC6 /* ButtonBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonBackgroundView.swift; sourceTree = "<group>"; };
+		10B86F2D1EA691CE0012BCC6 /* Delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
+		10B86F2F1EA6945B0012BCC6 /* ControlPanelViewController+State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ControlPanelViewController+State.swift"; sourceTree = "<group>"; };
 		10FFD3691E7A82A9003EEBCD /* QRDisplayService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRDisplayService.swift; sourceTree = "<group>"; };
 		10FFD36B1E7A8384003EEBCD /* QRDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRDisplay.swift; sourceTree = "<group>"; };
 		1918E0CF43F359538E369317 /* Pods-CLPBRD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLPBRD.release.xcconfig"; path = "Pods/Target Support Files/Pods-CLPBRD/Pods-CLPBRD.release.xcconfig"; sourceTree = "<group>"; };
@@ -203,6 +209,7 @@
 				10897DA01E796B4D002D4C74 /* URL+Helpers.swift */,
 				1052D48C1E7834E5008B22EE /* Utils.swift */,
 				1058EE311E9F76FF00DAB3ED /* Notifications.swift */,
+				10B86F2D1EA691CE0012BCC6 /* Delay.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -415,6 +422,7 @@
 			children = (
 				10A3396F1E9256B3004ECFCD /* ControlPanelViewController.swift */,
 				10A339701E9256B3004ECFCD /* ControlPanelViewController.xib */,
+				10B86F2F1EA6945B0012BCC6 /* ControlPanelViewController+State.swift */,
 			);
 			path = ControlPanel;
 			sourceTree = "<group>";
@@ -423,6 +431,7 @@
 			isa = PBXGroup;
 			children = (
 				104EC0111E82A1E400C42D68 /* RoundButton.swift */,
+				10B86F2B1EA61F810012BCC6 /* ButtonBackgroundView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -596,6 +605,8 @@
 				108E8AC81E80142F005C990F /* IpAddress.swift in Sources */,
 				1036185B1E9BDF5900223B27 /* HTTPServer.swift in Sources */,
 				108563681E9CC5890031FD54 /* ClipboardSyncServerService.swift in Sources */,
+				10B86F2C1EA61F810012BCC6 /* ButtonBackgroundView.swift in Sources */,
+				10B86F301EA6945B0012BCC6 /* ControlPanelViewController+State.swift in Sources */,
 				108E8AC51E800880005C990F /* NibLoading.swift in Sources */,
 				108563661E9CBE2F0031FD54 /* WebSocketConfigurationGenerator.swift in Sources */,
 				105875951E7C0DF2005AA724 /* AppStateService.swift in Sources */,
@@ -624,6 +635,7 @@
 				10875A631E9E4E6900EDC0A2 /* SyncClientDebugViewController.swift in Sources */,
 				1053589A1E782CEE00908B74 /* QRCodeScanViewController.swift in Sources */,
 				10A339711E9256B3004ECFCD /* ControlPanelViewController.swift in Sources */,
+				10B86F2E1EA691CE0012BCC6 /* Delay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

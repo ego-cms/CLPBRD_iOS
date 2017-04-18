@@ -5,4 +5,5 @@ target "CLPBRD" do
     pod 'Swinject', '~>2.0.0' # di
     pod 'SwiftyJSON', '~>3.1.4' # json parsing
     pod 'PocketSocket' # websocket client/server
+    pod 'SwiftyBeaver'
 end

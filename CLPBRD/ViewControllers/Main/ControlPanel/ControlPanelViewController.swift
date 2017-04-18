@@ -14,7 +14,7 @@ func loadAndTranslatePath(fileName: String) -> UIBezierPath {
 class ControlPanelViewController: UIViewController {
     lazy var expandedPath: UIBezierPath = loadAndTranslatePath(fileName: "buttons_expanded")
     lazy var collapsedPath: UIBezierPath = loadAndTranslatePath(fileName: "buttons_collapsed")
-    var animationDuration = 0.25
+    var animationDuration = 2.0
     
     private(set) var state: State = .off {
         didSet {
@@ -38,6 +38,8 @@ class ControlPanelViewController: UIViewController {
     @IBOutlet weak var offInfoContainer: UIView!
     @IBOutlet weak var showQRButton: UIButton!
     @IBOutlet weak var addressDescriptionLabel: UILabel!
+    
+    @IBOutlet weak var buttonBackgroundView: ButtonBackgroundView!
     
     var receivedText: String?
     var alreadyRecognized = false
@@ -107,27 +109,37 @@ class ControlPanelViewController: UIViewController {
         super.viewDidLoad()
         view.sendSubview(toBack: scanQRButton)
         view.sendSubview(toBack: buttonBackgroundOffDummy)
-        buttonBackgroundOffDummy.isHidden = true
+        view.sendSubview(toBack: buttonBackgroundView)
+        buttonBackgroundOffDummy.isHidden = false
         scanQRButton.highlightColor = Colors.scanQRButtonHighlighted.color
         scanQRButton.normalColor = Colors.scanQRButtonNormal.color
         toggleButton.highlightColor = Colors.toggleButtonOffHighlighted.color
         toggleButton.normalColor = Colors.toggleButtonOffNormal.color
-        view.layer.addSublayer(buttonBackgroundLayer)
+//        view.layer.addSublayer(buttonBackgroundLayer)
         buttonBackgroundLayer.zPosition = -1.0
         buttonBackgroundLayer.anchorPoint = CGPoint(x: 1.0, y: 0.0)
         updateContainerVisibility()
+        let delta = expandedPath.bounds.width - collapsedPath.bounds.width
+        collapsedPath.apply(CGAffineTransform(translationX: -delta, y: 0))
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         resizePaths()
         updateButtonFrames()
+//        buttonBackgroundView.heightInExpandedState = buttonBackgroundOffDummy.frame.height
+//        buttonBackgroundView.animationDuration = 3.0
+//        let f = dummyFrame(dummy: buttonBackgroundOffDummy)
+//        buttonBackgroundView.frame = f
+//        buttonBackgroundView.topRightCorner = CGPoint(x: f.maxX, y: f.minY)//  CGPoint(x: 200, y: 200)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         resizePaths()
         updateButtonFrames()
+        buttonBackgroundView.frame = dummyFrame(dummy: buttonBackgroundOffDummy)
+        buttonBackgroundView.heightInExpandedState = buttonBackgroundView.frame.height
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -283,11 +295,44 @@ class ControlPanelViewController: UIViewController {
         return ""
     }
     
-    func animateButtonBackgroundLayer(to state: State) {
-        
+    var toggleButtonPositionsDistance: CGFloat {
+        return dummyFrame(dummy: toggleOffDummy).center.x - dummyFrame(dummy: toggleOnDummy).center.x
+    }
+
+    func performTransition(from oldState: State, to newState: State, animated: Bool = true) {
+        log.verbose("Transitioning from \(oldState) to \(newState) animated \(animated)")
+        guard oldState != newState else { return }
+        self.toggleButton.setTitle(self.toggleButtonTitle(for: newState), for: .normal)
+        self.toggleButton.normalColor = self.toggleButtonNormalColor(for: newState)
+        self.toggleButton.highlightColor = self.toggleButtonHighlightedColor(for: newState)
+        let duration = animated ? animationDuration : 0.0
+        let scanQRButtonMoveDelay = newState == .off ? duration : 0.0
+        UIView.animate(withDuration: duration, delay: scanQRButtonMoveDelay, animations: {
+            self.scanQRButton.frame = self.qrButtonFrame(for: newState)
+            self.scanQRButton.alpha = self.qrButtonAlpha(for: newState)
+        })
+        let toggleButtonMoveDelay = duration - scanQRButtonMoveDelay
+        let multiplier: CGFloat = (newState.isOff ? 1.0 : 0.0) - (oldState.isOff ? 1.0 : 0.0)
+        let deltaX = multiplier * toggleButtonPositionsDistance
+        UIView.animate(withDuration: duration, delay: toggleButtonMoveDelay, animations: {
+            self.toggleButton.center.x += deltaX
+            self.buttonBackgroundView.center.x += deltaX
+        })
+        delay(scanQRButtonMoveDelay) {
+            self.buttonBackgroundView.changeState(to: newState.buttonBackgroundViewState, animated: animated)
+        }
     }
     
-    func updateState(to state: State, animated: Bool = true) {
+    func updateState(to newState: State, animated: Bool = true) {
+        performTransition(from: self.state, to: newState)
+        self.state = newState
+        // DEBUG
+        /*if (state == .off) {
+            buttonBackgroundView.changeState(to: .expanded)
+        } else {
+            buttonBackgroundView.changeState(to: .collapsed)
+        }*/
+        /*
         guard self.state != state else { return }
         DispatchQueue.main.async {
             self.addressDescriptionLabel.text = self.addressDescription(for: state)
@@ -295,26 +340,27 @@ class ControlPanelViewController: UIViewController {
             let duration = animated ? self.animationDuration : 0.0
             self.toggleButton.setTitle(self.toggleButtonTitle(for: state), for: .normal)
             
-            UIView.animate(withDuration: duration, animations: {
+            let delay = state == .off ? duration : 0.0
+            UIView.animate(withDuration: duration, delay: delay, animations: {
                 self.scanQRButton.frame = self.qrButtonFrame(for: state)
                 self.toggleButton.normalColor = self.toggleButtonNormalColor(for: state)
                 self.toggleButton.highlightColor = self.toggleButtonHighlightedColor(for: state)
                 self.scanQRButton.alpha = self.qrButtonAlpha(for: state)
             }, completion: { _ in
-                self.buttonBackgroundLayer.position = self.buttonBackgroundLayerPosition(for: state)
             })
+            self.buttonBackgroundLayer.position = self.buttonBackgroundLayerPosition(for: state)
             self.buttonBackgroundLayer.path = self.buttonBackgroundLayerPath(for: state).cgPath
             self.buttonBackgroundLayer.fillColor = self.buttonBackgroundLayerColor(for: state).cgColor
-            self.buttonBackgroundLayer.position = self.buttonBackgroundLayerPosition(for: state)
+//            self.buttonBackgroundLayer.position = self.buttonBackgroundLayerPosition(for: state)
             let morphing = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.path))
             //morphing.fromValue = buttonBackgroundLayerPath(for: self.state)
-            morphing.fromValue = self.buttonBackgroundLayerPath(for: self.state).cgPath
-            morphing.toValue = self.buttonBackgroundLayerPath(for: state).cgPath
+//            morphing.fromValue = self.buttonBackgroundLayerPath(for: self.state).cgPath
+//            morphing.toValue = self.buttonBackgroundLayerPath(for: state).cgPath
             //morphing.beginTime = duration
             morphing.duration = duration
             let changeColor = CABasicAnimation(keyPath: "fillColor")
             //changeColor.fromValue = state.color.cgColor
-            changeColor.toValue = self.buttonBackgroundLayerColor(for: state).cgColor
+//            changeColor.toValue = self.buttonBackgroundLayerColor(for: state).cgColor
             changeColor.duration = duration
             /*let group = CAAnimationGroup()
              group.duration = ButtonBackgroundView.animationDuration
@@ -322,17 +368,18 @@ class ControlPanelViewController: UIViewController {
              group.animations = [morphing, changeColor]*/
             //backgroundLayer.add(group, forKey: "state_animation")
             let move = CABasicAnimation(keyPath: "position")
-            move.toValue = NSValue(cgPoint: self.buttonBackgroundLayerPosition(for: state))
-            move.beginTime = CACurrentMediaTime() + duration
+//            move.toValue = NSValue(cgPoint: self.buttonBackgroundLayerPosition(for: state))
+            move.beginTime = CACurrentMediaTime() + delay
             move.duration = duration
             self.buttonBackgroundLayer.add(changeColor, forKey: "change_color")
             self.buttonBackgroundLayer.add(morphing, forKey: "morphing")
             self.buttonBackgroundLayer.add(move, forKey: "move")
-            UIView.animate(withDuration: duration, delay: duration, options: [], animations: {
+            UIView.animate(withDuration: duration, delay: duration - delay, options: [], animations: {
                 self.toggleButton.frame = self.toggleButtonFrame(for: state)
             }, completion: nil)
         }
-        self.state = state
+ */
+        
     }
     
     func makeNotification(clipboardContent: String) {
@@ -361,37 +408,6 @@ extension ControlPanelViewController: QRCodeScanViewControllerDelegate {
 extension ControlPanelViewController: QRCodeDisplayViewControllerDelegate {
     func qrCodeDisplayViewControllerCancel(_ viewController: QRCodeDisplayViewController) {
         dismiss(animated: true, completion: nil)
-    }
-}
-
-
-extension ControlPanelViewController {
-    enum State {
-        case off
-        case clientOn
-        case clientGotUpdates
-        case serverOn
-        case serverGotUpdates
-        
-        var gotUpdates: Bool {
-            return self == .clientGotUpdates || self == .serverGotUpdates
-        }
-        
-        var isOff: Bool {
-            return self == .off
-        }
-        
-        var isOn: Bool {
-            return self == .clientOn || self == .serverOn
-        }
-        
-        var isClient: Bool {
-            return self == .clientOn || self == .clientGotUpdates
-        }
-        
-        var isServer: Bool {
-            return self == .serverOn || self == .serverGotUpdates
-        }
     }
 }
 

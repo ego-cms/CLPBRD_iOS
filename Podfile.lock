@@ -12,6 +12,7 @@ PODS:
   - PocketSocket/Server (1.0.1):
     - PocketSocket/Client
   - Result (3.2.1)
+  - SwiftyBeaver (1.1.4)
   - SwiftyJSON (3.1.4)
   - Swinject (2.0.0)
 
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - GCDWebServer
   - PocketSocket
   - Result
+  - SwiftyBeaver
   - SwiftyJSON (~> 3.1.4)
   - Swinject (~> 2.0.0)
 
@@ -26,9 +28,10 @@ SPEC CHECKSUMS:
   GCDWebServer: 1c39a1f0763e4eb492bee021e4270fce097d3555
   PocketSocket: 9c6867d66fb4f962af96b9b07f4b45bb561b2c2a
   Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
+  SwiftyBeaver: 9216b6e163c145628ccc7c0126df4287880d6e1e
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   Swinject: 2e964a80d70ab09b3949c99032711f89147bfd60
 
-PODFILE CHECKSUM: 5e014c03f420e221858b7c1ef8ffc1d0efc13332
+PODFILE CHECKSUM: ffcaafdbbae8ecab3a4872c2a5a5b4106758927f
 
 COCOAPODS: 1.2.0.beta.1
