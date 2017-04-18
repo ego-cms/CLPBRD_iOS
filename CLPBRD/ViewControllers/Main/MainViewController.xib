@@ -73,13 +73,35 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ego_logo" translatesAutoresizingMaskIntoConstraints="NO" id="YNv-kX-ULU">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NZm-0u-va5">
                                     <rect key="frame" x="190" y="0.0" width="60" height="32"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ego_logo" translatesAutoresizingMaskIntoConstraints="NO" id="YNv-kX-ULU">
+                                            <rect key="frame" x="0.0" y="0.0" width="60" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="AIe-PD-9aL"/>
+                                                <constraint firstAttribute="height" constant="32" id="jef-HZ-eSR"/>
+                                            </constraints>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2E-3B-Vdv">
+                                            <rect key="frame" x="0.0" y="0.0" width="60" height="32"/>
+                                            <connections>
+                                                <action selector="logoPressed" destination="-1" eventType="touchUpInside" id="axX-1X-U68"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="60" id="AIe-PD-9aL"/>
-                                        <constraint firstAttribute="height" constant="32" id="jef-HZ-eSR"/>
+                                        <constraint firstAttribute="trailing" secondItem="I2E-3B-Vdv" secondAttribute="trailing" id="S3R-q1-hXF"/>
+                                        <constraint firstItem="YNv-kX-ULU" firstAttribute="leading" secondItem="NZm-0u-va5" secondAttribute="leading" id="TVY-qO-COU"/>
+                                        <constraint firstAttribute="bottom" secondItem="YNv-kX-ULU" secondAttribute="bottom" id="V8v-iv-P3c"/>
+                                        <constraint firstItem="I2E-3B-Vdv" firstAttribute="leading" secondItem="NZm-0u-va5" secondAttribute="leading" id="den-rx-NFx"/>
+                                        <constraint firstAttribute="trailing" secondItem="YNv-kX-ULU" secondAttribute="trailing" id="fDV-E2-MhK"/>
+                                        <constraint firstAttribute="bottom" secondItem="I2E-3B-Vdv" secondAttribute="bottom" id="hzj-Vj-rYe"/>
+                                        <constraint firstItem="YNv-kX-ULU" firstAttribute="top" secondItem="NZm-0u-va5" secondAttribute="top" id="m9S-bY-GBf"/>
+                                        <constraint firstItem="I2E-3B-Vdv" firstAttribute="top" secondItem="NZm-0u-va5" secondAttribute="top" id="yfJ-Ce-rVO"/>
                                     </constraints>
-                                </imageView>
+                                </view>
                             </subviews>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="dCM-4Q-iqo"/>

@@ -1,6 +1,8 @@
 import UIKit
 
 
+private let egoURL = URL(string: "http://ego-cms.com")!
+
 class MainViewController: UIViewController {
     @IBOutlet weak var controlPanelContainer: UIView!
     
@@ -22,5 +24,9 @@ class MainViewController: UIViewController {
         controlPanelViewController.didMove(toParentViewController: self)
         controlPanelViewController.view.frame = controlPanelContainer.bounds
         controlPanelContainer.addSubview(controlPanelViewController.view)
+    }
+    
+    @IBAction func logoPressed() {
+        UIApplication.shared.open(egoURL, completionHandler: nil)
     }
 }
