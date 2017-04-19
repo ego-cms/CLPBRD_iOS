@@ -33,7 +33,7 @@ class QRCodeScanViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelPressed))
-        title = "Scan QR code"
+        title = L10n.scanQRCodeTitle.string
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -5,7 +5,7 @@ import UserNotifications
 func showLocalNotification(text: String) {
     let content = UNMutableNotificationContent()
     content.title = "CLPBRD"
-    content.subtitle = "Copied!"
+    content.subtitle = L10n.notificationTitle.string
     content.body = text
     content.categoryIdentifier = "message"
     

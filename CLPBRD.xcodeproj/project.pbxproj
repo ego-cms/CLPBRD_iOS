@@ -13,6 +13,7 @@
 		1036185B1E9BDF5900223B27 /* HTTPServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1036185A1E9BDF5900223B27 /* HTTPServer.swift */; };
 		1036185D1E9BDF7C00223B27 /* ClientId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1036185C1E9BDF7C00223B27 /* ClientId.swift */; };
 		1036185F1E9BEE4C00223B27 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 1036185E1E9BEE4C00223B27 /* www */; };
+		104187061EA79EFA0069939B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 104187081EA79EFA0069939B /* Localizable.strings */; };
 		104EC00B1E829F8500C42D68 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104EC00A1E829F8500C42D68 /* UIColor+Hex.swift */; };
 		104EC00E1E829FB700C42D68 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104EC00D1E829FB700C42D68 /* Colors.swift */; };
 		104EC0121E82A1E400C42D68 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104EC0111E82A1E400C42D68 /* RoundButton.swift */; };
@@ -34,6 +35,7 @@
 		105875951E7C0DF2005AA724 /* AppStateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105875941E7C0DF2005AA724 /* AppStateService.swift */; };
 		105875971E7C1389005AA724 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105875961E7C1389005AA724 /* AppState.swift */; };
 		1058EE321E9F76FF00DAB3ED /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1058EE311E9F76FF00DAB3ED /* Notifications.swift */; };
+		105BEF341EA7865600A8F46C /* GeneratedLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105BEF331EA7865600A8F46C /* GeneratedLocalization.swift */; };
 		106C86B01E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C86AF1E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift */; };
 		106C86B21E950614004107EE /* CGRect+Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C86B11E950614004107EE /* CGRect+Center.swift */; };
 		108563661E9CBE2F0031FD54 /* WebSocketConfigurationGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108563651E9CBE2F0031FD54 /* WebSocketConfigurationGenerator.swift */; };
@@ -79,6 +81,8 @@
 		1036185A1E9BDF5900223B27 /* HTTPServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPServer.swift; sourceTree = "<group>"; };
 		1036185C1E9BDF7C00223B27 /* ClientId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientId.swift; sourceTree = "<group>"; };
 		1036185E1E9BEE4C00223B27 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
+		104187071EA79EFA0069939B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		104187091EA79F180069939B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		104EC00A1E829F8500C42D68 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		104EC00D1E829FB700C42D68 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Colors.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		104EC0111E82A1E400C42D68 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 		105875941E7C0DF2005AA724 /* AppStateService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppStateService.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		105875961E7C1389005AA724 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppState.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		1058EE311E9F76FF00DAB3ED /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		105BEF331EA7865600A8F46C /* GeneratedLocalization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedLocalization.swift; sourceTree = "<group>"; };
 		106C86AF1E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DeviceOrientationToVideoOrientation.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		106C86B11E950614004107EE /* CGRect+Center.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "CGRect+Center.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		108563651E9CBE2F0031FD54 /* WebSocketConfigurationGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketConfigurationGenerator.swift; sourceTree = "<group>"; };
@@ -198,18 +203,18 @@
 			children = (
 				106C86B11E950614004107EE /* CGRect+Center.swift */,
 				10897DA41E79765C002D4C74 /* Closures.swift */,
+				10B86F2D1EA691CE0012BCC6 /* Delay.swift */,
 				106C86AF1E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift */,
 				108E8AC71E80142F005C990F /* IpAddress.swift */,
 				10897DA21E796E3F002D4C74 /* NSError+Errors.swift */,
 				108E8AC41E800880005C990F /* NibLoading.swift */,
+				1058EE311E9F76FF00DAB3ED /* Notifications.swift */,
 				108563721E9CDA880031FD54 /* Random.swift */,
 				108D74A81E95344D000A09E5 /* SVGHelpers.swift */,
 				104EC01C1E82B0AF00C42D68 /* SVGPath.swift */,
 				104EC00A1E829F8500C42D68 /* UIColor+Hex.swift */,
 				10897DA01E796B4D002D4C74 /* URL+Helpers.swift */,
 				1052D48C1E7834E5008B22EE /* Utils.swift */,
-				1058EE311E9F76FF00DAB3ED /* Notifications.swift */,
-				10B86F2D1EA691CE0012BCC6 /* Delay.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 		1053587C1E782B0700908B74 /* CLPBRD */ = {
 			isa = PBXGroup;
 			children = (
+				105BEF321EA7863F00A8F46C /* Localization */,
 				1053589C1E782DAD00908B74 /* Resources */,
 				10897D891E795DFF002D4C74 /* Services */,
 				104EC00C1E829FAC00C42D68 /* Styling */,
@@ -270,6 +276,15 @@
 				105358861E782B0700908B74 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		105BEF321EA7863F00A8F46C /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				105BEF331EA7865600A8F46C /* GeneratedLocalization.swift */,
+				104187081EA79EFA0069939B /* Localizable.strings */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 		108563691E9CCBE60031FD54 /* ClipboardSyncServerService */ = {
@@ -341,7 +356,7 @@
 				108C67B61EA10328004FA943 /* Raleway-ExtraBold.ttf */,
 				108C67B71EA10328004FA943 /* Ubuntu-R.ttf */,
 			);
-			name = Fonts;
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		108D749D1E952E92000A09E5 /* AppStateService */ = {
@@ -383,8 +398,8 @@
 		108D74A11E952ED1000A09E5 /* WebSocketClientService */ = {
 			isa = PBXGroup;
 			children = (
-				10897D8A1E795E5B002D4C74 /* WebSocketClientService.swift */,
 				10875A651E9E863900EDC0A2 /* PocketSocketClient.swift */,
+				10897D8A1E795E5B002D4C74 /* WebSocketClientService.swift */,
 			);
 			path = WebSocketClientService;
 			sourceTree = "<group>";
@@ -420,9 +435,9 @@
 		108D74A51E952F6A000A09E5 /* ControlPanel */ = {
 			isa = PBXGroup;
 			children = (
+				10B86F2F1EA6945B0012BCC6 /* ControlPanelViewController+State.swift */,
 				10A3396F1E9256B3004ECFCD /* ControlPanelViewController.swift */,
 				10A339701E9256B3004ECFCD /* ControlPanelViewController.xib */,
-				10B86F2F1EA6945B0012BCC6 /* ControlPanelViewController+State.swift */,
 			);
 			path = ControlPanel;
 			sourceTree = "<group>";
@@ -430,8 +445,8 @@
 		108E8ABD1E80061B005C990F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				104EC0111E82A1E400C42D68 /* RoundButton.swift */,
 				10B86F2B1EA61F810012BCC6 /* ButtonBackgroundView.swift */,
+				104EC0111E82A1E400C42D68 /* RoundButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -500,6 +515,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 105358711E782B0700908B74;
 			productRefGroup = 1053587B1E782B0700908B74 /* Products */;
@@ -529,6 +545,7 @@
 				104EC01B1E82B06400C42D68 /* buttons_expanded.path in Resources */,
 				108C67B81EA1035A004FA943 /* KaushanScript-Regular.ttf in Resources */,
 				1053589B1E782CEE00908B74 /* QRCodeScanViewController.xib in Resources */,
+				104187061EA79EFA0069939B /* Localizable.strings in Resources */,
 				105358971E782CE200908B74 /* QRCodeDisplayViewController.xib in Resources */,
 				10A339721E9256B3004ECFCD /* ControlPanelViewController.xib in Resources */,
 			);
@@ -619,6 +636,7 @@
 				106C86B21E950614004107EE /* CGRect+Center.swift in Sources */,
 				105358921E782CB700908B74 /* MainViewController.swift in Sources */,
 				10875A5F1E9E4A4900EDC0A2 /* SyncClient.swift in Sources */,
+				105BEF341EA7865600A8F46C /* GeneratedLocalization.swift in Sources */,
 				103618561E9BDF1100223B27 /* SocketServer.swift in Sources */,
 				105875971E7C1389005AA724 /* AppState.swift in Sources */,
 				104EC01D1E82B0AF00C42D68 /* SVGPath.swift in Sources */,
@@ -642,6 +660,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		104187081EA79EFA0069939B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				104187071EA79EFA0069939B /* Base */,
+				104187091EA79F180069939B /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		105358861E782B0700908B74 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -658,6 +685,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -708,6 +736,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -754,12 +783,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 579QBLN47H;
 				INFOPLIST_FILE = CLPBRD/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cayugasoft.CLPBRD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/CLPBRD/BridgingHeader.h";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -770,12 +800,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 579QBLN47H;
 				INFOPLIST_FILE = CLPBRD/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cayugasoft.CLPBRD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/CLPBRD/BridgingHeader.h";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

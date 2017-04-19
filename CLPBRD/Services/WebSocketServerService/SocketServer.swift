@@ -10,14 +10,19 @@ class WebSocketServer: NSObject, WebSocketServerService {
     
     
     private func schedulePing() {
+        log.verbose("Scheduling ping for socket server with interval \(pingInterval)")
         guard timer == nil else { return }
         timer = Timer.scheduledTimer(withTimeInterval: pingInterval, repeats: true, block: { [weak self](_) in
+    
             guard let openedWebSockets = self?.openedWebSockets else {
                 return
             }
             for (id, socket) in openedWebSockets {
                 socket.ping(WebSocketServer.pingData) { data in
                     if data != WebSocketServer.pingData { // ping failed
+                        log.verbose("Socket server ping failed to client \(id)")
+                        log.verbose("Ping data - \(WebSocketServer.pingData), received data – data")
+                        log.verbose("Client will be disconnected")
                         self?.disconnectClient(withId: id)
                     }
                 }
@@ -29,6 +34,7 @@ class WebSocketServer: NSObject, WebSocketServerService {
         if isRunning {
             return
         }
+        log.verbose("Socket server listening port \(port) on \(ipAddress)")
         pocketSocketServer = PSWebSocketServer(host: ipAddress, port: port)
         pocketSocketServer?.delegate = self
         pocketSocketServer?.delegateQueue = .main
@@ -38,22 +44,25 @@ class WebSocketServer: NSObject, WebSocketServerService {
     
     func disconnectClient(withId clientId: ClientId) {
         guard let socket = openedWebSockets[clientId] else {
-            print("Client with id \(clientId) doesn't exist.")
+            log.warning("Client with id \(clientId) doesn't exist.")
             return
         }
         socket.close()
         openedWebSockets[clientId] = nil
+        log.verbose("Client with id \(clientId) was disconnected.")
     }
     
     func send(message: String, to clientId: ClientId) {
         guard let socket = openedWebSockets[clientId] else {
-            print("Client with id \(clientId) doesn't exist.")
+            log.warning("Client with id \(clientId) doesn't exist.")
             return
         }
         guard socket.readyState == .open else {
+            log.warning("Socket for client \(clientId) is not opened; its state is \(socket.readyState)")
             return
         }
         socket.send(message)
+        log.warning("Socket server sent message \(message) to client \(clientId)")
     }
     
     func broadcast(message: String) {
@@ -68,6 +77,7 @@ class WebSocketServer: NSObject, WebSocketServerService {
         openedWebSockets = [:]
         timer?.invalidate()
         timer = nil
+        log.verbose("Socket server stopped")
     }
     
     fileprivate func clientId(for webSocket: PSWebSocket) -> ClientId? {
@@ -108,37 +118,39 @@ class WebSocketServer: NSObject, WebSocketServerService {
 
 extension WebSocketServer: PSWebSocketServerDelegate {
     func serverDidStart(_ server: PSWebSocketServer!) {
-        print("Websocket server started")
+        log.verbose("PSWebSocketServerDelegate: server did start")
         isRunning = true
         onServerStarted()
     }
     
     func server(_ server: PSWebSocketServer!, didFailWithError error: Error!) {
-        print("Websocket server failed with error: \(error)")
+        log.verbose("PSWebSocketServerDelegate: Websocket server failed with error \(error)")
         isRunning = false
         onServerStopped(error)
     }
     
     func serverDidStop(_ server: PSWebSocketServer!) {
-        print("Websocket server stopped")
+        log.verbose("PSWebSocketServerDelegate: Websocket server did stop")
         isRunning = false
         onServerStopped(nil)
     }
     
     func server(_ server: PSWebSocketServer!, webSocketDidOpen webSocket: PSWebSocket!) {
-        print("Websocket server did open socket \(webSocket)")
+        log.verbose("PSWebSocketServerDelegate: Websocket server did open socket \(webSocket)")
         let id = ClientId()
         openedWebSockets[id] = webSocket
         onClientConnected(id)
     }
     
     func server(_ server: PSWebSocketServer!, webSocket: PSWebSocket!, didReceiveMessage message: Any!) {
+        log.verbose("PSWebSocketServerDelegate: Websocket server did receive message \(message) from socket \(webSocket)")
         guard
             let id = clientId(for: webSocket)
         else {
             print("No client corresponding to web socket \(webSocket)")
             return
         }
+        log.verbose("This is client \(id)")
         
         guard let string = message as? String else {
             print("Expected to get string; got something else: \(message)")
@@ -149,11 +161,11 @@ extension WebSocketServer: PSWebSocketServerDelegate {
     }
     
     func server(_ server: PSWebSocketServer!, webSocket: PSWebSocket!, didFailWithError error: Error!) {
-        print("Socket \(webSocket) failed with error \(error)")
+        log.verbose("PSWebSocketServerDelegate: Socket \(webSocket) failed with error \(error)")
         guard
             let id = clientId(for: webSocket)
         else {
-            print("No client corresponding to web socket \(webSocket)")
+            log.warning("No client corresponding to web socket \(webSocket)")
             return
         }
         disconnectClient(withId: id)
@@ -161,11 +173,11 @@ extension WebSocketServer: PSWebSocketServerDelegate {
     }
     
     func server(_ server: PSWebSocketServer!, webSocket: PSWebSocket!, didCloseWithCode code: Int, reason: String!, wasClean: Bool) {
-        print("Socket did close with code \(code) reason \(reason) was clean \(wasClean)")
+        log.verbose("PSWebSocketServerDelegate: Socket did close with code \(code) reason \(reason) was clean \(wasClean)")
         guard
             let id = clientId(for: webSocket)
         else {
-            print("No client corresponding to web socket \(webSocket)")
+            log.warning("No client corresponding to web socket \(webSocket)")
             return
         }
         disconnectClient(withId: id)

@@ -1,0 +1,11 @@
+"usage_description" = "Send clipboard between your phone,\ndesktop or another phone.\n\nTurn service on and just copy and paste.";
+"prompt_to_scan" = "OR Scan QR code\non another device";
+"button_off_title" = "TURN\nIT ON";
+"button_on_title" = "TURN\nIT OFF";
+"made_by" = "Made with love by";
+"notification_title" = "Clipboard updated!";
+"scan_QR_code_title" = "Scanning QR code...";
+"display_QR_code_title" = "QR code";
+"qr_description" = "Scan this code in CLPBRD app running on\nanother device to get connected.";
+"server_address_explanation" = "Connect to this address in your browser";
+"client_address_explanation" = "You\'re connected to this address";

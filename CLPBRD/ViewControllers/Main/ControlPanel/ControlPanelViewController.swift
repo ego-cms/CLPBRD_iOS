@@ -12,8 +12,6 @@ func loadAndTranslatePath(fileName: String) -> UIBezierPath {
 
 
 class ControlPanelViewController: UIViewController {
-//    lazy var expandedPath: UIBezierPath = loadAndTranslatePath(fileName: "buttons_expanded")
-//    lazy var collapsedPath: UIBezierPath = loadAndTranslatePath(fileName: "buttons_collapsed")
     var animationDuration = 0.25
     
     private(set) var state: State = .off {
@@ -24,7 +22,6 @@ class ControlPanelViewController: UIViewController {
     
     @IBOutlet weak var toggleButton: RoundButton!
     @IBOutlet weak var scanQRButton: RoundButton!
-//    var buttonBackgroundLayer = CAShapeLayer()
     
     @IBOutlet weak var buttonBackgroundOffDummy: UIView!
     @IBOutlet weak var buttonBackgroundOnDummy: UIView!
@@ -41,6 +38,7 @@ class ControlPanelViewController: UIViewController {
     
     @IBOutlet weak var buttonBackgroundView: ButtonBackgroundView!
     
+    @IBOutlet weak var promptToScanLabel: UILabel!
     var receivedText: String?
     var alreadyRecognized = false
     
@@ -111,13 +109,18 @@ class ControlPanelViewController: UIViewController {
         view.sendSubview(toBack: buttonBackgroundOffDummy)
         view.sendSubview(toBack: buttonBackgroundView)
         buttonBackgroundOffDummy.isHidden = true//false
-        scanQRButton.highlightColor = Colors.scanQRButtonHighlighted.color
-        scanQRButton.normalColor = Colors.scanQRButtonNormal.color
-        toggleButton.highlightColor = Colors.toggleButtonOffHighlighted.color
-        toggleButton.normalColor = Colors.toggleButtonOffNormal.color
+        setup(button: scanQRButton, highlightColor: Colors.scanQRButtonHighlighted.color, normalColor: Colors.scanQRButtonNormal.color)
+        setup(button: toggleButton, highlightColor: Colors.toggleButtonOffHighlighted.color, normalColor: Colors.toggleButtonOffNormal.color)
+        toggleButton.setTitle(toggleButtonTitle(for: state), for: .normal)
+        promptToScanLabel.text = L10n.promptToScan.string
         updateContainerVisibility()
-        //let delta = expandedPath.bounds.width - collapsedPath.bounds.width
-        //collapsedPath.apply(CGAffineTransform(translationX: -delta, y: 0))
+    }
+    
+    func setup(button: RoundButton, highlightColor: UIColor, normalColor: UIColor) {
+        button.highlightColor = highlightColor
+        button.normalColor = normalColor
+        button.titleLabel?.lineBreakMode = .byWordWrapping
+        button.titleLabel?.textAlignment = .center
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -223,14 +226,16 @@ class ControlPanelViewController: UIViewController {
     }
     
     func toggleButtonTitle(for state: State) -> String {
-        if state.isOn { return "ВЫКЛ." }
+        if state.isOn { return L10n.buttonOnTitle.string }
         if state.gotUpdates { return "↓" }
-        return "ВКЛ."
+        return L10n.buttonOffTitle.string
     }
 
     func addressDescription(for state: State) -> String {
-        if state.isClient { return "Вы соединены с устройством по этому адресу" }
-        if state.isServer { return "Используйте этот адрес в браузере, чтобы соединиться" }
+        if state.isClient { return L10n.clientAddressExplanation.string }
+            //"Вы соединены с устройством по этому адресу" }
+        if state.isServer { return L10n.serverAddressExplanation.string }
+            //"Используйте этот адрес в браузере, чтобы соединиться" }
         return ""
     }
     

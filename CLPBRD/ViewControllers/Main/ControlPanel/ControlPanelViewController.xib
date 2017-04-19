@@ -24,6 +24,7 @@
                 <outlet property="buttonBackgroundOnDummy" destination="eu3-Tj-mgr" id="G8Y-r1-EaT"/>
                 <outlet property="buttonBackgroundView" destination="Aby-Rl-y7t" id="w8T-Lp-wi0"/>
                 <outlet property="offInfoContainer" destination="a8e-Sf-6Ie" id="V36-Wr-hyl"/>
+                <outlet property="promptToScanLabel" destination="grh-Id-yB9" id="1Gc-Y5-bgN"/>
                 <outlet property="scanQRButton" destination="swE-1u-jA5" id="Grh-HR-bsk"/>
                 <outlet property="scanQROffDummy" destination="T9m-Zi-Bdp" id="HVK-1B-Z8R"/>
                 <outlet property="scanQROnDummy" destination="vVn-ja-VBD" id="IqZ-Ps-7yL"/>
@@ -155,7 +156,7 @@
                     <rect key="frame" x="0.0" y="557" width="628" height="110"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="STf-bZ-HkQ">
-                            <rect key="frame" x="93.5" y="30" width="441" height="51"/>
+                            <rect key="frame" x="94" y="30" width="441" height="51"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Используйте этот адрес в браузере, чтобы соединиться" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9MM-J3-bNX">
                                     <rect key="frame" x="72" y="35" width="369" height="16"/>

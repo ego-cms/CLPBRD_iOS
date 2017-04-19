@@ -11,6 +11,7 @@ class QRCodeDisplayViewController: UIViewController {
     var qrDisplayService: QRDisplayService
     @IBOutlet weak var qrImageView: UIImageView!
     weak var delegate: QRCodeDisplayViewControllerDelegate?
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     init(qrDisplayService: QRDisplayService) {
         self.qrDisplayService = qrDisplayService
@@ -29,7 +30,8 @@ class QRCodeDisplayViewController: UIViewController {
             self.qrCodeCreationFinished(result: $1)
         }
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelPressed))
-        title = "QR Code"
+        title = L10n.displayQRCodeTitle.string
+        descriptionLabel.text = L10n.qrDescription.string
         blurView.effect = nil
     }
     

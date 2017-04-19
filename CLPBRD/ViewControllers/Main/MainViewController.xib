@@ -18,6 +18,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="CLPBRD" customModuleProvider="target">
             <connections>
                 <outlet property="controlPanelContainer" destination="JCz-0D-jHv" id="UFh-lq-jkj"/>
+                <outlet property="madeByLabel" destination="RCA-HL-jiY" id="S8Q-NY-Tc0"/>
+                <outlet property="usageDescriptionLabel" destination="S31-Y3-gKb" id="QXD-Qo-ebp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -70,7 +72,7 @@
                             </variation>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="sFI-2c-TZ5">
-                            <rect key="frame" x="72" y="611" width="231" height="40"/>
+                            <rect key="frame" x="72.5" y="611" width="231" height="40"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сделано с любовью в" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCA-HL-jiY">
                                     <rect key="frame" x="0.0" y="11" width="165" height="18"/>

@@ -107,8 +107,6 @@ class ButtonBackgroundView: UIView {
             expandAnimation.toValue = CATransform3DMakeScale(scale, scale, 1.0)
             fadeAnimation.duration = duration
             fadeAnimation.toValue = 0.0
-//            otherLayer.transform = CATransform3DMakeScale(scale, scale, 1.0)
-//            otherLayer.opacity = 0.0
             CATransaction.begin()
             CATransaction.setCompletionBlock {
                 otherLayer.removeFromSuperlayer()
