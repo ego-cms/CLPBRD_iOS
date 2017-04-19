@@ -10,7 +10,7 @@ import UIKit
 
 
 class ButtonBackgroundView: UIView {
-    var animationDuration = 5.0
+    var animationDuration = 0.25
     
     
     private var shapeLayer = CAShapeLayer()
@@ -57,8 +57,8 @@ class ButtonBackgroundView: UIView {
 //        State.alignPaths()
         layer.addSublayer(shapeLayer)
 //        shapeLayer.backgroundColor = UIColor.purple.withAlphaComponent(0.25).cgColor
-        backgroundColor = UIColor.cyan.withAlphaComponent(0.25)
-//        backgroundColor = .clear
+//        backgroundColor = UIColor.cyan.withAlphaComponent(0.25)
+        backgroundColor = .clear
         updateShapeLayer()
         log.verbose("In common init: state \(state), fill color \(String(describing: shapeLayer.fillColor)), path \(String(describing: shapeLayer.path))")
         preparePaths()

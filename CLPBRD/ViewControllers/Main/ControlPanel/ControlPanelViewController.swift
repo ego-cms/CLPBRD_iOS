@@ -14,7 +14,7 @@ func loadAndTranslatePath(fileName: String) -> UIBezierPath {
 class ControlPanelViewController: UIViewController {
     lazy var expandedPath: UIBezierPath = loadAndTranslatePath(fileName: "buttons_expanded")
     lazy var collapsedPath: UIBezierPath = loadAndTranslatePath(fileName: "buttons_collapsed")
-    var animationDuration = 2.0
+    var animationDuration = 0.25
     
     private(set) var state: State = .off {
         didSet {
@@ -110,7 +110,7 @@ class ControlPanelViewController: UIViewController {
         view.sendSubview(toBack: scanQRButton)
         view.sendSubview(toBack: buttonBackgroundOffDummy)
         view.sendSubview(toBack: buttonBackgroundView)
-        buttonBackgroundOffDummy.isHidden = false
+        buttonBackgroundOffDummy.isHidden = true//false
         scanQRButton.highlightColor = Colors.scanQRButtonHighlighted.color
         scanQRButton.normalColor = Colors.scanQRButtonNormal.color
         toggleButton.highlightColor = Colors.toggleButtonOffHighlighted.color
@@ -316,8 +316,22 @@ class ControlPanelViewController: UIViewController {
         let deltaX = multiplier * toggleButtonPositionsDistance
         UIView.animate(withDuration: duration, delay: toggleButtonMoveDelay, animations: {
             self.toggleButton.center.x += deltaX
-            self.buttonBackgroundView.center.x += deltaX
         })
+//        buttonBackgroundView.layer.position.x += deltaX
+        
+        let buttonBackgroundMove = CABasicAnimation(keyPath: "position.x")
+        buttonBackgroundMove.duration = duration
+//        buttonBackgroundMove.byValue = deltaX
+        delay(toggleButtonMoveDelay) {
+            self.buttonBackgroundView.center.x += deltaX
+        }
+        buttonBackgroundMove.beginTime = CACurrentMediaTime() + toggleButtonMoveDelay
+//        CATransaction.setCompletionBlock {
+//            self.buttonBackgroundView.layer.position.x += deltaX
+//        }
+        CATransaction.begin()
+        buttonBackgroundView.layer.add(buttonBackgroundMove, forKey: nil)
+        CATransaction.commit()
         delay(scanQRButtonMoveDelay) {
             self.buttonBackgroundView.changeState(to: newState.buttonBackgroundViewState, animated: animated)
         }
