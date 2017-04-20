@@ -38,6 +38,7 @@
 		105BEF341EA7865600A8F46C /* GeneratedLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105BEF331EA7865600A8F46C /* GeneratedLocalization.swift */; };
 		106C86B01E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C86AF1E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift */; };
 		106C86B21E950614004107EE /* CGRect+Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C86B11E950614004107EE /* CGRect+Center.swift */; };
+		1073C9FE1EA8F930006BE0E8 /* Animation+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073C9FD1EA8F930006BE0E8 /* Animation+Sequence.swift */; };
 		108563661E9CBE2F0031FD54 /* WebSocketConfigurationGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108563651E9CBE2F0031FD54 /* WebSocketConfigurationGenerator.swift */; };
 		108563681E9CC5890031FD54 /* ClipboardSyncServerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108563671E9CC5890031FD54 /* ClipboardSyncServerService.swift */; };
 		1085636B1E9CCBF90031FD54 /* SyncServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1085636A1E9CCBF90031FD54 /* SyncServer.swift */; };
@@ -109,6 +110,7 @@
 		105BEF331EA7865600A8F46C /* GeneratedLocalization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedLocalization.swift; sourceTree = "<group>"; };
 		106C86AF1E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DeviceOrientationToVideoOrientation.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		106C86B11E950614004107EE /* CGRect+Center.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "CGRect+Center.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		1073C9FD1EA8F930006BE0E8 /* Animation+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Animation+Sequence.swift"; sourceTree = "<group>"; };
 		108563651E9CBE2F0031FD54 /* WebSocketConfigurationGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketConfigurationGenerator.swift; sourceTree = "<group>"; };
 		108563671E9CC5890031FD54 /* ClipboardSyncServerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipboardSyncServerService.swift; sourceTree = "<group>"; };
 		1085636A1E9CCBF90031FD54 /* SyncServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SyncServer.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -215,6 +217,7 @@
 				104EC00A1E829F8500C42D68 /* UIColor+Hex.swift */,
 				10897DA01E796B4D002D4C74 /* URL+Helpers.swift */,
 				1052D48C1E7834E5008B22EE /* Utils.swift */,
+				1073C9FD1EA8F930006BE0E8 /* Animation+Sequence.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -612,6 +615,7 @@
 				108563731E9CDA880031FD54 /* Random.swift in Sources */,
 				10897DA71E7999A9002D4C74 /* QRScannerService.swift in Sources */,
 				1053587E1E782B0700908B74 /* AppDelegate.swift in Sources */,
+				1073C9FE1EA8F930006BE0E8 /* Animation+Sequence.swift in Sources */,
 				10897DA31E796E3F002D4C74 /* NSError+Errors.swift in Sources */,
 				10FFD36C1E7A8384003EEBCD /* QRDisplay.swift in Sources */,
 				108C67BD1EA103F6004FA943 /* Fonts.swift in Sources */,

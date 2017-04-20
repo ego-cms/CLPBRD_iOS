@@ -20,6 +20,8 @@ class ControlPanelViewController: UIViewController {
         }
     }
     
+    private var isAnimationInflight = false
+    
     @IBOutlet weak var toggleButton: RoundButton!
     @IBOutlet weak var scanQRButton: RoundButton!
     
@@ -108,12 +110,12 @@ class ControlPanelViewController: UIViewController {
         view.sendSubview(toBack: scanQRButton)
         view.sendSubview(toBack: buttonBackgroundOffDummy)
         view.sendSubview(toBack: buttonBackgroundView)
-        buttonBackgroundOffDummy.isHidden = true//false
+        buttonBackgroundOffDummy.isHidden = true
         setup(button: scanQRButton, highlightColor: Colors.scanQRButtonHighlighted.color, normalColor: Colors.scanQRButtonNormal.color)
         setup(button: toggleButton, highlightColor: Colors.toggleButtonOffHighlighted.color, normalColor: Colors.toggleButtonOffNormal.color)
         toggleButton.setTitle(toggleButtonTitle(for: state), for: .normal)
         promptToScanLabel.text = L10n.promptToScan.string
-        updateContainerVisibility()
+        updateContainerVisibility(animated: false)
     }
     
     func setup(button: RoundButton, highlightColor: UIColor, normalColor: UIColor) {
@@ -125,16 +127,17 @@ class ControlPanelViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateButtonFrames()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        updateButtonFrames()
-        buttonBackgroundView.frame = dummyFrame(dummy: buttonBackgroundOffDummy)
-        buttonBackgroundView.heightInExpandedState = buttonBackgroundView.frame.height
+        if !isAnimationInflight {
+            self.updateButtonFrames()
+            self.buttonBackgroundView.frame = self.dummyFrame(dummy: self.buttonBackgroundOffDummy)
+            self.buttonBackgroundView.heightInExpandedState = self.buttonBackgroundView.frame.height
+        }
     }
-    
+//
     // MARK: Client callbacks
     
     func clientConnected() {
@@ -149,20 +152,19 @@ class ControlPanelViewController: UIViewController {
         updateState(to: .off)
     }
     
-    func updateContainerVisibility() {
+    func updateContainerVisibility(animated: Bool = true) {
         let visible = state == .off ? offInfoContainer : serverInfoContainer
         let invisible = state != .off ? offInfoContainer : serverInfoContainer
-        UIView.animate(withDuration: animationDuration) { 
+        let duration = animated ? animationDuration : 0.0
+        UIView.animate(withDuration: duration) {
             visible?.alpha = 1.0
             invisible?.alpha = 0.0
         }
     }
     
     func updateButtonFrames() {
-        DispatchQueue.main.async {
-            self.toggleButton.frame = self.toggleButtonFrame(for: self.state)
-            self.scanQRButton.frame = self.qrButtonFrame(for: self.state)
-        }
+        self.toggleButton.frame = self.toggleButtonFrame(for: self.state)
+        self.scanQRButton.frame = self.qrButtonFrame(for: self.state)
     }
     
     @IBAction func toggleButtonPressed(_ sender: Any) {
@@ -200,6 +202,11 @@ class ControlPanelViewController: UIViewController {
         case .off: return dummyFrame(dummy: toggleOffDummy)
         default: return dummyFrame(dummy: toggleOnDummy)
         }
+    }
+    
+    func buttonBackgroundViewFrame(for state: State) -> CGRect {
+        if state.isOff { return dummyFrame(dummy: buttonBackgroundOffDummy) }
+        return dummyFrame(dummy: buttonBackgroundOnDummy)
     }
     
     func qrButtonFrame(for state: State) -> CGRect {
@@ -245,45 +252,64 @@ class ControlPanelViewController: UIViewController {
 
     func performTransition(from oldState: State, to newState: State, animated: Bool = true) {
         log.verbose("Transitioning from \(oldState) to \(newState) animated \(animated)")
+        guard newState != oldState else { return }
         self.addressDescriptionLabel.text = self.addressDescription(for: newState)
         self.showQRButton.isHidden = newState.isClient
+        let multiplier: CGFloat = (newState.isOff ? 1.0 : 0.0) - (oldState.isOff ? 1.0 : 0.0)
+        let deltaX = multiplier * toggleButtonPositionsDistance
+        
         let duration = animated ? animationDuration : 0.0
-        let scanQRButtonMoveDelay = newState == .off ? duration : 0.0
-        delay(scanQRButtonMoveDelay) {
+        
+        let shapePathAnimationTrigger = {
+            log.verbose("shape path animation")
             self.buttonBackgroundView.changeState(to: newState.buttonBackgroundViewState, animated: animated)
         }
-        guard oldState != newState else { return }
+        
+        let shapePositionAnimationTrigger = {
+            log.verbose("shape position animation")
+            UIView.animate(withDuration: duration) {
+                self.buttonBackgroundView.center.x += deltaX
+            }
+        }
+        
+        let scanQRButtonAnimationTrigger = {
+            log.verbose("scan qr animation")
+            UIView.animate(withDuration: duration) {
+                self.scanQRButton.frame = self.qrButtonFrame(for: newState)
+                self.scanQRButton.alpha = self.qrButtonAlpha(for: newState)
+            }
+        }
+        
+        let toggleButtonPositionAnimationTrigger = {
+            log.verbose("toggle button animation")
+            UIView.animate(withDuration: duration) {
+                self.toggleButton.center.x += deltaX
+            }
+        }
         self.toggleButton.setTitle(self.toggleButtonTitle(for: newState), for: .normal)
         self.toggleButton.normalColor = self.toggleButtonNormalColor(for: newState)
         self.toggleButton.highlightColor = self.toggleButtonHighlightedColor(for: newState)
         
-        
-        UIView.animate(withDuration: duration, delay: scanQRButtonMoveDelay, animations: {
-            self.scanQRButton.frame = self.qrButtonFrame(for: newState)
-            self.scanQRButton.alpha = self.qrButtonAlpha(for: newState)
-        })
-        let toggleButtonMoveDelay = duration - scanQRButtonMoveDelay
-        let multiplier: CGFloat = (newState.isOff ? 1.0 : 0.0) - (oldState.isOff ? 1.0 : 0.0)
-        let deltaX = multiplier * toggleButtonPositionsDistance
-        UIView.animate(withDuration: duration, delay: toggleButtonMoveDelay, animations: {
-            self.toggleButton.center.x += deltaX
-        })
-//        buttonBackgroundView.layer.position.x += deltaX
-        
-        let buttonBackgroundMove = CABasicAnimation(keyPath: "position.x")
-        buttonBackgroundMove.duration = duration
-//        buttonBackgroundMove.byValue = deltaX
-        delay(toggleButtonMoveDelay) {
-            self.buttonBackgroundView.center.x += deltaX
+        isAnimationInflight = true
+        delay(2 * duration) { 
+            self.isAnimationInflight = false
         }
-        buttonBackgroundMove.beginTime = CACurrentMediaTime() + toggleButtonMoveDelay
-//        CATransaction.setCompletionBlock {
-//            self.buttonBackgroundView.layer.position.x += deltaX
-//        }
-        CATransaction.begin()
-        buttonBackgroundView.layer.add(buttonBackgroundMove, forKey: nil)
-        CATransaction.commit()
-
+        var triggers = [
+            shapePathAnimationTrigger,
+            scanQRButtonAnimationTrigger,
+            shapePositionAnimationTrigger,
+            toggleButtonPositionAnimationTrigger
+        ]
+        if newState == .off { triggers.reverse() }
+        animate(
+            triggers: triggers,
+            delays: [
+                0.0,
+                0.0,
+                duration,
+                0.0
+            ]
+        )
     }
     
     func updateState(to newState: State, animated: Bool = true) {
