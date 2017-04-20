@@ -74,46 +74,49 @@ class ButtonBackgroundView: UIView {
         CATransaction.commit()
     }
     
+    func showCoolAnimation() {
+        let otherLayer = CAShapeLayer()
+        otherLayer.path = State.collapsedOriginalPath.cgPath
+        otherLayer.fillColor = State.active.color.cgColor
+        let ratio: CGFloat =  heightInExpandedState / State.expandedOriginalPath.bounds.height
+        CATransaction.begin()
+        CATransaction.disableActions()
+        otherLayer.transform = shapeLayer.transform
+        let side = ratio * State.collapsedOriginalPath.bounds.height
+        otherLayer.frame.size = CGSize(width: side, height: side)
+        otherLayer.anchorPoint = CGPoint(x: 1.0, y: 0.0)
+        otherLayer.position = shapeLayer.position
+        let oldFrame = otherLayer.frame
+        otherLayer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        otherLayer.frame = oldFrame
+        CATransaction.commit()
+        layer.addSublayer(otherLayer)
+        let expandAnimation = CABasicAnimation(keyPath: "transform")
+        let fadeAnimation = CABasicAnimation(keyPath: "opacity")
+        let duration = 1.0
+        
+        expandAnimation.duration = duration
+        expandAnimation.isRemovedOnCompletion = false
+        let scale: CGFloat = 1.1
+        expandAnimation.toValue = CATransform3DMakeScale(scale, scale, 1.0)
+        fadeAnimation.duration = duration
+        fadeAnimation.toValue = 0.0
+        fadeAnimation.isRemovedOnCompletion = false
+        
+        CATransaction.begin()
+        CATransaction.setCompletionBlock {
+            otherLayer.removeFromSuperlayer()
+        }
+        otherLayer.add(expandAnimation, forKey: nil)
+        otherLayer.add(fadeAnimation, forKey: nil)
+        CATransaction.commit()
+    }
+    
     func changeState(to newState: State, animated: Bool = true) {
         log.verbose("Changing state from \(state) to \(newState)")
         log.verbose("view: \(self.frame), shape layer: \(shapeLayer.frame)")
         if newState == .active {
-            let otherLayer = CAShapeLayer()
-//            otherLayer.backgroundColor = UIColor.red.cgColor
-            otherLayer.path = State.collapsedOriginalPath.cgPath
-//            let radiusRatio = State.collapsedPath.bounds
-            otherLayer.fillColor = State.active.color.cgColor
-            let ratio: CGFloat =  heightInExpandedState / State.expandedOriginalPath.bounds.height
-            CATransaction.begin()
-            CATransaction.disableActions()
-            otherLayer.transform = shapeLayer.transform// CATransform3DMakeScale(ratio, ratio, 1.0)
-            let side = ratio * State.collapsedOriginalPath.bounds.height
-            otherLayer.frame.size = CGSize(width: side, height: side)
-            otherLayer.anchorPoint = CGPoint(x: 1.0, y: 0.0)
-            otherLayer.position = shapeLayer.position
-            let oldFrame = otherLayer.frame
-            otherLayer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-            otherLayer.frame = oldFrame
-            //otherLayer.frame = shapeLayer.frame// shapeLayer.path!.boundingBox// .frame
-            //otherLayer.anchorPoint = CGPoint(x: 0.55, y: 0.5) //shapeLayer.anchorPoint//  CGPoint(x: 0.25, y: 0.25)
-            CATransaction.commit()
-            layer.addSublayer(otherLayer)
-            let expandAnimation = CABasicAnimation(keyPath: "transform")
-            let fadeAnimation = CABasicAnimation(keyPath: "opacity")
-            let duration = 1.0
-            
-            expandAnimation.duration = duration
-            let scale: CGFloat = 1.1
-            expandAnimation.toValue = CATransform3DMakeScale(scale, scale, 1.0)
-            fadeAnimation.duration = duration
-            fadeAnimation.toValue = 0.0
-            CATransaction.begin()
-            CATransaction.setCompletionBlock {
-                otherLayer.removeFromSuperlayer()
-            }
-            otherLayer.add(expandAnimation, forKey: nil)
-            otherLayer.add(fadeAnimation, forKey: nil)
-            CATransaction.commit()
+            showCoolAnimation()
         }
         guard newState != state else { return }
         let newColor = newState.color.cgColor
@@ -128,14 +131,8 @@ class ButtonBackgroundView: UIView {
         recolor.duration = animationDuration
         recolor.fromValue = shapeLayer.fillColor
         recolor.toValue = newColor
-//        CATransaction.begin()
-//        CATransaction.setCompletionBlock {
-//
-//        }
         CATransaction.begin()
         CATransaction.setAnimationDuration(animationDuration)
-//        CATransaction.disableActions()
-//        CATransaction.commit()
         shapeLayer.add(morphing, forKey: nil)
         shapeLayer.add(recolor, forKey: nil)
         shapeLayer.path = newPath
@@ -145,51 +142,3 @@ class ButtonBackgroundView: UIView {
     }
 }
 
-
-extension ButtonBackgroundView {
-    enum State {
-        case expanded
-        case collapsed
-        case active
-        
-        static let expandedOriginalPath: UIBezierPath = loadAndTranslatePath(fileName: "buttons_expanded")
-        static let collapsedOriginalPath: UIBezierPath = loadAndTranslatePath(fileName: "buttons_collapsed")
-        
-        static var expandedPath: UIBezierPath = State.expandedOriginalPath
-        static var collapsedPath: UIBezierPath = State.collapsedOriginalPath
-        
-//        static func alignPaths() {
-//            let dx = expandedPath.bounds.width - collapsedPath.bounds.width
-//            let translation = CGAffineTransform(translationX: dx, y: 0)
-//            collapsedPath.apply(translation)
-//        }
-        
-        var path: UIBezierPath {
-            switch self {
-            case .expanded: return State.expandedPath
-            case .collapsed, .active: return State.collapsedPath
-            }
-        }
-        
-        var color: UIColor {
-            switch self {
-            case .expanded: return Colors.buttonGroupExpanded.color
-            case .collapsed: return Colors.buttonGroupCollapsed.color
-            case .active: return Colors.buttonGroupGotUpdates.color
-            }
-        }
-        
-        func frame(forHeightInExpandedState height: CGFloat, topRightCorner corner: CGPoint) -> CGRect {
-            let size = self.size(forHeightInExpandedState: height)
-            let origin = CGPoint(x: corner.x - size.width, y: corner.y)
-            return CGRect(origin: origin, size: size)
-        }
-        
-        func size(forHeightInExpandedState height: CGFloat) -> CGSize {
-            let originalExpandedSize = State.expanded.path.bounds.size
-            let originalSizeForState = self.path.bounds.size
-            let ratio = height / originalExpandedSize.height
-            return CGSize(width: ratio * originalSizeForState.width, height: ratio * originalSizeForState.height)
-        }
-    }
-}

@@ -252,7 +252,6 @@ class ControlPanelViewController: UIViewController {
 
     func performTransition(from oldState: State, to newState: State, animated: Bool = true) {
         log.verbose("Transitioning from \(oldState) to \(newState) animated \(animated)")
-        guard newState != oldState else { return }
         self.addressDescriptionLabel.text = self.addressDescription(for: newState)
         self.showQRButton.isHidden = newState.isClient
         let multiplier: CGFloat = (newState.isOff ? 1.0 : 0.0) - (oldState.isOff ? 1.0 : 0.0)

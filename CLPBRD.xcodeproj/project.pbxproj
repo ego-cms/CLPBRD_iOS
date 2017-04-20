@@ -39,6 +39,7 @@
 		106C86B01E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C86AF1E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift */; };
 		106C86B21E950614004107EE /* CGRect+Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C86B11E950614004107EE /* CGRect+Center.swift */; };
 		1073C9FE1EA8F930006BE0E8 /* Animation+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073C9FD1EA8F930006BE0E8 /* Animation+Sequence.swift */; };
+		1073CA041EA92B6A006BE0E8 /* ButtonBackgroundView+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073CA031EA92B6A006BE0E8 /* ButtonBackgroundView+State.swift */; };
 		108563661E9CBE2F0031FD54 /* WebSocketConfigurationGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108563651E9CBE2F0031FD54 /* WebSocketConfigurationGenerator.swift */; };
 		108563681E9CC5890031FD54 /* ClipboardSyncServerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108563671E9CC5890031FD54 /* ClipboardSyncServerService.swift */; };
 		1085636B1E9CCBF90031FD54 /* SyncServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1085636A1E9CCBF90031FD54 /* SyncServer.swift */; };
@@ -111,6 +112,7 @@
 		106C86AF1E94FDF5004107EE /* DeviceOrientationToVideoOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DeviceOrientationToVideoOrientation.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		106C86B11E950614004107EE /* CGRect+Center.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "CGRect+Center.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		1073C9FD1EA8F930006BE0E8 /* Animation+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Animation+Sequence.swift"; sourceTree = "<group>"; };
+		1073CA031EA92B6A006BE0E8 /* ButtonBackgroundView+State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ButtonBackgroundView+State.swift"; sourceTree = "<group>"; };
 		108563651E9CBE2F0031FD54 /* WebSocketConfigurationGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketConfigurationGenerator.swift; sourceTree = "<group>"; };
 		108563671E9CC5890031FD54 /* ClipboardSyncServerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipboardSyncServerService.swift; sourceTree = "<group>"; };
 		1085636A1E9CCBF90031FD54 /* SyncServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SyncServer.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -450,6 +452,7 @@
 			children = (
 				10B86F2B1EA61F810012BCC6 /* ButtonBackgroundView.swift */,
 				104EC0111E82A1E400C42D68 /* RoundButton.swift */,
+				1073CA031EA92B6A006BE0E8 /* ButtonBackgroundView+State.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 				103618591E9BDF4D00223B27 /* HTTPServerService.swift in Sources */,
 				10897DA11E796B4D002D4C74 /* URL+Helpers.swift in Sources */,
 				10875A661E9E863900EDC0A2 /* PocketSocketClient.swift in Sources */,
+				1073CA041EA92B6A006BE0E8 /* ButtonBackgroundView+State.swift in Sources */,
 				104EC00E1E829FB700C42D68 /* Colors.swift in Sources */,
 				10875A631E9E4E6900EDC0A2 /* SyncClientDebugViewController.swift in Sources */,
 				1053589A1E782CEE00908B74 /* QRCodeScanViewController.swift in Sources */,
