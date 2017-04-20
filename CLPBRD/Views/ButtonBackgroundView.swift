@@ -10,7 +10,7 @@ import UIKit
 
 
 class ButtonBackgroundView: UIView {
-    var animationDuration = 0.25
+    var animationDuration = 3.0
     
     
     private var shapeLayer = CAShapeLayer()
@@ -120,17 +120,24 @@ class ButtonBackgroundView: UIView {
         let newPath = newState.path.cgPath
         let morphing = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.path))
         let recolor = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.fillColor))
-        shapeLayer.path = newPath
-        shapeLayer.fillColor = newColor
+        
 
         morphing.duration = animationDuration
+        morphing.toValue = newPath
         recolor.duration = animationDuration
-
+        recolor.toValue = newColor
+//        CATransaction.begin()
+//        CATransaction.setCompletionBlock {
+//
+//        }
         CATransaction.begin()
-        CATransaction.setCompletionBlock { 
-        }
+        CATransaction.setAnimationDuration(animationDuration)
+//        CATransaction.disableActions()
+//        CATransaction.commit()
         shapeLayer.add(morphing, forKey: nil)
         shapeLayer.add(recolor, forKey: nil)
+        shapeLayer.path = newPath
+        shapeLayer.fillColor = newColor
         CATransaction.commit()
         state = newState
     }
