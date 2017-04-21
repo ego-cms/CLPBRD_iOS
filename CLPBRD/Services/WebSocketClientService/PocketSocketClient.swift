@@ -7,9 +7,9 @@ class PocketSocketClient: NSObject, WebSocketClientService {
     private(set) var url: URL?
     var webSocket: PSWebSocket?
     
-    var onReceivedText: (String) -> Void = { _ in }
-    var onConnected: VoidClosure = {}
-    var onDisconnected: (Error?) -> Void = { _ in }
+    var onReceivedText: ((String) -> Void)?
+    var onConnected: VoidClosure?
+    var onDisconnected: ((Error?) -> Void)?
     
     fileprivate var initialText: String?
     
@@ -88,22 +88,22 @@ class PocketSocketClient: NSObject, WebSocketClientService {
 extension PocketSocketClient: PSWebSocketDelegate {
     func webSocketDidOpen(_ webSocket: PSWebSocket!) {
         log.verbose("PSWebSocketDelegate: Socket did open")
-        onConnected()
+        onConnected?()
         if let initialText = self.initialText {
-            onReceivedText(initialText)
+            onReceivedText?(initialText)
             self.initialText = nil
         }
     }
     
     func webSocket(_ webSocket: PSWebSocket!, didFailWithError error: Error!) {
         log.verbose("PSWebSocketDelegate: Socket did fail with error \(error)")
-        onDisconnected(error)
+        onDisconnected?(error)
     }
     
     func webSocket(_ webSocket: PSWebSocket!, didReceiveMessage message: Any!) {
         log.verbose("PSWebSocketDelegate: Socket did receive message \(message)")
         guard let text = message as? String else { return }
-        onReceivedText(text)
+        onReceivedText?(text)
     }
     
     func webSocket(_ webSocket: PSWebSocket!, didCloseWithCode code: Int, reason: String!, wasClean: Bool) {

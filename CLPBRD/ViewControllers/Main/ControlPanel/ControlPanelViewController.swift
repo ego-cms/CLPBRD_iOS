@@ -72,6 +72,7 @@ class ControlPanelViewController: UIViewController {
     }
     
     func clipboardSyncServiceStateChanged(newState: ServerState) {
+        log.debug("SYNC SERVER: state changed to \(newState)")
         if newState == .off {
             updateState(to: .off)
         } else {
@@ -80,6 +81,7 @@ class ControlPanelViewController: UIViewController {
     }
     
     func updatesReceived() {
+        log.debug("SYNC SERVER: received updates")
         updateState(to: .serverGotUpdates)
     }
     
@@ -141,14 +143,17 @@ class ControlPanelViewController: UIViewController {
     // MARK: Client callbacks
     
     func clientConnected() {
+        log.debug("SYNC CLIENT: connected to server")
         updateState(to: .clientOn)
     }
     
     func clientReceivedUpdates() {
+        log.debug("SYNC CLIENT: received updates")
         updateState(to: .clientGotUpdates)
     }
     
     func clientDisconnected(error: Error?) {
+        log.debug("SYNC CLIENT: disconnected with error \(String(describing: error))")
         updateState(to: .off)
     }
     

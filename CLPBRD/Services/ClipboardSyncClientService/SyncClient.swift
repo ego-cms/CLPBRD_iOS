@@ -11,11 +11,6 @@ class SyncClient: NSObject, ClipboardSyncClientService {
         self.clipboardProviderService = clipboardProviderService
         self.appStateService = appStateService
         super.init()
-        webSocketClientService.onConnected = webSocketServiceConnected
-        webSocketClientService.onDisconnected = webSocketServiceDisconnected
-        webSocketClientService.onReceivedText = textReceived
-        clipboardProviderService.onContentChanged = clipboardContentChanged
-        appStateService.onAppEnterForeground = appEnteredForeground
     }
     
     /// URL of remote server
@@ -36,6 +31,11 @@ class SyncClient: NSObject, ClipboardSyncClientService {
     func connect(host: String, port: UInt) {
         lastHost = host
         lastPort = port
+        webSocketClientService.onConnected = webSocketServiceConnected
+        webSocketClientService.onDisconnected = webSocketServiceDisconnected
+        webSocketClientService.onReceivedText = textReceived
+        clipboardProviderService.onContentChanged = clipboardContentChanged
+        appStateService.onAppEnterForeground = appEnteredForeground
         webSocketClientService.connect(host: host)
     }
     
@@ -49,12 +49,12 @@ class SyncClient: NSObject, ClipboardSyncClientService {
     private(set) var isConnected: Bool = false
     
     /// Called after successful connection
-    var onConnected: (Void) -> Void = { }
+    var onConnected: ((Void) -> Void)?
     
     /// Called when client was disconnected
-    var onDisconnected: (Error?) -> Void = { _ in }
+    var onDisconnected: ((Error?) -> Void)?
     
-    var onUpdatesReceived: (Void) -> Void = { }
+    var onUpdatesReceived: ((Void) -> Void)?
     
     func webSocketServiceConnected() {
         isConnected = true
@@ -62,24 +62,28 @@ class SyncClient: NSObject, ClipboardSyncClientService {
             clipboardContentChanged()
         }
         justEnteredForeground = false
-        onConnected()
+        onConnected?()
     }
     
     func webSocketServiceDisconnected(error: Error?) {
         isConnected = false
-        onDisconnected(error)
+        webSocketClientService.onConnected = nil
+        webSocketClientService.onDisconnected = webSocketServiceDisconnected
+        webSocketClientService.onReceivedText = textReceived
+        clipboardProviderService.onContentChanged = clipboardContentChanged
+        appStateService.onAppEnterForeground = appEnteredForeground
+
+        onDisconnected?(error)
     }
     
     func textReceived(text: String) {
-        //guard clipboardProviderService.content != text else { return }
         guard text != "" else { return }
         lastReceivedText = text
-        onUpdatesReceived()
+        onUpdatesReceived?()
     }
     
     func clipboardContentChanged() {
         guard let content = clipboardProviderService.content else { return }
-//            content != lastReceivedText else { return }
         webSocketClientService.send(text: content)
     }
     

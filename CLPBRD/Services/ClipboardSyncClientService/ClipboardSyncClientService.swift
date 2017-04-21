@@ -29,13 +29,13 @@ protocol ClipboardSyncClientService: class {
     var isConnected: Bool { get }
     
     /// Called after successful connection
-    var onConnected: (Void) -> Void { get set }
+    var onConnected: ((Void) -> Void)? { get set }
     
     /// Called when client was disconnected
-    var onDisconnected: (Error?) -> Void { get set }
+    var onDisconnected: ((Error?) -> Void)? { get set }
     
     /// Called when server got the updates
-    var onUpdatesReceived: (Void) -> Void { get set }
+    var onUpdatesReceived: ((Void) -> Void)? { get set }
     
     /// Store updates in clipboard and send them to all other clients (except the one which sent original updates)
     func takeUpdates()

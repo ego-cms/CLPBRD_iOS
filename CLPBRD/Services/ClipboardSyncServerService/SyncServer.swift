@@ -56,6 +56,7 @@ class SyncServer: NSObject, ClipboardSyncServerService {
             print("Can't launch websocket server – no server url")
             return
         }
+        httpServerService.webSocketConfigurationJSON = self.webSocketConfigurationJSON
         webSocketServerService.listen(ipAddress: host, port: currentWebSocketPort)
     }
     
@@ -133,6 +134,6 @@ class SyncServer: NSObject, ClipboardSyncServerService {
     }
     
     func appEnteredForeground() {
-//        webSocketListenOnCurrentPort()
+        webSocketListenOnCurrentPort()
     }
 }

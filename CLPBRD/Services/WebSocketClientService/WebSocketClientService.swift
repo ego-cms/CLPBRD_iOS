@@ -3,9 +3,9 @@ import Result
 
 
 protocol WebSocketClientService: class {
-    var onDisconnected: (Error?) -> Void { get set }
-    var onConnected: VoidClosure { get set }
-    var onReceivedText: (String) -> Void { get set }
+    var onDisconnected: ((Error?) -> Void)? { get set }
+    var onConnected: VoidClosure? { get set }
+    var onReceivedText: ((String) -> Void)? { get set }
     
     var url: URL? { get }
     
