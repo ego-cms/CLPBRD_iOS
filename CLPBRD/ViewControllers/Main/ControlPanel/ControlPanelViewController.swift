@@ -134,9 +134,22 @@ class ControlPanelViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         if !isAnimationInflight {
-            self.updateButtonFrames()
-            self.buttonBackgroundView.frame = self.dummyFrame(dummy: self.buttonBackgroundOffDummy)
-            self.buttonBackgroundView.heightInExpandedState = self.buttonBackgroundView.frame.height
+            updateUI()
+//            self.updateButtonFrames()
+//            self.buttonBackgroundView.frame = self.dummyFrame(dummy: self.buttonBackgroundOffDummy)
+//            self.buttonBackgroundView.heightInExpandedState = self.buttonBackgroundView.frame.height
+        }
+    }
+    
+    func updateUI() {
+        self.updateButtonFrames()
+        self.buttonBackgroundView.frame = self.buttonBackgroundViewFrame(for: self.state)
+        self.buttonBackgroundView.heightInExpandedState = self.buttonBackgroundView.frame.height
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        delay(0.2) {
+            self.updateUI()
         }
     }
 //
@@ -210,7 +223,8 @@ class ControlPanelViewController: UIViewController {
     }
     
     func buttonBackgroundViewFrame(for state: State) -> CGRect {
-        if state.isOff { return dummyFrame(dummy: buttonBackgroundOffDummy) }
+        if state.isOff {
+            return dummyFrame(dummy: buttonBackgroundOffDummy) }
         return dummyFrame(dummy: buttonBackgroundOnDummy)
     }
     
