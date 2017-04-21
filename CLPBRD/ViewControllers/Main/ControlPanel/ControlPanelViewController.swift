@@ -135,9 +135,6 @@ class ControlPanelViewController: UIViewController {
         super.viewDidLayoutSubviews()
         if !isAnimationInflight {
             updateUI()
-//            self.updateButtonFrames()
-//            self.buttonBackgroundView.frame = self.dummyFrame(dummy: self.buttonBackgroundOffDummy)
-//            self.buttonBackgroundView.heightInExpandedState = self.buttonBackgroundView.frame.height
         }
     }
     
@@ -353,7 +350,10 @@ extension ControlPanelViewController: QRCodeScanViewControllerDelegate {
             return
         }
         dismiss(animated: true, completion: nil)
-        clipboardSyncClientService.connect(host: host, port: 8080)
+        let port: UInt = 8080
+        clipboardSyncClientService.connect(host: host, port: port)
+        serverAddressLabel.text = URL.createBrowserURL(with: host, port: port)?.absoluteString ?? ""
+        
     }
 }
 

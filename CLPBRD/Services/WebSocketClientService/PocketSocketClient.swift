@@ -21,7 +21,7 @@ class PocketSocketClient: NSObject, WebSocketClientService {
             switch result {
             case .success(let json):
                 log.verbose("---- JSON: \(json)")
-                guard let port = json["port"].int else {
+                guard let port = json["port"].uInt else {
                     call(closure: self?.onDisconnected, parameter: NSError.error(text: "Can't parse the port of server device \(host)"))
                     return
                 }
