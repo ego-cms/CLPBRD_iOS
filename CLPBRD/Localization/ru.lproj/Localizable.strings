@@ -5,6 +5,7 @@
 "made_by" = "Сделано с любовью в";
 "notification_title" = "Содержимое буфера обмена обновлено!";
 "scan_QR_code_title" = "Сканируем QR-код...";
+"bad_QR_code_warning" = "Это не код CLPBRD";
 "display_QR_code_title" = "QR-код";
 "qr_description" = "Чтобы соединиться, сканируйте этот код в приложении CLPBRD,\nзапущенном на другом устройстве";
 "server_address_explanation" = "Используйте этот адрес в браузере, чтобы соединиться";

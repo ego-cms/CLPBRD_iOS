@@ -13,6 +13,8 @@ class QRCodeScanViewController: UIViewController {
     
     private var lastText: String?
     
+    @IBOutlet weak var warningView: UIView!
+    
     init(qrScannerService: QRScannerService) {
         self.qrScannerService = qrScannerService
         super.init(nibName: String(describing: type(of: self)), bundle: nil)
@@ -23,6 +25,7 @@ class QRCodeScanViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var previewContainer: UIView!
     
     @IBAction func settingsButtonPressed(_ sender: Any) {
@@ -34,6 +37,7 @@ class QRCodeScanViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelPressed))
         title = L10n.scanQRCodeTitle.string
+        warningLabel.text = L10n.badQRCodeWarning.string
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,7 +69,11 @@ class QRCodeScanViewController: UIViewController {
     }
     
     func showInvalidQRWarning(qrText: String) {
-        print("Invalid QR \(qrText)")
+        guard warningView.isHidden else { return }
+        warningView.isHidden = false
+        delay(3.0) { 
+            self.warningView.isHidden = true
+        }
     }
     
     override func viewDidLayoutSubviews() {

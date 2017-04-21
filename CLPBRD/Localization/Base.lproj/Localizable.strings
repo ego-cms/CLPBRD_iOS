@@ -5,6 +5,7 @@
 "made_by" = "Made with love by";
 "notification_title" = "Clipboard updated!";
 "scan_QR_code_title" = "Scanning QR code...";
+"bad_QR_code_warning" = "This is not CLPBRD code";
 "display_QR_code_title" = "QR code";
 "qr_description" = "Scan this code in CLPBRD app running on\nanother device to get connected.";
 "server_address_explanation" = "Connect to this address in your browser";

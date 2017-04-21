@@ -7,6 +7,8 @@ import Foundation
 
 // swiftlint:disable type_body_length
 enum L10n {
+  /// This is not CLPBRD code
+  case badQRCodeWarning
   /// TURN\nIT ON
   case buttonOffTitle
   /// TURN\nIT OFF
@@ -23,7 +25,7 @@ enum L10n {
   case promptToScan
   /// Scan this code in CLPBRD app running on\nanother device to get connected.
   case qrDescription
-  /// Scan QR from CLPBRD app on other device
+  /// Scanning QR code...
   case scanQRCodeTitle
   /// Connect to this address in your browser
   case serverAddressExplanation
@@ -37,6 +39,8 @@ extension L10n: CustomStringConvertible {
 
   var string: String {
     switch self {
+      case .badQRCodeWarning:
+        return L10n.tr(key: "bad_QR_code_warning")
       case .buttonOffTitle:
         return L10n.tr(key: "button_off_title")
       case .buttonOnTitle:

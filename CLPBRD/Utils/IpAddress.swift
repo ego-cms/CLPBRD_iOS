@@ -46,5 +46,7 @@ func localHostURL() -> URL? {
 }
 
 func host(from string: String) -> String? {
-    return URL(string: string)?.host
+    guard let url = URL(string: string) else { return nil }
+    guard url.scheme == "clpbrd" else { return nil }
+    return url.host
 }
