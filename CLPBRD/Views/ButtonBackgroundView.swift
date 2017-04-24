@@ -33,12 +33,9 @@ class ButtonBackgroundView: UIView {
     }
     
     func preparePaths() {
-        print("Expanded original ", State.expandedOriginalPath.bounds)
-        print("Collapsed original ", State.collapsedOriginalPath.bounds)
         let translatedCollapsedPath = UIBezierPath(cgPath: State.collapsedOriginalPath.cgPath)//
         let dx = State.expandedOriginalPath.bounds.width - State.collapsedOriginalPath.bounds.width
         translatedCollapsedPath.apply(CGAffineTransform(translationX: dx, y: 0.0))
-        print("Translated collapsed ", translatedCollapsedPath.bounds)
         State.expandedPath = State.expandedOriginalPath
         State.collapsedPath = translatedCollapsedPath
         let ratio: CGFloat =  heightInExpandedState / State.expandedOriginalPath.bounds.height

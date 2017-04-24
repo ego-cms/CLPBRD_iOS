@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         // add log destinations. at least one is needed!
         let console = ConsoleDestination()  // log to Xcode Console
-        
+        console.minLevel = .debug
         // use custom format and set console output to short time, log level & message
         console.format = "$DHH:mm:ss$d $L $M"
         // or use this for JSON output: console.format = "$J"
