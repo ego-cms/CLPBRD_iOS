@@ -46,11 +46,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="636" height="475"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xsk-gM-2Gq" userLabel="Aligner">
-                    <rect key="frame" x="0.0" y="0.0" width="32" height="387"/>
+                    <rect key="frame" x="0.0" y="0.0" width="32" height="579"/>
                     <color key="backgroundColor" red="0.53161980080000004" green="1" blue="0.2054356286" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="32" id="h9x-ae-2vl"/>
@@ -69,17 +69,17 @@
                     </connections>
                 </button>
                 <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="95D-lH-uK1" userLabel="Buttons Background">
-                    <rect key="frame" x="244.5" y="16" width="287" height="355.5"/>
+                    <rect key="frame" x="128.5" y="147" width="230.5" height="285.5"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iw5-7a-PD4">
-                            <rect key="frame" x="0.0" y="0.5" width="73.5" height="355.5"/>
+                            <rect key="frame" x="0.0" y="0.5" width="59" height="285.5"/>
                             <color key="backgroundColor" red="0.53161980080000004" green="1" blue="0.2054356286" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8uP-4n-gEx" userLabel="Small circle">
-                            <rect key="frame" x="0.0" y="209" width="147" height="147"/>
+                            <rect key="frame" x="0.0" y="168" width="118" height="118"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T9m-Zi-Bdp" userLabel="Scan QR Button Place">
-                                    <rect key="frame" x="23" y="22.5" width="102.5" height="102"/>
+                                    <rect key="frame" x="18.5" y="18" width="82.5" height="82"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="T9m-Zi-Bdp" secondAttribute="height" multiplier="1:1" id="wJH-pp-gfI"/>
@@ -95,13 +95,13 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UmP-0C-PaN" userLabel="Big circle">
-                            <rect key="frame" x="28.5" y="0.5" width="258.5" height="258"/>
+                            <rect key="frame" x="23" y="0.5" width="207.5" height="207"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y2p-UC-KdD" userLabel="Toggle Button Place">
-                                    <rect key="frame" x="38.5" y="39.5" width="180.5" height="180.5"/>
+                                    <rect key="frame" x="30.5" y="31" width="145" height="145"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vVn-ja-VBD">
-                                            <rect key="frame" x="39" y="39" width="102.5" height="101.5"/>
+                                            <rect key="frame" x="31.5" y="31" width="82.5" height="81.5"/>
                                             <color key="backgroundColor" red="0.53161980080000004" green="1" blue="0.2054356286" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
                                     </subviews>
@@ -122,10 +122,10 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eu3-Tj-mgr">
-                            <rect key="frame" x="-55.5" y="0.5" width="258" height="258"/>
+                            <rect key="frame" x="-44.5" y="0.5" width="207" height="207"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pdc-7l-u8g" userLabel="Toggle Button Place ">
-                                    <rect key="frame" x="38.5" y="39.5" width="181" height="180.5"/>
+                                    <rect key="frame" x="31" y="31" width="145" height="145"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="Pdc-7l-u8g" secondAttribute="height" id="uX8-dj-xSk"/>
@@ -140,22 +140,21 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XNS-I7-eB3">
-                            <rect key="frame" x="-84" y="0.0" width="286.5" height="355.5"/>
+                            <rect key="frame" x="-67.5" y="0.0" width="230" height="285.5"/>
                             <color key="backgroundColor" red="1" green="0.98005512011118734" blue="0.5279710779994935" alpha="0.70656360035211263" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="03U-dz-oWY">
-                            <rect key="frame" x="-39.5" y="82" width="90.5" height="48"/>
+                            <rect key="frame" x="-35" y="65" width="72.5" height="38.5"/>
                             <color key="backgroundColor" red="0.82806428108808294" green="0.19922744980313484" blue="0.075057652323428245" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="03U-dz-oWY" secondAttribute="height" multiplier="15:8" id="sYa-s2-hkd"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TOn-nD-DCd">
-                            <rect key="frame" x="-79.5" y="35.5" width="101.5" height="54.5"/>
+                            <rect key="frame" x="-75" y="18.5" width="101.5" height="54.5"/>
                             <color key="backgroundColor" red="0.82806428109999997" green="0.19922744980000001" blue="0.075057652320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="101.5" id="NSy-Xr-x9H"/>
-                                <constraint firstAttribute="height" constant="54.5" id="e8V-L1-cCx"/>
                                 <constraint firstAttribute="width" secondItem="TOn-nD-DCd" secondAttribute="height" multiplier="15:8" id="nJ1-gd-CS1"/>
                             </constraints>
                         </view>
@@ -173,7 +172,6 @@
                         <constraint firstItem="XNS-I7-eB3" firstAttribute="trailing" secondItem="eu3-Tj-mgr" secondAttribute="trailing" id="RVW-qL-mzN"/>
                         <constraint firstItem="TOn-nD-DCd" firstAttribute="leading" secondItem="03U-dz-oWY" secondAttribute="leading" constant="-40" id="TNf-Mu-jxi"/>
                         <constraint firstItem="03U-dz-oWY" firstAttribute="width" secondItem="Y2p-UC-KdD" secondAttribute="width" multiplier="0.5" id="VCe-bB-m07"/>
-                        <constraint firstItem="TOn-nD-DCd" firstAttribute="width" secondItem="TOn-nD-DCd" secondAttribute="height" multiplier="15:8" id="VNg-FR-7Ff"/>
                         <constraint firstItem="iw5-7a-PD4" firstAttribute="top" secondItem="95D-lH-uK1" secondAttribute="top" id="Wpz-7U-HJf"/>
                         <constraint firstItem="UmP-0C-PaN" firstAttribute="width" secondItem="95D-lH-uK1" secondAttribute="width" multiplier="0.9" id="YcO-aX-zoa"/>
                         <constraint firstItem="XNS-I7-eB3" firstAttribute="top" secondItem="eu3-Tj-mgr" secondAttribute="top" id="gkB-c9-C2X"/>
@@ -193,28 +191,28 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iTy-Eq-O9c">
-                    <rect key="frame" x="0.0" y="365" width="636" height="110"/>
+                    <rect key="frame" x="0.0" y="557" width="375" height="110"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="STf-bZ-HkQ">
-                            <rect key="frame" x="97.5" y="30" width="441" height="51"/>
+                            <rect key="frame" x="31.5" y="22.5" width="312.5" height="66.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Используйте этот адрес в браузере, чтобы соединиться" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9MM-J3-bNX">
-                                    <rect key="frame" x="72" y="35" width="369" height="16"/>
+                                    <rect key="frame" x="72" y="35" width="240.5" height="31.5"/>
                                     <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="14"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="http://" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="k9Z-Ns-C5H">
-                                    <rect key="frame" x="72" y="0.0" width="369" height="27"/>
+                                    <rect key="frame" x="72" y="0.0" width="240.5" height="27"/>
                                     <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="24"/>
                                     <color key="textColor" red="0.25035242540379543" green="0.4346866904145078" blue="0.1147136472820066" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="link" translatesAutoresizingMaskIntoConstraints="NO" id="emu-wJ-ulj">
-                                    <rect key="frame" x="36" y="13.5" width="24" height="24"/>
+                                    <rect key="frame" x="36" y="21" width="24" height="24"/>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZY4-pG-HAQ">
-                                    <rect key="frame" x="0.0" y="13" width="24" height="24"/>
+                                    <rect key="frame" x="0.0" y="20.5" width="24" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="24" id="dli-us-TBp"/>
                                         <constraint firstAttribute="width" secondItem="ZY4-pG-HAQ" secondAttribute="height" multiplier="1:1" id="oq7-Wi-Swz"/>
@@ -253,10 +251,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a8e-Sf-6Ie">
-                    <rect key="frame" x="0.0" y="395" width="636" height="80"/>
+                    <rect key="frame" x="0.0" y="587" width="375" height="80"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ИЛИ сканируйте QR код на другом устройстве" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grh-Id-yB9">
-                            <rect key="frame" x="205.5" y="11" width="225" height="57"/>
+                            <rect key="frame" x="75" y="11" width="225" height="57"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="225" id="keQ-8J-uM2"/>
                             </constraints>
@@ -318,7 +316,6 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="68" y="-129.5"/>
         </view>
     </objects>
