@@ -19,6 +19,8 @@ enum L10n {
   case displayQRCodeTitle
   /// Made with love by
   case madeBy
+  /// Magic\nButton
+  case magicButton
   /// Clipboard updated!
   case notificationTitle
   /// OR Scan QR code\non another device
@@ -51,6 +53,8 @@ extension L10n: CustomStringConvertible {
         return L10n.tr(key: "display_QR_code_title")
       case .madeBy:
         return L10n.tr(key: "made_by")
+      case .magicButton:
+        return L10n.tr(key: "magic_button")
       case .notificationTitle:
         return L10n.tr(key: "notification_title")
       case .promptToScan:

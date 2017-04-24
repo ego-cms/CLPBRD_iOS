@@ -10,3 +10,4 @@
 "qr_description" = "Scan this code in CLPBRD app running on\nanother device to get connected.";
 "server_address_explanation" = "Connect to this address in your browser";
 "client_address_explanation" = "You\'re connected to this address";
+"magic_button" = "Magic\nButton";

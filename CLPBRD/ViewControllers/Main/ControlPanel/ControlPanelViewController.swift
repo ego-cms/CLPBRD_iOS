@@ -31,14 +31,17 @@ class ControlPanelViewController: UIViewController {
     @IBOutlet weak var scanQROnDummy: UIView!
     @IBOutlet weak var toggleOffDummy: UIView!
     @IBOutlet weak var toggleOnDummy: UIView!
+    @IBOutlet weak var arrowDummy: UIView!
+    @IBOutlet weak var magicButtonLabelDummy: UIView!
     
     @IBOutlet weak var serverInfoContainer: UIView!
     @IBOutlet weak var serverAddressLabel: UILabel!
     @IBOutlet weak var offInfoContainer: UIView!
     @IBOutlet weak var showQRButton: UIButton!
     @IBOutlet weak var addressDescriptionLabel: UILabel!
-    
+    @IBOutlet weak var arrowImage: UIImageView!
     @IBOutlet weak var buttonBackgroundView: ButtonBackgroundView!
+    @IBOutlet weak var magicButtonLabel: UILabel!
     
     @IBOutlet weak var promptToScanLabel: UILabel!
     var receivedText: String?
@@ -117,7 +120,15 @@ class ControlPanelViewController: UIViewController {
         setup(button: toggleButton, highlightColor: Colors.toggleButtonOffHighlighted.color, normalColor: Colors.toggleButtonOffNormal.color)
         toggleButton.setTitle(toggleButtonTitle(for: state), for: .normal)
         promptToScanLabel.text = L10n.promptToScan.string
+        magicButtonLabel.text = L10n.magicButton.string
         updateContainerVisibility(animated: false)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        delay(0.3) { 
+            self.animateArrow(visible: true)
+        }
     }
     
     func setup(button: RoundButton, highlightColor: UIColor, normalColor: UIColor) {
@@ -141,6 +152,7 @@ class ControlPanelViewController: UIViewController {
     func updateUI() {
         self.updateButtonFrames()
         self.buttonBackgroundView.frame = self.buttonBackgroundViewFrame(for: self.state)
+        self.updateArrow()
         self.buttonBackgroundView.heightInExpandedState = self.buttonBackgroundView.frame.height
     }
     
@@ -286,7 +298,6 @@ class ControlPanelViewController: UIViewController {
                 self.buttonBackgroundView.center.x += deltaX
             }
         }
-        
         let scanQRButtonAnimationTrigger = {
             log.verbose("scan qr animation")
             UIView.animate(withDuration: duration) {
@@ -329,11 +340,49 @@ class ControlPanelViewController: UIViewController {
     
     func updateState(to newState: State, animated: Bool = true) {
         performTransition(from: self.state, to: newState)
+        animateArrow(visible: newState == .off)
         self.state = newState
     }
     
     func makeNotification(clipboardContent: String) {
         showLocalNotification(text: clipboardContent)
+    }
+    
+    func updateArrow() {
+        arrowImage.frame = dummyFrame(dummy: arrowDummy)
+        magicButtonLabel.frame = dummyFrame(dummy: magicButtonLabelDummy)
+    }
+    
+    func animateArrow(visible: Bool) {
+        let currentVisible = arrowImage.alpha != 0.0
+        guard currentVisible != visible else { return }
+        magicButtonLabel.frame = dummyFrame(dummy: magicButtonLabelDummy)
+        if visible {
+            let arrowTargetFrame = dummyFrame(dummy: arrowDummy)
+            arrowImage.frame = arrowTargetFrame
+            arrowImage.transform = CGAffineTransform.identity
+            arrowImage.frame.origin.x = -arrowTargetFrame.width
+            arrowImage.alpha = 0.0
+            magicButtonLabel.alpha = 0.0
+            magicButtonLabel.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
+            UIView.animate(withDuration: animationDuration) {
+                self.arrowImage.alpha = 1.0
+                self.arrowImage.frame = arrowTargetFrame
+                self.magicButtonLabel.alpha = 1.0
+                self.magicButtonLabel.transform = CGAffineTransform.identity
+            }
+        } else {
+            let arrowTargetFrame = dummyFrame(dummy: arrowDummy).offsetBy(dx: -60, dy: 40)
+            let transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 4))
+            arrowImage.alpha = 1.0
+            magicButtonLabel.alpha = 1.0
+            UIView.animate(withDuration: animationDuration) {
+                self.arrowImage.alpha = 0.0
+                self.arrowImage.frame = arrowTargetFrame
+                self.arrowImage.transform = transform
+                self.magicButtonLabel.alpha = 0.0
+            }
+        }
     }
 }
 

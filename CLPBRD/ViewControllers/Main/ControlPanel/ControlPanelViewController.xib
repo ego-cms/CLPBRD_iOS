@@ -12,6 +12,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Parsek-Cyrillic.ttf">
+            <string>ParsekCyrillic</string>
+        </array>
         <array key="Ubuntu-R.ttf">
             <string>Ubuntu</string>
         </array>
@@ -20,9 +23,13 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ControlPanelViewController" customModule="CLPBRD" customModuleProvider="target">
             <connections>
                 <outlet property="addressDescriptionLabel" destination="9MM-J3-bNX" id="y1m-Q9-UX5"/>
+                <outlet property="arrowDummy" destination="03U-dz-oWY" id="6i0-TC-YAd"/>
+                <outlet property="arrowImage" destination="rQX-zo-CQf" id="IpL-nR-03r"/>
                 <outlet property="buttonBackgroundOffDummy" destination="95D-lH-uK1" id="6Or-C6-93Z"/>
                 <outlet property="buttonBackgroundOnDummy" destination="XNS-I7-eB3" id="Epj-mx-gYN"/>
                 <outlet property="buttonBackgroundView" destination="Aby-Rl-y7t" id="w8T-Lp-wi0"/>
+                <outlet property="magicButtonLabel" destination="DKB-fF-UZM" id="nMb-wf-vjy"/>
+                <outlet property="magicButtonLabelDummy" destination="TOn-nD-DCd" id="OSK-iG-ppm"/>
                 <outlet property="offInfoContainer" destination="a8e-Sf-6Ie" id="V36-Wr-hyl"/>
                 <outlet property="promptToScanLabel" destination="grh-Id-yB9" id="1Gc-Y5-bgN"/>
                 <outlet property="scanQRButton" destination="swE-1u-jA5" id="Grh-HR-bsk"/>
@@ -136,15 +143,37 @@
                             <rect key="frame" x="-95" y="0.0" width="323" height="400.5"/>
                             <color key="backgroundColor" red="1" green="0.98005512011118734" blue="0.5279710779994935" alpha="0.70656360035211263" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="03U-dz-oWY">
+                            <rect key="frame" x="-42.5" y="92" width="101.5" height="54.5"/>
+                            <color key="backgroundColor" red="0.82806428108808294" green="0.19922744980313484" blue="0.075057652323428245" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="03U-dz-oWY" secondAttribute="height" multiplier="15:8" id="sYa-s2-hkd"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TOn-nD-DCd">
+                            <rect key="frame" x="-82.5" y="45.5" width="101.5" height="54.5"/>
+                            <color key="backgroundColor" red="0.82806428109999997" green="0.19922744980000001" blue="0.075057652320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="101.5" id="NSy-Xr-x9H"/>
+                                <constraint firstAttribute="height" constant="54.5" id="e8V-L1-cCx"/>
+                                <constraint firstAttribute="width" secondItem="TOn-nD-DCd" secondAttribute="height" multiplier="15:8" id="nJ1-gd-CS1"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" red="0.96427801719999995" green="0.58017241379999995" blue="0.53747306029999997" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="UmP-0C-PaN" firstAttribute="top" secondItem="95D-lH-uK1" secondAttribute="top" id="1zo-yo-7FL"/>
+                        <constraint firstItem="TOn-nD-DCd" firstAttribute="bottom" secondItem="03U-dz-oWY" secondAttribute="top" constant="8" id="3vQ-HF-KCy"/>
                         <constraint firstItem="vVn-ja-VBD" firstAttribute="height" secondItem="T9m-Zi-Bdp" secondAttribute="height" id="80N-Ih-oME"/>
+                        <constraint firstItem="03U-dz-oWY" firstAttribute="bottom" secondItem="Y2p-UC-KdD" secondAttribute="centerY" id="9ju-pi-Jz3"/>
+                        <constraint firstItem="Y2p-UC-KdD" firstAttribute="leading" secondItem="03U-dz-oWY" secondAttribute="trailing" constant="16" id="A4y-Kq-0MX"/>
                         <constraint firstAttribute="trailing" secondItem="UmP-0C-PaN" secondAttribute="trailing" id="Cb2-hW-hxQ"/>
                         <constraint firstAttribute="bottom" secondItem="8uP-4n-gEx" secondAttribute="bottom" id="E0x-35-h5X"/>
                         <constraint firstAttribute="width" secondItem="95D-lH-uK1" secondAttribute="height" multiplier="645:800" id="Ocu-Qv-xEC"/>
                         <constraint firstItem="XNS-I7-eB3" firstAttribute="trailing" secondItem="eu3-Tj-mgr" secondAttribute="trailing" id="RVW-qL-mzN"/>
+                        <constraint firstItem="TOn-nD-DCd" firstAttribute="leading" secondItem="03U-dz-oWY" secondAttribute="leading" constant="-40" id="TNf-Mu-jxi"/>
+                        <constraint firstItem="03U-dz-oWY" firstAttribute="width" secondItem="Y2p-UC-KdD" secondAttribute="width" multiplier="0.5" id="VCe-bB-m07"/>
+                        <constraint firstItem="TOn-nD-DCd" firstAttribute="width" secondItem="TOn-nD-DCd" secondAttribute="height" multiplier="15:8" id="VNg-FR-7Ff"/>
                         <constraint firstItem="iw5-7a-PD4" firstAttribute="top" secondItem="95D-lH-uK1" secondAttribute="top" id="Wpz-7U-HJf"/>
                         <constraint firstItem="UmP-0C-PaN" firstAttribute="width" secondItem="95D-lH-uK1" secondAttribute="width" multiplier="0.9" id="YcO-aX-zoa"/>
                         <constraint firstItem="XNS-I7-eB3" firstAttribute="top" secondItem="eu3-Tj-mgr" secondAttribute="top" id="gkB-c9-C2X"/>
@@ -167,7 +196,7 @@
                     <rect key="frame" x="0.0" y="410" width="681" height="110"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="STf-bZ-HkQ">
-                            <rect key="frame" x="120" y="30" width="441" height="51"/>
+                            <rect key="frame" x="120.5" y="30" width="441" height="51"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Используйте этот адрес в браузере, чтобы соединиться" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9MM-J3-bNX">
                                     <rect key="frame" x="72" y="35" width="369" height="16"/>
@@ -256,6 +285,17 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
+                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="rQX-zo-CQf">
+                    <rect key="frame" x="54" y="216" width="93" height="39"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Magic Button" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="DKB-fF-UZM">
+                    <rect key="frame" x="54" y="174" width="84" height="52"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="ParsekCyrillic" family="Parsek" pointSize="28"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
@@ -282,6 +322,7 @@
         </view>
     </objects>
     <resources>
+        <image name="arrow" width="153" height="60"/>
         <image name="link" width="32" height="32"/>
         <image name="qr_code" width="46" height="46"/>
     </resources>
