@@ -198,13 +198,13 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="STf-bZ-HkQ">
                             <rect key="frame" x="120.5" y="30" width="441" height="51"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Используйте этот адрес в браузере, чтобы соединиться" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9MM-J3-bNX">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Используйте этот адрес в браузере, чтобы соединиться" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9MM-J3-bNX">
                                     <rect key="frame" x="72" y="35" width="369" height="16"/>
                                     <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="14"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="http://" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9Z-Ns-C5H">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="http://" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="k9Z-Ns-C5H">
                                     <rect key="frame" x="72" y="0.0" width="369" height="27"/>
                                     <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="24"/>
                                     <color key="textColor" red="0.25035242540379543" green="0.4346866904145078" blue="0.1147136472820066" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -249,6 +249,7 @@
                         <constraint firstItem="STf-bZ-HkQ" firstAttribute="centerX" secondItem="iTy-Eq-O9c" secondAttribute="centerX" id="L8g-2o-PPQ"/>
                         <constraint firstAttribute="height" constant="110" id="MYc-6G-wVG"/>
                         <constraint firstItem="STf-bZ-HkQ" firstAttribute="centerY" secondItem="iTy-Eq-O9c" secondAttribute="centerY" id="dLT-8f-GgQ"/>
+                        <constraint firstItem="STf-bZ-HkQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iTy-Eq-O9c" secondAttribute="leading" constant="16" id="lFr-7b-qWN"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a8e-Sf-6Ie">
