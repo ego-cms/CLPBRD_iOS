@@ -45,9 +45,9 @@ class ButtonBackgroundView: UIView {
         shapeLayer.anchorPoint = CGPoint(x: 1.0, y: 0.0)
         shapeLayer.position = CGPoint(x: bounds.maxX, y: bounds.minX)
         shapeLayer.contentsGravity = kCAGravityTopRight
-        log.verbose("In prepare paths")
-        log.verbose("shape layer: \(shapeLayer.bounds), \(shapeLayer.anchorPoint), \(shapeLayer.position)")
-        log.verbose("height in expanded state: \(heightInExpandedState), ratio: \(ratio)")
+        print("In prepare paths")
+        print("shape layer: \(shapeLayer.bounds), \(shapeLayer.anchorPoint), \(shapeLayer.position)")
+        print("height in expanded state: \(heightInExpandedState), ratio: \(ratio)")
     }
     
     func commonInit() {
@@ -57,7 +57,7 @@ class ButtonBackgroundView: UIView {
 //        backgroundColor = UIColor.cyan.withAlphaComponent(0.25)
         backgroundColor = .clear
         updateShapeLayer()
-        log.verbose("In common init: state \(state), fill color \(String(describing: shapeLayer.fillColor)), path \(String(describing: shapeLayer.path))")
+        print("In common init: state \(state), fill color \(String(describing: shapeLayer.fillColor)), path \(String(describing: shapeLayer.path))")
         preparePaths()
     }
     
@@ -67,7 +67,7 @@ class ButtonBackgroundView: UIView {
         shapeLayer.fillColor = state.color.cgColor
         let path = state.path.cgPath
         shapeLayer.path = path
-        log.verbose("Updating shape layer")
+        print("Updating shape layer")
         CATransaction.commit()
     }
     
@@ -111,8 +111,8 @@ class ButtonBackgroundView: UIView {
     }
     
     func changeState(to newState: State, animated: Bool = true) {
-        log.verbose("Changing state from \(state) to \(newState)")
-        log.verbose("view: \(self.frame), shape layer: \(shapeLayer.frame)")
+        print("Changing state from \(state) to \(newState)")
+        print("view: \(self.frame), shape layer: \(shapeLayer.frame)")
         if newState == .active {
             showCoolAnimation()
         }

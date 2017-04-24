@@ -65,8 +65,8 @@ final class QRScanner: NSObject, QRScannerService {
             return
         }
         let newOrientation = UIApplication.shared.statusBarOrientation.captureVideoOrientation
-        log.debug("Changing orientation: from \(previewLayer.connection.videoOrientation.rawValue) to \(newOrientation.rawValue)")
-        log.debug("UI orientation: \(UIApplication.shared.statusBarOrientation.rawValue)")
+        print("Changing orientation: from \(previewLayer.connection.videoOrientation.rawValue) to \(newOrientation.rawValue)")
+        print("UI orientation: \(UIApplication.shared.statusBarOrientation.rawValue)")
         previewLayer.connection.videoOrientation = newOrientation
     }
 }

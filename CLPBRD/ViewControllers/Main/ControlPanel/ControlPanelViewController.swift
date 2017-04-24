@@ -75,7 +75,7 @@ class ControlPanelViewController: UIViewController {
     }
     
     func clipboardSyncServiceStateChanged(newState: ServerState) {
-        log.debug("SYNC SERVER: state changed to \(newState)")
+        print("SYNC SERVER: state changed to \(newState)")
         if newState == .off {
             updateState(to: .off)
         } else {
@@ -84,7 +84,7 @@ class ControlPanelViewController: UIViewController {
     }
     
     func updatesReceived() {
-        log.debug("SYNC SERVER: received updates")
+        print("SYNC SERVER: received updates")
         updateState(to: .serverGotUpdates)
     }
     
@@ -165,17 +165,17 @@ class ControlPanelViewController: UIViewController {
     // MARK: Client callbacks
     
     func clientConnected() {
-        log.debug("SYNC CLIENT: connected to server")
+        print("SYNC CLIENT: connected to server")
         updateState(to: .clientOn)
     }
     
     func clientReceivedUpdates() {
-        log.debug("SYNC CLIENT: received updates")
+        print("SYNC CLIENT: received updates")
         updateState(to: .clientGotUpdates)
     }
     
     func clientDisconnected(error: Error?) {
-        log.debug("SYNC CLIENT: disconnected with error \(String(describing: error))")
+        print("SYNC CLIENT: disconnected with error \(String(describing: error))")
         updateState(to: .off)
     }
     
@@ -279,7 +279,7 @@ class ControlPanelViewController: UIViewController {
     }
 
     func performTransition(from oldState: State, to newState: State, animated: Bool = true) {
-        log.verbose("Transitioning from \(oldState) to \(newState) animated \(animated)")
+        print("Transitioning from \(oldState) to \(newState) animated \(animated)")
         self.addressDescriptionLabel.text = self.addressDescription(for: newState)
         self.showQRButton.isHidden = newState.isClient
         let multiplier: CGFloat = (newState.isOff ? 1.0 : 0.0) - (oldState.isOff ? 1.0 : 0.0)
@@ -288,18 +288,18 @@ class ControlPanelViewController: UIViewController {
         let duration = animated ? animationDuration : 0.0
         
         let shapePathAnimationTrigger = {
-            log.verbose("shape path animation")
+            print("shape path animation")
             self.buttonBackgroundView.changeState(to: newState.buttonBackgroundViewState, animated: animated)
         }
         
         let shapePositionAnimationTrigger = {
-            log.verbose("shape position animation")
+            print("shape position animation")
             UIView.animate(withDuration: duration) {
                 self.buttonBackgroundView.center.x += deltaX
             }
         }
         let scanQRButtonAnimationTrigger = {
-            log.verbose("scan qr animation")
+            print("scan qr animation")
             UIView.animate(withDuration: duration) {
                 self.scanQRButton.frame = self.qrButtonFrame(for: newState)
                 self.scanQRButton.alpha = self.qrButtonAlpha(for: newState)
@@ -307,7 +307,7 @@ class ControlPanelViewController: UIViewController {
         }
         
         let toggleButtonPositionAnimationTrigger = {
-            log.verbose("toggle button animation")
+            print("toggle button animation")
             UIView.animate(withDuration: duration) {
                 self.toggleButton.center.x += deltaX
             }

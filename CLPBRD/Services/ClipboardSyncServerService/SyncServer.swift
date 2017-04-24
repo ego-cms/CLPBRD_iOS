@@ -91,12 +91,24 @@ class SyncServer: NSObject, ClipboardSyncServerService {
         self.appStateService = appStateService
         super.init()
         
-        clipboardProviderService.onContentChanged = clipboardContentChanged
-        webSocketServerService.onClientConnected = clientConnected
-        webSocketServerService.onClientDisconnected = clientDisconnected
-        webSocketServerService.onMessageReceived = messageReceived
-        httpServerService.onRunningChanged = httpServerIsRunningChanged
-        appStateService.onAppEnterForeground = appEnteredForeground
+        clipboardProviderService.onContentChanged = { [weak self] in
+            self?.clipboardContentChanged()
+        }
+        webSocketServerService.onClientConnected = { [weak self](clientId) in
+            self?.clientConnected(clientId: clientId)
+        }
+        webSocketServerService.onClientDisconnected = { [weak self](clientId, error) in
+            self?.clientDisconnected(clientId: clientId, error: error)
+        }
+        webSocketServerService.onMessageReceived = { [weak self](clientId, message) in
+            self?.messageReceived(clientId: clientId, message: message)
+        }
+        httpServerService.onRunningChanged = { [weak self](isRunning) in
+            self?.httpServerIsRunningChanged(isRunning: isRunning)
+        }
+        appStateService.onAppEnterForeground = { [weak self] in
+            self?.appEnteredForeground()
+        }
     }
     
     func clipboardContentChanged() {

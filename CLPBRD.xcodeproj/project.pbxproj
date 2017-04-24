@@ -123,13 +123,13 @@
 		10875A5E1E9E4A4900EDC0A2 /* SyncClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncClient.swift; sourceTree = "<group>"; };
 		10875A611E9E4E6900EDC0A2 /* SyncClientDebugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncClientDebugViewController.swift; sourceTree = "<group>"; };
 		10875A621E9E4E6900EDC0A2 /* SyncClientDebugViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SyncClientDebugViewController.xib; sourceTree = "<group>"; };
-		10875A651E9E863900EDC0A2 /* PocketSocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PocketSocketClient.swift; sourceTree = "<group>"; };
+		10875A651E9E863900EDC0A2 /* PocketSocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PocketSocketClient.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		10897D8A1E795E5B002D4C74 /* WebSocketClientService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketClientService.swift; sourceTree = "<group>"; };
 		10897DA01E796B4D002D4C74 /* URL+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Helpers.swift"; sourceTree = "<group>"; };
 		10897DA21E796E3F002D4C74 /* NSError+Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "NSError+Errors.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		10897DA41E79765C002D4C74 /* Closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Closures.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		10897DA61E7999A9002D4C74 /* QRScannerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerService.swift; sourceTree = "<group>"; };
-		10897DA81E7999B5002D4C74 /* QRScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanner.swift; sourceTree = "<group>"; };
+		10897DA81E7999B5002D4C74 /* QRScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = QRScanner.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		108C67B41EA10328004FA943 /* KaushanScript-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KaushanScript-Regular.ttf"; sourceTree = "<group>"; };
 		108C67B51EA10328004FA943 /* Parsek-Cyrillic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Parsek-Cyrillic.ttf"; sourceTree = "<group>"; };
 		108C67B61EA10328004FA943 /* Raleway-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 		108E8AC71E80142F005C990F /* IpAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = IpAddress.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		10A3396F1E9256B3004ECFCD /* ControlPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ControlPanelViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		10A339701E9256B3004ECFCD /* ControlPanelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ControlPanelViewController.xib; sourceTree = "<group>"; };
-		10B86F2B1EA61F810012BCC6 /* ButtonBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonBackgroundView.swift; sourceTree = "<group>"; };
+		10B86F2B1EA61F810012BCC6 /* ButtonBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ButtonBackgroundView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		10B86F2D1EA691CE0012BCC6 /* Delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
 		10B86F2F1EA6945B0012BCC6 /* ControlPanelViewController+State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ControlPanelViewController+State.swift"; sourceTree = "<group>"; };
 		10FFD3691E7A82A9003EEBCD /* QRDisplayService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRDisplayService.swift; sourceTree = "<group>"; };
@@ -205,6 +205,7 @@
 		1052D48B1E7834DA008B22EE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				1073C9FD1EA8F930006BE0E8 /* Animation+Sequence.swift */,
 				106C86B11E950614004107EE /* CGRect+Center.swift */,
 				10897DA41E79765C002D4C74 /* Closures.swift */,
 				10B86F2D1EA691CE0012BCC6 /* Delay.swift */,
@@ -219,7 +220,6 @@
 				104EC00A1E829F8500C42D68 /* UIColor+Hex.swift */,
 				10897DA01E796B4D002D4C74 /* URL+Helpers.swift */,
 				1052D48C1E7834E5008B22EE /* Utils.swift */,
-				1073C9FD1EA8F930006BE0E8 /* Animation+Sequence.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -450,9 +450,9 @@
 		108E8ABD1E80061B005C990F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1073CA031EA92B6A006BE0E8 /* ButtonBackgroundView+State.swift */,
 				10B86F2B1EA61F810012BCC6 /* ButtonBackgroundView.swift */,
 				104EC0111E82A1E400C42D68 /* RoundButton.swift */,
-				1073CA031EA92B6A006BE0E8 /* ButtonBackgroundView+State.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -675,6 +675,7 @@
 				104187091EA79F180069939B /* ru */,
 			);
 			name = Localizable.strings;
+			path = .;
 			sourceTree = "<group>";
 		};
 		105358861E782B0700908B74 /* LaunchScreen.storyboard */ = {
