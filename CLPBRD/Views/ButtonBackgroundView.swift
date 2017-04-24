@@ -101,12 +101,13 @@ class ButtonBackgroundView: UIView {
         fadeAnimation.isRemovedOnCompletion = false
         
         CATransaction.begin()
-        CATransaction.setCompletionBlock {
-            otherLayer.removeFromSuperlayer()
-        }
         otherLayer.add(expandAnimation, forKey: nil)
         otherLayer.add(fadeAnimation, forKey: nil)
         CATransaction.commit()
+        delay(duration - 0.1) {
+            otherLayer.opacity = 0.0
+            otherLayer.removeFromSuperlayer()
+        }
     }
     
     func changeState(to newState: State, animated: Bool = true) {
