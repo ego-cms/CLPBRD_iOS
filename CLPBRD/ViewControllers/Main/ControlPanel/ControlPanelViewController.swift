@@ -151,8 +151,11 @@ class ControlPanelViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        delay(0.3) { 
-            self.animateArrow(visible: true)
+        let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
+        if appDelegate.shortcut != .StartServer {
+            delay(0.3) {
+                self.animateArrow(visible: true)
+            }
         }
         handleShortcuts()
     }
@@ -171,13 +174,12 @@ class ControlPanelViewController: UIViewController {
         switch shortcut {
         case .StartServer:
             if state.isServer { return }
-            turnOffEverything(animated: false)
+            animateArrow(visible: false, animated: false)
             toggleButtonPressed()
         case .ScanQR:
             turnOffEverything(animated: false)
             scanQRPressed()
         }
-        
     }
     
     func setup(button: RoundButton, highlightColor: UIColor, normalColor: UIColor) {
