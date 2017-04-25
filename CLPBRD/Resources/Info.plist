@@ -5,16 +5,16 @@
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>
-			<key>UIApplicationShortcutItemIconType</key>
-			<string>UIApplicationShortcutIconTypeCapturePhoto</string>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>scan_qr_shortcut_icon</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Scan QR</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>$(PRODUCT_BUNDLE_IDENTIFIER).ScanQR</string>
 		</dict>
 		<dict>
-			<key>UIApplicationShortcutItemIconType</key>
-			<string>UIApplicationShortcutIconTypeTask</string>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>start_server_shortcut_icon</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Start CLPBRD</string>
 			<key>UIApplicationShortcutItemType</key>
