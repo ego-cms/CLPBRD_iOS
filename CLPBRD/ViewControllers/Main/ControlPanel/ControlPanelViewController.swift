@@ -53,6 +53,8 @@ class ControlPanelViewController: UIViewController {
         }
     }
     
+    let httpPort: UInt = 8080
+    
     var clipboardSyncServerService: ClipboardSyncServerService
     var clipboardSyncClientService: ClipboardSyncClientService
     
@@ -67,11 +69,11 @@ class ControlPanelViewController: UIViewController {
         self.clipboardSyncServerService = clipboardSyncServerService
         self.clipboardSyncClientService = clipboardSyncClientService
         super.init(nibName: String(describing: type(of: self)), bundle: nil)
-        clipboardSyncServerService.onStateChanged = clipboardSyncServiceStateChanged
-        clipboardSyncServerService.onUpdatesReceived = updatesReceived
-        clipboardSyncClientService.onConnected = clientConnected
-        clipboardSyncClientService.onUpdatesReceived = clientReceivedUpdates
-        clipboardSyncClientService.onDisconnected = clientDisconnected
+        NotificationCenter.default.addObserver(self, selector: #selector(appEnteredForeground), name: Notification.Name.UIApplicationWillEnterForeground, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     func clipboardSyncServiceStateChanged(newState: ServerState) {
@@ -86,6 +88,29 @@ class ControlPanelViewController: UIViewController {
     func updatesReceived() {
         print("SYNC SERVER: received updates")
         updateState(to: .serverGotUpdates)
+    }
+    
+    func appEnteredForeground() {
+        delay(0.5) {
+            self.handleShortcuts()
+        }
+    }
+    
+    func startServer() {
+        turnOffEverything()
+        clipboardSyncServerService.onStateChanged = clipboardSyncServiceStateChanged
+        clipboardSyncServerService.onUpdatesReceived = updatesReceived
+        clipboardSyncServerService.start(port: httpPort)
+        localServerURL = clipboardSyncServerService.serverURL
+    }
+    
+    func startClient(host: String) {
+        turnOffEverything()
+        clipboardSyncClientService.onConnected = clientConnected
+        clipboardSyncClientService.onUpdatesReceived = clientReceivedUpdates
+        clipboardSyncClientService.onDisconnected = clientDisconnected
+        clipboardSyncClientService.connect(host: host, port: httpPort)
+        serverAddressLabel.text = URL.createBrowserURL(with: host, port: httpPort)?.absoluteString ?? ""
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -129,6 +154,32 @@ class ControlPanelViewController: UIViewController {
         delay(0.3) { 
             self.animateArrow(visible: true)
         }
+        handleShortcuts()
+    }
+    
+    func handleShortcuts() {
+        let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
+        guard let shortcut = appDelegate.shortcut else {
+            return
+        }
+        appDelegate.shortcut = nil
+        
+        animationDuration = 0
+        defer {
+            animationDuration = 0.25
+        }
+        switch shortcut {
+        case "StartServer":
+            if state.isServer { return }
+            turnOffEverything(animated: false)
+            toggleButtonPressed()
+        case "ScanQR":
+            turnOffEverything(animated: false)
+            scanQRPressed()
+        default:
+            fatalError("Unknown shortcut \(shortcut)")
+        }
+        
     }
     
     func setup(button: RoundButton, highlightColor: UIColor, normalColor: UIColor) {
@@ -194,30 +245,31 @@ class ControlPanelViewController: UIViewController {
         self.scanQRButton.frame = self.qrButtonFrame(for: self.state)
     }
     
-    @IBAction func toggleButtonPressed(_ sender: Any) {
+    @IBAction func toggleButtonPressed() {
         switch state {
         case .serverOn:
-            clipboardSyncServerService.stop()
-            clipboardSyncClientService.disconnect()
-            updateState(to: .off)
+            turnOffEverything(animated: true)
         case .serverGotUpdates:
             clipboardSyncServerService.takeUpdates()
             makeNotification(clipboardContent: UIPasteboard.general.string ?? "")
             updateState(to: .serverOn)
             
         case .clientOn:
-            clipboardSyncServerService.stop()
-            clipboardSyncClientService.disconnect()
-            updateState(to: .off)
+            turnOffEverything(animated: true)
         case .clientGotUpdates:
             clipboardSyncClientService.takeUpdates()
             makeNotification(clipboardContent: UIPasteboard.general.string ?? "")
             updateState(to: .clientOn)
         case .off:
-            clipboardSyncClientService.disconnect()
-            clipboardSyncServerService.start(port: 8080)
-            localServerURL = clipboardSyncServerService.serverURL
+            startServer()
         }
+    }
+    
+    func turnOffEverything(animated: Bool = true) {
+        presentedViewController?.dismiss(animated: false, completion: nil)
+        clipboardSyncServerService.stop()
+        clipboardSyncClientService.disconnect()
+        updateState(to: .off, animated: animated)
     }
     
     func dummyFrame(dummy: UIView) -> CGRect {
@@ -284,7 +336,6 @@ class ControlPanelViewController: UIViewController {
         self.showQRButton.isHidden = newState.isClient
         let multiplier: CGFloat = (newState.isOff ? 1.0 : 0.0) - (oldState.isOff ? 1.0 : 0.0)
         let deltaX = multiplier * toggleButtonPositionsDistance
-        
         let duration = animated ? animationDuration : 0.0
         
         let shapePathAnimationTrigger = {
@@ -339,8 +390,11 @@ class ControlPanelViewController: UIViewController {
     }
     
     func updateState(to newState: State, animated: Bool = true) {
-        performTransition(from: self.state, to: newState)
-        animateArrow(visible: newState == .off)
+        if state == newState, !state.gotUpdates {
+            return
+        }
+        performTransition(from: self.state, to: newState, animated: animated)
+        animateArrow(visible: newState == .off, animated: animated)
         self.state = newState
     }
     
@@ -353,10 +407,11 @@ class ControlPanelViewController: UIViewController {
         magicButtonLabel.frame = dummyFrame(dummy: magicButtonLabelDummy)
     }
     
-    func animateArrow(visible: Bool) {
+    func animateArrow(visible: Bool, animated: Bool = true) {
         let currentVisible = arrowImage.alpha != 0.0
         guard currentVisible != visible else { return }
         magicButtonLabel.frame = dummyFrame(dummy: magicButtonLabelDummy)
+        let duration = animated ? animationDuration : 0.0
         if visible {
             let arrowTargetFrame = dummyFrame(dummy: arrowDummy)
             arrowImage.frame = arrowTargetFrame
@@ -365,7 +420,7 @@ class ControlPanelViewController: UIViewController {
             arrowImage.alpha = 0.0
             magicButtonLabel.alpha = 0.0
             magicButtonLabel.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
-            UIView.animate(withDuration: animationDuration) {
+            UIView.animate(withDuration: duration) {
                 self.arrowImage.alpha = 1.0
                 self.arrowImage.frame = arrowTargetFrame
                 self.magicButtonLabel.alpha = 1.0
@@ -376,7 +431,7 @@ class ControlPanelViewController: UIViewController {
             let transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 4))
             arrowImage.alpha = 1.0
             magicButtonLabel.alpha = 1.0
-            UIView.animate(withDuration: animationDuration) {
+            UIView.animate(withDuration: duration) {
                 self.arrowImage.alpha = 0.0
                 self.arrowImage.frame = arrowTargetFrame
                 self.arrowImage.transform = transform
@@ -399,10 +454,7 @@ extension ControlPanelViewController: QRCodeScanViewControllerDelegate {
             return
         }
         dismiss(animated: true, completion: nil)
-        let port: UInt = 8080
-        clipboardSyncClientService.connect(host: host, port: port)
-        serverAddressLabel.text = URL.createBrowserURL(with: host, port: port)?.absoluteString ?? ""
-        
+        startClient(host: host)
     }
 }
 

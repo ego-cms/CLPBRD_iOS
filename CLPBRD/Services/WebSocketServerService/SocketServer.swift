@@ -31,6 +31,9 @@ class WebSocketServer: NSObject, WebSocketServerService {
     }
     
     func listen(ipAddress: String, port: UInt) {
+        guard port != 0 else {
+            return
+        }
         if isRunning {
             return
         }

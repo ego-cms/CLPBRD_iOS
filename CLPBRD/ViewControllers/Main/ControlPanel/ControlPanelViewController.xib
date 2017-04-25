@@ -65,7 +65,7 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="toggleButtonPressed:" destination="-1" eventType="touchUpInside" id="NBn-uG-Nc8"/>
+                        <action selector="toggleButtonPressed" destination="-1" eventType="touchUpInside" id="zai-zo-3Su"/>
                     </connections>
                 </button>
                 <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="95D-lH-uK1" userLabel="Buttons Background">
@@ -194,25 +194,25 @@
                     <rect key="frame" x="0.0" y="557" width="375" height="110"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="STf-bZ-HkQ">
-                            <rect key="frame" x="31.5" y="22.5" width="312.5" height="66.5"/>
+                            <rect key="frame" x="29.5" y="21.5" width="317" height="69"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Используйте этот адрес в браузере, чтобы соединиться" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9MM-J3-bNX">
-                                    <rect key="frame" x="72" y="35" width="240.5" height="31.5"/>
+                                    <rect key="frame" x="72" y="36" width="245" height="33"/>
                                     <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="14"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="http://" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="k9Z-Ns-C5H">
-                                    <rect key="frame" x="72" y="0.0" width="240.5" height="27"/>
+                                    <rect key="frame" x="72" y="0.0" width="245" height="28"/>
                                     <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="24"/>
                                     <color key="textColor" red="0.25035242540379543" green="0.4346866904145078" blue="0.1147136472820066" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="link" translatesAutoresizingMaskIntoConstraints="NO" id="emu-wJ-ulj">
-                                    <rect key="frame" x="36" y="21" width="24" height="24"/>
+                                    <rect key="frame" x="36" y="22" width="24" height="24"/>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZY4-pG-HAQ">
-                                    <rect key="frame" x="0.0" y="20.5" width="24" height="24"/>
+                                    <rect key="frame" x="0.0" y="21.5" width="24" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="24" id="dli-us-TBp"/>
                                         <constraint firstAttribute="width" secondItem="ZY4-pG-HAQ" secondAttribute="height" multiplier="1:1" id="oq7-Wi-Swz"/>
