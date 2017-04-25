@@ -169,15 +169,13 @@ class ControlPanelViewController: UIViewController {
             animationDuration = 0.25
         }
         switch shortcut {
-        case "StartServer":
+        case .StartServer:
             if state.isServer { return }
             turnOffEverything(animated: false)
             toggleButtonPressed()
-        case "ScanQR":
+        case .ScanQR:
             turnOffEverything(animated: false)
             scanQRPressed()
-        default:
-            fatalError("Unknown shortcut \(shortcut)")
         }
         
     }
@@ -212,7 +210,7 @@ class ControlPanelViewController: UIViewController {
             self.updateUI()
         }
     }
-//
+
     // MARK: Client callbacks
     
     func clientConnected() {

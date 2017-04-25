@@ -7,7 +7,7 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     var window: UIWindow?
     
-    var shortcut: String?
+    var shortcut: Shortcut?
 
     lazy var appContainer: Container = createContainer()
 
@@ -40,22 +40,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             return
         }
         print(type)
-        shortcut = type
-        
-        /*
-        switch type {
-        case "StartServer":
-            delay(0.5) {
-                controlPanel.toggleButtonPressed()
-            }
-        case "ScanQR":
-            delay(3) {
-                controlPanel.scanQRPressed()
-            }
-        default:
-            fatalError("Unknown shortcut \(type)")
-        }*/
+        shortcut = Shortcut(rawValue: type)
         completionHandler(true)
     }
+}
+
+enum Shortcut: String {
+    case StartServer
+    case ScanQR
 }
 
