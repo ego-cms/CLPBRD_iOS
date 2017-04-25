@@ -11,3 +11,5 @@
 "server_address_explanation" = "Используйте этот адрес в браузере, чтобы соединиться";
 "client_address_explanation" = "Вы соединены с устройством по этому адресу";
 "magic_button" = "Волшебная\nкнопка";
+"camera_permission_failure_description" = "Приложению нужен доступ к камере,\nчтобы сканировать QR-коды";
+"settings_button_title" = "Разрешить доступ в настройках";

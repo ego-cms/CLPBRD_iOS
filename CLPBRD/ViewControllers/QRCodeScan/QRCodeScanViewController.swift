@@ -12,6 +12,8 @@ class QRCodeScanViewController: UIViewController {
     weak var delegate: QRCodeScanViewControllerDelegate?
     
     private var lastText: String?
+    @IBOutlet weak var failureDescriptionLabel: UILabel!
+    @IBOutlet weak var settingsButton: UIButton!
     
     @IBOutlet weak var warningView: UIView!
     
@@ -38,6 +40,8 @@ class QRCodeScanViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelPressed))
         title = L10n.scanQRCodeTitle.string
         warningLabel.text = L10n.badQRCodeWarning.string
+        failureDescriptionLabel.text = L10n.cameraPermissionFailureDescription.string
+        settingsButton.setTitle(L10n.settingsButtonTitle.string, for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {

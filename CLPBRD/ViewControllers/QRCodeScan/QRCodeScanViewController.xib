@@ -16,7 +16,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QRCodeScanViewController" customModule="CLPBRD" customModuleProvider="target">
             <connections>
+                <outlet property="failureDescriptionLabel" destination="Nm8-WV-9DU" id="Lcn-Nw-ZfE"/>
                 <outlet property="previewContainer" destination="ojf-PX-ieh" id="WoO-0P-Shn"/>
+                <outlet property="settingsButton" destination="gxA-kA-KIN" id="0tI-kc-foT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="warningLabel" destination="xUe-aY-V4c" id="Vo3-Ph-RB2"/>
                 <outlet property="warningView" destination="s2I-sZ-3dm" id="b72-W2-8or"/>
@@ -61,7 +63,7 @@
                     <rect key="frame" x="16" y="100" width="343" height="128"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUe-aY-V4c">
-                            <rect key="frame" x="142" y="50.5" width="59.5" height="27"/>
+                            <rect key="frame" x="142.5" y="50.5" width="59" height="27"/>
                             <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="24"/>
                             <color key="textColor" red="0.88884717229999999" green="0.2088303249" blue="0.072158830559999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>

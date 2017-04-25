@@ -509,7 +509,7 @@
 				TargetAttributes = {
 					105358791E782B0700908B74 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 579QBLN47H;
+						DevelopmentTeam = NSVKWMZVJR;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -790,11 +790,11 @@
 			baseConfigurationReference = 9E3AF3898465611661472682 /* Pods-CLPBRD.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 579QBLN47H;
+				DEVELOPMENT_TEAM = NSVKWMZVJR;
 				INFOPLIST_FILE = CLPBRD/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cayugasoft.CLPBRD;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ego-cms.CLPBRD";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/CLPBRD/BridgingHeader.h";
 				SWIFT_VERSION = 3.0;
@@ -807,11 +807,11 @@
 			baseConfigurationReference = 1918E0CF43F359538E369317 /* Pods-CLPBRD.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 579QBLN47H;
+				DEVELOPMENT_TEAM = NSVKWMZVJR;
 				INFOPLIST_FILE = CLPBRD/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cayugasoft.CLPBRD;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ego-cms.CLPBRD";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/CLPBRD/BridgingHeader.h";
 				SWIFT_VERSION = 3.0;

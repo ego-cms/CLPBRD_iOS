@@ -13,6 +13,8 @@ enum L10n {
   case buttonOffTitle
   /// TURN\nIT OFF
   case buttonOnTitle
+  /// App needs access to the camera in\norder to scan QR codes.
+  case cameraPermissionFailureDescription
   /// You're connected to this address
   case clientAddressExplanation
   /// QR code
@@ -31,6 +33,8 @@ enum L10n {
   case scanQRCodeTitle
   /// Connect to this address in your browser
   case serverAddressExplanation
+  /// Enable access in Settings
+  case settingsButtonTitle
   /// Send clipboard between your phone,\ndesktop or another phone.\n\nTurn service on and just copy and paste.
   case usageDescription
 }
@@ -47,6 +51,8 @@ extension L10n: CustomStringConvertible {
         return L10n.tr(key: "button_off_title")
       case .buttonOnTitle:
         return L10n.tr(key: "button_on_title")
+      case .cameraPermissionFailureDescription:
+        return L10n.tr(key: "camera_permission_failure_description")
       case .clientAddressExplanation:
         return L10n.tr(key: "client_address_explanation")
       case .displayQRCodeTitle:
@@ -65,6 +71,8 @@ extension L10n: CustomStringConvertible {
         return L10n.tr(key: "scan_QR_code_title")
       case .serverAddressExplanation:
         return L10n.tr(key: "server_address_explanation")
+      case .settingsButtonTitle:
+        return L10n.tr(key: "settings_button_title")
       case .usageDescription:
         return L10n.tr(key: "usage_description")
     }
