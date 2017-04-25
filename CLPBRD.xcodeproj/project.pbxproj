@@ -510,7 +510,7 @@
 					105358791E782B0700908B74 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = NSVKWMZVJR;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -790,15 +790,20 @@
 			baseConfigurationReference = 9E3AF3898465611661472682 /* Pods-CLPBRD.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = NSVKWMZVJR;
 				INFOPLIST_FILE = CLPBRD/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ego-cms.CLPBRD";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5aa3bf71-cb97-476a-88d3-46e1d61a5405";
+				PROVISIONING_PROFILE_SPECIFIER = "CLPBRD Development Provisioning Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/CLPBRD/BridgingHeader.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -807,15 +812,20 @@
 			baseConfigurationReference = 1918E0CF43F359538E369317 /* Pods-CLPBRD.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = NSVKWMZVJR;
 				INFOPLIST_FILE = CLPBRD/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ego-cms.CLPBRD";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6bb217a5-3524-445e-8512-2f7e58b06fb9";
+				PROVISIONING_PROFILE_SPECIFIER = "CLPBRD Distribution Provisioning Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/CLPBRD/BridgingHeader.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
