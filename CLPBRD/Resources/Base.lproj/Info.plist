@@ -14,7 +14,7 @@
 	<array>
 		<dict>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>scanQRShortcut</string>
+			<string>Scan QR</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>$(PRODUCT_BUNDLE_IDENTIFIER).ScanQR</string>
 			<key>UIApplicationShortcutItemIconFile</key>
@@ -22,7 +22,7 @@
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>startCLPBRDShortcut</string>
+			<string>Start CLPBRD</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>$(PRODUCT_BUNDLE_IDENTIFIER).StartServer</string>
 			<key>UIApplicationShortcutItemIconFile</key>

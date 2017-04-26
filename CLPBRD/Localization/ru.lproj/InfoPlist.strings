@@ -1,0 +1,3 @@
+"NSCameraUsageDescription" = "Приложению нужен доступ к камере, чтобы сканировать QR-коды";
+"scanQRShortcut" = "Сканировать QR-код";
+"startCLPBRDShortcut" = "Запустить CLPBRD";

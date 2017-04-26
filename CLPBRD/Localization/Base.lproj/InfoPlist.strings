@@ -1,0 +1,3 @@
+"NSCameraUsageDescription" = "We need to access your camera for scanning QR codes";
+"scanQRShortcut" = "Scan QR";
+"startCLPBRDShortcut" = "Start CLPBRD";

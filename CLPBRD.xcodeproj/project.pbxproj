@@ -71,6 +71,7 @@
 		10B86F2C1EA61F810012BCC6 /* ButtonBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B86F2B1EA61F810012BCC6 /* ButtonBackgroundView.swift */; };
 		10B86F2E1EA691CE0012BCC6 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B86F2D1EA691CE0012BCC6 /* Delay.swift */; };
 		10B86F301EA6945B0012BCC6 /* ControlPanelViewController+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B86F2F1EA6945B0012BCC6 /* ControlPanelViewController+State.swift */; };
+		10DB5A1D1EB0D8660012C4BF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10DB5A1F1EB0D8660012C4BF /* InfoPlist.strings */; };
 		10FFD36A1E7A82A9003EEBCD /* QRDisplayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FFD3691E7A82A9003EEBCD /* QRDisplayService.swift */; };
 		10FFD36C1E7A8384003EEBCD /* QRDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FFD36B1E7A8384003EEBCD /* QRDisplay.swift */; };
 		C1F58269AA86D5878A85A1BA /* Pods_CLPBRD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 252F2C9F91B28DA3F225C625 /* Pods_CLPBRD.framework */; };
@@ -145,6 +146,8 @@
 		10B86F2B1EA61F810012BCC6 /* ButtonBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ButtonBackgroundView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		10B86F2D1EA691CE0012BCC6 /* Delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
 		10B86F2F1EA6945B0012BCC6 /* ControlPanelViewController+State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ControlPanelViewController+State.swift"; sourceTree = "<group>"; };
+		10DB5A1E1EB0D8660012C4BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		10DB5A201EB0D8690012C4BF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		10FFD3691E7A82A9003EEBCD /* QRDisplayService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRDisplayService.swift; sourceTree = "<group>"; };
 		10FFD36B1E7A8384003EEBCD /* QRDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRDisplay.swift; sourceTree = "<group>"; };
 		1918E0CF43F359538E369317 /* Pods-CLPBRD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLPBRD.release.xcconfig"; path = "Pods/Target Support Files/Pods-CLPBRD/Pods-CLPBRD.release.xcconfig"; sourceTree = "<group>"; };
@@ -288,6 +291,7 @@
 			children = (
 				105BEF331EA7865600A8F46C /* GeneratedLocalization.swift */,
 				104187081EA79EFA0069939B /* Localizable.strings */,
+				10DB5A1F1EB0D8660012C4BF /* InfoPlist.strings */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -550,6 +554,7 @@
 				10875A641E9E4E6900EDC0A2 /* SyncClientDebugViewController.xib in Resources */,
 				104EC01B1E82B06400C42D68 /* buttons_expanded.path in Resources */,
 				108C67B81EA1035A004FA943 /* KaushanScript-Regular.ttf in Resources */,
+				10DB5A1D1EB0D8660012C4BF /* InfoPlist.strings in Resources */,
 				1053589B1E782CEE00908B74 /* QRCodeScanViewController.xib in Resources */,
 				104187061EA79EFA0069939B /* Localizable.strings in Resources */,
 				105358971E782CE200908B74 /* QRCodeDisplayViewController.xib in Resources */,
@@ -685,6 +690,15 @@
 			);
 			name = LaunchScreen.storyboard;
 			path = .;
+			sourceTree = "<group>";
+		};
+		10DB5A1F1EB0D8660012C4BF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10DB5A1E1EB0D8660012C4BF /* Base */,
+				10DB5A201EB0D8690012C4BF /* ru */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
