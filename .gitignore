@@ -36,5 +36,11 @@ build
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
 DerivedData/
+xcuserdata/
+.vscode
+CLPBRD.xcworkspace/xcuserdata/
+fastlane/*
+!fastlane/*file
+Builds/*
 
 # End of https://www.gitignore.io/api/xcode,macos

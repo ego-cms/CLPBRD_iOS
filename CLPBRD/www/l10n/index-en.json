@@ -1,0 +1,6 @@
+{
+    "web_page_connection_error_format": "Lost connection to: {{ host }} <br>Try to relaunch service on device then refresh a page",
+    "web_page_subtitle": "Send clipboard between your phone and browser.<br>Just copy and paste.",
+    "web_page_button_send": "SEND",
+    "web_page_credits": "Made with love in"
+}

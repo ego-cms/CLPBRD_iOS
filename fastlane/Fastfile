@@ -1,0 +1,13 @@
+lane :beta do
+	increment_build_number
+	gym(
+		scheme: "CLPBRD",
+		export_method: "app-store",
+		workspace: "CLPBRD.xcworkspace",
+		include_bitcode: true,
+		include_symbols: true,
+		build_path: "Builds/",
+		output_directory: "Builds/"
+	)          # build your app
+	testflight(username: "eugene@ego-cms.com")
+end

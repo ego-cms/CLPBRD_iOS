@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="script/jquery-1.12.3.min.js"></script>
+    <script src="script/jqueryTranslator.js"></script>
+    <script src="script/mustache.min.js"></script>
+    <title>CLPBRD</title>
+</head>
+
+
+<body style="display: none">
+
+<div style="width: 60%; min-width: 480pt; margin: 0 auto">
+    <div id="content" style="display: block; margin-top: 10pt">
+        <div style="text-align: center">
+            <img style="margin:auto" src="res/logo_product.svg"/>
+            <p data-translate="web_page_subtitle" style="width: 76%; margin: auto; margin-bottom: 10pt">This is a test</p>
+        </div>
+        <div style="position: relative; display: block;">
+            <textarea id="entryClipboardText"></textarea>
+            <p data-translate="web_page_connection_error_format" id="labelError"
+               style="display: none; text-align: left; color: red; font-family: fontError; font-size: 8pt;  margin: 0; padding: 0"></p>
+        </div>
+        <div style="position:relative; bottom: 10pt; top: 0; text-align: center;">
+            <div style="margin: 15pt; margin-top: 30pt">
+                <div id="buttonSend" class="floatingButton" title="Ctrl+Enter"
+                     style="display: inline-block; position: relative; margin: 0 auto; width: 52pt; height: 52pt">
+                    <svg width="52pt" height="52pt">
+                        <circle cx="26pt" cy="26pt" r="26pt" fill="#4fc80d"></circle>
+                    </svg>
+                    <p data-translate="web_page_button_send" class="buttonTitle noselect"></p>
+                </div>
+            </div>
+            <a href="http://ego-cms.com/" class="noselect" style="text-decoration: none;">
+                <span data-translate="web_page_credits"></span>
+                <img src="res/logo_authority.png"
+                     style="vertical-align: middle; margin-left: 5pt; width: 47pt; height: 27pt"/>
+            </a>
+        </div>
+    </div>
+</div>
+<script src="script/main_script.js"></script>
+
+
+<script>
+    $("[data-translate]").jqTranslate('index', { "path": "l10n/" });
+    
+</script>
+
+</body>
+</html>

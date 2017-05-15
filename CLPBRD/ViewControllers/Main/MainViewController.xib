@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Ubuntu-R.ttf">
+            <string>Ubuntu</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="CLPBRD" customModuleProvider="target">
+            <connections>
+                <outlet property="controlPanelContainer" destination="JCz-0D-jHv" id="UFh-lq-jkj"/>
+                <outlet property="madeByLabel" destination="RCA-HL-jiY" id="S8Q-NY-Tc0"/>
+                <outlet property="usageDescriptionLabel" destination="S31-Y3-gKb" id="QXD-Qo-ebp"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="PRg-XH-VVJ">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6uY-gt-EnV">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JCz-0D-jHv">
+                            <rect key="frame" x="0.0" y="211" width="375" height="384"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WFd-30-85D">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="204"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_clpbrd" translatesAutoresizingMaskIntoConstraints="NO" id="6ug-WF-NiQ">
+                                    <rect key="frame" x="81.5" y="24" width="212" height="84"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="6ug-WF-NiQ" secondAttribute="height" multiplier="53:21" id="KRa-5j-GSm"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Отправляйте содержимое буфера обмена Вашего устройства на ПК или другое устройство, просто включив сервис" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S31-Y3-gKb">
+                                    <rect key="frame" x="27" y="124" width="321" height="72"/>
+                                    <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="16"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="6ug-WF-NiQ" firstAttribute="centerX" secondItem="WFd-30-85D" secondAttribute="centerX" id="D52-WS-2iT"/>
+                                <constraint firstItem="S31-Y3-gKb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WFd-30-85D" secondAttribute="leading" constant="16" id="PTU-kX-FFM"/>
+                                <constraint firstItem="S31-Y3-gKb" firstAttribute="centerX" secondItem="WFd-30-85D" secondAttribute="centerX" id="Q1Q-cQ-z51"/>
+                                <constraint firstItem="6ug-WF-NiQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WFd-30-85D" secondAttribute="leading" constant="80" id="YEd-CE-ZGi"/>
+                                <constraint firstItem="6ug-WF-NiQ" firstAttribute="top" secondItem="WFd-30-85D" secondAttribute="top" constant="24" id="dcS-OC-eLG"/>
+                                <constraint firstAttribute="bottom" secondItem="S31-Y3-gKb" secondAttribute="bottom" constant="8" id="f00-4s-ho8"/>
+                                <constraint firstItem="S31-Y3-gKb" firstAttribute="top" secondItem="6ug-WF-NiQ" secondAttribute="bottom" constant="16" id="tnB-Ug-9Ag"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="YEd-CE-ZGi"/>
+                                </mask>
+                            </variation>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kBK-aZ-7XA">
+                            <rect key="frame" x="0.0" y="603" width="375" height="64"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сделано с любовью в" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCA-HL-jiY">
+                                    <rect key="frame" x="75" y="23" width="165" height="18"/>
+                                    <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="16"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ego_logo" translatesAutoresizingMaskIntoConstraints="NO" id="YNv-kX-ULU">
+                                    <rect key="frame" x="244" y="18" width="60" height="32"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="60" id="AIe-PD-9aL"/>
+                                        <constraint firstAttribute="height" constant="32" id="jef-HZ-eSR"/>
+                                    </constraints>
+                                </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2E-3B-Vdv">
+                                    <rect key="frame" x="244" y="18" width="60" height="32"/>
+                                    <connections>
+                                        <action selector="logoPressed" destination="-1" eventType="touchUpInside" id="axX-1X-U68"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="I2E-3B-Vdv" firstAttribute="leading" secondItem="YNv-kX-ULU" secondAttribute="leading" id="5RS-hh-8gF"/>
+                                <constraint firstItem="YNv-kX-ULU" firstAttribute="leading" secondItem="RCA-HL-jiY" secondAttribute="trailing" constant="4" id="B8w-h6-ZzA"/>
+                                <constraint firstItem="I2E-3B-Vdv" firstAttribute="height" secondItem="YNv-kX-ULU" secondAttribute="height" id="BzE-gR-h7S"/>
+                                <constraint firstItem="I2E-3B-Vdv" firstAttribute="top" secondItem="YNv-kX-ULU" secondAttribute="top" id="EKA-yY-Sij"/>
+                                <constraint firstAttribute="height" constant="64" id="Ge1-ed-pVg"/>
+                                <constraint firstItem="I2E-3B-Vdv" firstAttribute="trailing" secondItem="YNv-kX-ULU" secondAttribute="trailing" id="Oqy-q9-EL3"/>
+                                <constraint firstItem="YNv-kX-ULU" firstAttribute="centerY" secondItem="RCA-HL-jiY" secondAttribute="centerY" constant="2" id="XUc-vJ-d3t"/>
+                                <constraint firstItem="I2E-3B-Vdv" firstAttribute="width" secondItem="YNv-kX-ULU" secondAttribute="width" id="bdj-WN-pYd"/>
+                                <constraint firstItem="RCA-HL-jiY" firstAttribute="centerX" secondItem="kBK-aZ-7XA" secondAttribute="centerX" constant="-30" id="gpd-TU-0T9"/>
+                                <constraint firstItem="I2E-3B-Vdv" firstAttribute="bottom" secondItem="YNv-kX-ULU" secondAttribute="bottom" id="sl0-fE-SF9"/>
+                                <constraint firstItem="RCA-HL-jiY" firstAttribute="centerY" secondItem="kBK-aZ-7XA" secondAttribute="centerY" id="vAW-bv-BHE"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="WFd-30-85D" firstAttribute="centerX" secondItem="6uY-gt-EnV" secondAttribute="centerX" id="BbD-bv-YRS"/>
+                        <constraint firstAttribute="trailing" secondItem="kBK-aZ-7XA" secondAttribute="trailing" id="Jw3-fw-dgZ"/>
+                        <constraint firstItem="WFd-30-85D" firstAttribute="top" secondItem="6uY-gt-EnV" secondAttribute="top" id="M1a-O6-cAa"/>
+                        <constraint firstItem="JCz-0D-jHv" firstAttribute="leading" secondItem="6uY-gt-EnV" secondAttribute="leading" id="QXR-Vl-o2V"/>
+                        <constraint firstItem="kBK-aZ-7XA" firstAttribute="leading" secondItem="6uY-gt-EnV" secondAttribute="leading" id="S1O-yA-q3v"/>
+                        <constraint firstItem="WFd-30-85D" firstAttribute="leading" secondItem="6uY-gt-EnV" secondAttribute="leading" id="U67-td-xRE"/>
+                        <constraint firstItem="JCz-0D-jHv" firstAttribute="top" secondItem="WFd-30-85D" secondAttribute="bottom" constant="7" id="UCu-po-4Xu"/>
+                        <constraint firstAttribute="trailing" secondItem="JCz-0D-jHv" secondAttribute="trailing" id="kiZ-Co-4HY"/>
+                        <constraint firstItem="kBK-aZ-7XA" firstAttribute="top" secondItem="JCz-0D-jHv" secondAttribute="bottom" constant="8" id="ljV-5k-Ojl"/>
+                        <constraint firstAttribute="bottom" secondItem="kBK-aZ-7XA" secondAttribute="bottom" id="pcx-ti-Ksc"/>
+                        <constraint firstItem="JCz-0D-jHv" firstAttribute="centerX" secondItem="6uY-gt-EnV" secondAttribute="centerX" id="qpY-1L-Mtx"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="PRg-XH-VVJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6S0-Ob-D5I"/>
+                <constraint firstAttribute="bottom" secondItem="6uY-gt-EnV" secondAttribute="bottom" id="M32-EU-jm6"/>
+                <constraint firstAttribute="bottom" secondItem="PRg-XH-VVJ" secondAttribute="bottom" id="Q2k-hX-odF"/>
+                <constraint firstItem="6uY-gt-EnV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="RIB-8P-Eky"/>
+                <constraint firstAttribute="trailing" secondItem="PRg-XH-VVJ" secondAttribute="trailing" id="TPN-QX-Gf7"/>
+                <constraint firstItem="PRg-XH-VVJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VSM-wE-BOI"/>
+                <constraint firstItem="6uY-gt-EnV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="rB1-cv-Tz0"/>
+                <constraint firstAttribute="trailing" secondItem="6uY-gt-EnV" secondAttribute="trailing" id="raE-vx-GU7"/>
+            </constraints>
+            <point key="canvasLocation" x="-24.5" y="228.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="background" width="180" height="320"/>
+        <image name="ego_logo" width="133" height="75"/>
+        <image name="logo_clpbrd" width="204" height="84"/>
+    </resources>
+</document>
