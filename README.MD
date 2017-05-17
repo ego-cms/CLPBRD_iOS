@@ -5,9 +5,11 @@ CLPBRD - Clipboard
 ==================
 
 <a href="https://itunes.apple.com/us/app/clpbrd/id1230078884?ls=1&mt=8">
-	<img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Available_on_the_App_Store_%28black%29_SVG.svg"/>
+	<img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Available_on_the_App_Store_%28black%29_SVG.svg" 
+	width="62%"/>
 </a>
-
+     
+-----------     
 Share clipboard between your phone, desktop or another phone!
 
 Screenshots
