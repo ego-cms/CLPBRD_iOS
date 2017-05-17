@@ -4,7 +4,9 @@
 CLPBRD - Clipboard
 ==================
 
-[![GetOnAppStore](https://rawgit.com/ego-cms/Resources/master/Badges_stores/appStore.svg)](https://itunes.apple.com/us/app/clpbrd/id1230078884?ls=1&mt=8)
+<a href="https://itunes.apple.com/us/app/clpbrd/id1230078884?ls=1&mt=8">
+	<img src="https://rawgit.com/ego-cms/Resources/master/Badges_stores/appStore.svg" width="62%"/>
+</a>
      
 -----------     
 Share clipboard between your phone, desktop or another phone!
